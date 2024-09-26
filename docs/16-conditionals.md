@@ -29,7 +29,6 @@ Per scrivere la struttura condizionale della Figura \@ref(fig:plot-if-chart) si 
 
 ```r
   ...
-  
   if (<test>) {
      <code-to-execute>
   }
@@ -43,18 +42,15 @@ Per scrivere la struttura condizionale della Figura \@ref(fig:plot-if-chart) si 
 
 ```r
 my_function = function(value){
-  
   if(value > 0){
     cat("The value is greater than 0\n")
   }
-  
   cat("End of function\n")
 }
 
 my_function(5)
 ## The value is greater than 0
 ## End of function
-
 my_function(-5)
 ## End of function
 ```
@@ -63,27 +59,22 @@ my_function(-5)
 
 ```r
 my_function = function(value){
-  
   if(value > 0){
     cat("The value is greater than 0\n")
   }
-  
   if(value > 10){
     cat("The value is greater than 10\n")
   }
-  
   cat("End of function\n")
 }
 
 my_function(5)
 ## The value is greater than 0
 ## End of function
-
 my_function(15)
 ## The value is greater than 0
 ## The value is greater than 10
 ## End of function
-
 my_function(-5)
 ## End of function
 ```
@@ -110,7 +101,6 @@ In R, this is implemented as follows:
 
 ```r
   ...
-  
   if (<test>) {
     <code-to-execute>
   } else {
@@ -125,20 +115,17 @@ In R, this is implemented as follows:
 
 ```r
 my_function = function(value){
-  
   if(value >= 0){
     cat("The value is greater than or equal to 0\n")
   } else {
     cat("The value is less than 0\n")
   }
-  
   cat("End of function\n")
 }
 
 my_function(5)
 ## The value is greater than or equal to 0
 ## End of function
-
 my_function(-5)
 ## The value is less than 0
 ## End of function
@@ -148,7 +135,6 @@ my_function(-5)
 
 ```r
 my_function = function(value){
-  
   if(value > 0){
     cat("The value is greater than 0\n")
   } else if (value > 10){
@@ -156,18 +142,15 @@ my_function = function(value){
   } else {
     cat("The value is less than or equal to 0\n")
   }
-  
   cat("End of function\n")
 }
 
 my_function(5)
 ## The value is greater than 0
 ## End of function
-
 my_function(15)
 ## The value is greater than 0
 ## End of function
-
 my_function(-5)
 ## The value is less than or equal to 0
 ## End of function
@@ -194,9 +177,7 @@ knitr::include_graphics("images/ifnested.png")
 
 ```r
   ...
-  
   if (<test>) {
-    
     if(<test>) {
       <code-to-execute>
     } else {
@@ -211,30 +192,24 @@ knitr::include_graphics("images/ifnested.png")
 
 ```r
 my_function = function(value){
-  
   if(value > 0){
-    
     if(value > 10) {
       cat("The value is greater than 10\n")
     } else {
       cat("The value is greater than 0\n")
     }
-    
   } else {
     cat("The value is less than or equal to 0\n")
   }
-  
   cat("End of function\n")
 }
 
 my_function(5)
 ## The value is greater than 0
 ## End of function
-
 my_function(15)
 ## The value is greater than 10
 ## End of function
-
 my_function(-5)
 ## The value is less than or equal to 0
 ## End of function
@@ -265,7 +240,6 @@ The `switch` operator is a useful alternative when we want to execute a portion 
 
 
 ```r
-
 switch(my_value,
        case1 = action1,
        case2 = action2,
@@ -285,25 +259,20 @@ There are a few rules to consider when using a `switch` statement:
 
 
 ```r
-
 my_colors = function(color){
-  
   new_color = switch(color,
        "red" = "red",
        "blue" = "blue",
        "green" = ,
        "aqua green" = "green",
        "Not Found") # value not found
-  
   return(new_color)
 }
 
 my_colors("blue")
 ## [1] "blue"
-
 my_colors("green")
 ## [1] "green"
-
 my_colors("orange")
 ## [1] "Not Found"
 ```
@@ -329,23 +298,20 @@ Imagine we have a vector of numbers representing ages, and we want to execute so
 
 
 ```r
-try({
-  
 age = c(18, 19, 11, 10, 23, 55, 33, 26, 10)
 if(age < 18){
-  print("Minor")
+    print("Minor")
 }else{
-  print("Adult")
+    print("Adult")
 }
-
-})
-## Error in if (age < 18) { : the condition has length > 1
+## Error in if (age < 18) {: the condition has length > 1
 ```
 
 An error is incurred because `age` is not a single value, and therefore only the first value is used. This demonstrates that `if` doesn't work on a list of elements. Instead, using `ifelse`:
 
 
 ```r
+age = c(18, 19, 11, 10, 23, 55, 33, 26, 10)
 ifelse(age < 18, yes = print("Minor"), no = print("Adult"))
 ## [1] "Minor"
 ## [1] "Adult"

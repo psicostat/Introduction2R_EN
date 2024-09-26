@@ -2,15 +2,15 @@
 
 
 
-I `dataframe` sono uno degli oggetti più utilizzati in R per rappresentare i propri dati. In modo analogo alle matrici, i `dataframe` sono una struttura **bidimensionale** dove i dati sono disposti secondo righe e colonne. Può essere utile pensare al dataframe esattamente come ad una normale tabella che si può creare in un foglio di calcolo (e.g., Excel) dove possiamo inserire i nostri dati. Dati in questo caso è volutamente generico poichè i dataframe, a differenza delle matrici, possono contenere nello stesso oggetto tipi diversi di dati (e.g., *nomi*, *date* e *numeri*).
+*Dataframes* are one of the most commonly used objects in R for representing data. Similar to a `matrix`, a `dataframe` is a **two-dimensional** structure where data is organized in rows and columns. It can be helpful to think of a data frame just like a regular table you might create in a spreadsheet (e.g., Excel) where you can enter your data. The term "data" here is intentionally broad because, unlike matrices, data frames can contain different types of data within the same object (e.g., *names*, *dates*, and *numbers*).
 
-The basic structure of a dataframe is thus the same as a matrix, but it allows us to include various data types in the same object, such as characters and numerical values. This enables us to store all the features of statistical units (e.g., numerical, categorical, nominal variables, etc.) that we aim to analyze later. A crucial point is that dataframes are designed to handle complex and heterogeneous data, typical in real data analysis. If you use other programming languages geared toward data analysis (e.g., Matlab), you'll notice the lack of a powerful and intuitive object like the dataframe.
+The basic structure of a `dataframe` is thus the same as a matrix, but it allows us to include various data types in the same object, such as characters and numerical values. This enables us to store all the features of statistical units (e.g., numerical, categorical, nominal variables, etc.) that we aim to analyze later. A crucial point is that dataframes are designed to handle complex and heterogeneous data, typical in real data analysis. If you use other programming languages geared toward data analysis (e.g., Matlab), you'll notice the lack of a powerful and intuitive object like the `dataframe`.
 
-Generally, in a dataframe, rows represent statistical units (e.g., people or observations), and columns represent variables, which are properties measured on those units. However, there are two main dataframe formats depending on how the data is organized: **wide** dataframes and **long** dataframes. Let's evaluate the difference between the two formats by considering data where, for each subject, we measure age, gender, and responses to three items in a questionnaire.
+Generally, in a `dataframe`, rows represent statistical units (e.g., people or observations), and columns represent variables, which are properties measured on those units. However, there are two main dataframe formats depending on how the data is organized: **wide** dataframes and **long** dataframes. Let's evaluate the difference between the two formats by considering data where, for each subject, we measure age, gender, and responses to three items in a questionnaire.
 
 #### Wide Dataframe {-}
 
-In the **wide** format, each row of the dataframe represents a subject, and each of their responses or measured variables is reported in a different column. Even repeated responses to the same type of variable, such as questionnaire items, experimental trials, or the same variable measured at multiple time points are presented in different columns, so that whatever has been collected for a single participant is reported in one and a single row. The wide format is arguably the most familiar to researchers who routinely perform analyses with the SPSS software. In Table \@ref(tab:table-wide-db), some example data is presented in wide format: notice how responses to different items are reported in multiple columns.
+In the **wide** format, each row of the `dataframe` represents a subject, and each of their responses or measured variables is reported in a different column. Even repeated responses to the same type of variable, such as questionnaire items, experimental trials, or the same variable measured at multiple time points are presented in different columns, so that whatever has been collected for a single participant is reported in one and a single row. The wide format is arguably the most familiar to researchers who routinely perform analyses with the SPSS software. In Table \@ref(tab:table-wide-db), some example data is presented in wide format: notice how responses to different items are reported in multiple columns.
 
 <table class="table table-striped table-hover table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>(\#tab:table-wide-db)(\#tab:table-wide-db)Dataframe in wide format</caption>
@@ -294,7 +294,7 @@ my_data[ , "names"]
 ##  [7] "Gloria"   "Herman"   "Irene"    "Luca"
 
 # Select the "names", "gender", and "faculty" variables
-my_data[, c("names", "gender", "faculty")]
+my_data[ , c("names", "gender", "faculty")]
 ##       names gender     faculty
 ## 1     Alice      F  Psychology
 ## 2     Bruno      M Engineering
@@ -361,7 +361,7 @@ By using logical operators **AND** (`&`), **OR** (`|`), and **NOT** (`!`), we ca
 
 
 ```r
-my_data[my_data$age >= 20 & my_data$age <=25 & my_data$faculty == "Psychology", ]
+my_data[my_data$age>=20 & my_data$age<=25 & my_data$faculty=="Psychology" , ]
 ##   Id  names gender age    faculty
 ## 1  1  Alice      F  22 Psychology
 ## 5  5  Elisa      F  24 Psychology
@@ -403,7 +403,7 @@ Similar to other objects, we can modify values by selecting the old value in the
 
 
 ```r
-my_data[1:5, ]
+my_data[1:5 , ]
 ##   Id names gender age     faculty
 ## 1  1 Alice      F  22  Psychology
 ## 2  2 Bruno      M  25 Engineering
@@ -412,45 +412,25 @@ my_data[1:5, ]
 ## 5  5 Elisa      F  24  Psychology
 
 # Replace the name in the 4th row with "Davide"
-my_data[4, "names"] = "Davide"
+my_data[4 , "names"] = "Davide"
 
-my_data[1:5]
-##    Id    names gender age     faculty
-## 1   1    Alice      F  22  Psychology
-## 2   2    Bruno      M  25 Engineering
-## 3   3    Carla      F  23    Medicine
-## 4   4   Davide      M  22        Arts
-## 5   5    Elisa      F  24  Psychology
-## 6   6 Fabrizio      M  35        Arts
-## 7   7   Gloria      F  26 Engineering
-## 8   8   Herman      M  20  Psychology
-## 9   9    Irene      F  23  Statistics
-## 10 10     Luca      M  22 Engineering
+my_data[1:5 , ]
+##   Id  names gender age     faculty
+## 1  1  Alice      F  22  Psychology
+## 2  2  Bruno      M  25 Engineering
+## 3  3  Carla      F  23    Medicine
+## 4  4 Davide      M  22        Arts
+## 5  5  Elisa      F  24  Psychology
 ```
 
 
-#### Deleting Rows or Columns {-}
+#### Remove Rows or Columns {-}
 
-Similarly to matrices, to delete rows (or columns) from a dataframe, you need to indicate the row (or column) indices to delete within square brackets, preceded by the `-` (*minus*) operator. In the case of multiple rows (or columns), you can specify the minus sign only before the `c()` function.
-
+Similarly to matrices, to remove rows (or columns) from a `dataframe`, you need to indicate the row (or column) indices to remove within square brackets, preceded by the `-` (*minus*) operator.
 
 ```r
-# Delete the "gender" and "age" variables
-my_data[ , c("gender", "age")]
-##    gender age
-## 1       F  22
-## 2       M  25
-## 3       F  23
-## 4       M  22
-## 5       F  24
-## 6       M  35
-## 7       F  26
-## 8       M  20
-## 9       F  23
-## 10      M  22
-
-# Delete the first 5 observations
-my_data[-c(1:5), ]
+# Remove the first 5 observations/rows
+my_data[-c(1:5) , ]
 ##    Id    names gender age     faculty
 ## 6   6 Fabrizio      M  35        Arts
 ## 7   7   Gloria      F  26 Engineering
@@ -458,9 +438,14 @@ my_data[-c(1:5), ]
 ## 9   9    Irene      F  23  Statistics
 ## 10 10     Luca      M  22 Engineering
 
-# Delete the first 5 observations and the "names" variable
-my_data[-c(1:5), -3]
+# Remove the third column
+my_data[ , -3]
 ##    Id    names age     faculty
+## 1   1    Alice  22  Psychology
+## 2   2    Bruno  25 Engineering
+## 3   3    Carla  23    Medicine
+## 4   4   Davide  22        Arts
+## 5   5    Elisa  24  Psychology
 ## 6   6 Fabrizio  35        Arts
 ## 7   7   Gloria  26 Engineering
 ## 8   8   Herman  20  Psychology
@@ -468,25 +453,12 @@ my_data[-c(1:5), -3]
 ## 10 10     Luca  22 Engineering
 ```
 
-You can also exclude (and in a sense delete) information using logical operators such as **NOT** (`!`) and **not equal to** (`!=`):
+You can also exclude (and in a sense remove) information using logical operators such as *NOT* (i.e., `!`) and *not equal to* (`!=`). In the following examples, only rows where the `faculty` information is *not equal to* (i.e., *different from*) `Psychology` are kept (so, observations associated with `Psychology` are practically removed from the dataframe): 
 
 
 ```r
 # Select everything except psychology students
-
-# Method 1 (evaluate where "faculty" is not equal to "Psychology")
-my_data[my_data$faculty != "Psychology", ]
-##    Id    names gender age     faculty
-## 2   2    Bruno      M  25 Engineering
-## 3   3    Carla      F  23    Medicine
-## 4   4   Davide      M  22        Arts
-## 6   6 Fabrizio      M  35        Arts
-## 7   7   Gloria      F  26 Engineering
-## 9   9    Irene      F  23  Statistics
-## 10 10     Luca      M  22 Engineering
-
-# Modo 1 (evaluate where "faculty" is equal to "Psychology", all preceded by "NOT")
-my_data[!my_data$faculty == "Psychology", ]
+my_data[my_data$faculty != "Psychology" , ]
 ##    Id    names gender age     faculty
 ## 2   2    Bruno      M  25 Engineering
 ## 3   3    Carla      F  23    Medicine
@@ -497,10 +469,52 @@ my_data[!my_data$faculty == "Psychology", ]
 ## 10 10     Luca      M  22 Engineering
 ```
 
-Note that the deletion operation is still a selection operation. Therefore, if you want to keep the changes, you need to save the result.
+Removing multiple categories, such as both `Psychology` and `Statistics` while keeping the rest may be a bit more difficult. Here are two possible methods, the second one may be more efficient when writing: 
 
-:::{.warning title="Be Careful When Deleting" data-latex="[Be Careful When Deleting]"}
-Using the `-` operator is somewhat risky, especially if the object created (or overwritten) is then used in other operations. Deleting information, unless strictly necessary, is not a good practice. If you need to select part of the data, it's always better to create a new dataframe (or a new object in general) while keeping a version of the original data available.
+```r
+# method 1 : keep rows where "faculty" is not "Psychology" AND not "Statistics"
+my_data[my_data$faculty != "Psychology" & my_data$faculty != "Statistics" , ]
+##    Id    names gender age     faculty
+## 2   2    Bruno      M  25 Engineering
+## 3   3    Carla      F  23    Medicine
+## 4   4   Davide      M  22        Arts
+## 6   6 Fabrizio      M  35        Arts
+## 7   7   Gloria      F  26 Engineering
+## 10 10     Luca      M  22 Engineering
+
+# method 2 : keep all rows but NOT those in the vector c("Psychology", "Statistics")
+my_data[!my_data$faculty %in% c("Psychology","Statistics") , ]
+##    Id    names gender age     faculty
+## 2   2    Bruno      M  25 Engineering
+## 3   3    Carla      F  23    Medicine
+## 4   4   Davide      M  22        Arts
+## 6   6 Fabrizio      M  35        Arts
+## 7   7   Gloria      F  26 Engineering
+## 10 10     Luca      M  22 Engineering
+```
+
+A strategy similar to the second method shown just above could be used for removing multiple columns by names. Actually, the `-` (*minus*) will not work when listing columns by name. Let's say we want to visualize the `my_data` dataframe but removing the columns related to `gender` and `age`. We may proceed as follow:
+
+```r
+# Select all column names that are NOT in the vector c("gender","age")
+my_data[ , !colnames(my_data) %in% c("gender","age")]
+##    Id    names     faculty
+## 1   1    Alice  Psychology
+## 2   2    Bruno Engineering
+## 3   3    Carla    Medicine
+## 4   4   Davide        Arts
+## 5   5    Elisa  Psychology
+## 6   6 Fabrizio        Arts
+## 7   7   Gloria Engineering
+## 8   8   Herman  Psychology
+## 9   9    Irene  Statistics
+## 10 10     Luca Engineering
+```
+
+Note that the "removal" operation is actually a "selection" operation. Therefore, if you want to keep the changes, you need to save the result.
+
+:::{.warning title="Be Careful When Removing" data-latex="[Be Careful When Removing]"}
+Using the `-` operator is somewhat risky, especially if the object created (or overwritten) is then used in other operations. Removing information, unless strictly necessary, is not a good practice. If you need to select part of the data, it's always better to create a new dataframe (or a new object in general) while keeping a version of the original data available.
 :::
 
 ### Exercises {-}
@@ -728,8 +742,8 @@ data_short
 ## 4  4 Davide      M  22        Arts    29.2
 ## 5  5  Elisa      F  24  Psychology    24.8
 
-# Nuovo dataset con le stesse colonne ma diverso nome
-new_row = data.frame(
+# New data with the same columns, but named differently
+new_data = data.frame(
   Id = 6,
   Name = "Marta",
   Sex = "F",      # note "Sex" instead of "Gender"
@@ -738,15 +752,15 @@ new_row = data.frame(
   Average = 28.7
 )
 
-new_row
+new_data
 ##   Id  Name Sex Age    Faculty Average
 ## 1  6 Marta   F  44 Philosophy    28.7
 
-rbind(data_short, new_row) # Errore
+rbind(data_short, new_data) # Error!
 ## Error in match.names(clabs, names(xi)): names do not match previous names
 
-# Nuovo dataset con le stesse colonne con il nome corretto
-new_row = data.frame(
+# New data with the same columns having the exact same names
+new_data = data.frame(
   Id = 6,
   Name = "Marta",
   Gender = "F", 
@@ -755,7 +769,7 @@ new_row = data.frame(
   Average = 28.7
 )
 
-rbind(data_short, new_row)
+rbind(data_short, new_data)
 ##   Id   Name Gender Age     Faculty Average
 ## 1  1  Alice      F  22  Psychology    27.5
 ## 2  2  Bruno      M  25 Engineering    23.6

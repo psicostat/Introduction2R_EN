@@ -12,8 +12,8 @@ The command used to create a function in R is `function()` followed by curly bra
 
 
 ```r
-nome_funzione = function( ){
-  <corpo-funzione>
+function_name = function( ){
+  <function-body>
 }
 ```
 
@@ -57,9 +57,7 @@ The definition of a function with all its elements will follow the following pat
 
 ```r
 function_name = function(argument_1, argument_2, ...){
-  
   <function-body>
-  
   return(<output-name>)
 }
 ```
@@ -97,7 +95,6 @@ Using the `readline()` function, a message set in the `prompt` argument will app
 happy_birthday = function(){
   name = readline(prompt = "Enter your name: ")
   message = paste0("Happy Birthday ", name, "!")
-  
   return(message)
 }
 
@@ -146,7 +143,6 @@ To enforce the selection of an argument from a limited set of values, a vector o
 my_greetings = function(name, type = c("Hello", "Goodbye")){
   type = match.arg(type)
   greetings = paste0(type," ", name, "!")
-  
   return(greetings)
 }
 
@@ -169,8 +165,6 @@ The `match.arg()` function allows comparing the specified value against those in
 ### Exercises {-}
 
 Complete the following exercises:
-
-
 
   1. Define a function that converts temperature from Celsius to Fahrenheit: 
   $$
@@ -383,8 +377,7 @@ One final important point concerns the relationship between the function environ
 y = 10
 
 my_fun = function(x){
-  return(x + y) # no "y" exists in the local function environment, 
-                # therefore, "y" from global environment is used
+  return(x + y) # no "y" exists in the local function environment, therefore, "y" from global environment is used
 }
 
 my_fun(1)
@@ -425,14 +418,14 @@ In previous chapters, we saw how to use the `apply` family and how a function ca
 ```r
 # Mean centering
 vect1 - mean(vect2)
-##  [1] -0.1801250  0.3121731 -0.4866737  0.1417973 -0.2538075 -0.3379203
-##  [7] -0.1245051  0.1150842 -0.2934936  0.1998104
+##  [1] -0.59902421  0.13092925 -0.34474304  0.01599091 -0.32044316  0.33153013
+##  [7] -0.08580426  0.10482805 -0.41959917 -0.08444837
 vect2 - mean(vect2)
-##  [1] -0.34496734  0.44427587  0.13143417  0.29450137  0.01204619 -0.20384960
-##  [7] -0.12232788 -0.26241872 -0.13749225  0.18879817
+##  [1] -0.58289080 -0.07350754  0.24682101  0.12220650 -0.04034631  0.20926805
+##  [7]  0.06878079  0.31381450 -0.20757238 -0.05657382
 vect3 - mean(vect3)
-##  [1]  0.04486920 -0.20114094 -0.30256025 -0.09320062 -0.07719825  0.23835568
-##  [7]  0.15282765  0.24535317  0.21331604 -0.22062170
+##  [1] -0.52788890  0.01888566 -0.31150143  0.04503190  0.29057634  0.25152762
+##  [7]  0.02246881  0.35700949 -0.48443213  0.33832265
 ```
 
 The operation is performed correctly and is also easy to understand. However, we are always doing the same thing, just changing an input (the very definition of a function), so we can:
@@ -444,14 +437,14 @@ my_fun = function(x){
 }
 
 my_fun(vect1)
-##  [1] -0.08935896  0.40293909 -0.39590766  0.23256330 -0.16304144 -0.24715428
-##  [7] -0.03373906  0.20585018 -0.20272756  0.29057640
+##  [1] -0.47194582  0.25800764 -0.21766466  0.14306929 -0.19336477  0.45860851
+##  [7]  0.04127413  0.23190644 -0.29252078  0.04263001
 my_fun(vect2)
-##  [1] -0.34496734  0.44427587  0.13143417  0.29450137  0.01204619 -0.20384960
-##  [7] -0.12232788 -0.26241872 -0.13749225  0.18879817
+##  [1] -0.58289080 -0.07350754  0.24682101  0.12220650 -0.04034631  0.20926805
+##  [7]  0.06878079  0.31381450 -0.20757238 -0.05657382
 my_fun(vect3)
-##  [1]  0.04486920 -0.20114094 -0.30256025 -0.09320062 -0.07719825  0.23835568
-##  [7]  0.15282765  0.24535317  0.21331604 -0.22062170
+##  [1] -0.52788890  0.01888566 -0.31150143  0.04503190  0.29057634  0.25152762
+##  [7]  0.02246881  0.35700949 -0.48443213  0.33832265
 ```
 
 The code hasn't changed much in terms of lines or complexity. However, imagine realizing an error or wanting to change or extend the operations on `vect1`, `vect2`, and `vect3`. In the first case, you would have to go line by line through the script and modify the code. In the case of a function, simply changing the operations will apply them every time the function is called. Let's imagine that we also want to *standardize* (subtract the mean and divide by the standard deviation) our vectors:
@@ -464,14 +457,14 @@ my_fun = function(x){
 }
 
 my_fun(vect1)
-##  [1] -0.3356507  1.5135222 -1.4871107  0.8735556 -0.6124172 -0.9283624
-##  [7] -0.1267309  0.7732157 -0.7614865  1.0914648
+##  [1] -1.6373490  0.8951209 -0.7551566  0.4963586 -0.6708516  1.5910771
+##  [7]  0.1431947  0.8045665 -1.0148593  0.1478988
 my_fun(vect2)
-##  [1] -1.3355344  1.7200055  0.5088448  1.1401564  0.0466366 -0.7891998
-##  [7] -0.4735900 -1.0159490 -0.5322986  0.7309285
+##  [1] -2.2281266 -0.2809859  0.9434846  0.4671399 -0.1542256  0.7999366
+##  [7]  0.2629177  1.1995702 -0.7934549 -0.2162560
 my_fun(vect3)
-##  [1]  0.2174472 -0.9747788 -1.4662819 -0.4516733 -0.3741218  1.1551307
-##  [7]  0.7406407  1.1890422  1.0337824 -1.0691874
+##  [1] -1.58138919  0.05657549 -0.93316037  0.13490140  0.87047537  0.75349769
+##  [7]  0.06730950  1.06948820 -1.45120639  1.01350831
 ```
 
 Of course, the combination of functions and the `apply` family allows everything to be even more compact and efficient:
@@ -481,16 +474,16 @@ Of course, the combination of functions and the `apply` family allows everything
 my_list = list(vect1, vect2, vect3)
 lapply(my_list, my_fun)
 ## [[1]]
-##  [1] -0.3356507  1.5135222 -1.4871107  0.8735556 -0.6124172 -0.9283624
-##  [7] -0.1267309  0.7732157 -0.7614865  1.0914648
+##  [1] -1.6373490  0.8951209 -0.7551566  0.4963586 -0.6708516  1.5910771
+##  [7]  0.1431947  0.8045665 -1.0148593  0.1478988
 ## 
 ## [[2]]
-##  [1] -1.3355344  1.7200055  0.5088448  1.1401564  0.0466366 -0.7891998
-##  [7] -0.4735900 -1.0159490 -0.5322986  0.7309285
+##  [1] -2.2281266 -0.2809859  0.9434846  0.4671399 -0.1542256  0.7999366
+##  [7]  0.2629177  1.1995702 -0.7934549 -0.2162560
 ## 
 ## [[3]]
-##  [1]  0.2174472 -0.9747788 -1.4662819 -0.4516733 -0.3741218  1.1551307
-##  [7]  0.7406407  1.1890422  1.0337824 -1.0691874
+##  [1] -1.58138919  0.05657549 -0.93316037  0.13490140  0.87047537  0.75349769
+##  [7]  0.06730950  1.06948820 -1.45120639  1.01350831
 ```
 
 ### Choosing the Name of a Function
@@ -529,14 +522,14 @@ trans_vect = function(x, what = c("center_mean", "center_median", "standardize")
 
 vect = runif(10)
 trans_vect(vect, "center_mean")
-##  [1] -0.30735654 -0.25786519 -0.14502478  0.46518169  0.08403949 -0.07048069
-##  [7] -0.31224112 -0.35883308  0.56304366  0.33953657
+##  [1]  0.05082598 -0.35683893 -0.29559260 -0.05141014 -0.23760210 -0.33672015
+##  [7]  0.04181302  0.42676028  0.31747201  0.44129262
 trans_vect(vect, "center_mean")
-##  [1] -0.30735654 -0.25786519 -0.14502478  0.46518169  0.08403949 -0.07048069
-##  [7] -0.31224112 -0.35883308  0.56304366  0.33953657
+##  [1]  0.05082598 -0.35683893 -0.29559260 -0.05141014 -0.23760210 -0.33672015
+##  [7]  0.04181302  0.42676028  0.31747201  0.44129262
 trans_vect(vect, "standardize")
-##  [1] -0.8918244 -0.7482206 -0.4208033  1.3497692  0.2438486 -0.2045065
-##  [7] -0.9059975 -1.0411886  1.6337251  0.9851979
+##  [1]  0.1635515 -1.1482618 -0.9511790 -0.1654312 -0.7645730 -1.0835221
+##  [7]  0.1345489  1.3732597  1.0215841  1.4200229
 ```
 
 The function is very clear, but it still contains some weaknesses. The user must insert a string to perform the operation. There are multiple `if` conditions, and the function's purpose might be too broad. A better solution might be to write 3 simpler, more focused, and easier-to-maintain functions:
@@ -557,14 +550,14 @@ standardize_vect = function(x){
 
 vect = runif(10)
 center_vect_mean(vect)
-##  [1] -0.01926623 -0.13226821  0.09779705 -0.07057574 -0.29059273 -0.02018738
-##  [7] -0.23095397 -0.07499456  0.10887000  0.63217179
+##  [1]  0.05524942 -0.06055135  0.50342973 -0.25512093 -0.34928928 -0.23218551
+##  [7]  0.49801737  0.27693614 -0.10342374 -0.33306187
 center_vect_median(vect)
-##  [1]  0.02611533 -0.08688665  0.14317861 -0.02519418 -0.24521117  0.02519418
-##  [7] -0.18557241 -0.02961300  0.15425156  0.67755335
+##  [1]  0.1372370  0.0214362  0.5854173 -0.1731334 -0.2673017 -0.1501980
+##  [7]  0.5800049  0.3589237 -0.0214362 -0.2510743
 standardize_vect(vect)
-##  [1] -0.07539326 -0.51759640  0.38270268 -0.27617937 -1.13715720 -0.07899794
-##  [7] -0.90377682 -0.29347123  0.42603371  2.47383582
+##  [1]  0.1702782 -0.1866186  1.5515654 -0.7862801 -1.0765060 -0.7155934
+##  [7]  1.5348845  0.8535144 -0.3187509 -1.0264933
 ```
 
 This way, the code is much more readable and clear, both inside the functions and when the functions are used. Another alternative would be to group the "centering" functions, specifying whether to use the mean or the median, and separate the standardization.

@@ -89,8 +89,8 @@ Considering the objects created in previous chapters, perform the following exer
 
 As mentioned earlier, each element of a list has its **position index**, i.e., a progressive numeric value just like the elements of a vector. However, there is an important difference in the selection method based on the type of object you want to retrieve. While with vectors we used single square brackets `my_vector[i]` to access the element at position $i$, with lists we have two alternatives:
 
-- `my_list[i]` - using **single square brackets** (`[i]`), we get a list containing the element at position $i$. However, this does not allow us to directly access its values.
-- `my_list[[i]]` - using **double square brackets** (`[[i]]`), we extract the element at position $i$ from the list and obtain the object itself, allowing us to directly access its values.
+- `my_list[i]` - using **single square brackets** `[i]`, we get a list containing the element at position $i$. However, this does not allow us to directly access its values.
+- `my_list[[i]]` - using **double square brackets** `[[i]]`, we extract the element at position $i$ from the list and obtain the object itself, allowing us to directly access its values.
 
 Let's see the difference in the following example:
 
@@ -125,7 +125,7 @@ class(my_list[[2]]) # a vector
 ## [1] "numeric"
 ```
 
-This difference in the result obtained by using **single square brackets** (`[ ]`) or **double square brackets** (`[[ ]]`) is very important because it affects subsequent operations we might perform. Remember that in the first case ([ ]), we get a list with only the selected elements, while in the second case (`[[ ]]`), we directly access the selected object.
+This difference in the result obtained by using **single square brackets** `[ ]` or **double square brackets** `[[ ]]` is very important because it affects subsequent operations we might perform. Remember that in the first case `[ ]`, we get a list with only the selected elements, while in the second case `[[ ]]`, we directly access the selected object.
 
 This distinction becomes clear when applying a generic function to the same element indexed differently or using the `str()` function to understand the structure. We will see that only by directly accessing the element can we perform normal operations, while with single brackets, the obtained object is a list with a single element.
 
@@ -150,8 +150,8 @@ str(my_list[[2]])
 :::{.design title="[ ] vs [[ ]]" data-latex="[{[ ] vs [[ ]]}]"}
 The different type of selection obtained by using single or double square brackets is defined as follows:
 
-- **single square brackets** (`[ ]`) - returns an object of the same class (i.e., type) as the original object
-- **double square brackets** (`[[ ]]`) - extracts an element from the original object, returning an object not necessarily of the same class (i.e., type)
+- **single square brackets** `[ ]` - returns an object of the same class (i.e., type) as the original object
+- **double square brackets** `[[ ]]` - extracts an element from the original object, returning an object not necessarily of the same class (i.e., type)
 
 We can use double square brackets even with vectors and data frames, but in these cases, the result does not differ from the normal selection procedure.
 
@@ -169,7 +169,7 @@ my_data[[2]] # selection is only possible on columns
 ## [1] "m" "f" "m" "f" "m" "f"
 ```
 
-Finally, note that single square brackets (`[ ]`) allow you to select multiple elements simultaneously, while double square brackets (`[[ ]]`) allow you to extract only one element at a time.
+Finally, note that single square brackets `[ ]` allow you to select multiple elements simultaneously, while double square brackets `[[ ]]` allow you to extract only one element at a time.
 
 
 ```r
@@ -187,7 +187,7 @@ my_list[[c(1,2)]]
 
 #### Selection using `$` {-}
 
-As an alternative to using **double square brackets** (`[[ ]]`), you can, similar to data frames, access the elements of a list using the `$` operator and specifying their name:
+As an alternative to using **double square brackets** `[[ ]]`, you can, similar to data frames, access the elements of a list using the `$` operator and specifying their name:
 
 - `my_list$element_name` - the `$` operator allows us to directly access the desired object.
 
@@ -271,7 +271,7 @@ Now let's see some advanced uses of element selection from a data frame.
 
 #### Modifying Elements {-}
 
-Similar to other objects, we can modify values by selecting the old element from the list and using the `=` (or `<-`) operator to assign a new element. Note that in this case, you can use both single square brackets (`[ ]`) and double square brackets (`[[ ]]`).
+Similar to other objects, we can modify values by selecting the old element from the list and using the `=` (or `<-`) operator to assign a new element. Note that in this case, you can use both single square brackets `[ ]` and double square brackets `[[ ]]`.
 
 
 ```r
@@ -316,7 +316,7 @@ my_list
 
 #### Deleting Elements {-}
 
-Similar to other objects, to **delete** elements from a list, you need to specify the position indices of the elements you intend to delete within square brackets, preceded by the `-` (*minus*) operator. In this case, the use of single square brackets (`[ ]`) is required.
+Similar to other objects, to **delete** elements from a list, you need to specify the position indices of the elements you intend to delete within square brackets, preceded by the `-` (*minus*) operator. In this case, the use of single square brackets `[ ]` is required.
 
 
 ```r

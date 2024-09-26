@@ -17,8 +17,8 @@ This is one of the main advantages of using a programming language, i.e., being 
 The command used to create a function in R is `function()` followed by curly brackets `{ }` within which the function body must be specified:
 
 ```{r, eval=FALSE, echo=TRUE}
-nome_funzione = function( ){
-  <corpo-funzione>
+function_name = function( ){
+  <function-body>
 }
 ```
 
@@ -58,9 +58,7 @@ Remember that, in general, functions receive objects as inputs, perform specific
 The definition of a function with all its elements will follow the following pattern:
 ```{r, eval=FALSE, echo=TRUE}
 function_name = function(argument_1, argument_2, ...){
-  
   <function-body>
-  
   return(<output-name>)
 }
 ```
@@ -94,7 +92,6 @@ Using the `readline()` function, a message set in the `prompt` argument will app
 happy_birthday = function(){
   name = readline(prompt = "Enter your name: ")
   message = paste0("Happy Birthday ", name, "!")
-  
   return(message)
 }
 
@@ -137,7 +134,6 @@ To enforce the selection of an argument from a limited set of values, a vector o
 my_greetings = function(name, type = c("Hello", "Goodbye")){
   type = match.arg(type)
   greetings = paste0(type," ", name, "!")
-  
   return(greetings)
 }
 
@@ -157,8 +153,6 @@ The `match.arg()` function allows comparing the specified value against those in
 ### Exercises {-}
 
 Complete the following exercises:
-
-
 
   1. Define a function that converts temperature from Celsius to Fahrenheit: 
   $$
@@ -332,8 +326,7 @@ One final important point concerns the relationship between the function environ
 y = 10
 
 my_fun = function(x){
-  return(x + y) # no "y" exists in the local function environment, 
-                # therefore, "y" from global environment is used
+  return(x + y) # no "y" exists in the local function environment, therefore, "y" from global environment is used
 }
 
 my_fun(1)
