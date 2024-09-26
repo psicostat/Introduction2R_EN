@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter "9 Matrices | Introduction to R</title>
+  <meta name="description" content="This is an introductory book on R produced by Psicostat, an interdisciplinary research group that combines a passion for statistics and psychology." />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter "9 Matrices | Introduction to R" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://psicostat.github.io/Introduction2R_EN/images/logo_psicostat.png" />
+  <meta property="og:description" content="This is an introductory book on R produced by Psicostat, an interdisciplinary research group that combines a passion for statistics and psychology." />
+  <meta name="github-repo" content="psicostat/Introduction2R_EN" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter "9 Matrices | Introduction to R" />
+  
+  <meta name="twitter:description" content="This is an introductory book on R produced by Psicostat, an interdisciplinary research group that combines a passion for statistics and psychology." />
+  <meta name="twitter:image" content="https://psicostat.github.io/Introduction2R_EN/images/logo_psicostat.png" />
+
+<meta name="author" content="Claudio Zandonella Callegher and Filippo Gambarota (revision and translation into English by Enrico Toffalini), members of Psicostat" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="factor.html"/>
+<link rel="next" href="dataframe.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentation</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-r"><i class="fa fa-check"></i>Why R</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#contents"><i class="fa fa-check"></i>Contents</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#resources"><i class="fa fa-check"></i>Resources</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#psicostat"><i class="fa fa-check"></i>Psicostat</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#contribute"><i class="fa fa-check"></i>Contribute</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
+</ul></li>
+<li class="part"><span><b>Get Started</b></span></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="1" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>1</b> Installing R e RStudio</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="install.html"><a href="install.html#install-r"><i class="fa fa-check"></i><b>1.1</b> Installing R</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="install.html"><a href="install.html#r-windows"><i class="fa fa-check"></i><b>1.1.1</b> R Windows</a></li>
+<li class="chapter" data-level="1.1.2" data-path="install.html"><a href="install.html#r-macos"><i class="fa fa-check"></i><b>1.1.2</b> R MacOS</a></li>
+<li class="chapter" data-level="1.1.3" data-path="install.html"><a href="install.html#r-linux"><i class="fa fa-check"></i><b>1.1.3</b> R Linux</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="install.html"><a href="install.html#installing-r-studio"><i class="fa fa-check"></i><b>1.2</b> Installing R Studio</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="install.html"><a href="install.html#r-studio-on-linux"><i class="fa fa-check"></i><b>1.2.1</b> R Studio on Linux</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="rstudio-gui.html"><a href="rstudio-gui.html"><i class="fa fa-check"></i><b>2</b> RStudio Interface</a></li>
+<li class="chapter" data-level="3" data-path="first-commands.html"><a href="first-commands.html"><i class="fa fa-check"></i><b>3</b> First steps in R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="first-commands.html"><a href="first-commands.html#math-operators"><i class="fa fa-check"></i><b>3.1</b> Mathematical Operators</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="first-commands.html"><a href="first-commands.html#order-of-operations"><i class="fa fa-check"></i><b>3.1.1</b> Order of Operations</a></li>
+<li class="chapter" data-level="" data-path="first-commands.html"><a href="first-commands.html#exercises"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="first-commands.html"><a href="first-commands.html#operators-rel-log"><i class="fa fa-check"></i><b>3.2</b> Relational and Logical Operators</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="first-commands.html"><a href="first-commands.html#relational-operators"><i class="fa fa-check"></i><b>3.2.1</b> Relational Operators</a></li>
+<li class="chapter" data-level="3.2.2" data-path="first-commands.html"><a href="first-commands.html#logical-operators"><i class="fa fa-check"></i><b>3.2.2</b> Logical Operators</a></li>
+<li class="chapter" data-level="3.2.3" data-path="first-commands.html"><a href="first-commands.html#order-of-evaluation-of-relations"><i class="fa fa-check"></i><b>3.2.3</b> Order of Evaluation of Relations</a></li>
+<li class="chapter" data-level="" data-path="first-commands.html"><a href="first-commands.html#exercises-1"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="objects-functions.html"><a href="objects-functions.html"><i class="fa fa-check"></i><b>4</b> Two Inseparable Companions</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="objects-functions.html"><a href="objects-functions.html#objects-section"><i class="fa fa-check"></i><b>4.1</b> Objects</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="objects-functions.html"><a href="objects-functions.html#assign"><i class="fa fa-check"></i><b>4.1.1</b> Assigning and Calling an Object</a></li>
+<li class="chapter" data-level="4.1.2" data-path="objects-functions.html"><a href="objects-functions.html#objects-names"><i class="fa fa-check"></i><b>4.1.2</b> Object Names</a></li>
+<li class="chapter" data-level="4.1.3" data-path="objects-functions.html"><a href="objects-functions.html#data-types-and-data-structures"><i class="fa fa-check"></i><b>4.1.3</b> Data Types and Data Structures</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="objects-functions.html"><a href="objects-functions.html#functions-def"><i class="fa fa-check"></i><b>4.2</b> Functions</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="objects-functions.html"><a href="objects-functions.html#function-arguments"><i class="fa fa-check"></i><b>4.2.1</b> Function Arguments</a></li>
+<li class="chapter" data-level="4.2.2" data-path="objects-functions.html"><a href="objects-functions.html#help"><i class="fa fa-check"></i><b>4.2.2</b> Help! I need Somebody…Help!</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="working-environment.html"><a href="working-environment.html"><i class="fa fa-check"></i><b>5</b> Working Environment</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="working-environment.html"><a href="working-environment.html#environment"><i class="fa fa-check"></i><b>5.1</b> Environment</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="working-environment.html"><a href="working-environment.html#adding-objects-to-the-environment"><i class="fa fa-check"></i><b>5.1.1</b> Adding Objects to the Environment</a></li>
+<li class="chapter" data-level="5.1.2" data-path="working-environment.html"><a href="working-environment.html#removing-objects-from-the-environment"><i class="fa fa-check"></i><b>5.1.2</b> Removing Objects from the Environment</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="working-environment.html"><a href="working-environment.html#working-directory"><i class="fa fa-check"></i><b>5.2</b> Working Directory</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="working-environment.html"><a href="working-environment.html#computer-organization"><i class="fa fa-check"></i><b>5.2.1</b> Computer Organization</a></li>
+<li class="chapter" data-level="5.2.2" data-path="working-environment.html"><a href="working-environment.html#absolute-path-and-relative-path"><i class="fa fa-check"></i><b>5.2.2</b> Absolute Path and Relative Path</a></li>
+<li class="chapter" data-level="5.2.3" data-path="working-environment.html"><a href="working-environment.html#working-directory-in-r"><i class="fa fa-check"></i><b>5.2.3</b> Working Directory in R</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="working-environment.html"><a href="working-environment.html#packages"><i class="fa fa-check"></i><b>5.3</b> R-packages</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="working-environment.html"><a href="working-environment.html#install.packages"><i class="fa fa-check"></i><b>5.3.1</b> install.packages()</a></li>
+<li class="chapter" data-level="5.3.2" data-path="working-environment.html"><a href="working-environment.html#library"><i class="fa fa-check"></i><b>5.3.2</b> library()</a></li>
+<li class="chapter" data-level="5.3.3" data-path="working-environment.html"><a href="working-environment.html#updating-and-removing-packages"><i class="fa fa-check"></i><b>5.3.3</b> Updating and Removing Packages</a></li>
+<li class="chapter" data-level="5.3.4" data-path="working-environment.html"><a href="working-environment.html#package-documentation"><i class="fa fa-check"></i><b>5.3.4</b> Package Documentation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="working-session.html"><a href="working-session.html"><i class="fa fa-check"></i><b>6</b> Working Session</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="working-session.html"><a href="working-session.html#organizing-scripts"><i class="fa fa-check"></i><b>6.1</b> Organizing Scripts</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="working-session.html"><a href="working-session.html#creating-sections"><i class="fa fa-check"></i><b>6.1.1</b> Creating Sections</a></li>
+<li class="chapter" data-level="6.1.2" data-path="working-session.html"><a href="working-session.html#sintax"><i class="fa fa-check"></i><b>6.1.2</b> Syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="working-session.html"><a href="working-session.html#organizing-projects"><i class="fa fa-check"></i><b>6.2</b> Organizing Projects</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="working-session.html"><a href="working-session.html#rstudio-projects"><i class="fa fa-check"></i><b>6.2.1</b> RStudio Projects</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="working-session.html"><a href="working-session.html#messages-warnings-e-errors"><i class="fa fa-check"></i><b>6.3</b> Messages, Warnings e Errors</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="working-session.html"><a href="working-session.html#resolving-errors"><i class="fa fa-check"></i><b>6.3.1</b> Resolving Errors</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>Data Structures</b></span></li>
+<li class="chapter" data-level="" data-path="second-section.html"><a href="second-section.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="7" data-path="vector.html"><a href="vector.html"><i class="fa fa-check"></i><b>7</b> Vectors</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="vector.html"><a href="vector.html#creation"><i class="fa fa-check"></i><b>7.1</b> Creation</a>
+<ul>
+<li class="chapter" data-level="" data-path="vector.html"><a href="vector.html#exercises-2"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="vector.html"><a href="vector.html#vector-selection"><i class="fa fa-check"></i><b>7.2</b> Selecting Elements</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="vector.html"><a href="vector.html#vector-selection-advanced"><i class="fa fa-check"></i><b>7.2.1</b> Advanced Uses of Selection</a></li>
+<li class="chapter" data-level="" data-path="vector.html"><a href="vector.html#exercises-3"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="vector.html"><a href="vector.html#vector-functions"><i class="fa fa-check"></i><b>7.3</b> Functions and Operations</a>
+<ul>
+<li class="chapter" data-level="" data-path="vector.html"><a href="vector.html#exercises-4"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="vector.html"><a href="vector.html#data-type"><i class="fa fa-check"></i><b>7.4</b> Data Type</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="vector.html"><a href="vector.html#character"><i class="fa fa-check"></i><b>7.4.1</b> Character</a></li>
+<li class="chapter" data-level="7.4.2" data-path="vector.html"><a href="vector.html#numeric"><i class="fa fa-check"></i><b>7.4.2</b> Numeric</a></li>
+<li class="chapter" data-level="7.4.3" data-path="vector.html"><a href="vector.html#integer"><i class="fa fa-check"></i><b>7.4.3</b> Integer</a></li>
+<li class="chapter" data-level="7.4.4" data-path="vector.html"><a href="vector.html#logical-vector"><i class="fa fa-check"></i><b>7.4.4</b> Logical</a></li>
+<li class="chapter" data-level="7.4.5" data-path="vector.html"><a href="vector.html#special-values"><i class="fa fa-check"></i><b>7.4.5</b> Special Values</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="factor.html"><a href="factor.html"><i class="fa fa-check"></i><b>8</b> Factors</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="factor.html"><a href="factor.html#attributes"><i class="fa fa-check"></i><b>8.1</b> Object Attributes</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="factor.html"><a href="factor.html#attributes-of-a-vector"><i class="fa fa-check"></i><b>8.1.1</b> Attributes of a Vector</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="factor.html"><a href="factor.html#factors"><i class="fa fa-check"></i><b>8.2</b> Factors</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="factor.html"><a href="factor.html#factor-structure"><i class="fa fa-check"></i><b>8.2.1</b> Factor Structure</a></li>
+<li class="chapter" data-level="8.2.2" data-path="factor.html"><a href="factor.html#factor-operations"><i class="fa fa-check"></i><b>8.2.2</b> Factor Operations</a></li>
+<li class="chapter" data-level="8.2.3" data-path="factor.html"><a href="factor.html#ordinal-factors"><i class="fa fa-check"></i><b>8.2.3</b> Ordinal Factors</a></li>
+<li class="chapter" data-level="" data-path="factor.html"><a href="factor.html#exercises-5"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="matrix.html"><a href="matrix.html"><i class="fa fa-check"></i><b>9</b> Matrices</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="matrix.html"><a href="matrix.html#creation-1"><i class="fa fa-check"></i><b>9.1</b> Creation</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="matrix.html"><a href="matrix.html#matrix-types"><i class="fa fa-check"></i><b>9.1.1</b> Matrix types</a></li>
+<li class="chapter" data-level="" data-path="matrix.html"><a href="matrix.html#exercises-6"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="matrix.html"><a href="matrix.html#sel-matrix"><i class="fa fa-check"></i><b>9.2</b> Element Selection</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="matrix.html"><a href="matrix.html#matrix-selection-advanced"><i class="fa fa-check"></i><b>9.2.1</b> Advanced Selection Uses</a></li>
+<li class="chapter" data-level="" data-path="matrix.html"><a href="matrix.html#exercises-7"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="matrix.html"><a href="matrix.html#functions-and-operations"><i class="fa fa-check"></i><b>9.3</b> Functions and Operations</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="matrix.html"><a href="matrix.html#mat-prop"><i class="fa fa-check"></i><b>9.3.1</b> Attributes of a Matrix</a></li>
+<li class="chapter" data-level="9.3.2" data-path="matrix.html"><a href="matrix.html#matrix-bind"><i class="fa fa-check"></i><b>9.3.2</b> Combining Matrices</a></li>
+<li class="chapter" data-level="9.3.3" data-path="matrix.html"><a href="matrix.html#mathematical-operators"><i class="fa fa-check"></i><b>9.3.3</b> Mathematical Operators</a></li>
+<li class="chapter" data-level="" data-path="matrix.html"><a href="matrix.html#exercises-8"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="matrix.html"><a href="matrix.html#arrays"><i class="fa fa-check"></i><b>9.4</b> Arrays</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="dataframe.html"><a href="dataframe.html"><i class="fa fa-check"></i><b>10</b> Dataframe</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="dataframe.html"><a href="dataframe.html#creating-a-dataframe"><i class="fa fa-check"></i><b>10.1</b> Creating a dataframe</a>
+<ul>
+<li class="chapter" data-level="" data-path="dataframe.html"><a href="dataframe.html#exercises-9"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="dataframe.html"><a href="dataframe.html#sel-df"><i class="fa fa-check"></i><b>10.2</b> Selecting Elements</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="dataframe.html"><a href="dataframe.html#advanced-selection-uses"><i class="fa fa-check"></i><b>10.2.1</b> Advanced Selection Uses</a></li>
+<li class="chapter" data-level="" data-path="dataframe.html"><a href="dataframe.html#exercises-10"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="dataframe.html"><a href="dataframe.html#functions-and-operations-1"><i class="fa fa-check"></i><b>10.3</b> Functions and Operations</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="dataframe.html"><a href="dataframe.html#attributes-of-a-dataframe"><i class="fa fa-check"></i><b>10.3.1</b> Attributes of a Dataframe</a></li>
+<li class="chapter" data-level="10.3.2" data-path="dataframe.html"><a href="dataframe.html#merging-dataframes"><i class="fa fa-check"></i><b>10.3.2</b> Merging Dataframes</a></li>
+<li class="chapter" data-level="10.3.3" data-path="dataframe.html"><a href="dataframe.html#dataframe-information"><i class="fa fa-check"></i><b>10.3.3</b> Dataframe Information</a></li>
+<li class="chapter" data-level="" data-path="dataframe.html"><a href="dataframe.html#exercises-11"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="list.html"><a href="list.html"><i class="fa fa-check"></i><b>11</b> Lists</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="list.html"><a href="list.html#creating-lists"><i class="fa fa-check"></i><b>11.1</b> Creating Lists</a>
+<ul>
+<li class="chapter" data-level="" data-path="list.html"><a href="list.html#exercises-12"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="list.html"><a href="list.html#selecting-elements"><i class="fa fa-check"></i><b>11.2</b> Selecting Elements</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="list.html"><a href="list.html#advanced-selection-uses-1"><i class="fa fa-check"></i><b>11.2.1</b> Advanced Selection Uses</a></li>
+<li class="chapter" data-level="" data-path="list.html"><a href="list.html#exercises-13"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="list.html"><a href="list.html#functions-and-operations-2"><i class="fa fa-check"></i><b>11.3</b> Functions and Operations</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="list.html"><a href="list.html#attributes-of-a-list"><i class="fa fa-check"></i><b>11.3.1</b> Attributes of a List</a></li>
+<li class="chapter" data-level="11.3.2" data-path="list.html"><a href="list.html#merging-lists"><i class="fa fa-check"></i><b>11.3.2</b> Merging Lists</a></li>
+<li class="chapter" data-level="11.3.3" data-path="list.html"><a href="list.html#list-information"><i class="fa fa-check"></i><b>11.3.3</b> List Information</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="list.html"><a href="list.html#nested-structure"><i class="fa fa-check"></i><b>11.4</b> Nested Structure</a></li>
+</ul></li>
+<li class="part"><span><b>Algorithms</b></span></li>
+<li class="chapter" data-level="" data-path="third-section.html"><a href="third-section.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="12" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>12</b> Definition of Functions</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="functions.html"><a href="functions.html#creating-a-function"><i class="fa fa-check"></i><b>12.1</b> Creating a Function</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="functions.html"><a href="functions.html#defining-inputs-and-outputs"><i class="fa fa-check"></i><b>12.1.1</b> Defining Inputs and Outputs</a></li>
+<li class="chapter" data-level="" data-path="functions.html"><a href="functions.html#exercises-14"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="functions.html"><a href="functions.html#working-with-functions"><i class="fa fa-check"></i><b>12.2</b> Working with Functions</a></li>
+<li class="chapter" data-level="12.3" data-path="functions.html"><a href="functions.html#function-environment"><i class="fa fa-check"></i><b>12.3</b> Function Environment</a></li>
+<li class="chapter" data-level="12.4" data-path="functions.html"><a href="functions.html#best-practices"><i class="fa fa-check"></i><b>12.4</b> Best Practices</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="functions.html"><a href="functions.html#when-is-a-function-necessary"><i class="fa fa-check"></i><b>12.4.1</b> When is a Function Necessary?</a></li>
+<li class="chapter" data-level="12.4.2" data-path="functions.html"><a href="functions.html#choosing-the-name-of-a-function"><i class="fa fa-check"></i><b>12.4.2</b> Choosing the Name of a Function</a></li>
+<li class="chapter" data-level="12.4.3" data-path="functions.html"><a href="functions.html#simplifying-the-number-of-operations-and-outputs"><i class="fa fa-check"></i><b>12.4.3</b> Simplifying the Number of Operations and Outputs</a></li>
+<li class="chapter" data-level="12.4.4" data-path="functions.html"><a href="functions.html#commenting-and-documenting"><i class="fa fa-check"></i><b>12.4.4</b> Commenting and Documenting</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="functions.html"><a href="functions.html#importing-a-function"><i class="fa fa-check"></i><b>12.5</b> Importing a Function</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="conditionals.html"><a href="conditionals.html"><i class="fa fa-check"></i><b>13</b> Conditional Programming</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="conditionals.html"><a href="conditionals.html#conditional-structures"><i class="fa fa-check"></i><b>13.1</b> Conditional Structures</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="conditionals.html"><a href="conditionals.html#if"><i class="fa fa-check"></i><b>13.1.1</b> if</a></li>
+<li class="chapter" data-level="13.1.2" data-path="conditionals.html"><a href="conditionals.html#ifelse"><i class="fa fa-check"></i><b>13.1.2</b> if…else</a></li>
+<li class="chapter" data-level="13.1.3" data-path="conditionals.html"><a href="conditionals.html#nested"><i class="fa fa-check"></i><b>13.1.3</b> Nested</a></li>
+<li class="chapter" data-level="" data-path="conditionals.html"><a href="conditionals.html#exercises-15"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="conditionals.html"><a href="conditionals.html#other-conditional-operators"><i class="fa fa-check"></i><b>13.2</b> Other Conditional Operators</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="conditionals.html"><a href="conditionals.html#switch"><i class="fa fa-check"></i><b>13.2.1</b> switch</a></li>
+<li class="chapter" data-level="13.2.2" data-path="conditionals.html"><a href="conditionals.html#ifelse-1"><i class="fa fa-check"></i><b>13.2.2</b> ifelse</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="loop.html"><a href="loop.html"><i class="fa fa-check"></i><b>14</b> Iterative Programming</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="loop.html"><a href="loop.html#loops"><i class="fa fa-check"></i><b>14.1</b> Loops</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="loop.html"><a href="loop.html#for"><i class="fa fa-check"></i><b>14.1.1</b> For</a></li>
+<li class="chapter" data-level="14.1.2" data-path="loop.html"><a href="loop.html#while"><i class="fa fa-check"></i><b>14.1.2</b> While</a></li>
+<li class="chapter" data-level="14.1.3" data-path="loop.html"><a href="loop.html#next-and-break"><i class="fa fa-check"></i><b>14.1.3</b> Next and Break</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="loop.html"><a href="loop.html#nested-loops"><i class="fa fa-check"></i><b>14.2</b> Nested Loops</a>
+<ul>
+<li class="chapter" data-level="" data-path="loop.html"><a href="loop.html#exercises-16"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="loop.html"><a href="loop.html#apply-family"><i class="fa fa-check"></i><b>14.3</b> Apply Family</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="loop.html"><a href="loop.html#which-functions-to-apply"><i class="fa fa-check"></i><b>14.3.1</b> Which Functions to Apply?</a></li>
+<li class="chapter" data-level="14.3.2" data-path="loop.html"><a href="loop.html#apply"><i class="fa fa-check"></i><b>14.3.2</b> apply</a></li>
+<li class="chapter" data-level="14.3.3" data-path="loop.html"><a href="loop.html#tapply"><i class="fa fa-check"></i><b>14.3.3</b> tapply</a></li>
+<li class="chapter" data-level="14.3.4" data-path="loop.html"><a href="loop.html#lapply"><i class="fa fa-check"></i><b>14.3.4</b> lapply</a></li>
+<li class="chapter" data-level="14.3.5" data-path="loop.html"><a href="loop.html#sapply"><i class="fa fa-check"></i><b>14.3.5</b> sapply</a></li>
+<li class="chapter" data-level="14.3.6" data-path="loop.html"><a href="loop.html#vapply"><i class="fa fa-check"></i><b>14.3.6</b> vapply</a></li>
+<li class="chapter" data-level="14.3.7" data-path="loop.html"><a href="loop.html#list-of-functions-applied-to-a-list-of-objects"><i class="fa fa-check"></i><b>14.3.7</b> List of Functions Applied to a List of Objects</a></li>
+<li class="chapter" data-level="14.3.8" data-path="loop.html"><a href="loop.html#mapply"><i class="fa fa-check"></i><b>14.3.8</b> mapply</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="loop.html"><a href="loop.html#replicate"><i class="fa fa-check"></i><b>14.4</b> Replicate</a></li>
+</ul></li>
+<li class="part"><span><b>Case study</b></span></li>
+<li class="chapter" data-level="" data-path="introduction-1.html"><a href="introduction-1.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="15" data-path="attachment.html"><a href="attachment.html"><i class="fa fa-check"></i><b>15</b> Caso Studio I: Attachment</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="attachment.html"><a href="attachment.html#infobox"><i class="fa fa-check"></i><b>15.1</b> Infobox</a></li>
+</ul></li>
+<li class="part"><span><b>Advanced Topics</b></span></li>
+<li class="chapter" data-level="" data-path="fourth-section.html"><a href="fourth-section.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="16" data-path="strings.html"><a href="strings.html"><i class="fa fa-check"></i><b>16</b> Strings</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="strings.html"><a href="strings.html#comparing-strings"><i class="fa fa-check"></i><b>16.1</b> Comparing Strings</a></li>
+<li class="chapter" data-level="16.2" data-path="strings.html"><a href="strings.html#constructing-strings"><i class="fa fa-check"></i><b>16.2</b> Constructing Strings</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="strings.html"><a href="strings.html#tolower-and-toupper"><i class="fa fa-check"></i><b>16.2.1</b> <code>tolower()</code> and <code>toupper()</code></a></li>
+<li class="chapter" data-level="16.2.2" data-path="strings.html"><a href="strings.html#paste-and-paste0"><i class="fa fa-check"></i><b>16.2.2</b> <code>paste()</code> and <code>paste0()</code></a></li>
+<li class="chapter" data-level="16.2.3" data-path="strings.html"><a href="strings.html#sprinf"><i class="fa fa-check"></i><b>16.2.3</b> <code>sprinf()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="strings.html"><a href="strings.html#indexing-strings"><i class="fa fa-check"></i><b>16.3</b> Indexing Strings</a>
+<ul>
+<li class="chapter" data-level="16.3.1" data-path="strings.html"><a href="strings.html#nchar"><i class="fa fa-check"></i><b>16.3.1</b> <code>nchar()</code></a></li>
+<li class="chapter" data-level="16.3.2" data-path="strings.html"><a href="strings.html#gregexpr-and-regexpr"><i class="fa fa-check"></i><b>16.3.2</b> <code>gregexpr()</code> and <code>regexpr()</code></a></li>
+<li class="chapter" data-level="16.3.3" data-path="strings.html"><a href="strings.html#substr-and-substring"><i class="fa fa-check"></i><b>16.3.3</b> <code>substr()</code> and <code>substring()</code></a></li>
+<li class="chapter" data-level="16.3.4" data-path="strings.html"><a href="strings.html#startwith-and-endswith"><i class="fa fa-check"></i><b>16.3.4</b> <code>startWith()</code> and <code>endsWith()</code></a></li>
+<li class="chapter" data-level="16.3.5" data-path="strings.html"><a href="strings.html#grep-and-grepl"><i class="fa fa-check"></i><b>16.3.5</b> <code>grep()</code> and <code>grepl()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="strings.html"><a href="strings.html#manipulating-strings"><i class="fa fa-check"></i><b>16.4</b> Manipulating Strings</a>
+<ul>
+<li class="chapter" data-level="16.4.1" data-path="strings.html"><a href="strings.html#gsub-and-sub"><i class="fa fa-check"></i><b>16.4.1</b> <code>gsub()</code> and <code>sub()</code></a></li>
+<li class="chapter" data-level="16.4.2" data-path="strings.html"><a href="strings.html#strsplit"><i class="fa fa-check"></i><b>16.4.2</b> <code>strsplit()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="16.5" data-path="strings.html"><a href="strings.html#regular-expression-regex"><i class="fa fa-check"></i><b>16.5</b> Regular Expression (REGEX)</a></li>
+<li class="chapter" data-level="16.6" data-path="strings.html"><a href="strings.html#further-reading"><i class="fa fa-check"></i><b>16.6</b> Further Reading</a>
+<ul>
+<li class="chapter" data-level="16.6.1" data-path="strings.html"><a href="strings.html#useful-resources"><i class="fa fa-check"></i><b>16.6.1</b> Useful Resources</a></li>
+<li class="chapter" data-level="16.6.2" data-path="strings.html"><a href="strings.html#other-useful-functions"><i class="fa fa-check"></i><b>16.6.2</b> Other Useful Functions</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><span style="font-size: 2.5em">Introduction to R</span></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="matrix" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Chapter "9</span> Matrices<a href="matrix.html#matrix" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Matrices are a <strong>two-dimensional</strong> data structure, where elements are arranged in rows and columns. We can thus imagine a generic matrix with <em>m</em> rows and <em>n</em> columns similar to what is represented in Figure <a href="matrix.html#fig:matrix">9.1</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:matrix"></span>
+<img src="images/matrix.png" alt="Representation of the structure of a matrix with *m* columns and *n* rows" width="75%" />
+<p class="caption">
+Figure 9.1: Representation of the structure of a matrix with <em>m</em> columns and <em>n</em> rows
+</p>
+</div>
+<p>Two important characteristics of a matrix are:</p>
+<ul>
+<li><strong>dimension</strong> - the number of <strong>rows</strong> and <strong>columns</strong> that make up the matrix</li>
+<li><strong>type</strong> - the type of data contained in the matrix. Indeed, similar to what we observed with vectors, a matrix must be formed by <strong>elements of the same type</strong>. Therefore, there are different types of matrices depending on the kind of data they contain, specifically numeric, logical, and character matrices (see Chapter <a href="matrix.html#matrix-types">9.1.1</a>).</li>
+</ul>
+<p>It is also crucial to emphasize that each <strong>element</strong> of a matrix is characterized by:</p>
+<ul>
+<li>a <strong>value</strong> - that is, the value of the element which can be of any type, such as a number or a series of characters.</li>
+<li>a <strong>position index</strong> - that is, a <strong>pair of values (<em>i</em>, <em>j</em>)</strong> positive integers that indicate respectively the <strong>row index</strong> and the <strong>column index</strong>, allowing us to uniquely identify the element within the matrix.</li>
+</ul>
+<p>For example, given a matrix <span class="math inline">\(X\)</span> of size <span class="math inline">\(3\times4\)</span> (i.e., 3 rows and 4 columns) defined as:
+<span class="math display">\[
+X =
+\begin{bmatrix}
+3 &amp; 12 &amp; 7 &amp; 20\\
+16 &amp; 5 &amp; 9 &amp; 13\\
+10 &amp; 1 &amp; 14 &amp; 19
+\end{bmatrix},
+\]</span>
+we have <span class="math inline">\(x_{2, 3} = 9\)</span> while <span class="math inline">\(x_{3, 2} = 1\)</span>. This serves to reinforce the correct use of indices, where for a generic element <span class="math inline">\(x_{i, j}\)</span>, the value <em>i</em> is the row index while <em>j</em> is the column index. <strong>Rows are indicated first, then columns</strong>.</p>
+<p>Now, let’s see how to create matrices in R and how to perform common selection operations. Later, we will examine various manipulations and operations with matrices. Finally, we will briefly extend the concept of matrices to dimensions greater than two through the use of <strong>arrays</strong>.</p>
+<div id="creation-1" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> Creation<a href="matrix.html#creation-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The command used to create a matrix in R is <code>matrix()</code> and it includes several arguments:</p>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="matrix.html#cb149-1" tabindex="-1"></a>nome_matrice <span class="ot">=</span> <span class="fu">matrix</span>(data, <span class="at">nrow =</span> , <span class="at">ncol =</span> , <span class="at">byrow =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<ul>
+<li><code>data</code> - a <strong>vector of values</strong> used to populate the matrix</li>
+<li><code>nrow</code> and <code>ncol</code> - are respectively the number of rows and the number of columns of the matrix</li>
+<li><code>byrow</code> - indicates whether the matrix should be populated by row or by column. The default value is <code>FALSE</code>, so matrix values are added column by column. Indicate <code>TRUE</code> to add elements row by row.</li>
+</ul>
+<p>Let’s create a matrix with 3 rows and 4 columns with values from 1 to 12 as an example.</p>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="matrix.html#cb150-1" tabindex="-1"></a><span class="co"># Data to populate the matrix</span></span>
+<span id="cb150-2"><a href="matrix.html#cb150-2" tabindex="-1"></a>my_values <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span></span>
+<span id="cb150-3"><a href="matrix.html#cb150-3" tabindex="-1"></a>my_values</span>
+<span id="cb150-4"><a href="matrix.html#cb150-4" tabindex="-1"></a><span class="do">##  [1]  1  2  3  4  5  6  7  8  9 10 11 12</span></span>
+<span id="cb150-5"><a href="matrix.html#cb150-5" tabindex="-1"></a></span>
+<span id="cb150-6"><a href="matrix.html#cb150-6" tabindex="-1"></a><span class="co"># Matrix populated by columns</span></span>
+<span id="cb150-7"><a href="matrix.html#cb150-7" tabindex="-1"></a>mat_bycol <span class="ot">=</span> <span class="fu">matrix</span>(my_values, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span>
+<span id="cb150-8"><a href="matrix.html#cb150-8" tabindex="-1"></a>mat_bycol</span>
+<span id="cb150-9"><a href="matrix.html#cb150-9" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb150-10"><a href="matrix.html#cb150-10" tabindex="-1"></a><span class="do">## [1,]    1    4    7   10</span></span>
+<span id="cb150-11"><a href="matrix.html#cb150-11" tabindex="-1"></a><span class="do">## [2,]    2    5    8   11</span></span>
+<span id="cb150-12"><a href="matrix.html#cb150-12" tabindex="-1"></a><span class="do">## [3,]    3    6    9   12</span></span></code></pre></div>
+<p>The <code>matrix()</code> function has <code>byrow = FALSE</code> by default, so base R populates matrices column by column. To populate matrices row by row, you must explicitly request it by specifying <code>byrow = TRUE</code>.</p>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="matrix.html#cb151-1" tabindex="-1"></a><span class="co"># Matrix populated by rows</span></span>
+<span id="cb151-2"><a href="matrix.html#cb151-2" tabindex="-1"></a>mat_byrow <span class="ot">=</span> <span class="fu">matrix</span>(my_values, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">4</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb151-3"><a href="matrix.html#cb151-3" tabindex="-1"></a>mat_byrow</span>
+<span id="cb151-4"><a href="matrix.html#cb151-4" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb151-5"><a href="matrix.html#cb151-5" tabindex="-1"></a><span class="do">## [1,]    1    2    3    4</span></span>
+<span id="cb151-6"><a href="matrix.html#cb151-6" tabindex="-1"></a><span class="do">## [2,]    5    6    7    8</span></span>
+<span id="cb151-7"><a href="matrix.html#cb151-7" tabindex="-1"></a><span class="do">## [3,]    9   10   11   12</span></span></code></pre></div>
+<p>It is important to note that while it is possible to specify any combination of rows and columns, the number of values provided to populate the matrix must be compatible with the dimensions of the matrix. In other words, <strong>I cannot provide more or fewer data than the matrix can hold</strong>.</p>
+<p>Thus, the length of the vector passed to the <code>data</code> argument must be compatible with the <code>nrow</code> and <code>ncol</code> arguments. However, it is possible to provide a single value if you want to obtain a matrix where all values are identical. For example, let’s create an empty matrix filled with <code>NA</code> values with 3 rows and 3 columns.</p>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="matrix.html#cb152-1" tabindex="-1"></a>mat_NA <span class="ot">=</span> <span class="fu">matrix</span>(<span class="cn">NA</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb152-2"><a href="matrix.html#cb152-2" tabindex="-1"></a>mat_NA</span>
+<span id="cb152-3"><a href="matrix.html#cb152-3" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3]</span></span>
+<span id="cb152-4"><a href="matrix.html#cb152-4" tabindex="-1"></a><span class="do">## [1,]   NA   NA   NA</span></span>
+<span id="cb152-5"><a href="matrix.html#cb152-5" tabindex="-1"></a><span class="do">## [2,]   NA   NA   NA</span></span>
+<span id="cb152-6"><a href="matrix.html#cb152-6" tabindex="-1"></a><span class="do">## [3,]   NA   NA   NA</span></span></code></pre></div>
+<div class="tip" title="Cycling Values">
+<p>In reality, it is possible to provide more or fewer data than the matrix can contain. If more values are provided, R simply uses the first available values, ignoring the subsequent ones.</p>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="matrix.html#cb153-1" tabindex="-1"></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">2</span>)</span>
+<span id="cb153-2"><a href="matrix.html#cb153-2" tabindex="-1"></a><span class="do">## Warning in matrix(1:20, nrow = 2, ncol = 2): data length differs from size of</span></span>
+<span id="cb153-3"><a href="matrix.html#cb153-3" tabindex="-1"></a><span class="do">## matrix: [20 != 2 x 2]</span></span>
+<span id="cb153-4"><a href="matrix.html#cb153-4" tabindex="-1"></a><span class="do">##      [,1] [,2]</span></span>
+<span id="cb153-5"><a href="matrix.html#cb153-5" tabindex="-1"></a><span class="do">## [1,]    1    3</span></span>
+<span id="cb153-6"><a href="matrix.html#cb153-6" tabindex="-1"></a><span class="do">## [2,]    2    4</span></span></code></pre></div>
+<p>If fewer values are provided, R reuses the same values in the same order to fill the matrix, warning us of the problem.</p>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="matrix.html#cb154-1" tabindex="-1"></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span>
+<span id="cb154-2"><a href="matrix.html#cb154-2" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb154-3"><a href="matrix.html#cb154-3" tabindex="-1"></a><span class="do">## [1,]    1    4    3    2</span></span>
+<span id="cb154-4"><a href="matrix.html#cb154-4" tabindex="-1"></a><span class="do">## [2,]    2    1    4    3</span></span>
+<span id="cb154-5"><a href="matrix.html#cb154-5" tabindex="-1"></a><span class="do">## [3,]    3    2    1    4</span></span></code></pre></div>
+<p>However, it is best to avoid this practice of <em>cycling</em> values as the results may be unclear and it is easy to make mistakes.</p>
+</div>
+<div id="matrix-types" class="section level3 hasAnchor" number="9.1.1">
+<h3><span class="header-section-number">9.1.1</span> Matrix types<a href="matrix.html#matrix-types" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We have seen that, similar to vectors, for matrices it is also necessary that all data is of the same type. Therefore, we will have matrices that include only <code>character</code>, <code>double</code>, <code>integer</code>, or <code>logical</code> values, and the operations that can be performed (using mathematical operators or logical-relational operators) will depend on the type of data. However, unlike vectors, the object type will always remain <code>matrix</code> regardless of the data contained. Matrices are always matrices; it is the type of data that varies.</p>
+<div id="character-1" class="section level4 unnumbered hasAnchor">
+<h4>Character<a href="matrix.html#character-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>It is possible to define a matrix of characters only, although they are rarely used since clearly all mathematical operations are not possible.</p>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="matrix.html#cb155-1" tabindex="-1"></a>mat_char <span class="ot">=</span> <span class="fu">matrix</span>(letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>], <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">4</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb155-2"><a href="matrix.html#cb155-2" tabindex="-1"></a>mat_char</span>
+<span id="cb155-3"><a href="matrix.html#cb155-3" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb155-4"><a href="matrix.html#cb155-4" tabindex="-1"></a><span class="do">## [1,] &quot;a&quot;  &quot;b&quot;  &quot;c&quot;  &quot;d&quot; </span></span>
+<span id="cb155-5"><a href="matrix.html#cb155-5" tabindex="-1"></a><span class="do">## [2,] &quot;e&quot;  &quot;f&quot;  &quot;g&quot;  &quot;h&quot; </span></span>
+<span id="cb155-6"><a href="matrix.html#cb155-6" tabindex="-1"></a><span class="do">## [3,] &quot;i&quot;  &quot;j&quot;  &quot;k&quot;  &quot;l&quot;</span></span>
+<span id="cb155-7"><a href="matrix.html#cb155-7" tabindex="-1"></a></span>
+<span id="cb155-8"><a href="matrix.html#cb155-8" tabindex="-1"></a><span class="fu">class</span>(mat_char)</span>
+<span id="cb155-9"><a href="matrix.html#cb155-9" tabindex="-1"></a><span class="do">## [1] &quot;matrix&quot; &quot;array&quot;</span></span>
+<span id="cb155-10"><a href="matrix.html#cb155-10" tabindex="-1"></a><span class="fu">typeof</span>(mat_char)</span>
+<span id="cb155-11"><a href="matrix.html#cb155-11" tabindex="-1"></a><span class="do">## [1] &quot;character&quot;</span></span></code></pre></div>
+<div class="trick" title="Letters">
+<p>In R, there are two special objects <code>letters</code> and <code>LETTERS</code> that include the lowercase and uppercase letters of the English alphabet, respectively.</p>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="matrix.html#cb156-1" tabindex="-1"></a>letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb156-2"><a href="matrix.html#cb156-2" tabindex="-1"></a><span class="do">## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot;</span></span>
+<span id="cb156-3"><a href="matrix.html#cb156-3" tabindex="-1"></a>LETTERS[<span class="dv">6</span><span class="sc">:</span><span class="dv">10</span>]</span>
+<span id="cb156-4"><a href="matrix.html#cb156-4" tabindex="-1"></a><span class="do">## [1] &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot;</span></span></code></pre></div>
+</div>
+</div>
+<div id="numeric-1" class="section level4 unnumbered hasAnchor">
+<h4>Numeric<a href="matrix.html#numeric-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Numeric value matrices, both <code>double</code> and <code>integer</code>, are undoubtedly the most common and widely used. They are often utilized to perform computationally efficient algebraic calculations.</p>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="matrix.html#cb157-1" tabindex="-1"></a><span class="co"># doubles</span></span>
+<span id="cb157-2"><a href="matrix.html#cb157-2" tabindex="-1"></a>mat_num <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">5</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span>
+<span id="cb157-3"><a href="matrix.html#cb157-3" tabindex="-1"></a><span class="fu">class</span>(mat_num)</span>
+<span id="cb157-4"><a href="matrix.html#cb157-4" tabindex="-1"></a><span class="do">## [1] &quot;matrix&quot; &quot;array&quot;</span></span>
+<span id="cb157-5"><a href="matrix.html#cb157-5" tabindex="-1"></a><span class="fu">typeof</span>(mat_num)</span>
+<span id="cb157-6"><a href="matrix.html#cb157-6" tabindex="-1"></a><span class="do">## [1] &quot;double&quot;</span></span>
+<span id="cb157-7"><a href="matrix.html#cb157-7" tabindex="-1"></a></span>
+<span id="cb157-8"><a href="matrix.html#cb157-8" tabindex="-1"></a><span class="co"># integers</span></span>
+<span id="cb157-9"><a href="matrix.html#cb157-9" tabindex="-1"></a>mat_int <span class="ot">=</span> <span class="fu">matrix</span>(5L, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span>
+<span id="cb157-10"><a href="matrix.html#cb157-10" tabindex="-1"></a><span class="fu">class</span>(mat_int)</span>
+<span id="cb157-11"><a href="matrix.html#cb157-11" tabindex="-1"></a><span class="do">## [1] &quot;matrix&quot; &quot;array&quot;</span></span>
+<span id="cb157-12"><a href="matrix.html#cb157-12" tabindex="-1"></a><span class="fu">typeof</span>(mat_int)</span>
+<span id="cb157-13"><a href="matrix.html#cb157-13" tabindex="-1"></a><span class="do">## [1] &quot;integer&quot;</span></span></code></pre></div>
+</div>
+<div id="logical" class="section level4 unnumbered hasAnchor">
+<h4>Logical<a href="matrix.html#logical" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Finally, matrices can also be formed by logical values <code>TRUE</code> and <code>FALSE</code>. We will see an important use of these regarding the selection of elements from a matrix in Chapter <a href="matrix.html#matrix-selection-advanced">9.2.1</a>.</p>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="matrix.html#cb158-1" tabindex="-1"></a>mat_logic <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>), <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span>
+<span id="cb158-2"><a href="matrix.html#cb158-2" tabindex="-1"></a>mat_logic</span>
+<span id="cb158-3"><a href="matrix.html#cb158-3" tabindex="-1"></a><span class="do">##       [,1]  [,2]  [,3]  [,4]</span></span>
+<span id="cb158-4"><a href="matrix.html#cb158-4" tabindex="-1"></a><span class="do">## [1,]  TRUE FALSE  TRUE FALSE</span></span>
+<span id="cb158-5"><a href="matrix.html#cb158-5" tabindex="-1"></a><span class="do">## [2,] FALSE  TRUE FALSE  TRUE</span></span>
+<span id="cb158-6"><a href="matrix.html#cb158-6" tabindex="-1"></a><span class="do">## [3,]  TRUE FALSE  TRUE FALSE</span></span>
+<span id="cb158-7"><a href="matrix.html#cb158-7" tabindex="-1"></a><span class="fu">class</span>(mat_logic)</span>
+<span id="cb158-8"><a href="matrix.html#cb158-8" tabindex="-1"></a><span class="do">## [1] &quot;matrix&quot; &quot;array&quot;</span></span>
+<span id="cb158-9"><a href="matrix.html#cb158-9" tabindex="-1"></a><span class="fu">typeof</span>(mat_logic)</span>
+<span id="cb158-10"><a href="matrix.html#cb158-10" tabindex="-1"></a><span class="do">## [1] &quot;logical&quot;</span></span></code></pre></div>
+<p>Remember that it is still possible to perform mathematical operations with logical values as they will be automatically converted to their respective numerical values 1 and 0.</p>
+</div>
+</div>
+<div id="exercises-6" class="section level3 unnumbered hasAnchor">
+<h3>Exercises<a href="matrix.html#exercises-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Complete the following exercises (<a href="https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-09-matrices.R">solutions</a>):
+1. Create the matrix <code>A</code> defined as:</p>
+<p><span class="math display">\[
+\begin{matrix}
+2 &amp; 34 &amp; 12 &amp; 7\\
+46 &amp; 93 &amp; 27 &amp; 99\\
+23  &amp; 38 &amp; 7 &amp; 04
+\end{matrix}
+\]</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Create the matrix <code>B</code> containing the first 12 odd numbers arranged in 4 rows and 3 columns.</li>
+<li>Create the matrix <code>C</code> containing the first 12 multiples of 9 arranged in 3 rows and 4 columns.</li>
+<li>Create the matrix <code>D</code> formed by 3 columns where the letters <code>"A"</code>, <code>"B"</code> and <code>"C"</code> are repeated 4 times each respectively in the first, second, and third columns.</li>
+<li>Create the matrix <code>E</code> formed by 3 rows where the letters <code>"A"</code>, <code>"B"</code> and <code>"C"</code> are repeated 4 times each respectively in the first, second, and third rows.</li>
+</ol>
+</div>
+</div>
+<div id="sel-matrix" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> Element Selection<a href="matrix.html#sel-matrix" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The most important (and fun) aspect of matrices is accessing the various elements. Remember that a matrix is simply a grid of rows and columns where various values are arranged. Regardless of what the matrix contains, you can use the row and column indices to uniquely identify a given element in the matrix. Therefore, each element is associated with a pair of values (<em>i</em>, <em>j</em>) where <em>i</em> is the row index and <em>j</em> is the column index.</p>
+<p>o illustrate this concept, the following example shows the indices for each element of a <span class="math inline">\(3\times4\)</span> matrix:</p>
+<pre><code>##      [,1]  [,2]  [,3]  [,4] 
+## [1,] &quot;1,1&quot; &quot;1,2&quot; &quot;1,3&quot; &quot;1,4&quot;
+## [2,] &quot;2,1&quot; &quot;2,2&quot; &quot;2,3&quot; &quot;2,4&quot;
+## [3,] &quot;3,1&quot; &quot;3,2&quot; &quot;3,3&quot; &quot;3,4&quot;</code></pre>
+<p>In R, you can select an element of a matrix using its row and column index. Similar to vectors, you need to indicate within <strong>square brackets</strong> <code>[ ]</code> placed after the name of the matrix, the <strong>row index</strong> and <strong>column index</strong>, <strong>separated by a comma</strong>.</p>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="matrix.html#cb160-1" tabindex="-1"></a>nome_matrice[<span class="sc">&lt;</span>row<span class="sc">-</span>index<span class="sc">&gt;</span>, <span class="sc">&lt;</span>column<span class="sc">-</span>index<span class="sc">&gt;</span>]</span></code></pre></div>
+<p>The <strong>order</strong> <code>[&lt;row-index&gt;, &lt;column-index&gt;]</code> is predetermined and must be respected for the selection to occur correctly. Let’s see a simple example of how it is possible to access any element:</p>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="matrix.html#cb161-1" tabindex="-1"></a>my_matrix <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span>
+<span id="cb161-2"><a href="matrix.html#cb161-2" tabindex="-1"></a>my_matrix</span>
+<span id="cb161-3"><a href="matrix.html#cb161-3" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb161-4"><a href="matrix.html#cb161-4" tabindex="-1"></a><span class="do">## [1,]    1    4    7   10</span></span>
+<span id="cb161-5"><a href="matrix.html#cb161-5" tabindex="-1"></a><span class="do">## [2,]    2    5    8   11</span></span>
+<span id="cb161-6"><a href="matrix.html#cb161-6" tabindex="-1"></a><span class="do">## [3,]    3    6    9   12</span></span>
+<span id="cb161-7"><a href="matrix.html#cb161-7" tabindex="-1"></a></span>
+<span id="cb161-8"><a href="matrix.html#cb161-8" tabindex="-1"></a><span class="co"># Select the element at row 2 and column 3</span></span>
+<span id="cb161-9"><a href="matrix.html#cb161-9" tabindex="-1"></a>my_matrix[<span class="dv">2</span>,<span class="dv">3</span>]</span>
+<span id="cb161-10"><a href="matrix.html#cb161-10" tabindex="-1"></a><span class="do">## [1] 8</span></span>
+<span id="cb161-11"><a href="matrix.html#cb161-11" tabindex="-1"></a></span>
+<span id="cb161-12"><a href="matrix.html#cb161-12" tabindex="-1"></a><span class="co"># Select the value 6</span></span>
+<span id="cb161-13"><a href="matrix.html#cb161-13" tabindex="-1"></a>my_matrix[<span class="dv">3</span>,<span class="dv">2</span>]</span>
+<span id="cb161-14"><a href="matrix.html#cb161-14" tabindex="-1"></a><span class="do">## [1] 6</span></span></code></pre></div>
+<div class="warning" title="Subscript out of Bounds">
+<p>Note how indicating indices outside the matrix dimension results in an error message.</p>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="matrix.html#cb162-1" tabindex="-1"></a>my_matrix[<span class="dv">20</span>,<span class="dv">30</span>]</span>
+<span id="cb162-2"><a href="matrix.html#cb162-2" tabindex="-1"></a><span class="do">## Error in my_matrix[20, 30]: subscript out of bounds</span></span></code></pre></div>
+</div>
+<p>In addition to selecting a single element, other types of selection are possible:</p>
+<div id="selecting-a-row-or-column" class="section level4 unnumbered hasAnchor">
+<h4>Selecting a Row or Column<a href="matrix.html#selecting-a-row-or-column" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>You can select <strong>all</strong> elements of a row or a column using the following syntax:</p>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="matrix.html#cb163-1" tabindex="-1"></a><span class="co"># Select entire row</span></span>
+<span id="cb163-2"><a href="matrix.html#cb163-2" tabindex="-1"></a>matrix_name[<span class="sc">&lt;</span>row<span class="sc">-</span>index<span class="sc">&gt;</span>, ]</span>
+<span id="cb163-3"><a href="matrix.html#cb163-3" tabindex="-1"></a></span>
+<span id="cb163-4"><a href="matrix.html#cb163-4" tabindex="-1"></a><span class="co"># Select entire column</span></span>
+<span id="cb163-5"><a href="matrix.html#cb163-5" tabindex="-1"></a>matrix_name[ , <span class="sc">&lt;</span>column<span class="sc">-</span>index<span class="sc">&gt;</span>]</span></code></pre></div>
+<p>Note that the comma is necessary, leaving the position before or after the <strong>comma</strong> empty to indicate to R to select all rows or all columns, respectively.</p>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="matrix.html#cb164-1" tabindex="-1"></a><span class="co"># Select row 2 and all columns</span></span>
+<span id="cb164-2"><a href="matrix.html#cb164-2" tabindex="-1"></a>my_matrix[<span class="dv">2</span>, ]</span>
+<span id="cb164-3"><a href="matrix.html#cb164-3" tabindex="-1"></a><span class="do">## [1]  2  5  8 11</span></span>
+<span id="cb164-4"><a href="matrix.html#cb164-4" tabindex="-1"></a></span>
+<span id="cb164-5"><a href="matrix.html#cb164-5" tabindex="-1"></a><span class="co"># Select all rows and column 3</span></span>
+<span id="cb164-6"><a href="matrix.html#cb164-6" tabindex="-1"></a>my_matrix[ ,<span class="dv">3</span>]</span>
+<span id="cb164-7"><a href="matrix.html#cb164-7" tabindex="-1"></a><span class="do">## [1] 7 8 9</span></span></code></pre></div>
+<p>If you need to select multiple rows or columns, simply indicate all the indices of interest. Remember that these must be specified in a single vector. Within the square brackets, R expects a single comma separating row indices from column indices. You can use compact notation <code>1:3</code> to select rows or columns in succession, which is equivalent to <code>c(1,2,3)</code>.</p>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="matrix.html#cb165-1" tabindex="-1"></a><span class="co"># Select rows 1 and 3</span></span>
+<span id="cb165-2"><a href="matrix.html#cb165-2" tabindex="-1"></a>my_matrix[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>), ]</span>
+<span id="cb165-3"><a href="matrix.html#cb165-3" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb165-4"><a href="matrix.html#cb165-4" tabindex="-1"></a><span class="do">## [1,]    1    4    7   10</span></span>
+<span id="cb165-5"><a href="matrix.html#cb165-5" tabindex="-1"></a><span class="do">## [2,]    3    6    9   12</span></span>
+<span id="cb165-6"><a href="matrix.html#cb165-6" tabindex="-1"></a></span>
+<span id="cb165-7"><a href="matrix.html#cb165-7" tabindex="-1"></a><span class="co"># Select columns 2 to 4</span></span>
+<span id="cb165-8"><a href="matrix.html#cb165-8" tabindex="-1"></a>my_matrix[ , <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>]</span>
+<span id="cb165-9"><a href="matrix.html#cb165-9" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3]</span></span>
+<span id="cb165-10"><a href="matrix.html#cb165-10" tabindex="-1"></a><span class="do">## [1,]    4    7   10</span></span>
+<span id="cb165-11"><a href="matrix.html#cb165-11" tabindex="-1"></a><span class="do">## [2,]    5    8   11</span></span>
+<span id="cb165-12"><a href="matrix.html#cb165-12" tabindex="-1"></a><span class="do">## [3,]    6    9   12</span></span></code></pre></div>
+</div>
+<div id="selecting-matrix-region" class="section level4 unnumbered hasAnchor">
+<h4>Selecting Matrix Region<a href="matrix.html#selecting-matrix-region" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>By combining row and column indices, it is also possible to select specific regions of a matrix or select some of its values to create a new matrix.</p>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="matrix.html#cb166-1" tabindex="-1"></a><span class="co"># Select a block</span></span>
+<span id="cb166-2"><a href="matrix.html#cb166-2" tabindex="-1"></a>my_matrix[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">3</span><span class="sc">:</span><span class="dv">4</span>]</span>
+<span id="cb166-3"><a href="matrix.html#cb166-3" tabindex="-1"></a><span class="do">##      [,1] [,2]</span></span>
+<span id="cb166-4"><a href="matrix.html#cb166-4" tabindex="-1"></a><span class="do">## [1,]    7   10</span></span>
+<span id="cb166-5"><a href="matrix.html#cb166-5" tabindex="-1"></a><span class="do">## [2,]    8   11</span></span>
+<span id="cb166-6"><a href="matrix.html#cb166-6" tabindex="-1"></a></span>
+<span id="cb166-7"><a href="matrix.html#cb166-7" tabindex="-1"></a><span class="co"># Select scattered values</span></span>
+<span id="cb166-8"><a href="matrix.html#cb166-8" tabindex="-1"></a>my_matrix[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>), <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>)]</span>
+<span id="cb166-9"><a href="matrix.html#cb166-9" tabindex="-1"></a><span class="do">##      [,1] [,2]</span></span>
+<span id="cb166-10"><a href="matrix.html#cb166-10" tabindex="-1"></a><span class="do">## [1,]    4   10</span></span>
+<span id="cb166-11"><a href="matrix.html#cb166-11" tabindex="-1"></a><span class="do">## [2,]    6   12</span></span></code></pre></div>
+<div class="tip" title="Selecting does not Modify">
+<p>Remember that, as with vectors, the selection operation does not modify the original object. Therefore, you need to save the result of the selection if you want to keep the changes.</p>
+</div>
+<div class="design" title="Matrices and Vectors">
+<p>The most observant will have noticed that the selection commands do not always return the same object; sometimes we obtain a vector and other times a matrix.</p>
+<p>It is important to clarify that <strong>a vector is not a matrix</strong>, and vice versa. In R, these are two different types of objects, and it is important to keep this distinction in mind.</p>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="matrix.html#cb167-1" tabindex="-1"></a><span class="co"># A vector is not a matrix</span></span>
+<span id="cb167-2"><a href="matrix.html#cb167-2" tabindex="-1"></a>my_vector <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
+<span id="cb167-3"><a href="matrix.html#cb167-3" tabindex="-1"></a><span class="fu">is.vector</span>(my_vector) <span class="co"># TRUE</span></span>
+<span id="cb167-4"><a href="matrix.html#cb167-4" tabindex="-1"></a><span class="fu">is.matrix</span>(my_vector) <span class="co"># FALSE</span></span>
+<span id="cb167-5"><a href="matrix.html#cb167-5" tabindex="-1"></a></span>
+<span id="cb167-6"><a href="matrix.html#cb167-6" tabindex="-1"></a><span class="co"># A matrix is not a vector</span></span>
+<span id="cb167-7"><a href="matrix.html#cb167-7" tabindex="-1"></a>my_matrix <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">1</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb167-8"><a href="matrix.html#cb167-8" tabindex="-1"></a><span class="fu">is.vector</span>(my_matrix) <span class="co"># FALSE</span></span>
+<span id="cb167-9"><a href="matrix.html#cb167-9" tabindex="-1"></a><span class="fu">is.matrix</span>(my_matrix) <span class="co"># TRUE</span></span></code></pre></div>
+<p>The result we obtain from a selection could be either a vector or a matrix depending on the type of selection. In particular, when selecting a single column (or row), we get a vector, while selecting multiple columns (or rows) results in a matrix.</p>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="matrix.html#cb168-1" tabindex="-1"></a><span class="co"># Select a column</span></span>
+<span id="cb168-2"><a href="matrix.html#cb168-2" tabindex="-1"></a><span class="fu">is.vector</span>(my_matrix[, <span class="dv">1</span>]) <span class="co"># TRUE</span></span>
+<span id="cb168-3"><a href="matrix.html#cb168-3" tabindex="-1"></a><span class="fu">is.matrix</span>(my_matrix[, <span class="dv">1</span>]) <span class="co"># FALSE</span></span>
+<span id="cb168-4"><a href="matrix.html#cb168-4" tabindex="-1"></a></span>
+<span id="cb168-5"><a href="matrix.html#cb168-5" tabindex="-1"></a><span class="co"># Select multiple columns</span></span>
+<span id="cb168-6"><a href="matrix.html#cb168-6" tabindex="-1"></a><span class="fu">is.vector</span>(my_matrix[, <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)]) <span class="co"># FALSE</span></span>
+<span id="cb168-7"><a href="matrix.html#cb168-7" tabindex="-1"></a><span class="fu">is.matrix</span>(my_matrix[, <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)]) <span class="co"># TRUE</span></span></code></pre></div>
+<p>This distinction will affect the subsequent use of the object obtained from the selection.</p>
+<div id="row-vector-and-column-vector" class="section level4 unnumbered hasAnchor">
+<h4>Row Vector and Column Vector<a href="matrix.html#row-vector-and-column-vector" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>A particular source of misunderstandings and subsequent errors involves using a vector obtained from selecting a single row (or a single column) of a matrix as if it were a <em>row vector</em> (or a <em>column vector</em>).</p>
+<p>In linear algebra, <em>row vectors</em> and <em>column vectors</em> are simply matrices of dimensions <span class="math inline">\(1\times n\)</span> and <span class="math inline">\(m \times 1\)</span>, respectively. The dimensions (<span class="math inline">\(rows \times columns\)</span>) of a matrix, and thus of a vector, play an important role in matrix operations, particularly in matrix multiplication.</p>
+<p>In R, vectors have only one dimension, which is <em>length</em>, and thus when used with matrix operations, they are automatically converted to row vectors or column vectors as needed. However, this transformation may not always respect the actual intentions, so it is better to always use matrices rather than vectors.</p>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="matrix.html#cb169-1" tabindex="-1"></a><span class="co"># Vector</span></span>
+<span id="cb169-2"><a href="matrix.html#cb169-2" tabindex="-1"></a>my_vector <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span></span>
+<span id="cb169-3"><a href="matrix.html#cb169-3" tabindex="-1"></a><span class="fu">dim</span>(my_vector)</span>
+<span id="cb169-4"><a href="matrix.html#cb169-4" tabindex="-1"></a><span class="do">## NULL</span></span>
+<span id="cb169-5"><a href="matrix.html#cb169-5" tabindex="-1"></a><span class="fu">length</span>(my_vector)</span>
+<span id="cb169-6"><a href="matrix.html#cb169-6" tabindex="-1"></a><span class="do">## [1] 4</span></span>
+<span id="cb169-7"><a href="matrix.html#cb169-7" tabindex="-1"></a></span>
+<span id="cb169-8"><a href="matrix.html#cb169-8" tabindex="-1"></a><span class="co"># 1x4 matrix (row vector)</span></span>
+<span id="cb169-9"><a href="matrix.html#cb169-9" tabindex="-1"></a>my_row_vector <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">nrow =</span> <span class="dv">1</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span>
+<span id="cb169-10"><a href="matrix.html#cb169-10" tabindex="-1"></a><span class="fu">dim</span>(my_row_vector) </span>
+<span id="cb169-11"><a href="matrix.html#cb169-11" tabindex="-1"></a><span class="do">## [1] 1 4</span></span>
+<span id="cb169-12"><a href="matrix.html#cb169-12" tabindex="-1"></a>my_row_vector</span>
+<span id="cb169-13"><a href="matrix.html#cb169-13" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb169-14"><a href="matrix.html#cb169-14" tabindex="-1"></a><span class="do">## [1,]    1    2    3    4</span></span>
+<span id="cb169-15"><a href="matrix.html#cb169-15" tabindex="-1"></a></span>
+<span id="cb169-16"><a href="matrix.html#cb169-16" tabindex="-1"></a><span class="co"># 4x1 matrix (column vector)</span></span>
+<span id="cb169-17"><a href="matrix.html#cb169-17" tabindex="-1"></a>my_col_vector <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">nrow =</span> <span class="dv">4</span>, <span class="at">ncol =</span> <span class="dv">1</span>)</span>
+<span id="cb169-18"><a href="matrix.html#cb169-18" tabindex="-1"></a><span class="fu">dim</span>(my_col_vector) </span>
+<span id="cb169-19"><a href="matrix.html#cb169-19" tabindex="-1"></a><span class="do">## [1] 4 1</span></span>
+<span id="cb169-20"><a href="matrix.html#cb169-20" tabindex="-1"></a>my_col_vector</span>
+<span id="cb169-21"><a href="matrix.html#cb169-21" tabindex="-1"></a><span class="do">##      [,1]</span></span>
+<span id="cb169-22"><a href="matrix.html#cb169-22" tabindex="-1"></a><span class="do">## [1,]    1</span></span>
+<span id="cb169-23"><a href="matrix.html#cb169-23" tabindex="-1"></a><span class="do">## [2,]    2</span></span>
+<span id="cb169-24"><a href="matrix.html#cb169-24" tabindex="-1"></a><span class="do">## [3,]    3</span></span>
+<span id="cb169-25"><a href="matrix.html#cb169-25" tabindex="-1"></a><span class="do">## [4,]    4</span></span></code></pre></div>
+</div>
+<div id="flattening-a-matrix" class="section level4 unnumbered hasAnchor">
+<h4>“Flattening” a Matrix<a href="matrix.html#flattening-a-matrix" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We have seen that we can easily populate a matrix with a vector. Similarly, we can vectorize a matrix (in other words, “flatten” the matrix) to return to the original vector. Using the command <code>c(matrix)</code> or forcing the object type to vector with <code>vector(matrix)</code> or <code>as.vector(matrix)</code>.</p>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="matrix.html#cb170-1" tabindex="-1"></a><span class="co"># From matrix to vector</span></span>
+<span id="cb170-2"><a href="matrix.html#cb170-2" tabindex="-1"></a>my_matrix <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span>
+<span id="cb170-3"><a href="matrix.html#cb170-3" tabindex="-1"></a><span class="fu">c</span>(my_matrix)</span>
+<span id="cb170-4"><a href="matrix.html#cb170-4" tabindex="-1"></a><span class="do">##  [1]  1  2  3  4  5  6  7  8  9 10 11 12</span></span>
+<span id="cb170-5"><a href="matrix.html#cb170-5" tabindex="-1"></a><span class="fu">as.vector</span>(my_matrix)</span>
+<span id="cb170-6"><a href="matrix.html#cb170-6" tabindex="-1"></a><span class="do">##  [1]  1  2  3  4  5  6  7  8  9 10 11 12</span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="matrix-selection-advanced" class="section level3 hasAnchor" number="9.2.1">
+<h3><span class="header-section-number">9.2.1</span> Advanced Selection Uses<a href="matrix.html#matrix-selection-advanced" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Now let’s explore some advanced uses of selecting elements from a matrix. In particular, we will learn to:</p>
+<ul>
+<li>use relational and logical operators to select elements of a matrix</li>
+<li>change the order of rows and columns</li>
+<li>replace elements</li>
+<li>delete rows or columns</li>
+</ul>
+<p>Note that these operations are analogous to those seen for vectors and therefore will follow the same rules and principles.</p>
+<div id="relational-and-logical-operators-1" class="section level4 unnumbered hasAnchor">
+<h4>Relational and Logical Operators<a href="matrix.html#relational-and-logical-operators-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>A useful function is to select among the elements of a matrix those that meet a certain condition. For example, we can evaluate <em>“which elements of the matrix are greater than x?”</em>. To do this, we must specify within the square brackets the proposition of interest using relational and logical operators (see Chapter <a href="first-commands.html#operators-rel-log">3.2</a>).</p>
+<p>When a matrix is evaluated within a proposition, R evaluates the truth of that proposition concerning each of its elements. As a result, we obtain a matrix of logical values with the respective answers for each element (<code>TRUE</code> or <code>FALSE</code>).</p>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="matrix.html#cb171-1" tabindex="-1"></a>my_matrix <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">23</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span>
+<span id="cb171-2"><a href="matrix.html#cb171-2" tabindex="-1"></a><span class="do">## Warning in matrix(1:23, nrow = 3, ncol = 4): data length [23] is not a</span></span>
+<span id="cb171-3"><a href="matrix.html#cb171-3" tabindex="-1"></a><span class="do">## sub-multiple or multiple of the number of rows [3]</span></span>
+<span id="cb171-4"><a href="matrix.html#cb171-4" tabindex="-1"></a>my_matrix</span>
+<span id="cb171-5"><a href="matrix.html#cb171-5" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb171-6"><a href="matrix.html#cb171-6" tabindex="-1"></a><span class="do">## [1,]    1    4    7   10</span></span>
+<span id="cb171-7"><a href="matrix.html#cb171-7" tabindex="-1"></a><span class="do">## [2,]    2    5    8   11</span></span>
+<span id="cb171-8"><a href="matrix.html#cb171-8" tabindex="-1"></a><span class="do">## [3,]    3    6    9   12</span></span>
+<span id="cb171-9"><a href="matrix.html#cb171-9" tabindex="-1"></a></span>
+<span id="cb171-10"><a href="matrix.html#cb171-10" tabindex="-1"></a><span class="co"># Elements greater than 4 and less than 10</span></span>
+<span id="cb171-11"><a href="matrix.html#cb171-11" tabindex="-1"></a>test <span class="ot">=</span> my_matrix <span class="sc">&gt;=</span> <span class="dv">4</span> <span class="sc">&amp;</span> my_matrix <span class="sc">&lt;=</span><span class="dv">10</span></span>
+<span id="cb171-12"><a href="matrix.html#cb171-12" tabindex="-1"></a>test</span>
+<span id="cb171-13"><a href="matrix.html#cb171-13" tabindex="-1"></a><span class="do">##       [,1] [,2] [,3]  [,4]</span></span>
+<span id="cb171-14"><a href="matrix.html#cb171-14" tabindex="-1"></a><span class="do">## [1,] FALSE TRUE TRUE  TRUE</span></span>
+<span id="cb171-15"><a href="matrix.html#cb171-15" tabindex="-1"></a><span class="do">## [2,] FALSE TRUE TRUE FALSE</span></span>
+<span id="cb171-16"><a href="matrix.html#cb171-16" tabindex="-1"></a><span class="do">## [3,] FALSE TRUE TRUE FALSE</span></span></code></pre></div>
+<p>This matrix can be used within the square brackets to select elements of the original matrix that satisfy the proposition. Elements associated with the <code>TRUE</code> value are selected, while those associated with <code>FALSE</code> are discarded.</p>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="matrix.html#cb172-1" tabindex="-1"></a><span class="co"># Select the elements</span></span>
+<span id="cb172-2"><a href="matrix.html#cb172-2" tabindex="-1"></a>my_matrix[test]</span>
+<span id="cb172-3"><a href="matrix.html#cb172-3" tabindex="-1"></a><span class="do">## [1]  4  5  6  7  8  9 10</span></span></code></pre></div>
+<p>Note that in this case no comma is necessary within the square brackets, and the result obtained is a vector.</p>
+</div>
+<div id="change-order-of-rows-and-columns" class="section level4 unnumbered hasAnchor">
+<h4>Change Order of Rows and Columns<a href="matrix.html#change-order-of-rows-and-columns" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Row and column indices can be used to reorder the rows and columns of a matrix as needed.</p>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="matrix.html#cb173-1" tabindex="-1"></a>my_matrix <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span>
+<span id="cb173-2"><a href="matrix.html#cb173-2" tabindex="-1"></a>my_matrix</span>
+<span id="cb173-3"><a href="matrix.html#cb173-3" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb173-4"><a href="matrix.html#cb173-4" tabindex="-1"></a><span class="do">## [1,]    1    4    1    4</span></span>
+<span id="cb173-5"><a href="matrix.html#cb173-5" tabindex="-1"></a><span class="do">## [2,]    2    5    2    5</span></span>
+<span id="cb173-6"><a href="matrix.html#cb173-6" tabindex="-1"></a><span class="do">## [3,]    3    6    3    6</span></span>
+<span id="cb173-7"><a href="matrix.html#cb173-7" tabindex="-1"></a></span>
+<span id="cb173-8"><a href="matrix.html#cb173-8" tabindex="-1"></a><span class="co"># Change the order of the rows</span></span>
+<span id="cb173-9"><a href="matrix.html#cb173-9" tabindex="-1"></a>my_matrix[<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">1</span>), ]</span>
+<span id="cb173-10"><a href="matrix.html#cb173-10" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb173-11"><a href="matrix.html#cb173-11" tabindex="-1"></a><span class="do">## [1,]    3    6    3    6</span></span>
+<span id="cb173-12"><a href="matrix.html#cb173-12" tabindex="-1"></a><span class="do">## [2,]    2    5    2    5</span></span>
+<span id="cb173-13"><a href="matrix.html#cb173-13" tabindex="-1"></a><span class="do">## [3,]    1    4    1    4</span></span>
+<span id="cb173-14"><a href="matrix.html#cb173-14" tabindex="-1"></a></span>
+<span id="cb173-15"><a href="matrix.html#cb173-15" tabindex="-1"></a><span class="co"># Change the order of the columns</span></span>
+<span id="cb173-16"><a href="matrix.html#cb173-16" tabindex="-1"></a>my_matrix[ ,<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">2</span>, <span class="dv">4</span>)]</span>
+<span id="cb173-17"><a href="matrix.html#cb173-17" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb173-18"><a href="matrix.html#cb173-18" tabindex="-1"></a><span class="do">## [1,]    1    1    4    4</span></span>
+<span id="cb173-19"><a href="matrix.html#cb173-19" tabindex="-1"></a><span class="do">## [2,]    2    2    5    5</span></span>
+<span id="cb173-20"><a href="matrix.html#cb173-20" tabindex="-1"></a><span class="do">## [3,]    3    3    6    6</span></span></code></pre></div>
+</div>
+<div id="modify-elements" class="section level4 unnumbered hasAnchor">
+<h4>Modify Elements<a href="matrix.html#modify-elements" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>An important use of indices relates to modifying an element of a matrix. To replace an old value with a new value, select the old value of the matrix and use the <code>=</code> (or <code>&lt;-</code>) operator to assign the new value.</p>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="matrix.html#cb174-1" tabindex="-1"></a>my_matrix <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span>
+<span id="cb174-2"><a href="matrix.html#cb174-2" tabindex="-1"></a>my_matrix</span>
+<span id="cb174-3"><a href="matrix.html#cb174-3" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb174-4"><a href="matrix.html#cb174-4" tabindex="-1"></a><span class="do">## [1,]    1    4    7   10</span></span>
+<span id="cb174-5"><a href="matrix.html#cb174-5" tabindex="-1"></a><span class="do">## [2,]    2    5    8   11</span></span>
+<span id="cb174-6"><a href="matrix.html#cb174-6" tabindex="-1"></a><span class="do">## [3,]    3    6    9   12</span></span>
+<span id="cb174-7"><a href="matrix.html#cb174-7" tabindex="-1"></a></span>
+<span id="cb174-8"><a href="matrix.html#cb174-8" tabindex="-1"></a><span class="co"># Modify the element with the value 5</span></span>
+<span id="cb174-9"><a href="matrix.html#cb174-9" tabindex="-1"></a>my_matrix[<span class="dv">2</span>,<span class="dv">2</span>] <span class="ot">=</span> <span class="dv">555</span></span>
+<span id="cb174-10"><a href="matrix.html#cb174-10" tabindex="-1"></a>my_matrix</span>
+<span id="cb174-11"><a href="matrix.html#cb174-11" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb174-12"><a href="matrix.html#cb174-12" tabindex="-1"></a><span class="do">## [1,]    1    4    7   10</span></span>
+<span id="cb174-13"><a href="matrix.html#cb174-13" tabindex="-1"></a><span class="do">## [2,]    2  555    8   11</span></span>
+<span id="cb174-14"><a href="matrix.html#cb174-14" tabindex="-1"></a><span class="do">## [3,]    3    6    9   12</span></span></code></pre></div>
+<p>It is also possible to replace all values in an entire row or column that has been appropriately selected. In this case, you must provide the correct number of new values to use.</p>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="matrix.html#cb175-1" tabindex="-1"></a><span class="co"># Modify the 2nd column</span></span>
+<span id="cb175-2"><a href="matrix.html#cb175-2" tabindex="-1"></a>my_matrix[ ,<span class="dv">2</span>] <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">444</span>, <span class="dv">555</span>, <span class="dv">666</span>)</span>
+<span id="cb175-3"><a href="matrix.html#cb175-3" tabindex="-1"></a>my_matrix</span>
+<span id="cb175-4"><a href="matrix.html#cb175-4" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb175-5"><a href="matrix.html#cb175-5" tabindex="-1"></a><span class="do">## [1,]    1  444    7   10</span></span>
+<span id="cb175-6"><a href="matrix.html#cb175-6" tabindex="-1"></a><span class="do">## [2,]    2  555    8   11</span></span>
+<span id="cb175-7"><a href="matrix.html#cb175-7" tabindex="-1"></a><span class="do">## [3,]    3  666    9   12</span></span>
+<span id="cb175-8"><a href="matrix.html#cb175-8" tabindex="-1"></a></span>
+<span id="cb175-9"><a href="matrix.html#cb175-9" tabindex="-1"></a><span class="co"># Modify the 3rd row</span></span>
+<span id="cb175-10"><a href="matrix.html#cb175-10" tabindex="-1"></a>my_matrix[<span class="dv">3</span>, ] <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">111</span>, <span class="dv">666</span>, <span class="dv">999</span>, <span class="dv">122</span>)</span>
+<span id="cb175-11"><a href="matrix.html#cb175-11" tabindex="-1"></a>my_matrix</span>
+<span id="cb175-12"><a href="matrix.html#cb175-12" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb175-13"><a href="matrix.html#cb175-13" tabindex="-1"></a><span class="do">## [1,]    1  444    7   10</span></span>
+<span id="cb175-14"><a href="matrix.html#cb175-14" tabindex="-1"></a><span class="do">## [2,]    2  555    8   11</span></span>
+<span id="cb175-15"><a href="matrix.html#cb175-15" tabindex="-1"></a><span class="do">## [3,]  111  666  999  122</span></span></code></pre></div>
+<p>Note that, unlike vectors, it is not possible to add a new row or column through this operation; a different procedure must be used instead (see Chapter <a href="matrix.html#matrix-bind">9.3.2</a>).</p>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="matrix.html#cb176-1" tabindex="-1"></a><span class="co"># Attempt to add a new column [index selection error]</span></span>
+<span id="cb176-2"><a href="matrix.html#cb176-2" tabindex="-1"></a>my_matrix[, <span class="dv">5</span>] <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">27</span>, <span class="dv">27</span>, <span class="dv">27</span>)</span>
+<span id="cb176-3"><a href="matrix.html#cb176-3" tabindex="-1"></a><span class="do">## Error in `[&lt;-`(`*tmp*`, , 5, value = c(27, 27, 27)): subscript out of bounds</span></span></code></pre></div>
+</div>
+<div id="deleting-rows-or-columns" class="section level4 unnumbered hasAnchor">
+<h4>Deleting Rows or Columns<a href="matrix.html#deleting-rows-or-columns" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>To <strong>delete</strong> rows (or columns) from a matrix, you need to specify the row (or column) indices you want to remove inside the square brackets, preceded by the <code>-</code> (<em>minus</em>) operator. In the case of multiple rows (or columns), you can only indicate the minus sign before the <code>c()</code> command, similar to what is done with vectors.</p>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="matrix.html#cb177-1" tabindex="-1"></a>my_matrix <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span>
+<span id="cb177-2"><a href="matrix.html#cb177-2" tabindex="-1"></a></span>
+<span id="cb177-3"><a href="matrix.html#cb177-3" tabindex="-1"></a><span class="co"># Delete the 2nd row</span></span>
+<span id="cb177-4"><a href="matrix.html#cb177-4" tabindex="-1"></a>my_matrix[<span class="sc">-</span><span class="dv">2</span>, ]</span>
+<span id="cb177-5"><a href="matrix.html#cb177-5" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb177-6"><a href="matrix.html#cb177-6" tabindex="-1"></a><span class="do">## [1,]    1    4    7   10</span></span>
+<span id="cb177-7"><a href="matrix.html#cb177-7" tabindex="-1"></a><span class="do">## [2,]    3    6    9   12</span></span>
+<span id="cb177-8"><a href="matrix.html#cb177-8" tabindex="-1"></a></span>
+<span id="cb177-9"><a href="matrix.html#cb177-9" tabindex="-1"></a><span class="co"># Delete the 2nd row and the 2nd and 3rd columns</span></span>
+<span id="cb177-10"><a href="matrix.html#cb177-10" tabindex="-1"></a>my_matrix[<span class="sc">-</span><span class="dv">2</span>, <span class="sc">-</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)]</span>
+<span id="cb177-11"><a href="matrix.html#cb177-11" tabindex="-1"></a><span class="do">##      [,1] [,2]</span></span>
+<span id="cb177-12"><a href="matrix.html#cb177-12" tabindex="-1"></a><span class="do">## [1,]    1   10</span></span>
+<span id="cb177-13"><a href="matrix.html#cb177-13" tabindex="-1"></a><span class="do">## [2,]    3   12</span></span></code></pre></div>
+<p>Note that the deletion operation is still a selection operation. Therefore, you need to save the resulting matrix if you want to keep the changes.</p>
+</div>
+</div>
+<div id="exercises-7" class="section level3 unnumbered hasAnchor">
+<h3>Exercises<a href="matrix.html#exercises-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Using the matrices created in the previous exercises, complete the following tasks (<a href="https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-09-matrices.R">solutions</a>):</p>
+<ol style="list-style-type: decimal">
+<li>Using the row and column indices, select the number 27 from matrix <code>A</code>.</li>
+<li>Select the elements between the second and fourth rows and the second and third columns of matrix <code>B</code>.</li>
+<li>Select only the even elements of matrix <code>A</code> (Note: use the modulus operation <code>%%</code>).</li>
+<li>Remove the third row and the third column from matrix <code>C</code>.</li>
+<li>Select all elements from the second and third rows of matrix <code>B</code>.</li>
+<li>Select all elements other than “<code>B</code>” from matrix <code>D</code>.</li>
+</ol>
+</div>
+</div>
+<div id="functions-and-operations" class="section level2 hasAnchor" number="9.3">
+<h2><span class="header-section-number">9.3</span> Functions and Operations<a href="matrix.html#functions-and-operations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now let’s look at some frequently used functions and common operations performed with matrices (see Table <a href="matrix.html#tab:table-matrix-operators">9.1</a>).</p>
+<table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:table-matrix-operators">Table 9.1: </span><span id="tab:table-matrix-operators">Table 9.2: </span>Functions and operations with matrices
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Function
+</th>
+<th style="text-align:left;">
+Description
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+new_matrix = &lt;- cbind(matrix1, matrix2)
+</td>
+<td style="text-align:left;">
+Combine two matrices creating new columns (the matrices must have the same number of rows)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+new_matrix = &lt;- rbind(matrix1, matrix2)
+</td>
+<td style="text-align:left;">
+Combine two matrices creating new rows (the matrices must have the same number of columns)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+nrow(matrix_name)
+</td>
+<td style="text-align:left;">
+Number of rows in the matrix
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ncol(matrix_name)
+</td>
+<td style="text-align:left;">
+Number of columns in the matrix
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+dim(matrix_name)
+</td>
+<td style="text-align:left;">
+Dimensions of the matrix (rows and columns)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+colnames(matrix_name)
+</td>
+<td style="text-align:left;">
+Names of the matrix columns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+rownames(matrix_name)
+</td>
+<td style="text-align:left;">
+Names of the matrix rows
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+dimnames(matrix_name)
+</td>
+<td style="text-align:left;">
+Names of the rows and columns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+t(matrix_name)
+</td>
+<td style="text-align:left;">
+Transpose of the matrix
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+diag(matrix_name)
+</td>
+<td style="text-align:left;">
+Vector with the elements of the matrix diagonal
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+det(matrix_name)
+</td>
+<td style="text-align:left;">
+Determinant of the matrix (the matrix must be square)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+solve(matrix_name)
+</td>
+<td style="text-align:left;">
+Inverse of the matrix
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+matrix1 + matrix2
+</td>
+<td style="text-align:left;">
+Element-wise sum of two matrices
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+matrix1 - matrix2
+</td>
+<td style="text-align:left;">
+Element-wise difference between two matrices
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+matrix1 * matrix2
+</td>
+<td style="text-align:left;">
+Element-wise product of two matrices
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+matrix1 / matrix2
+</td>
+<td style="text-align:left;">
+Element-wise division between two matrices
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+matrix1 %*% matrix2
+</td>
+<td style="text-align:left;">
+Matrix product
+</td>
+</tr>
+</tbody>
+</table>
+<p>Let’s now describe some specific uses in detail.</p>
+<div id="mat-prop" class="section level3 hasAnchor" number="9.3.1">
+<h3><span class="header-section-number">9.3.1</span> Attributes of a Matrix<a href="matrix.html#mat-prop" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We have seen in Chapter <a href="factor.html#attributes">8.1</a> that objects in R have what are called <em>attributes</em>, which are useful information regarding the object itself, a sort of <em>metadata</em>. Now let’s look at some attributes particularly relevant in the case of matrices, namely the dimensions (<code>dim</code>) and the names of the rows and columns (<code>names</code>).</p>
+<div id="dimensions" class="section level4 unnumbered hasAnchor">
+<h4>Dimensions<a href="matrix.html#dimensions" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Recall that a matrix is a <strong>two-dimensional</strong> object made up of rows and columns. These form the dimensions of a matrix. To obtain the number of rows and columns in a matrix, we can use the commands <code>nrow()</code> and <code>ncol()</code>, respectively.</p>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="matrix.html#cb178-1" tabindex="-1"></a>my_matrix <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">nrow =</span> <span class="dv">4</span>)</span>
+<span id="cb178-2"><a href="matrix.html#cb178-2" tabindex="-1"></a></span>
+<span id="cb178-3"><a href="matrix.html#cb178-3" tabindex="-1"></a><span class="co"># Number of rows</span></span>
+<span id="cb178-4"><a href="matrix.html#cb178-4" tabindex="-1"></a><span class="fu">nrow</span>(my_matrix)</span>
+<span id="cb178-5"><a href="matrix.html#cb178-5" tabindex="-1"></a><span class="do">## [1] 4</span></span>
+<span id="cb178-6"><a href="matrix.html#cb178-6" tabindex="-1"></a></span>
+<span id="cb178-7"><a href="matrix.html#cb178-7" tabindex="-1"></a><span class="co"># Number of columns</span></span>
+<span id="cb178-8"><a href="matrix.html#cb178-8" tabindex="-1"></a><span class="fu">ncol</span>(my_matrix)</span>
+<span id="cb178-9"><a href="matrix.html#cb178-9" tabindex="-1"></a><span class="do">## [1] 3</span></span></code></pre></div>
+<p>Alternatively, to find out the dimensions of a matrix, you can use the <code>dim()</code> function. This will return a vector with two values where the first represents the number of rows and the second the number of columns.</p>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="matrix.html#cb179-1" tabindex="-1"></a><span class="fu">dim</span>(my_matrix)</span>
+<span id="cb179-2"><a href="matrix.html#cb179-2" tabindex="-1"></a><span class="do">## [1] 4 3</span></span></code></pre></div>
+</div>
+<div id="row-and-column-names" class="section level4 unnumbered hasAnchor">
+<h4>Row and Column Names<a href="matrix.html#row-and-column-names" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>As you may have noticed, by default, the dimensions of a matrix (that is, rows and columns) are identified by their numerical indices. However, in R, it is also possible to assign names to the rows and columns of a matrix.</p>
+<p>With the commands <code>rownames()</code> and <code>colnames()</code>, we can access the names of the rows and columns, respectively.</p>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="matrix.html#cb180-1" tabindex="-1"></a>my_matrix <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span>
+<span id="cb180-2"><a href="matrix.html#cb180-2" tabindex="-1"></a></span>
+<span id="cb180-3"><a href="matrix.html#cb180-3" tabindex="-1"></a><span class="co"># Names of rows</span></span>
+<span id="cb180-4"><a href="matrix.html#cb180-4" tabindex="-1"></a><span class="fu">rownames</span>(mat)</span>
+<span id="cb180-5"><a href="matrix.html#cb180-5" tabindex="-1"></a><span class="do">## NULL</span></span>
+<span id="cb180-6"><a href="matrix.html#cb180-6" tabindex="-1"></a></span>
+<span id="cb180-7"><a href="matrix.html#cb180-7" tabindex="-1"></a><span class="co"># Names of columns</span></span>
+<span id="cb180-8"><a href="matrix.html#cb180-8" tabindex="-1"></a><span class="fu">colnames</span>(mat)</span>
+<span id="cb180-9"><a href="matrix.html#cb180-9" tabindex="-1"></a><span class="do">## NULL</span></span></code></pre></div>
+<p>Since they are not set initially, we get <code>NULL</code> as the output. To set the names of rows and/or columns, you will need to assign to <code>rownames(matrix_name)</code> and <code>colnames(matrix_name)</code> a character vector of the same length as the dimension you are renaming. If you set a single character, all rows/columns will have the same value. This tells us that if we want to set names, R requires this to be done for all rows/columns.</p>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="matrix.html#cb181-1" tabindex="-1"></a><span class="co"># Assign names to the rows</span></span>
+<span id="cb181-2"><a href="matrix.html#cb181-2" tabindex="-1"></a><span class="fu">rownames</span>(my_matrix) <span class="ot">=</span> LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span>
+<span id="cb181-3"><a href="matrix.html#cb181-3" tabindex="-1"></a>my_matrix</span>
+<span id="cb181-4"><a href="matrix.html#cb181-4" tabindex="-1"></a><span class="do">##   [,1] [,2] [,3] [,4]</span></span>
+<span id="cb181-5"><a href="matrix.html#cb181-5" tabindex="-1"></a><span class="do">## A    1    4    7   10</span></span>
+<span id="cb181-6"><a href="matrix.html#cb181-6" tabindex="-1"></a><span class="do">## B    2    5    8   11</span></span>
+<span id="cb181-7"><a href="matrix.html#cb181-7" tabindex="-1"></a><span class="do">## C    3    6    9   12</span></span>
+<span id="cb181-8"><a href="matrix.html#cb181-8" tabindex="-1"></a></span>
+<span id="cb181-9"><a href="matrix.html#cb181-9" tabindex="-1"></a><span class="co"># Assign names to the columns</span></span>
+<span id="cb181-10"><a href="matrix.html#cb181-10" tabindex="-1"></a><span class="fu">colnames</span>(my_matrix) <span class="ot">=</span> LETTERS[<span class="dv">4</span><span class="sc">:</span><span class="dv">7</span>]</span>
+<span id="cb181-11"><a href="matrix.html#cb181-11" tabindex="-1"></a>my_matrix</span>
+<span id="cb181-12"><a href="matrix.html#cb181-12" tabindex="-1"></a><span class="do">##   D E F  G</span></span>
+<span id="cb181-13"><a href="matrix.html#cb181-13" tabindex="-1"></a><span class="do">## A 1 4 7 10</span></span>
+<span id="cb181-14"><a href="matrix.html#cb181-14" tabindex="-1"></a><span class="do">## B 2 5 8 11</span></span>
+<span id="cb181-15"><a href="matrix.html#cb181-15" tabindex="-1"></a><span class="do">## C 3 6 9 12</span></span></code></pre></div>
+<p>Alternatively, you can use <code>dimnames()</code> to access both row and column names simultaneously. The output will be a list (see Chapter <a href="list.html#list">11</a>) where the row names are indicated first, followed by the column names.</p>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="matrix.html#cb182-1" tabindex="-1"></a><span class="fu">dimnames</span>(my_matrix)</span>
+<span id="cb182-2"><a href="matrix.html#cb182-2" tabindex="-1"></a><span class="do">## [[1]]</span></span>
+<span id="cb182-3"><a href="matrix.html#cb182-3" tabindex="-1"></a><span class="do">## [1] &quot;A&quot; &quot;B&quot; &quot;C&quot;</span></span>
+<span id="cb182-4"><a href="matrix.html#cb182-4" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb182-5"><a href="matrix.html#cb182-5" tabindex="-1"></a><span class="do">## [[2]]</span></span>
+<span id="cb182-6"><a href="matrix.html#cb182-6" tabindex="-1"></a><span class="do">## [1] &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot;</span></span></code></pre></div>
+<div class="design" title="Selection by Names">
+<p>When we explored different ways to select elements of a matrix in Chapter <a href="matrix.html#sel-matrix">9.2</a>, we always used numerical row and column indices. However, when dimension names are available, it is possible to index a matrix based on the names of the rows and/or columns.</p>
+<p>We can select the first column both by its numerical index <code>matrix_name[ , 1]</code> and by its assigned name <code>matrix_name[ ,"column_name"]</code>. These operations are not particularly useful with matrices but will be essential in the case of <strong>dataframes</strong> (see Chapter <a href="dataframe.html#dataframe">10</a>).</p>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="matrix.html#cb183-1" tabindex="-1"></a><span class="co"># Select column &quot;F&quot;</span></span>
+<span id="cb183-2"><a href="matrix.html#cb183-2" tabindex="-1"></a>my_matrix[ , <span class="st">&quot;F&quot;</span>]</span>
+<span id="cb183-3"><a href="matrix.html#cb183-3" tabindex="-1"></a><span class="do">## A B C </span></span>
+<span id="cb183-4"><a href="matrix.html#cb183-4" tabindex="-1"></a><span class="do">## 7 8 9</span></span>
+<span id="cb183-5"><a href="matrix.html#cb183-5" tabindex="-1"></a></span>
+<span id="cb183-6"><a href="matrix.html#cb183-6" tabindex="-1"></a><span class="co"># Select rows &quot;A&quot; and &quot;C&quot;</span></span>
+<span id="cb183-7"><a href="matrix.html#cb183-7" tabindex="-1"></a>my_matrix[<span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;C&quot;</span>), ]</span>
+<span id="cb183-8"><a href="matrix.html#cb183-8" tabindex="-1"></a><span class="do">##   D E F  G</span></span>
+<span id="cb183-9"><a href="matrix.html#cb183-9" tabindex="-1"></a><span class="do">## A 1 4 7 10</span></span>
+<span id="cb183-10"><a href="matrix.html#cb183-10" tabindex="-1"></a><span class="do">## C 3 6 9 12</span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="matrix-bind" class="section level3 hasAnchor" number="9.3.2">
+<h3><span class="header-section-number">9.3.2</span> Combining Matrices<a href="matrix.html#matrix-bind" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We have seen in Chapter <a href="vector.html#vector-functions">7.3</a> how to combine different vectors using the <code>c()</code> function. It is also possible to combine different matrices, but some rules must be followed:</p>
+<ul>
+<li><code>rbind()</code> - I can combine matrices <strong>by row</strong>, adding one or more rows to a matrix; in this case, the matrices must have the same number of columns.</li>
+<li><code>cbind()</code> - I can combine matrices <strong>by column</strong>, adding one or more columns to a matrix; in this case, the matrices must have the same number of rows.</li>
+<li>The matrices being combined must be of the <strong>same type</strong> (numbers or characters).</li>
+</ul>
+<p>So, given a matrix <code>my_matrix</code> of size <span class="math inline">\(m \times n\)</span>, if we want to add the rows of a second matrix <code>row_matrix</code>, we can use the command <code>rbind(my_matrix, row_matrix)</code> provided they have the same number of columns (<span class="math inline">\(n\)</span>). If we want to add the columns of a new matrix <code>col_matrix</code>, we can use the command <code>cbind(my_matrix, col_matrix)</code> provided they have the same number of rows (<span class="math inline">\(m\)</span>). It is useful to think of the combination as a collage of matrices. In Figure <a href="matrix.html#fig:mat-comb">9.2</a>, there is a diagram that helps to visually understand this concept, where the matrices colored in green can be correctly combined, while those in red do not have the correct dimensionality.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:mat-comb"></span>
+<img src="images/matrix_comb.png" alt="Scheme for Matrix Combination" width="50%" />
+<p class="caption">
+Figure 9.2: Scheme for Matrix Combination
+</p>
+</div>
+<p>Let’s see an example in R:</p>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="matrix.html#cb184-1" tabindex="-1"></a><span class="co"># Starting matrix</span></span>
+<span id="cb184-2"><a href="matrix.html#cb184-2" tabindex="-1"></a>my_matrix <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span>
+<span id="cb184-3"><a href="matrix.html#cb184-3" tabindex="-1"></a>my_matrix</span>
+<span id="cb184-4"><a href="matrix.html#cb184-4" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb184-5"><a href="matrix.html#cb184-5" tabindex="-1"></a><span class="do">## [1,]    1    4    7   10</span></span>
+<span id="cb184-6"><a href="matrix.html#cb184-6" tabindex="-1"></a><span class="do">## [2,]    2    5    8   11</span></span>
+<span id="cb184-7"><a href="matrix.html#cb184-7" tabindex="-1"></a><span class="do">## [3,]    3    6    9   12</span></span>
+<span id="cb184-8"><a href="matrix.html#cb184-8" tabindex="-1"></a></span>
+<span id="cb184-9"><a href="matrix.html#cb184-9" tabindex="-1"></a><span class="co"># Matrix with the same number of columns</span></span>
+<span id="cb184-10"><a href="matrix.html#cb184-10" tabindex="-1"></a>row_matrix <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">77</span>, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span>
+<span id="cb184-11"><a href="matrix.html#cb184-11" tabindex="-1"></a>row_matrix</span>
+<span id="cb184-12"><a href="matrix.html#cb184-12" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb184-13"><a href="matrix.html#cb184-13" tabindex="-1"></a><span class="do">## [1,]   77   77   77   77</span></span>
+<span id="cb184-14"><a href="matrix.html#cb184-14" tabindex="-1"></a><span class="do">## [2,]   77   77   77   77</span></span>
+<span id="cb184-15"><a href="matrix.html#cb184-15" tabindex="-1"></a></span>
+<span id="cb184-16"><a href="matrix.html#cb184-16" tabindex="-1"></a><span class="co"># Combine by row</span></span>
+<span id="cb184-17"><a href="matrix.html#cb184-17" tabindex="-1"></a><span class="fu">rbind</span>(my_matrix, row_matrix)</span>
+<span id="cb184-18"><a href="matrix.html#cb184-18" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb184-19"><a href="matrix.html#cb184-19" tabindex="-1"></a><span class="do">## [1,]    1    4    7   10</span></span>
+<span id="cb184-20"><a href="matrix.html#cb184-20" tabindex="-1"></a><span class="do">## [2,]    2    5    8   11</span></span>
+<span id="cb184-21"><a href="matrix.html#cb184-21" tabindex="-1"></a><span class="do">## [3,]    3    6    9   12</span></span>
+<span id="cb184-22"><a href="matrix.html#cb184-22" tabindex="-1"></a><span class="do">## [4,]   77   77   77   77</span></span>
+<span id="cb184-23"><a href="matrix.html#cb184-23" tabindex="-1"></a><span class="do">## [5,]   77   77   77   77</span></span>
+<span id="cb184-24"><a href="matrix.html#cb184-24" tabindex="-1"></a></span>
+<span id="cb184-25"><a href="matrix.html#cb184-25" tabindex="-1"></a><span class="co"># Matrix with the same number of rows</span></span>
+<span id="cb184-26"><a href="matrix.html#cb184-26" tabindex="-1"></a>col_matrix <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">99</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">2</span>)</span>
+<span id="cb184-27"><a href="matrix.html#cb184-27" tabindex="-1"></a>col_matrix</span>
+<span id="cb184-28"><a href="matrix.html#cb184-28" tabindex="-1"></a><span class="do">##      [,1] [,2]</span></span>
+<span id="cb184-29"><a href="matrix.html#cb184-29" tabindex="-1"></a><span class="do">## [1,]   99   99</span></span>
+<span id="cb184-30"><a href="matrix.html#cb184-30" tabindex="-1"></a><span class="do">## [2,]   99   99</span></span>
+<span id="cb184-31"><a href="matrix.html#cb184-31" tabindex="-1"></a><span class="do">## [3,]   99   99</span></span>
+<span id="cb184-32"><a href="matrix.html#cb184-32" tabindex="-1"></a></span>
+<span id="cb184-33"><a href="matrix.html#cb184-33" tabindex="-1"></a><span class="co"># Combine by column</span></span>
+<span id="cb184-34"><a href="matrix.html#cb184-34" tabindex="-1"></a><span class="fu">cbind</span>(my_matrix, col_matrix)</span>
+<span id="cb184-35"><a href="matrix.html#cb184-35" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3] [,4] [,5] [,6]</span></span>
+<span id="cb184-36"><a href="matrix.html#cb184-36" tabindex="-1"></a><span class="do">## [1,]    1    4    7   10   99   99</span></span>
+<span id="cb184-37"><a href="matrix.html#cb184-37" tabindex="-1"></a><span class="do">## [2,]    2    5    8   11   99   99</span></span>
+<span id="cb184-38"><a href="matrix.html#cb184-38" tabindex="-1"></a><span class="do">## [3,]    3    6    9   12   99   99</span></span></code></pre></div>
+<p>An additional useful aspect is the extension of the <code>cbind()</code> and <code>rbind()</code> commands. Until now, we have used them with just two elements: the starting matrix and the matrix to add. However, it is possible to indicate multiple matrices to combine, separating them with a comma. If we want to combine <span class="math inline">\(n\)</span> matrices, we can use the command <code>cbind(mat1, mat2, mat3, ...)</code> or <code>rbind(mat1, mat2, mat3, ...)</code>. In this case, the final result will be the combination of the matrices in the order used to define the arguments, with <code>mat1</code> first, then <code>mat2</code>, and so on.</p>
+<div class="warning" title="&quot;Matrices Must Match&quot;">
+<p>We have seen that we can combine matrices by row/column only if the number of columns/rows of the two matrices matches. We get an error instead when trying to combine matrices of different dimensions: <em>“number of columns/rows of matrices must match”</em>.</p>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="matrix.html#cb185-1" tabindex="-1"></a>my_matrix <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span>
+<span id="cb185-2"><a href="matrix.html#cb185-2" tabindex="-1"></a></span>
+<span id="cb185-3"><a href="matrix.html#cb185-3" tabindex="-1"></a><span class="co"># Matrix with incorrect number of columns</span></span>
+<span id="cb185-4"><a href="matrix.html#cb185-4" tabindex="-1"></a>wrong_matrix <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">77</span>, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">7</span>)</span>
+<span id="cb185-5"><a href="matrix.html#cb185-5" tabindex="-1"></a><span class="fu">rbind</span>(my_matrix, wrong_matrix)</span>
+<span id="cb185-6"><a href="matrix.html#cb185-6" tabindex="-1"></a><span class="do">## Error in rbind(my_matrix, wrong_matrix): number of columns of matrices must match (see arg 2)</span></span></code></pre></div>
+</div>
+</div>
+<div id="mathematical-operators" class="section level3 hasAnchor" number="9.3.3">
+<h3><span class="header-section-number">9.3.3</span> Mathematical Operators<a href="matrix.html#mathematical-operators" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Mathematical operators (e.g., <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>) perform operations between a matrix and a single value, between a matrix and a vector, or between two matrices.</p>
+<div id="operation-between-matrix-and-single-value" class="section level4 unnumbered hasAnchor">
+<h4>Operation between Matrix and Single Value<a href="matrix.html#operation-between-matrix-and-single-value" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>In the case of a single value, the same operation is simply performed on all elements of the matrix. For example, we can add 100 to all elements of a matrix.</p>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="matrix.html#cb186-1" tabindex="-1"></a>my_matrix <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span>
+<span id="cb186-2"><a href="matrix.html#cb186-2" tabindex="-1"></a>my_matrix</span>
+<span id="cb186-3"><a href="matrix.html#cb186-3" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb186-4"><a href="matrix.html#cb186-4" tabindex="-1"></a><span class="do">## [1,]    1    4    7   10</span></span>
+<span id="cb186-5"><a href="matrix.html#cb186-5" tabindex="-1"></a><span class="do">## [2,]    2    5    8   11</span></span>
+<span id="cb186-6"><a href="matrix.html#cb186-6" tabindex="-1"></a><span class="do">## [3,]    3    6    9   12</span></span>
+<span id="cb186-7"><a href="matrix.html#cb186-7" tabindex="-1"></a></span>
+<span id="cb186-8"><a href="matrix.html#cb186-8" tabindex="-1"></a><span class="co"># Add 100</span></span>
+<span id="cb186-9"><a href="matrix.html#cb186-9" tabindex="-1"></a>my_matrix <span class="sc">+</span> <span class="dv">100</span></span>
+<span id="cb186-10"><a href="matrix.html#cb186-10" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb186-11"><a href="matrix.html#cb186-11" tabindex="-1"></a><span class="do">## [1,]  101  104  107  110</span></span>
+<span id="cb186-12"><a href="matrix.html#cb186-12" tabindex="-1"></a><span class="do">## [2,]  102  105  108  111</span></span>
+<span id="cb186-13"><a href="matrix.html#cb186-13" tabindex="-1"></a><span class="do">## [3,]  103  106  109  112</span></span></code></pre></div>
+</div>
+<div id="operation-between-matrix-and-vector" class="section level4 unnumbered hasAnchor">
+<h4>Operation between Matrix and Vector<a href="matrix.html#operation-between-matrix-and-vector" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>In the case of a vector, the operation is performed <strong>element by element</strong>, cycling the values of the vector if its length is insufficient. For example, we can add the vector of values <code>c(100, 200, 300, 400)</code> to all elements of a matrix.</p>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="matrix.html#cb187-1" tabindex="-1"></a><span class="co"># Add a vector of values</span></span>
+<span id="cb187-2"><a href="matrix.html#cb187-2" tabindex="-1"></a>my_matrix <span class="sc">+</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">300</span>, <span class="dv">400</span>)</span>
+<span id="cb187-3"><a href="matrix.html#cb187-3" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb187-4"><a href="matrix.html#cb187-4" tabindex="-1"></a><span class="do">## [1,]  101  404  307  210</span></span>
+<span id="cb187-5"><a href="matrix.html#cb187-5" tabindex="-1"></a><span class="do">## [2,]  202  105  408  311</span></span>
+<span id="cb187-6"><a href="matrix.html#cb187-6" tabindex="-1"></a><span class="do">## [3,]  303  206  109  412</span></span></code></pre></div>
+<p>As can be easily understood, this operation is not advisable since it can easily lead to errors and misunderstandings.</p>
+</div>
+<div id="operation-between-matrices" class="section level4 unnumbered hasAnchor">
+<h4>Operation between Matrices<a href="matrix.html#operation-between-matrices" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>In the case of operations between matrices, the operation is performed <strong>element by element</strong>, so it is important that the matrices have the <strong>same dimensions</strong>. For example, we can add to all elements of a matrix where the rows contain the values 100, 200, 300, and 400.</p>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="matrix.html#cb188-1" tabindex="-1"></a>sum_matrix <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">300</span>, <span class="dv">400</span>), <span class="at">each =</span> <span class="dv">3</span>), <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span>
+<span id="cb188-2"><a href="matrix.html#cb188-2" tabindex="-1"></a>sum_matrix</span>
+<span id="cb188-3"><a href="matrix.html#cb188-3" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb188-4"><a href="matrix.html#cb188-4" tabindex="-1"></a><span class="do">## [1,]  100  200  300  400</span></span>
+<span id="cb188-5"><a href="matrix.html#cb188-5" tabindex="-1"></a><span class="do">## [2,]  100  200  300  400</span></span>
+<span id="cb188-6"><a href="matrix.html#cb188-6" tabindex="-1"></a><span class="do">## [3,]  100  200  300  400</span></span>
+<span id="cb188-7"><a href="matrix.html#cb188-7" tabindex="-1"></a></span>
+<span id="cb188-8"><a href="matrix.html#cb188-8" tabindex="-1"></a><span class="co"># Sum two matrices</span></span>
+<span id="cb188-9"><a href="matrix.html#cb188-9" tabindex="-1"></a>my_matrix <span class="sc">+</span> sum_matrix</span>
+<span id="cb188-10"><a href="matrix.html#cb188-10" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb188-11"><a href="matrix.html#cb188-11" tabindex="-1"></a><span class="do">## [1,]  101  204  307  410</span></span>
+<span id="cb188-12"><a href="matrix.html#cb188-12" tabindex="-1"></a><span class="do">## [2,]  102  205  308  411</span></span>
+<span id="cb188-13"><a href="matrix.html#cb188-13" tabindex="-1"></a><span class="do">## [3,]  103  206  309  412</span></span></code></pre></div>
+<div class="tip" title="Matrix Multiplication">
+<p>Note that in R, the <code>*</code> operator indicates simple element-wise multiplication, while to obtain the matrix product, the operator <code>%*%</code> must be used.</p>
+<p>Matrix multiplication follows specific rules and properties. In particular, the number of columns in the first matrix must equal the number of rows in the second matrix. For more information, see <a href="https://en.wikipedia.org/wiki/Matrix_multiplication" class="uri">https://en.wikipedia.org/wiki/Matrix_multiplication</a>.</p>
+</div>
+</div>
+<div id="linear-algebra" class="section level4 unnumbered hasAnchor">
+<h4>Linear Algebra<a href="matrix.html#linear-algebra" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Other aspects concerning matrix operations are not discussed here but interested readers can refer to the following pages:</p>
+<ul>
+<li>For the meaning of the <strong>determinant</strong> of a matrix, see <a href="https://en.wikipedia.org/wiki/Determinant" class="uri">https://en.wikipedia.org/wiki/Determinant</a></li>
+<li>For the meaning of the inverse matrix see <a href="https://en.wikipedia.org/wiki/Invertible_matrix" class="uri">https://en.wikipedia.org/wiki/Invertible_matrix</a></li>
+</ul>
+</div>
+<div id="diagonal" class="section level4 unnumbered hasAnchor">
+<h4>Diagonal<a href="matrix.html#diagonal" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Now let’s look at some useful functions related to the diagonal of a matrix. The diagonal of a matrix is formed by the elements whose row and column indices are equal, that is, the set of elements associated with the same row and column index (<span class="math inline">\(x_{i,i}\)</span>).</p>
+<p>The command <code>diag(matrix_name)</code> allows you to extract the diagonal of a matrix and treat it as a simple vector:</p>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="matrix.html#cb189-1" tabindex="-1"></a><span class="co"># Square matrix</span></span>
+<span id="cb189-2"><a href="matrix.html#cb189-2" tabindex="-1"></a>square_matrix <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">16</span>, <span class="at">nrow =</span> <span class="dv">4</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span>
+<span id="cb189-3"><a href="matrix.html#cb189-3" tabindex="-1"></a>square_matrix</span>
+<span id="cb189-4"><a href="matrix.html#cb189-4" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb189-5"><a href="matrix.html#cb189-5" tabindex="-1"></a><span class="do">## [1,]    1    5    9   13</span></span>
+<span id="cb189-6"><a href="matrix.html#cb189-6" tabindex="-1"></a><span class="do">## [2,]    2    6   10   14</span></span>
+<span id="cb189-7"><a href="matrix.html#cb189-7" tabindex="-1"></a><span class="do">## [3,]    3    7   11   15</span></span>
+<span id="cb189-8"><a href="matrix.html#cb189-8" tabindex="-1"></a><span class="do">## [4,]    4    8   12   16</span></span>
+<span id="cb189-9"><a href="matrix.html#cb189-9" tabindex="-1"></a></span>
+<span id="cb189-10"><a href="matrix.html#cb189-10" tabindex="-1"></a><span class="fu">diag</span>(square_matrix)</span>
+<span id="cb189-11"><a href="matrix.html#cb189-11" tabindex="-1"></a><span class="do">## [1]  1  6 11 16</span></span>
+<span id="cb189-12"><a href="matrix.html#cb189-12" tabindex="-1"></a></span>
+<span id="cb189-13"><a href="matrix.html#cb189-13" tabindex="-1"></a><span class="co"># Non-square matrix</span></span>
+<span id="cb189-14"><a href="matrix.html#cb189-14" tabindex="-1"></a>my_matrix <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span>
+<span id="cb189-15"><a href="matrix.html#cb189-15" tabindex="-1"></a>my_matrix</span>
+<span id="cb189-16"><a href="matrix.html#cb189-16" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb189-17"><a href="matrix.html#cb189-17" tabindex="-1"></a><span class="do">## [1,]    1    4    7   10</span></span>
+<span id="cb189-18"><a href="matrix.html#cb189-18" tabindex="-1"></a><span class="do">## [2,]    2    5    8   11</span></span>
+<span id="cb189-19"><a href="matrix.html#cb189-19" tabindex="-1"></a><span class="do">## [3,]    3    6    9   12</span></span>
+<span id="cb189-20"><a href="matrix.html#cb189-20" tabindex="-1"></a></span>
+<span id="cb189-21"><a href="matrix.html#cb189-21" tabindex="-1"></a><span class="fu">diag</span>(my_matrix)</span>
+<span id="cb189-22"><a href="matrix.html#cb189-22" tabindex="-1"></a><span class="do">## [1] 1 5 9</span></span></code></pre></div>
+<p>The <code>diag()</code> function can also be used to easily replace elements on the diagonal of a matrix or to create a diagonal matrix where all other values are zero, such as the identity matrix.</p>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="matrix.html#cb190-1" tabindex="-1"></a><span class="co"># Replace the diagonal elements</span></span>
+<span id="cb190-2"><a href="matrix.html#cb190-2" tabindex="-1"></a><span class="fu">diag</span>(my_matrix) <span class="ot">=</span> <span class="dv">999</span></span>
+<span id="cb190-3"><a href="matrix.html#cb190-3" tabindex="-1"></a>my_matrix</span>
+<span id="cb190-4"><a href="matrix.html#cb190-4" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb190-5"><a href="matrix.html#cb190-5" tabindex="-1"></a><span class="do">## [1,]  999    4    7   10</span></span>
+<span id="cb190-6"><a href="matrix.html#cb190-6" tabindex="-1"></a><span class="do">## [2,]    2  999    8   11</span></span>
+<span id="cb190-7"><a href="matrix.html#cb190-7" tabindex="-1"></a><span class="do">## [3,]    3    6  999   12</span></span>
+<span id="cb190-8"><a href="matrix.html#cb190-8" tabindex="-1"></a></span>
+<span id="cb190-9"><a href="matrix.html#cb190-9" tabindex="-1"></a><span class="co"># Create a diagonal matrix</span></span>
+<span id="cb190-10"><a href="matrix.html#cb190-10" tabindex="-1"></a><span class="fu">diag</span>(<span class="dv">4</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span>
+<span id="cb190-11"><a href="matrix.html#cb190-11" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb190-12"><a href="matrix.html#cb190-12" tabindex="-1"></a><span class="do">## [1,]    4    0    0    0</span></span>
+<span id="cb190-13"><a href="matrix.html#cb190-13" tabindex="-1"></a><span class="do">## [2,]    0    4    0    0</span></span>
+<span id="cb190-14"><a href="matrix.html#cb190-14" tabindex="-1"></a><span class="do">## [3,]    0    0    4    0</span></span>
+<span id="cb190-15"><a href="matrix.html#cb190-15" tabindex="-1"></a></span>
+<span id="cb190-16"><a href="matrix.html#cb190-16" tabindex="-1"></a><span class="co"># Create a 4x4 identity matrix</span></span>
+<span id="cb190-17"><a href="matrix.html#cb190-17" tabindex="-1"></a><span class="fu">diag</span>(<span class="dv">4</span>)</span>
+<span id="cb190-18"><a href="matrix.html#cb190-18" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb190-19"><a href="matrix.html#cb190-19" tabindex="-1"></a><span class="do">## [1,]    1    0    0    0</span></span>
+<span id="cb190-20"><a href="matrix.html#cb190-20" tabindex="-1"></a><span class="do">## [2,]    0    1    0    0</span></span>
+<span id="cb190-21"><a href="matrix.html#cb190-21" tabindex="-1"></a><span class="do">## [3,]    0    0    1    0</span></span>
+<span id="cb190-22"><a href="matrix.html#cb190-22" tabindex="-1"></a><span class="do">## [4,]    0    0    0    1</span></span></code></pre></div>
+<p>:::</p>
+</div>
+</div>
+<div id="exercises-8" class="section level3 unnumbered hasAnchor">
+<h3>Exercises<a href="matrix.html#exercises-8" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Using the matrices created in previous exercises, complete the following tasks (<a href="https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-09-matrices.R">solutions</a>):</p>
+<ol style="list-style-type: decimal">
+<li>Create matrix <code>G</code> by combining matrix <code>A</code> with the first two columns of matrix <code>C</code>.</li>
+<li>Create matrix <code>H</code> by combining matrix <code>C</code> with the first two rows of the transpose of matrix <code>B</code>.</li>
+<li>Redefine matrix <code>A</code> by removing the second column. Redefine matrix <code>B</code> by removing the first row. Check that the resulting matrices have the same dimensions.</li>
+<li>Comment on the different results obtained from the operations <code>A*B</code>, <code>B*A</code>, <code>A%*%B</code>, and <code>B%*%A</code>.</li>
+<li>Assign the following names to the columns and rows of matrix <code>C</code>: <code>"col_1"</code>, <code>"col_2"</code>, <code>"col_3"</code>, <code>"col_4"</code>, <code>"row_1"</code>, <code>"row_2"</code>, <code>"row_3"</code>.</li>
+</ol>
+</div>
+</div>
+<div id="arrays" class="section level2 hasAnchor" number="9.4">
+<h2><span class="header-section-number">9.4</span> Arrays<a href="matrix.html#arrays" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We have seen that matrices are a <em>two-dimensional</em> object, but it is also possible to create objects that have 3, 4, or any number (<em>n</em>) of dimensions. These objects are called <strong>arrays</strong> and can be created using the <code>array()</code> command, specifying the vector of values used to populate the object and the size of each of its dimensions.</p>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="matrix.html#cb191-1" tabindex="-1"></a><span class="fu">array</span>(<span class="at">data =</span> , <span class="at">dim =</span> )</span></code></pre></div>
+<p>For example, to create a cube of side 3 containing integer values from 1 to 27, we can execute the following command.</p>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="matrix.html#cb192-1" tabindex="-1"></a>my_cube <span class="ot">=</span> <span class="fu">array</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">27</span>, <span class="at">dim =</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>))</span>
+<span id="cb192-2"><a href="matrix.html#cb192-2" tabindex="-1"></a>my_cube</span>
+<span id="cb192-3"><a href="matrix.html#cb192-3" tabindex="-1"></a><span class="do">## , , 1</span></span>
+<span id="cb192-4"><a href="matrix.html#cb192-4" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb192-5"><a href="matrix.html#cb192-5" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3]</span></span>
+<span id="cb192-6"><a href="matrix.html#cb192-6" tabindex="-1"></a><span class="do">## [1,]    1    4    7</span></span>
+<span id="cb192-7"><a href="matrix.html#cb192-7" tabindex="-1"></a><span class="do">## [2,]    2    5    8</span></span>
+<span id="cb192-8"><a href="matrix.html#cb192-8" tabindex="-1"></a><span class="do">## [3,]    3    6    9</span></span>
+<span id="cb192-9"><a href="matrix.html#cb192-9" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb192-10"><a href="matrix.html#cb192-10" tabindex="-1"></a><span class="do">## , , 2</span></span>
+<span id="cb192-11"><a href="matrix.html#cb192-11" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb192-12"><a href="matrix.html#cb192-12" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3]</span></span>
+<span id="cb192-13"><a href="matrix.html#cb192-13" tabindex="-1"></a><span class="do">## [1,]   10   13   16</span></span>
+<span id="cb192-14"><a href="matrix.html#cb192-14" tabindex="-1"></a><span class="do">## [2,]   11   14   17</span></span>
+<span id="cb192-15"><a href="matrix.html#cb192-15" tabindex="-1"></a><span class="do">## [3,]   12   15   18</span></span>
+<span id="cb192-16"><a href="matrix.html#cb192-16" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb192-17"><a href="matrix.html#cb192-17" tabindex="-1"></a><span class="do">## , , 3</span></span>
+<span id="cb192-18"><a href="matrix.html#cb192-18" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb192-19"><a href="matrix.html#cb192-19" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3]</span></span>
+<span id="cb192-20"><a href="matrix.html#cb192-20" tabindex="-1"></a><span class="do">## [1,]   19   22   25</span></span>
+<span id="cb192-21"><a href="matrix.html#cb192-21" tabindex="-1"></a><span class="do">## [2,]   20   23   26</span></span>
+<span id="cb192-22"><a href="matrix.html#cb192-22" tabindex="-1"></a><span class="do">## [3,]   21   24   27</span></span></code></pre></div>
+<p>All the main functions and selection operations we have seen for matrices and vectors can also be performed similarly with arrays. The general functioning of selecting elements using square brackets will now be clearer. For each dimension, the desired position indices are indicated. The order within the square brackets determines which specific dimension is being referred to, and commas are used to separate indices of different dimensions.</p>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="matrix.html#cb193-1" tabindex="-1"></a>my_hypercube[<span class="sc">&lt;</span>dim<span class="dv">-1</span><span class="sc">&gt;</span>, <span class="sc">&lt;</span>dim<span class="dv">-2</span><span class="sc">&gt;</span>, <span class="sc">&lt;</span>dim<span class="dv">-3</span><span class="sc">&gt;</span>, ..., <span class="sc">&lt;</span>dim<span class="sc">-</span>n<span class="sc">&gt;</span>]</span></code></pre></div>
+<p>Let’s now see some simple examples of selection.</p>
+<pre><code>## [1] 1
+## [1] 1 2 3
+##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9
+## , , 1
+## 
+##      [,1] [,2]
+## [1,]    1    4
+## [2,]    2    5
+## 
+## , , 2
+## 
+##      [,1] [,2]
+## [1,]   10   13
+## [2,]   11   14</code></pre>
+<div class="tip" title="Array Mother of All Matrix">
+<p>It is easy to see that matrices are simply a special case of arrays with 2 dimensions. In fact, the observant will have noticed that the value <code>"array"</code> appeared alongside <code>"matrix"</code> when evaluating the type of the object.</p>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="matrix.html#cb195-1" tabindex="-1"></a>my_matrix <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">2</span>)</span>
+<span id="cb195-2"><a href="matrix.html#cb195-2" tabindex="-1"></a><span class="do">## Warning in matrix(1:12, nrow = 2, ncol = 2): data length differs from size of</span></span>
+<span id="cb195-3"><a href="matrix.html#cb195-3" tabindex="-1"></a><span class="do">## matrix: [12 != 2 x 2]</span></span>
+<span id="cb195-4"><a href="matrix.html#cb195-4" tabindex="-1"></a><span class="fu">is.array</span>(my_matrix)</span>
+<span id="cb195-5"><a href="matrix.html#cb195-5" tabindex="-1"></a><span class="do">## [1] TRUE</span></span>
+<span id="cb195-6"><a href="matrix.html#cb195-6" tabindex="-1"></a><span class="fu">class</span>(my_matrix)</span>
+<span id="cb195-7"><a href="matrix.html#cb195-7" tabindex="-1"></a><span class="do">## [1] &quot;matrix&quot; &quot;array&quot;</span></span></code></pre></div>
+<p>However, note that a simple vector is not an array. Recall that a vector does not possess a dimension (<code>dim</code>) but simply a length (<code>length</code>).</p>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="matrix.html#cb196-1" tabindex="-1"></a>my_vector <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span></span>
+<span id="cb196-2"><a href="matrix.html#cb196-2" tabindex="-1"></a><span class="fu">is.array</span>(my_vector)</span>
+<span id="cb196-3"><a href="matrix.html#cb196-3" tabindex="-1"></a><span class="do">## [1] FALSE</span></span>
+<span id="cb196-4"><a href="matrix.html#cb196-4" tabindex="-1"></a><span class="fu">dim</span>(my_vector)</span>
+<span id="cb196-5"><a href="matrix.html#cb196-5" tabindex="-1"></a><span class="do">## NULL</span></span></code></pre></div>
+</div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="factor.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="dataframe.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

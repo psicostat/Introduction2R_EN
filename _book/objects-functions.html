@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter "4 Two Inseparable Companions | Introduction to R</title>
+  <meta name="description" content="This is an introductory book on R produced by Psicostat, an interdisciplinary research group that combines a passion for statistics and psychology." />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter "4 Two Inseparable Companions | Introduction to R" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://psicostat.github.io/Introduction2R_EN/images/logo_psicostat.png" />
+  <meta property="og:description" content="This is an introductory book on R produced by Psicostat, an interdisciplinary research group that combines a passion for statistics and psychology." />
+  <meta name="github-repo" content="psicostat/Introduction2R_EN" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter "4 Two Inseparable Companions | Introduction to R" />
+  
+  <meta name="twitter:description" content="This is an introductory book on R produced by Psicostat, an interdisciplinary research group that combines a passion for statistics and psychology." />
+  <meta name="twitter:image" content="https://psicostat.github.io/Introduction2R_EN/images/logo_psicostat.png" />
+
+<meta name="author" content="Claudio Zandonella Callegher and Filippo Gambarota (revision and translation into English by Enrico Toffalini), members of Psicostat" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="first-commands.html"/>
+<link rel="next" href="working-environment.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentation</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-r"><i class="fa fa-check"></i>Why R</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#contents"><i class="fa fa-check"></i>Contents</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#resources"><i class="fa fa-check"></i>Resources</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#psicostat"><i class="fa fa-check"></i>Psicostat</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#contribute"><i class="fa fa-check"></i>Contribute</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
+</ul></li>
+<li class="part"><span><b>Get Started</b></span></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="1" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>1</b> Installing R e RStudio</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="install.html"><a href="install.html#install-r"><i class="fa fa-check"></i><b>1.1</b> Installing R</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="install.html"><a href="install.html#r-windows"><i class="fa fa-check"></i><b>1.1.1</b> R Windows</a></li>
+<li class="chapter" data-level="1.1.2" data-path="install.html"><a href="install.html#r-macos"><i class="fa fa-check"></i><b>1.1.2</b> R MacOS</a></li>
+<li class="chapter" data-level="1.1.3" data-path="install.html"><a href="install.html#r-linux"><i class="fa fa-check"></i><b>1.1.3</b> R Linux</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="install.html"><a href="install.html#installing-r-studio"><i class="fa fa-check"></i><b>1.2</b> Installing R Studio</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="install.html"><a href="install.html#r-studio-on-linux"><i class="fa fa-check"></i><b>1.2.1</b> R Studio on Linux</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="rstudio-gui.html"><a href="rstudio-gui.html"><i class="fa fa-check"></i><b>2</b> RStudio Interface</a></li>
+<li class="chapter" data-level="3" data-path="first-commands.html"><a href="first-commands.html"><i class="fa fa-check"></i><b>3</b> First steps in R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="first-commands.html"><a href="first-commands.html#math-operators"><i class="fa fa-check"></i><b>3.1</b> Mathematical Operators</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="first-commands.html"><a href="first-commands.html#order-of-operations"><i class="fa fa-check"></i><b>3.1.1</b> Order of Operations</a></li>
+<li class="chapter" data-level="" data-path="first-commands.html"><a href="first-commands.html#exercises"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="first-commands.html"><a href="first-commands.html#operators-rel-log"><i class="fa fa-check"></i><b>3.2</b> Relational and Logical Operators</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="first-commands.html"><a href="first-commands.html#relational-operators"><i class="fa fa-check"></i><b>3.2.1</b> Relational Operators</a></li>
+<li class="chapter" data-level="3.2.2" data-path="first-commands.html"><a href="first-commands.html#logical-operators"><i class="fa fa-check"></i><b>3.2.2</b> Logical Operators</a></li>
+<li class="chapter" data-level="3.2.3" data-path="first-commands.html"><a href="first-commands.html#order-of-evaluation-of-relations"><i class="fa fa-check"></i><b>3.2.3</b> Order of Evaluation of Relations</a></li>
+<li class="chapter" data-level="" data-path="first-commands.html"><a href="first-commands.html#exercises-1"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="objects-functions.html"><a href="objects-functions.html"><i class="fa fa-check"></i><b>4</b> Two Inseparable Companions</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="objects-functions.html"><a href="objects-functions.html#objects-section"><i class="fa fa-check"></i><b>4.1</b> Objects</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="objects-functions.html"><a href="objects-functions.html#assign"><i class="fa fa-check"></i><b>4.1.1</b> Assigning and Calling an Object</a></li>
+<li class="chapter" data-level="4.1.2" data-path="objects-functions.html"><a href="objects-functions.html#objects-names"><i class="fa fa-check"></i><b>4.1.2</b> Object Names</a></li>
+<li class="chapter" data-level="4.1.3" data-path="objects-functions.html"><a href="objects-functions.html#data-types-and-data-structures"><i class="fa fa-check"></i><b>4.1.3</b> Data Types and Data Structures</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="objects-functions.html"><a href="objects-functions.html#functions-def"><i class="fa fa-check"></i><b>4.2</b> Functions</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="objects-functions.html"><a href="objects-functions.html#function-arguments"><i class="fa fa-check"></i><b>4.2.1</b> Function Arguments</a></li>
+<li class="chapter" data-level="4.2.2" data-path="objects-functions.html"><a href="objects-functions.html#help"><i class="fa fa-check"></i><b>4.2.2</b> Help! I need Somebody…Help!</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="working-environment.html"><a href="working-environment.html"><i class="fa fa-check"></i><b>5</b> Working Environment</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="working-environment.html"><a href="working-environment.html#environment"><i class="fa fa-check"></i><b>5.1</b> Environment</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="working-environment.html"><a href="working-environment.html#adding-objects-to-the-environment"><i class="fa fa-check"></i><b>5.1.1</b> Adding Objects to the Environment</a></li>
+<li class="chapter" data-level="5.1.2" data-path="working-environment.html"><a href="working-environment.html#removing-objects-from-the-environment"><i class="fa fa-check"></i><b>5.1.2</b> Removing Objects from the Environment</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="working-environment.html"><a href="working-environment.html#working-directory"><i class="fa fa-check"></i><b>5.2</b> Working Directory</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="working-environment.html"><a href="working-environment.html#computer-organization"><i class="fa fa-check"></i><b>5.2.1</b> Computer Organization</a></li>
+<li class="chapter" data-level="5.2.2" data-path="working-environment.html"><a href="working-environment.html#absolute-path-and-relative-path"><i class="fa fa-check"></i><b>5.2.2</b> Absolute Path and Relative Path</a></li>
+<li class="chapter" data-level="5.2.3" data-path="working-environment.html"><a href="working-environment.html#working-directory-in-r"><i class="fa fa-check"></i><b>5.2.3</b> Working Directory in R</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="working-environment.html"><a href="working-environment.html#packages"><i class="fa fa-check"></i><b>5.3</b> R-packages</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="working-environment.html"><a href="working-environment.html#install.packages"><i class="fa fa-check"></i><b>5.3.1</b> install.packages()</a></li>
+<li class="chapter" data-level="5.3.2" data-path="working-environment.html"><a href="working-environment.html#library"><i class="fa fa-check"></i><b>5.3.2</b> library()</a></li>
+<li class="chapter" data-level="5.3.3" data-path="working-environment.html"><a href="working-environment.html#updating-and-removing-packages"><i class="fa fa-check"></i><b>5.3.3</b> Updating and Removing Packages</a></li>
+<li class="chapter" data-level="5.3.4" data-path="working-environment.html"><a href="working-environment.html#package-documentation"><i class="fa fa-check"></i><b>5.3.4</b> Package Documentation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="working-session.html"><a href="working-session.html"><i class="fa fa-check"></i><b>6</b> Working Session</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="working-session.html"><a href="working-session.html#organizing-scripts"><i class="fa fa-check"></i><b>6.1</b> Organizing Scripts</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="working-session.html"><a href="working-session.html#creating-sections"><i class="fa fa-check"></i><b>6.1.1</b> Creating Sections</a></li>
+<li class="chapter" data-level="6.1.2" data-path="working-session.html"><a href="working-session.html#sintax"><i class="fa fa-check"></i><b>6.1.2</b> Syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="working-session.html"><a href="working-session.html#organizing-projects"><i class="fa fa-check"></i><b>6.2</b> Organizing Projects</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="working-session.html"><a href="working-session.html#rstudio-projects"><i class="fa fa-check"></i><b>6.2.1</b> RStudio Projects</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="working-session.html"><a href="working-session.html#messages-warnings-e-errors"><i class="fa fa-check"></i><b>6.3</b> Messages, Warnings e Errors</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="working-session.html"><a href="working-session.html#resolving-errors"><i class="fa fa-check"></i><b>6.3.1</b> Resolving Errors</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>Data Structures</b></span></li>
+<li class="chapter" data-level="" data-path="second-section.html"><a href="second-section.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="7" data-path="vector.html"><a href="vector.html"><i class="fa fa-check"></i><b>7</b> Vectors</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="vector.html"><a href="vector.html#creation"><i class="fa fa-check"></i><b>7.1</b> Creation</a>
+<ul>
+<li class="chapter" data-level="" data-path="vector.html"><a href="vector.html#exercises-2"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="vector.html"><a href="vector.html#vector-selection"><i class="fa fa-check"></i><b>7.2</b> Selecting Elements</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="vector.html"><a href="vector.html#vector-selection-advanced"><i class="fa fa-check"></i><b>7.2.1</b> Advanced Uses of Selection</a></li>
+<li class="chapter" data-level="" data-path="vector.html"><a href="vector.html#exercises-3"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="vector.html"><a href="vector.html#vector-functions"><i class="fa fa-check"></i><b>7.3</b> Functions and Operations</a>
+<ul>
+<li class="chapter" data-level="" data-path="vector.html"><a href="vector.html#exercises-4"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="vector.html"><a href="vector.html#data-type"><i class="fa fa-check"></i><b>7.4</b> Data Type</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="vector.html"><a href="vector.html#character"><i class="fa fa-check"></i><b>7.4.1</b> Character</a></li>
+<li class="chapter" data-level="7.4.2" data-path="vector.html"><a href="vector.html#numeric"><i class="fa fa-check"></i><b>7.4.2</b> Numeric</a></li>
+<li class="chapter" data-level="7.4.3" data-path="vector.html"><a href="vector.html#integer"><i class="fa fa-check"></i><b>7.4.3</b> Integer</a></li>
+<li class="chapter" data-level="7.4.4" data-path="vector.html"><a href="vector.html#logical-vector"><i class="fa fa-check"></i><b>7.4.4</b> Logical</a></li>
+<li class="chapter" data-level="7.4.5" data-path="vector.html"><a href="vector.html#special-values"><i class="fa fa-check"></i><b>7.4.5</b> Special Values</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="factor.html"><a href="factor.html"><i class="fa fa-check"></i><b>8</b> Factors</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="factor.html"><a href="factor.html#attributes"><i class="fa fa-check"></i><b>8.1</b> Object Attributes</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="factor.html"><a href="factor.html#attributes-of-a-vector"><i class="fa fa-check"></i><b>8.1.1</b> Attributes of a Vector</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="factor.html"><a href="factor.html#factors"><i class="fa fa-check"></i><b>8.2</b> Factors</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="factor.html"><a href="factor.html#factor-structure"><i class="fa fa-check"></i><b>8.2.1</b> Factor Structure</a></li>
+<li class="chapter" data-level="8.2.2" data-path="factor.html"><a href="factor.html#factor-operations"><i class="fa fa-check"></i><b>8.2.2</b> Factor Operations</a></li>
+<li class="chapter" data-level="8.2.3" data-path="factor.html"><a href="factor.html#ordinal-factors"><i class="fa fa-check"></i><b>8.2.3</b> Ordinal Factors</a></li>
+<li class="chapter" data-level="" data-path="factor.html"><a href="factor.html#exercises-5"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="matrix.html"><a href="matrix.html"><i class="fa fa-check"></i><b>9</b> Matrices</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="matrix.html"><a href="matrix.html#creation-1"><i class="fa fa-check"></i><b>9.1</b> Creation</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="matrix.html"><a href="matrix.html#matrix-types"><i class="fa fa-check"></i><b>9.1.1</b> Matrix types</a></li>
+<li class="chapter" data-level="" data-path="matrix.html"><a href="matrix.html#exercises-6"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="matrix.html"><a href="matrix.html#sel-matrix"><i class="fa fa-check"></i><b>9.2</b> Element Selection</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="matrix.html"><a href="matrix.html#matrix-selection-advanced"><i class="fa fa-check"></i><b>9.2.1</b> Advanced Selection Uses</a></li>
+<li class="chapter" data-level="" data-path="matrix.html"><a href="matrix.html#exercises-7"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="matrix.html"><a href="matrix.html#functions-and-operations"><i class="fa fa-check"></i><b>9.3</b> Functions and Operations</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="matrix.html"><a href="matrix.html#mat-prop"><i class="fa fa-check"></i><b>9.3.1</b> Attributes of a Matrix</a></li>
+<li class="chapter" data-level="9.3.2" data-path="matrix.html"><a href="matrix.html#matrix-bind"><i class="fa fa-check"></i><b>9.3.2</b> Combining Matrices</a></li>
+<li class="chapter" data-level="9.3.3" data-path="matrix.html"><a href="matrix.html#mathematical-operators"><i class="fa fa-check"></i><b>9.3.3</b> Mathematical Operators</a></li>
+<li class="chapter" data-level="" data-path="matrix.html"><a href="matrix.html#exercises-8"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="matrix.html"><a href="matrix.html#arrays"><i class="fa fa-check"></i><b>9.4</b> Arrays</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="dataframe.html"><a href="dataframe.html"><i class="fa fa-check"></i><b>10</b> Dataframe</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="dataframe.html"><a href="dataframe.html#creating-a-dataframe"><i class="fa fa-check"></i><b>10.1</b> Creating a dataframe</a>
+<ul>
+<li class="chapter" data-level="" data-path="dataframe.html"><a href="dataframe.html#exercises-9"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="dataframe.html"><a href="dataframe.html#sel-df"><i class="fa fa-check"></i><b>10.2</b> Selecting Elements</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="dataframe.html"><a href="dataframe.html#advanced-selection-uses"><i class="fa fa-check"></i><b>10.2.1</b> Advanced Selection Uses</a></li>
+<li class="chapter" data-level="" data-path="dataframe.html"><a href="dataframe.html#exercises-10"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="dataframe.html"><a href="dataframe.html#functions-and-operations-1"><i class="fa fa-check"></i><b>10.3</b> Functions and Operations</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="dataframe.html"><a href="dataframe.html#attributes-of-a-dataframe"><i class="fa fa-check"></i><b>10.3.1</b> Attributes of a Dataframe</a></li>
+<li class="chapter" data-level="10.3.2" data-path="dataframe.html"><a href="dataframe.html#merging-dataframes"><i class="fa fa-check"></i><b>10.3.2</b> Merging Dataframes</a></li>
+<li class="chapter" data-level="10.3.3" data-path="dataframe.html"><a href="dataframe.html#dataframe-information"><i class="fa fa-check"></i><b>10.3.3</b> Dataframe Information</a></li>
+<li class="chapter" data-level="" data-path="dataframe.html"><a href="dataframe.html#exercises-11"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="list.html"><a href="list.html"><i class="fa fa-check"></i><b>11</b> Lists</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="list.html"><a href="list.html#creating-lists"><i class="fa fa-check"></i><b>11.1</b> Creating Lists</a>
+<ul>
+<li class="chapter" data-level="" data-path="list.html"><a href="list.html#exercises-12"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="list.html"><a href="list.html#selecting-elements"><i class="fa fa-check"></i><b>11.2</b> Selecting Elements</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="list.html"><a href="list.html#advanced-selection-uses-1"><i class="fa fa-check"></i><b>11.2.1</b> Advanced Selection Uses</a></li>
+<li class="chapter" data-level="" data-path="list.html"><a href="list.html#exercises-13"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="list.html"><a href="list.html#functions-and-operations-2"><i class="fa fa-check"></i><b>11.3</b> Functions and Operations</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="list.html"><a href="list.html#attributes-of-a-list"><i class="fa fa-check"></i><b>11.3.1</b> Attributes of a List</a></li>
+<li class="chapter" data-level="11.3.2" data-path="list.html"><a href="list.html#merging-lists"><i class="fa fa-check"></i><b>11.3.2</b> Merging Lists</a></li>
+<li class="chapter" data-level="11.3.3" data-path="list.html"><a href="list.html#list-information"><i class="fa fa-check"></i><b>11.3.3</b> List Information</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="list.html"><a href="list.html#nested-structure"><i class="fa fa-check"></i><b>11.4</b> Nested Structure</a></li>
+</ul></li>
+<li class="part"><span><b>Algorithms</b></span></li>
+<li class="chapter" data-level="" data-path="third-section.html"><a href="third-section.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="12" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>12</b> Definition of Functions</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="functions.html"><a href="functions.html#creating-a-function"><i class="fa fa-check"></i><b>12.1</b> Creating a Function</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="functions.html"><a href="functions.html#defining-inputs-and-outputs"><i class="fa fa-check"></i><b>12.1.1</b> Defining Inputs and Outputs</a></li>
+<li class="chapter" data-level="" data-path="functions.html"><a href="functions.html#exercises-14"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="functions.html"><a href="functions.html#working-with-functions"><i class="fa fa-check"></i><b>12.2</b> Working with Functions</a></li>
+<li class="chapter" data-level="12.3" data-path="functions.html"><a href="functions.html#function-environment"><i class="fa fa-check"></i><b>12.3</b> Function Environment</a></li>
+<li class="chapter" data-level="12.4" data-path="functions.html"><a href="functions.html#best-practices"><i class="fa fa-check"></i><b>12.4</b> Best Practices</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="functions.html"><a href="functions.html#when-is-a-function-necessary"><i class="fa fa-check"></i><b>12.4.1</b> When is a Function Necessary?</a></li>
+<li class="chapter" data-level="12.4.2" data-path="functions.html"><a href="functions.html#choosing-the-name-of-a-function"><i class="fa fa-check"></i><b>12.4.2</b> Choosing the Name of a Function</a></li>
+<li class="chapter" data-level="12.4.3" data-path="functions.html"><a href="functions.html#simplifying-the-number-of-operations-and-outputs"><i class="fa fa-check"></i><b>12.4.3</b> Simplifying the Number of Operations and Outputs</a></li>
+<li class="chapter" data-level="12.4.4" data-path="functions.html"><a href="functions.html#commenting-and-documenting"><i class="fa fa-check"></i><b>12.4.4</b> Commenting and Documenting</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="functions.html"><a href="functions.html#importing-a-function"><i class="fa fa-check"></i><b>12.5</b> Importing a Function</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="conditionals.html"><a href="conditionals.html"><i class="fa fa-check"></i><b>13</b> Conditional Programming</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="conditionals.html"><a href="conditionals.html#conditional-structures"><i class="fa fa-check"></i><b>13.1</b> Conditional Structures</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="conditionals.html"><a href="conditionals.html#if"><i class="fa fa-check"></i><b>13.1.1</b> if</a></li>
+<li class="chapter" data-level="13.1.2" data-path="conditionals.html"><a href="conditionals.html#ifelse"><i class="fa fa-check"></i><b>13.1.2</b> if…else</a></li>
+<li class="chapter" data-level="13.1.3" data-path="conditionals.html"><a href="conditionals.html#nested"><i class="fa fa-check"></i><b>13.1.3</b> Nested</a></li>
+<li class="chapter" data-level="" data-path="conditionals.html"><a href="conditionals.html#exercises-15"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="conditionals.html"><a href="conditionals.html#other-conditional-operators"><i class="fa fa-check"></i><b>13.2</b> Other Conditional Operators</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="conditionals.html"><a href="conditionals.html#switch"><i class="fa fa-check"></i><b>13.2.1</b> switch</a></li>
+<li class="chapter" data-level="13.2.2" data-path="conditionals.html"><a href="conditionals.html#ifelse-1"><i class="fa fa-check"></i><b>13.2.2</b> ifelse</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="loop.html"><a href="loop.html"><i class="fa fa-check"></i><b>14</b> Iterative Programming</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="loop.html"><a href="loop.html#loops"><i class="fa fa-check"></i><b>14.1</b> Loops</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="loop.html"><a href="loop.html#for"><i class="fa fa-check"></i><b>14.1.1</b> For</a></li>
+<li class="chapter" data-level="14.1.2" data-path="loop.html"><a href="loop.html#while"><i class="fa fa-check"></i><b>14.1.2</b> While</a></li>
+<li class="chapter" data-level="14.1.3" data-path="loop.html"><a href="loop.html#next-and-break"><i class="fa fa-check"></i><b>14.1.3</b> Next and Break</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="loop.html"><a href="loop.html#nested-loops"><i class="fa fa-check"></i><b>14.2</b> Nested Loops</a>
+<ul>
+<li class="chapter" data-level="" data-path="loop.html"><a href="loop.html#exercises-16"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="loop.html"><a href="loop.html#apply-family"><i class="fa fa-check"></i><b>14.3</b> Apply Family</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="loop.html"><a href="loop.html#which-functions-to-apply"><i class="fa fa-check"></i><b>14.3.1</b> Which Functions to Apply?</a></li>
+<li class="chapter" data-level="14.3.2" data-path="loop.html"><a href="loop.html#apply"><i class="fa fa-check"></i><b>14.3.2</b> apply</a></li>
+<li class="chapter" data-level="14.3.3" data-path="loop.html"><a href="loop.html#tapply"><i class="fa fa-check"></i><b>14.3.3</b> tapply</a></li>
+<li class="chapter" data-level="14.3.4" data-path="loop.html"><a href="loop.html#lapply"><i class="fa fa-check"></i><b>14.3.4</b> lapply</a></li>
+<li class="chapter" data-level="14.3.5" data-path="loop.html"><a href="loop.html#sapply"><i class="fa fa-check"></i><b>14.3.5</b> sapply</a></li>
+<li class="chapter" data-level="14.3.6" data-path="loop.html"><a href="loop.html#vapply"><i class="fa fa-check"></i><b>14.3.6</b> vapply</a></li>
+<li class="chapter" data-level="14.3.7" data-path="loop.html"><a href="loop.html#list-of-functions-applied-to-a-list-of-objects"><i class="fa fa-check"></i><b>14.3.7</b> List of Functions Applied to a List of Objects</a></li>
+<li class="chapter" data-level="14.3.8" data-path="loop.html"><a href="loop.html#mapply"><i class="fa fa-check"></i><b>14.3.8</b> mapply</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="loop.html"><a href="loop.html#replicate"><i class="fa fa-check"></i><b>14.4</b> Replicate</a></li>
+</ul></li>
+<li class="part"><span><b>Case study</b></span></li>
+<li class="chapter" data-level="" data-path="introduction-1.html"><a href="introduction-1.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="15" data-path="attachment.html"><a href="attachment.html"><i class="fa fa-check"></i><b>15</b> Caso Studio I: Attachment</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="attachment.html"><a href="attachment.html#infobox"><i class="fa fa-check"></i><b>15.1</b> Infobox</a></li>
+</ul></li>
+<li class="part"><span><b>Advanced Topics</b></span></li>
+<li class="chapter" data-level="" data-path="fourth-section.html"><a href="fourth-section.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="16" data-path="strings.html"><a href="strings.html"><i class="fa fa-check"></i><b>16</b> Strings</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="strings.html"><a href="strings.html#comparing-strings"><i class="fa fa-check"></i><b>16.1</b> Comparing Strings</a></li>
+<li class="chapter" data-level="16.2" data-path="strings.html"><a href="strings.html#constructing-strings"><i class="fa fa-check"></i><b>16.2</b> Constructing Strings</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="strings.html"><a href="strings.html#tolower-and-toupper"><i class="fa fa-check"></i><b>16.2.1</b> <code>tolower()</code> and <code>toupper()</code></a></li>
+<li class="chapter" data-level="16.2.2" data-path="strings.html"><a href="strings.html#paste-and-paste0"><i class="fa fa-check"></i><b>16.2.2</b> <code>paste()</code> and <code>paste0()</code></a></li>
+<li class="chapter" data-level="16.2.3" data-path="strings.html"><a href="strings.html#sprinf"><i class="fa fa-check"></i><b>16.2.3</b> <code>sprinf()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="strings.html"><a href="strings.html#indexing-strings"><i class="fa fa-check"></i><b>16.3</b> Indexing Strings</a>
+<ul>
+<li class="chapter" data-level="16.3.1" data-path="strings.html"><a href="strings.html#nchar"><i class="fa fa-check"></i><b>16.3.1</b> <code>nchar()</code></a></li>
+<li class="chapter" data-level="16.3.2" data-path="strings.html"><a href="strings.html#gregexpr-and-regexpr"><i class="fa fa-check"></i><b>16.3.2</b> <code>gregexpr()</code> and <code>regexpr()</code></a></li>
+<li class="chapter" data-level="16.3.3" data-path="strings.html"><a href="strings.html#substr-and-substring"><i class="fa fa-check"></i><b>16.3.3</b> <code>substr()</code> and <code>substring()</code></a></li>
+<li class="chapter" data-level="16.3.4" data-path="strings.html"><a href="strings.html#startwith-and-endswith"><i class="fa fa-check"></i><b>16.3.4</b> <code>startWith()</code> and <code>endsWith()</code></a></li>
+<li class="chapter" data-level="16.3.5" data-path="strings.html"><a href="strings.html#grep-and-grepl"><i class="fa fa-check"></i><b>16.3.5</b> <code>grep()</code> and <code>grepl()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="strings.html"><a href="strings.html#manipulating-strings"><i class="fa fa-check"></i><b>16.4</b> Manipulating Strings</a>
+<ul>
+<li class="chapter" data-level="16.4.1" data-path="strings.html"><a href="strings.html#gsub-and-sub"><i class="fa fa-check"></i><b>16.4.1</b> <code>gsub()</code> and <code>sub()</code></a></li>
+<li class="chapter" data-level="16.4.2" data-path="strings.html"><a href="strings.html#strsplit"><i class="fa fa-check"></i><b>16.4.2</b> <code>strsplit()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="16.5" data-path="strings.html"><a href="strings.html#regular-expression-regex"><i class="fa fa-check"></i><b>16.5</b> Regular Expression (REGEX)</a></li>
+<li class="chapter" data-level="16.6" data-path="strings.html"><a href="strings.html#further-reading"><i class="fa fa-check"></i><b>16.6</b> Further Reading</a>
+<ul>
+<li class="chapter" data-level="16.6.1" data-path="strings.html"><a href="strings.html#useful-resources"><i class="fa fa-check"></i><b>16.6.1</b> Useful Resources</a></li>
+<li class="chapter" data-level="16.6.2" data-path="strings.html"><a href="strings.html#other-useful-functions"><i class="fa fa-check"></i><b>16.6.2</b> Other Useful Functions</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><span style="font-size: 2.5em">Introduction to R</span></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="objects-functions" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter "4</span> Two Inseparable Companions<a href="objects-functions.html#objects-functions" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In this chapter, we will introduce the concepts of objects and functions, two fundamental elements of R (and any programming language). We can think of objects in R as variables that allow us to store values in memory (e.g., the results of our calculations or our data). Functions in R, on the other hand, are analogous to mathematical functions that, given objects as input, perform actions and return new objects as output.</p>
+<p>This is a hyper-simplification (and technically incorrect), but it helps us understand how, starting with our initial data or values, we can manipulate them by applying functions to obtain, through different steps, the desired results (e.g., statistical analyses, graphs, or tables).</p>
+<p>Here, we will explore the fundamental aspects of using objects and functions, which will be further detailed in the <a href="second-section.html#second-section">Second Section</a> and the <a href="third-section.html#third-section">Third Section</a> of the book.</p>
+<div id="objects-section" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Objects<a href="objects-functions.html#objects-section" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>When we execute a command in R, the result is immediately displayed in the <em>Console</em>. However, this result is not saved in memory, meaning it cannot be reused in any future operations. Conducting analyses in this way would be extremely complicated and inefficient. The most obvious solution is to save our intermediate results in memory so that they can be reused during our analyses. This process is referred to as <em>assigning</em> a value to an object.</p>
+<div id="assign" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Assigning and Calling an Object<a href="objects-functions.html#assign" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To assign the numeric value 5 to the object <code>x</code>, the following command must be executed:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="objects-functions.html#cb3-1" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">5</span></span></code></pre></div>
+<p>The <code>=</code> operator allows us to assign the values on its right to the object whose name is defined on the left. Therefore, we have the following pattern: <code>&lt;object-name&gt; = &lt;assigned-value&gt;</code>. Notice how in the <em>Console</em>, only the command just executed appears, but no output is shown.</p>
+<p>To use the value contained in the object, it is sufficient to call the desired object’s name in the code.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="objects-functions.html#cb4-1" tabindex="-1"></a>x <span class="sc">+</span> <span class="dv">3</span></span>
+<span id="cb4-2"><a href="objects-functions.html#cb4-2" tabindex="-1"></a><span class="do">## [1] 8</span></span></code></pre></div>
+<p>It is also possible to “update” or “replace” the value contained in an object. For example:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="objects-functions.html#cb5-1" tabindex="-1"></a><span class="co"># Update the value of an object</span></span>
+<span id="cb5-2"><a href="objects-functions.html#cb5-2" tabindex="-1"></a>x <span class="ot">=</span> x<span class="sc">*</span><span class="dv">10</span></span>
+<span id="cb5-3"><a href="objects-functions.html#cb5-3" tabindex="-1"></a>x</span>
+<span id="cb5-4"><a href="objects-functions.html#cb5-4" tabindex="-1"></a><span class="do">## [1] 50</span></span>
+<span id="cb5-5"><a href="objects-functions.html#cb5-5" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="objects-functions.html#cb5-6" tabindex="-1"></a><span class="co"># Replace the value of an object</span></span>
+<span id="cb5-7"><a href="objects-functions.html#cb5-7" tabindex="-1"></a>x <span class="ot">=</span> <span class="st">&quot;Hello World!&quot;</span></span>
+<span id="cb5-8"><a href="objects-functions.html#cb5-8" tabindex="-1"></a>x</span>
+<span id="cb5-9"><a href="objects-functions.html#cb5-9" tabindex="-1"></a><span class="do">## [1] &quot;Hello World!&quot;</span></span></code></pre></div>
+<p>In the first case, we used the old value contained in <code>x</code> to calculate the new result, which was assigned to <code>x</code> itself. In the second case, we replaced the old value of <code>x</code> with a new value (in this example, a character string; note that in this second case, the <em>type</em> of the object <code>x</code> is also changed from numeric to character).</p>
+<div class="design" title="Assigning values &#39;=&#39; vs &#39;&lt;-&#39;">
+<p>There are two main operators used to assign a value to an object: the <code>=</code> operator and the <code>&lt;-</code> operator. Both are valid, and in most cases the choice between them just comes down to personal style. Note that <code>&lt;-</code> is very specific to R, while <code>=</code> is more commonly used across different programming languages.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="objects-functions.html#cb6-1" tabindex="-1"></a><span class="co"># Demonstration that `=` and `&lt;-` work equally for assigning a value and lead to the same result </span></span>
+<span id="cb6-2"><a href="objects-functions.html#cb6-2" tabindex="-1"></a>x_1 <span class="ot">=</span> <span class="dv">45</span></span>
+<span id="cb6-3"><a href="objects-functions.html#cb6-3" tabindex="-1"></a>x_2 <span class="ot">&lt;-</span> <span class="dv">45</span></span>
+<span id="cb6-4"><a href="objects-functions.html#cb6-4" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="objects-functions.html#cb6-5" tabindex="-1"></a><span class="co"># are they equal?</span></span>
+<span id="cb6-6"><a href="objects-functions.html#cb6-6" tabindex="-1"></a>x_1 <span class="sc">==</span> x_2 </span>
+<span id="cb6-7"><a href="objects-functions.html#cb6-7" tabindex="-1"></a><span class="do">## [1] TRUE</span></span></code></pre></div>
+<p>In fact, there may be some good reasons to prefer the use of <code>&lt;-</code> over <code>=</code> (be careful not to confuse the latter with the relational operator <code>==</code>). The assignment operation implies directionality, which is made explicit by the <code>&lt;-</code> symbol (i.e., what is on the right is assigned to what is on the left), while the <code>=</code> symbol does not explicitly highlight this aspect and even evokes the idea of equality in mathematics, thus potentially generating confusion in the reader.</p>
+<p>The decision on which operator to adopt is free, but remember that a good programming practice is <em>consistency</em>: once a decision is made, it’s best to stick with it to facilitate understanding of the code.</p>
+</div>
+</div>
+<div id="objects-names" class="section level3 hasAnchor" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Object Names<a href="objects-functions.html#objects-names" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Choosing object names may seem like a minor aspect, but it is actually very important for ensuring code clarity and comprehension.</p>
+<p>There are some rules that distinguish valid names from invalid ones. The name of an object:</p>
+<ul>
+<li>must start with a letter, and can contain letters, numbers, underscores (<code>_</code>), or periods (<code>.</code>);</li>
+<li>could also start with a period (<code>.</code>), but in that case, it cannot be followed by a number;</li>
+<li>must not contain special characters like <code>#</code>, <code>&amp;</code>, <code>$</code>, <code>?</code>, etc.;</li>
+<li>must not be a reserved word, meaning words used by R with special meanings (e.g., <code>TRUE</code>, <code>FALSE</code>, etc.; type <code>?reserved</code> in the <em>Console</em> and press <code>enter</code> for seeing a list of all reserved words in R in the <em>Help</em> panel).</li>
+</ul>
+<div class="warning" title="CaSe-SeNsItIvE">
+<p>Note that R is a <strong>Case-Sensitive</strong> language, meaning it distinguishes between lowercase and uppercase letters. In the following example, the two names are considered different, so no overwriting occurs, and two different objects are created:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="objects-functions.html#cb7-1" tabindex="-1"></a>My_name <span class="ot">=</span> <span class="st">&quot;Monty&quot;</span></span>
+<span id="cb7-2"><a href="objects-functions.html#cb7-2" tabindex="-1"></a>my_name <span class="ot">=</span> <span class="st">&quot;Python&quot;</span></span>
+<span id="cb7-3"><a href="objects-functions.html#cb7-3" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="objects-functions.html#cb7-4" tabindex="-1"></a><span class="co"># are they equal?</span></span>
+<span id="cb7-5"><a href="objects-functions.html#cb7-5" tabindex="-1"></a>My_name <span class="sc">==</span> my_name</span>
+<span id="cb7-6"><a href="objects-functions.html#cb7-6" tabindex="-1"></a><span class="do">## [1] FALSE</span></span></code></pre></div>
+</div>
+<p>Moreover, the ideal name for an object should be:</p>
+<ul>
+<li><strong>self-descriptive</strong>: From the name alone, it should be possible to infer the content of the object. A generic name like <code>x</code> or <code>y</code> would be of little help since they could contain any information. Instead, a name like <code>weight</code> or <code>gender</code> would clearly suggest the content of the object (e.g., the weight or gender of the participants in our study).</li>
+<li><strong>of the right length</strong>: It should not be too short (avoiding incomprehensible abbreviations) but not too long either. The correct length allows the name to be sufficiently informative without adding unnecessary details. Typically, 2 or 3 words are enough.</li>
+</ul>
+<div class="design" title="CamelCase vs snake_case">
+<p>Often, more than one word is used to create a sufficiently clear name. However, since spaces cannot be included in a name, the issue arises of how to combine multiple words without making the name incomprehensible, such as <code>mediatestcontrol</code>.</p>
+<p>There are several conventions, including:</p>
+<ul>
+<li><strong>CamelCase</strong>. The start of a new word is indicated by using an uppercase letter. For example, <code>mediaTestControl</code>.</li>
+<li><strong>snake_case</strong>. The start of a new word is indicated by using the <code>_</code> character. For example, <code>media_test_control</code>.</li>
+<li>a variation of the classic <strong>snake_case</strong> involves using <code>.</code>, for example, <code>media.test.control</code>. This latter approach is not recommended, however, because in many programming languages (including R itself under certain conditions), the <code>.</code> character is a special character.</li>
+</ul>
+<p>Generally, it is recommended to follow the <strong>snake_case</strong> convention. However, the decision on which convention to adopt is free, but remember again that a good programming practice is <em>consistency</em>: once a decision is made, it’s best to stick with it to facilitate understanding of the code.</p>
+</div>
+</div>
+<div id="data-types-and-data-structures" class="section level3 hasAnchor" number="4.1.3">
+<h3><span class="header-section-number">4.1.3</span> Data Types and Data Structures<a href="objects-functions.html#data-types-and-data-structures" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To work optimally in R, it is essential to be well-acquainted with and clearly distinguish between the different data types and structures used.</p>
+<p>In R, we have four main data types, which are types of values that can be used:</p>
+<ul>
+<li><code>character</code> - <em>Character strings</em> whose alphanumeric values are enclosed in double quotes like <code>"Hello world!"</code> or single quotes like <code>'Hello world!'</code>.</li>
+<li><code>double</code> - <em>Real numerical values</em> with or without decimal points, such as <code>27</code> or <code>93.46</code>.</li>
+<li><code>integer</code> - <em>Integer numerical values</em> defined by appending the letter <code>L</code> to the desired number, such as <code>58L</code>.</li>
+<li><code>logical</code> - <em>Logical values</em> <code>TRUE</code> and <code>FALSE</code> used in logical operations.</li>
+</ul>
+<p>If you want to know the data type of a value or variable you can use the <code>typeof()</code> function as follows:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="objects-functions.html#cb8-1" tabindex="-1"></a><span class="fu">typeof</span>(<span class="st">&quot;Psicostat&quot;</span>)</span>
+<span id="cb8-2"><a href="objects-functions.html#cb8-2" tabindex="-1"></a><span class="do">## [1] &quot;character&quot;</span></span>
+<span id="cb8-3"><a href="objects-functions.html#cb8-3" tabindex="-1"></a><span class="fu">typeof</span>(<span class="fl">24.04</span>)</span>
+<span id="cb8-4"><a href="objects-functions.html#cb8-4" tabindex="-1"></a><span class="do">## [1] &quot;double&quot;</span></span>
+<span id="cb8-5"><a href="objects-functions.html#cb8-5" tabindex="-1"></a><span class="fu">typeof</span>(1993L)</span>
+<span id="cb8-6"><a href="objects-functions.html#cb8-6" tabindex="-1"></a><span class="do">## [1] &quot;integer&quot;</span></span>
+<span id="cb8-7"><a href="objects-functions.html#cb8-7" tabindex="-1"></a><span class="fu">typeof</span>(<span class="cn">TRUE</span>)</span>
+<span id="cb8-8"><a href="objects-functions.html#cb8-8" tabindex="-1"></a><span class="do">## [1] &quot;logical&quot;</span></span></code></pre></div>
+<p>In R, we also have different types of objects, or structures in which data can be organized:</p>
+<ul>
+<li><strong>Vectors</strong></li>
+<li><strong>Matrices</strong></li>
+<li><strong>Dataframes</strong></li>
+<li><strong>Lists</strong></li>
+</ul>
+<p>We will explore their definition, characteristics, and usage in more detail throughout the <a href="second-section.html#second-section">Second Section</a> of this book.</p>
+</div>
+</div>
+<div id="functions-def" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Functions<a href="objects-functions.html#functions-def" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We can think of functions in R as being similar to classic mathematical functions. Given input values, functions perform specific calculations and return the obtained result as output.</p>
+<center>
+<img src="images/functions-graph.png" style="width:95.0%" />
+</center>
+<p><br></p>
+<p>We have already encountered our first functions for performing specific mathematical operations in Chapter <a href="first-commands.html#math-operators">3.1</a>, such as <code>sqrt()</code> or <code>abs()</code>, used to obtain the square root or absolute value of a number, respectively. Of course, functions in R are not limited to mathematical calculations; they can perform any kind of task, such as creating graphs and tables or manipulating data or files. However, the concept remains the same: given objects as input, functions perform certain actions and return new objects as output.</p>
+<p>In fact, we will encounter functions that require no input or produce no output. For example, <code>getwd()</code> requires no input (it just tells you the filepath representing the current working directory of R), or the function <code>rm()</code> produces no output (it just removes one or more objects that you pass as its input). However, this occurs in a minority of cases.</p>
+<div id="function-arguments" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Function Arguments<a href="objects-functions.html#function-arguments" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The function input is called “arguments”. Generally, to execute a function in R, you need to type the function’s name and indicate in parentheses the values (input) you want to assign to the function’s <strong>arguments</strong>, separated by commas. The following general syntax is used:</p>
+<center>
+<code>&lt;function-name&gt;(&lt;name-arg1&gt; = &lt;value-arg1&gt;, &lt;name-arg2&gt; = &lt;value-arg2&gt;,...)</code>
+</center>
+<p><span></span></p>
+<p>For example, to create a sequence of values with increments of 1, you can use the <code>seq()</code> function, whose arguments include (among others) <code>from</code>, <code>to</code>, and <code>by</code>, indicating the starting value, the maximal value of the sequence, and the increment respectively.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="objects-functions.html#cb9-1" tabindex="-1"></a><span class="co"># create a sequence of values from 0 to 10 with increments of 2</span></span>
+<span id="cb9-2"><a href="objects-functions.html#cb9-2" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">10</span>, <span class="at">by =</span> <span class="dv">2</span>)</span>
+<span id="cb9-3"><a href="objects-functions.html#cb9-3" tabindex="-1"></a><span class="do">## [1]  0  2  4  6  8 10</span></span></code></pre></div>
+<p>When defining a function’s arguments, it is not necessary to specify the names of the arguments. For example, the previous command can also be executed by specifying only the values.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="objects-functions.html#cb10-1" tabindex="-1"></a><span class="co"># create a sequence of values from 0 to 10 with increments of 2</span></span>
+<span id="cb10-2"><a href="objects-functions.html#cb10-2" tabindex="-1"></a><span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">2</span>)</span>
+<span id="cb10-3"><a href="objects-functions.html#cb10-3" tabindex="-1"></a><span class="do">## [1]  0  2  4  6  8 10</span></span></code></pre></div>
+<p>However, this makes reading and understanding the code more difficult because it is unclear which arguments the values refer to. In this case, the order in which the values are defined is important, as R assumes the predefined order of the arguments. Notice how swapping the values produces different results from the previous ones, but this does not happen when the argument names are specified.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="objects-functions.html#cb11-1" tabindex="-1"></a><span class="co"># swap previous values without specifying the argument names </span></span>
+<span id="cb11-2"><a href="objects-functions.html#cb11-2" tabindex="-1"></a><span class="co"># (so it will try going from 0 to 2 with increments of 10)</span></span>
+<span id="cb11-3"><a href="objects-functions.html#cb11-3" tabindex="-1"></a><span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">10</span>)</span>
+<span id="cb11-4"><a href="objects-functions.html#cb11-4" tabindex="-1"></a><span class="do">## [1] 0</span></span>
+<span id="cb11-5"><a href="objects-functions.html#cb11-5" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="objects-functions.html#cb11-6" tabindex="-1"></a><span class="co"># swap previous values, but specifying the argument names </span></span>
+<span id="cb11-7"><a href="objects-functions.html#cb11-7" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">by =</span> <span class="dv">2</span>, <span class="at">to =</span> <span class="dv">10</span>)</span>
+<span id="cb11-8"><a href="objects-functions.html#cb11-8" tabindex="-1"></a><span class="do">## [1]  0  2  4  6  8 10</span></span></code></pre></div>
+<p>We also see that functions can have many arguments, but it is not (always) necessary to specify the value for each one. Many arguments, in fact, have preset some <em>default</em> values and do not need to be specified unless, of course, you want to use settings different from the <em>default</em>. Additionally, specifying one argument over another can define the function’s behavior.</p>
+<p>For example, the <code>seq()</code> function also has the <code>length.out</code> argument, which was not specified earlier. It allows you to define the number of elements in the sequence. Let’s see how specifying <code>length.out</code> changes the function’s behavior.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="objects-functions.html#cb12-1" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>,  <span class="at">to =</span> <span class="dv">10</span>, <span class="at">length.out =</span> <span class="dv">5</span>)</span>
+<span id="cb12-2"><a href="objects-functions.html#cb12-2" tabindex="-1"></a><span class="do">## [1]  0.0  2.5  5.0  7.5 10.0</span></span>
+<span id="cb12-3"><a href="objects-functions.html#cb12-3" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>,  <span class="at">to =</span> <span class="dv">10</span>, <span class="at">length.out =</span> <span class="dv">5</span>, <span class="at">by =</span> <span class="dv">2</span>)</span>
+<span id="cb12-4"><a href="objects-functions.html#cb12-4" tabindex="-1"></a><span class="do">## Error in seq.default(from = 0, to = 10, length.out = 5, by = 2): too many arguments</span></span></code></pre></div>
+<p>In the second case, specifying both <code>length.out</code> and <code>by</code> produces an error, because the two arguments try to impose incompatible and contradictory request to the function’s behavior (i.e., with <code>length.out = 5</code> five numbers are requested as output, but this is incompatible with <code>by = 2</code> which would generate six numbers as output from 0 to 10).</p>
+<p>In general, it is advisable to always explicitly specify a function’s arguments to make it clear what the indicated values refer to, while ensuring that the arguments do not conflict with each other. This is also useful to avoid unwanted function behaviors and to more easily identify potential errors.</p>
+<p>Moreover, a function’s arguments require specific types and structures of data, and it is up to us to ensure that the data is provided in the correct manner. For example, the <code>mean()</code> function, which calculates the average of a set of values, requires a <em>vector</em> of numeric values as input. We will explore the concept of <em>vectors</em> in Chapter <a href="vector.html#vector">7</a>, but for now, we just need to know that we can use the <code>c()</code> function to combine multiple values into a single vector.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="objects-functions.html#cb13-1" tabindex="-1"></a><span class="co"># Calculate the average of the following numeric values</span></span>
+<span id="cb13-2"><a href="objects-functions.html#cb13-2" tabindex="-1"></a><span class="co"># use c() to combine multiple values into a single vector</span></span>
+<span id="cb13-3"><a href="objects-functions.html#cb13-3" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">80</span>, <span class="dv">60</span>, <span class="dv">120</span>)) </span>
+<span id="cb13-4"><a href="objects-functions.html#cb13-4" tabindex="-1"></a><span class="do">## [1] 67.5</span></span>
+<span id="cb13-5"><a href="objects-functions.html#cb13-5" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="objects-functions.html#cb13-6" tabindex="-1"></a><span class="fu">mean</span>(<span class="dv">10</span>, <span class="dv">80</span>, <span class="dv">60</span>, <span class="dv">120</span>)</span>
+<span id="cb13-7"><a href="objects-functions.html#cb13-7" tabindex="-1"></a><span class="do">## [1] 10</span></span></code></pre></div>
+<p>Notice how in the first case the result is correct, while in the second case it is wrong. This is because <code>mean()</code> requires a vector as the first argument. In the first case, we correctly specified the vector of values using the <code>c()</code> function. In the second case, however, the first argument is just the value <code>10</code>, and R calculates the average of <code>10</code> itself which is, of course, <code>10</code>. The remaining values are just passed to other arguments that do not alter the behavior but also fail to flag this major error.</p>
+<p>In the following example, we can see how <code>mean()</code> requires the values to be numeric. Although <code>"1"</code>, <code>"2"</code>, and <code>"3"</code> look like numbers, using double quotes turns them into character strings rather than numeric values, and R cannot calculate an average for characters.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="objects-functions.html#cb14-1" tabindex="-1"></a><span class="co"># Calculate the average of the following (character) values</span></span>
+<span id="cb14-2"><a href="objects-functions.html#cb14-2" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="st">&quot;1&quot;</span>, <span class="st">&quot;2&quot;</span>, <span class="st">&quot;3&quot;</span>))</span>
+<span id="cb14-3"><a href="objects-functions.html#cb14-3" tabindex="-1"></a><span class="do">## Warning in mean.default(c(&quot;1&quot;, &quot;2&quot;, &quot;3&quot;)): argument is not numeric or logical:</span></span>
+<span id="cb14-4"><a href="objects-functions.html#cb14-4" tabindex="-1"></a><span class="do">## returning NA</span></span>
+<span id="cb14-5"><a href="objects-functions.html#cb14-5" tabindex="-1"></a><span class="do">## [1] NA</span></span></code></pre></div>
+<p>We understand, therefore, that to correctly use functions, it is essential to know their arguments and respect the required data types and structures.</p>
+</div>
+<div id="help" class="section level3 hasAnchor" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Help! I need Somebody…Help!<a href="objects-functions.html#help" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>It is impossible to know all the functions and all their arguments. Fortunately, R helps us by easily providing documentation for each function. This documentation includes all the information regarding the function’s purpose, a description of its arguments, and details about its possible uses.</p>
+<p>To access the documentation, we can use the command <code>?&lt;function-name&gt;</code> or <code>help(&lt;function-name&gt;)</code>. For example:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="objects-functions.html#cb15-1" tabindex="-1"></a>?seq</span>
+<span id="cb15-2"><a href="objects-functions.html#cb15-2" tabindex="-1"></a><span class="fu">help</span>(seq)</span></code></pre></div>
+<p>A page will open in the “Help” panel in the bottom right with the function’s documentation, similar to what is shown in Figure <a href="objects-functions.html#fig:help-page">4.1</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:help-page"></span>
+<img src="images/help-seq.png" alt="Help-page for function `seq()`" width="85%" />
+<p class="caption">
+Figure 4.1: Help-page for function <code>seq()</code>
+</p>
+</div>
+<p>The format and information on the page follow common but not mandatory standards. In fact, not all fields are always used, and the function’s author has some degree of freedom in customizing the documentation. The main and most commonly used fields include:</p>
+<ul>
+<li><strong>Title</strong> - Explanatory title of the function’s purpose;</li>
+<li><strong>Description</strong> - Concise description of the function;</li>
+<li><strong>Usage</strong> - Displays the function’s structure with its arguments and default values;</li>
+<li><strong>Arguments</strong> - List with detailed descriptions of all the arguments. Here, we find both the available options and their effects, as well as the required data types;</li>
+<li><strong>Details</strong> - Detailed description of the function, including usage cases and technical notes;</li>
+<li><strong>Value</strong> - Description of the function’s output. This includes a description of the data structure of the output and the interpretation and use of the obtained results;</li>
+<li><strong>See Also</strong> - Links to other similar or related functions;</li>
+<li><strong>Examples</strong> - Examples of how to use the function.</li>
+</ul>
+<div id="word-search" class="section level4 unnumbered hasAnchor">
+<h4>Word Search<a href="objects-functions.html#word-search" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>When you don’t know the exact name of a function or want to search for all functions and pages that include a certain word, you can use the command <code>??&lt;word&gt;</code> or <code>help.search(&lt;word&gt;)</code>.</p>
+<p>R will perform a search across all available documentation and provide a list of pages that contain the desired word in the title or keywords.</p>
+<div class="trick" title="Autocomplete with &#39;Tab&#39;">
+<p>Programmers tend to be lazy and forgetful. Fortunately, every respectable <em>code editor</em> (i.e., a program for writing code) has helpful autocomplete and command suggestion functions that simplify code writing.</p>
+<p>In RStudio, suggestions appear automatically while typing a command, or they can be triggered by pressing the <code>Tab</code> key at the top left of the keyboard ( <img src="images/Tab.png" style="width:5.0%" /> ). A window will appear with possible autocomplete suggestions for the function name. Using the arrow keys, we can highlight the desired function and press <code>enter</code> to autocomplete the command. Notice how a small yellow box with the function’s description appears next to the function name.</p>
+<center>
+<img src="images/autocomplete-function.png" style="width:95.0%" />
+</center>
+<p><br></p>
+<p>To insert the function’s arguments, we can again rely on suggestions and the autocomplete function. Simply press the <code>Tab</code> key again, and this time a list of arguments with descriptions will appear. We can then select the desired argument with the arrows and press <code>enter</code>.</p>
+<center>
+<img src="images/autocomplete-arguments.png" style="width:95.0%" />
+</center>
+<p><br></p>
+<p>Notice how the autocomplete function is not only used for functions but also for object names. This allows us to quickly recall previously created objects without typing the entire name.</p>
+<center>
+<img src="images/autocomplete-objects.png" style="width:95.0%" />
+</center>
+<p><br></p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="first-commands.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="working-environment.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

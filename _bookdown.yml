@@ -1,0 +1,10 @@
+book_filename: "Introduction2R"
+repo: "https://github.com/psicostat/Introduction2R_EN"
+language:
+  ui:
+    chapter_name: Chapter "
+  label: 
+    fig: "Figure "
+    tab: "Table "
+delete_merged_file: true
+new_session: yes

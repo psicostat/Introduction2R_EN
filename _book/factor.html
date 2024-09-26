@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter "8 Factors | Introduction to R</title>
+  <meta name="description" content="This is an introductory book on R produced by Psicostat, an interdisciplinary research group that combines a passion for statistics and psychology." />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter "8 Factors | Introduction to R" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://psicostat.github.io/Introduction2R_EN/images/logo_psicostat.png" />
+  <meta property="og:description" content="This is an introductory book on R produced by Psicostat, an interdisciplinary research group that combines a passion for statistics and psychology." />
+  <meta name="github-repo" content="psicostat/Introduction2R_EN" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter "8 Factors | Introduction to R" />
+  
+  <meta name="twitter:description" content="This is an introductory book on R produced by Psicostat, an interdisciplinary research group that combines a passion for statistics and psychology." />
+  <meta name="twitter:image" content="https://psicostat.github.io/Introduction2R_EN/images/logo_psicostat.png" />
+
+<meta name="author" content="Claudio Zandonella Callegher and Filippo Gambarota (revision and translation into English by Enrico Toffalini), members of Psicostat" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="vector.html"/>
+<link rel="next" href="matrix.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentation</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-r"><i class="fa fa-check"></i>Why R</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#contents"><i class="fa fa-check"></i>Contents</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#resources"><i class="fa fa-check"></i>Resources</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#psicostat"><i class="fa fa-check"></i>Psicostat</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#contribute"><i class="fa fa-check"></i>Contribute</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
+</ul></li>
+<li class="part"><span><b>Get Started</b></span></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="1" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>1</b> Installing R e RStudio</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="install.html"><a href="install.html#install-r"><i class="fa fa-check"></i><b>1.1</b> Installing R</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="install.html"><a href="install.html#r-windows"><i class="fa fa-check"></i><b>1.1.1</b> R Windows</a></li>
+<li class="chapter" data-level="1.1.2" data-path="install.html"><a href="install.html#r-macos"><i class="fa fa-check"></i><b>1.1.2</b> R MacOS</a></li>
+<li class="chapter" data-level="1.1.3" data-path="install.html"><a href="install.html#r-linux"><i class="fa fa-check"></i><b>1.1.3</b> R Linux</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="install.html"><a href="install.html#installing-r-studio"><i class="fa fa-check"></i><b>1.2</b> Installing R Studio</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="install.html"><a href="install.html#r-studio-on-linux"><i class="fa fa-check"></i><b>1.2.1</b> R Studio on Linux</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="rstudio-gui.html"><a href="rstudio-gui.html"><i class="fa fa-check"></i><b>2</b> RStudio Interface</a></li>
+<li class="chapter" data-level="3" data-path="first-commands.html"><a href="first-commands.html"><i class="fa fa-check"></i><b>3</b> First steps in R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="first-commands.html"><a href="first-commands.html#math-operators"><i class="fa fa-check"></i><b>3.1</b> Mathematical Operators</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="first-commands.html"><a href="first-commands.html#order-of-operations"><i class="fa fa-check"></i><b>3.1.1</b> Order of Operations</a></li>
+<li class="chapter" data-level="" data-path="first-commands.html"><a href="first-commands.html#exercises"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="first-commands.html"><a href="first-commands.html#operators-rel-log"><i class="fa fa-check"></i><b>3.2</b> Relational and Logical Operators</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="first-commands.html"><a href="first-commands.html#relational-operators"><i class="fa fa-check"></i><b>3.2.1</b> Relational Operators</a></li>
+<li class="chapter" data-level="3.2.2" data-path="first-commands.html"><a href="first-commands.html#logical-operators"><i class="fa fa-check"></i><b>3.2.2</b> Logical Operators</a></li>
+<li class="chapter" data-level="3.2.3" data-path="first-commands.html"><a href="first-commands.html#order-of-evaluation-of-relations"><i class="fa fa-check"></i><b>3.2.3</b> Order of Evaluation of Relations</a></li>
+<li class="chapter" data-level="" data-path="first-commands.html"><a href="first-commands.html#exercises-1"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="objects-functions.html"><a href="objects-functions.html"><i class="fa fa-check"></i><b>4</b> Two Inseparable Companions</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="objects-functions.html"><a href="objects-functions.html#objects-section"><i class="fa fa-check"></i><b>4.1</b> Objects</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="objects-functions.html"><a href="objects-functions.html#assign"><i class="fa fa-check"></i><b>4.1.1</b> Assigning and Calling an Object</a></li>
+<li class="chapter" data-level="4.1.2" data-path="objects-functions.html"><a href="objects-functions.html#objects-names"><i class="fa fa-check"></i><b>4.1.2</b> Object Names</a></li>
+<li class="chapter" data-level="4.1.3" data-path="objects-functions.html"><a href="objects-functions.html#data-types-and-data-structures"><i class="fa fa-check"></i><b>4.1.3</b> Data Types and Data Structures</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="objects-functions.html"><a href="objects-functions.html#functions-def"><i class="fa fa-check"></i><b>4.2</b> Functions</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="objects-functions.html"><a href="objects-functions.html#function-arguments"><i class="fa fa-check"></i><b>4.2.1</b> Function Arguments</a></li>
+<li class="chapter" data-level="4.2.2" data-path="objects-functions.html"><a href="objects-functions.html#help"><i class="fa fa-check"></i><b>4.2.2</b> Help! I need Somebody…Help!</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="working-environment.html"><a href="working-environment.html"><i class="fa fa-check"></i><b>5</b> Working Environment</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="working-environment.html"><a href="working-environment.html#environment"><i class="fa fa-check"></i><b>5.1</b> Environment</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="working-environment.html"><a href="working-environment.html#adding-objects-to-the-environment"><i class="fa fa-check"></i><b>5.1.1</b> Adding Objects to the Environment</a></li>
+<li class="chapter" data-level="5.1.2" data-path="working-environment.html"><a href="working-environment.html#removing-objects-from-the-environment"><i class="fa fa-check"></i><b>5.1.2</b> Removing Objects from the Environment</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="working-environment.html"><a href="working-environment.html#working-directory"><i class="fa fa-check"></i><b>5.2</b> Working Directory</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="working-environment.html"><a href="working-environment.html#computer-organization"><i class="fa fa-check"></i><b>5.2.1</b> Computer Organization</a></li>
+<li class="chapter" data-level="5.2.2" data-path="working-environment.html"><a href="working-environment.html#absolute-path-and-relative-path"><i class="fa fa-check"></i><b>5.2.2</b> Absolute Path and Relative Path</a></li>
+<li class="chapter" data-level="5.2.3" data-path="working-environment.html"><a href="working-environment.html#working-directory-in-r"><i class="fa fa-check"></i><b>5.2.3</b> Working Directory in R</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="working-environment.html"><a href="working-environment.html#packages"><i class="fa fa-check"></i><b>5.3</b> R-packages</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="working-environment.html"><a href="working-environment.html#install.packages"><i class="fa fa-check"></i><b>5.3.1</b> install.packages()</a></li>
+<li class="chapter" data-level="5.3.2" data-path="working-environment.html"><a href="working-environment.html#library"><i class="fa fa-check"></i><b>5.3.2</b> library()</a></li>
+<li class="chapter" data-level="5.3.3" data-path="working-environment.html"><a href="working-environment.html#updating-and-removing-packages"><i class="fa fa-check"></i><b>5.3.3</b> Updating and Removing Packages</a></li>
+<li class="chapter" data-level="5.3.4" data-path="working-environment.html"><a href="working-environment.html#package-documentation"><i class="fa fa-check"></i><b>5.3.4</b> Package Documentation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="working-session.html"><a href="working-session.html"><i class="fa fa-check"></i><b>6</b> Working Session</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="working-session.html"><a href="working-session.html#organizing-scripts"><i class="fa fa-check"></i><b>6.1</b> Organizing Scripts</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="working-session.html"><a href="working-session.html#creating-sections"><i class="fa fa-check"></i><b>6.1.1</b> Creating Sections</a></li>
+<li class="chapter" data-level="6.1.2" data-path="working-session.html"><a href="working-session.html#sintax"><i class="fa fa-check"></i><b>6.1.2</b> Syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="working-session.html"><a href="working-session.html#organizing-projects"><i class="fa fa-check"></i><b>6.2</b> Organizing Projects</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="working-session.html"><a href="working-session.html#rstudio-projects"><i class="fa fa-check"></i><b>6.2.1</b> RStudio Projects</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="working-session.html"><a href="working-session.html#messages-warnings-e-errors"><i class="fa fa-check"></i><b>6.3</b> Messages, Warnings e Errors</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="working-session.html"><a href="working-session.html#resolving-errors"><i class="fa fa-check"></i><b>6.3.1</b> Resolving Errors</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>Data Structures</b></span></li>
+<li class="chapter" data-level="" data-path="second-section.html"><a href="second-section.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="7" data-path="vector.html"><a href="vector.html"><i class="fa fa-check"></i><b>7</b> Vectors</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="vector.html"><a href="vector.html#creation"><i class="fa fa-check"></i><b>7.1</b> Creation</a>
+<ul>
+<li class="chapter" data-level="" data-path="vector.html"><a href="vector.html#exercises-2"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="vector.html"><a href="vector.html#vector-selection"><i class="fa fa-check"></i><b>7.2</b> Selecting Elements</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="vector.html"><a href="vector.html#vector-selection-advanced"><i class="fa fa-check"></i><b>7.2.1</b> Advanced Uses of Selection</a></li>
+<li class="chapter" data-level="" data-path="vector.html"><a href="vector.html#exercises-3"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="vector.html"><a href="vector.html#vector-functions"><i class="fa fa-check"></i><b>7.3</b> Functions and Operations</a>
+<ul>
+<li class="chapter" data-level="" data-path="vector.html"><a href="vector.html#exercises-4"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="vector.html"><a href="vector.html#data-type"><i class="fa fa-check"></i><b>7.4</b> Data Type</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="vector.html"><a href="vector.html#character"><i class="fa fa-check"></i><b>7.4.1</b> Character</a></li>
+<li class="chapter" data-level="7.4.2" data-path="vector.html"><a href="vector.html#numeric"><i class="fa fa-check"></i><b>7.4.2</b> Numeric</a></li>
+<li class="chapter" data-level="7.4.3" data-path="vector.html"><a href="vector.html#integer"><i class="fa fa-check"></i><b>7.4.3</b> Integer</a></li>
+<li class="chapter" data-level="7.4.4" data-path="vector.html"><a href="vector.html#logical-vector"><i class="fa fa-check"></i><b>7.4.4</b> Logical</a></li>
+<li class="chapter" data-level="7.4.5" data-path="vector.html"><a href="vector.html#special-values"><i class="fa fa-check"></i><b>7.4.5</b> Special Values</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="factor.html"><a href="factor.html"><i class="fa fa-check"></i><b>8</b> Factors</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="factor.html"><a href="factor.html#attributes"><i class="fa fa-check"></i><b>8.1</b> Object Attributes</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="factor.html"><a href="factor.html#attributes-of-a-vector"><i class="fa fa-check"></i><b>8.1.1</b> Attributes of a Vector</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="factor.html"><a href="factor.html#factors"><i class="fa fa-check"></i><b>8.2</b> Factors</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="factor.html"><a href="factor.html#factor-structure"><i class="fa fa-check"></i><b>8.2.1</b> Factor Structure</a></li>
+<li class="chapter" data-level="8.2.2" data-path="factor.html"><a href="factor.html#factor-operations"><i class="fa fa-check"></i><b>8.2.2</b> Factor Operations</a></li>
+<li class="chapter" data-level="8.2.3" data-path="factor.html"><a href="factor.html#ordinal-factors"><i class="fa fa-check"></i><b>8.2.3</b> Ordinal Factors</a></li>
+<li class="chapter" data-level="" data-path="factor.html"><a href="factor.html#exercises-5"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="matrix.html"><a href="matrix.html"><i class="fa fa-check"></i><b>9</b> Matrices</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="matrix.html"><a href="matrix.html#creation-1"><i class="fa fa-check"></i><b>9.1</b> Creation</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="matrix.html"><a href="matrix.html#matrix-types"><i class="fa fa-check"></i><b>9.1.1</b> Matrix types</a></li>
+<li class="chapter" data-level="" data-path="matrix.html"><a href="matrix.html#exercises-6"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="matrix.html"><a href="matrix.html#sel-matrix"><i class="fa fa-check"></i><b>9.2</b> Element Selection</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="matrix.html"><a href="matrix.html#matrix-selection-advanced"><i class="fa fa-check"></i><b>9.2.1</b> Advanced Selection Uses</a></li>
+<li class="chapter" data-level="" data-path="matrix.html"><a href="matrix.html#exercises-7"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="matrix.html"><a href="matrix.html#functions-and-operations"><i class="fa fa-check"></i><b>9.3</b> Functions and Operations</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="matrix.html"><a href="matrix.html#mat-prop"><i class="fa fa-check"></i><b>9.3.1</b> Attributes of a Matrix</a></li>
+<li class="chapter" data-level="9.3.2" data-path="matrix.html"><a href="matrix.html#matrix-bind"><i class="fa fa-check"></i><b>9.3.2</b> Combining Matrices</a></li>
+<li class="chapter" data-level="9.3.3" data-path="matrix.html"><a href="matrix.html#mathematical-operators"><i class="fa fa-check"></i><b>9.3.3</b> Mathematical Operators</a></li>
+<li class="chapter" data-level="" data-path="matrix.html"><a href="matrix.html#exercises-8"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="matrix.html"><a href="matrix.html#arrays"><i class="fa fa-check"></i><b>9.4</b> Arrays</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="dataframe.html"><a href="dataframe.html"><i class="fa fa-check"></i><b>10</b> Dataframe</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="dataframe.html"><a href="dataframe.html#creating-a-dataframe"><i class="fa fa-check"></i><b>10.1</b> Creating a dataframe</a>
+<ul>
+<li class="chapter" data-level="" data-path="dataframe.html"><a href="dataframe.html#exercises-9"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="dataframe.html"><a href="dataframe.html#sel-df"><i class="fa fa-check"></i><b>10.2</b> Selecting Elements</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="dataframe.html"><a href="dataframe.html#advanced-selection-uses"><i class="fa fa-check"></i><b>10.2.1</b> Advanced Selection Uses</a></li>
+<li class="chapter" data-level="" data-path="dataframe.html"><a href="dataframe.html#exercises-10"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="dataframe.html"><a href="dataframe.html#functions-and-operations-1"><i class="fa fa-check"></i><b>10.3</b> Functions and Operations</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="dataframe.html"><a href="dataframe.html#attributes-of-a-dataframe"><i class="fa fa-check"></i><b>10.3.1</b> Attributes of a Dataframe</a></li>
+<li class="chapter" data-level="10.3.2" data-path="dataframe.html"><a href="dataframe.html#merging-dataframes"><i class="fa fa-check"></i><b>10.3.2</b> Merging Dataframes</a></li>
+<li class="chapter" data-level="10.3.3" data-path="dataframe.html"><a href="dataframe.html#dataframe-information"><i class="fa fa-check"></i><b>10.3.3</b> Dataframe Information</a></li>
+<li class="chapter" data-level="" data-path="dataframe.html"><a href="dataframe.html#exercises-11"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="list.html"><a href="list.html"><i class="fa fa-check"></i><b>11</b> Lists</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="list.html"><a href="list.html#creating-lists"><i class="fa fa-check"></i><b>11.1</b> Creating Lists</a>
+<ul>
+<li class="chapter" data-level="" data-path="list.html"><a href="list.html#exercises-12"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="list.html"><a href="list.html#selecting-elements"><i class="fa fa-check"></i><b>11.2</b> Selecting Elements</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="list.html"><a href="list.html#advanced-selection-uses-1"><i class="fa fa-check"></i><b>11.2.1</b> Advanced Selection Uses</a></li>
+<li class="chapter" data-level="" data-path="list.html"><a href="list.html#exercises-13"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="list.html"><a href="list.html#functions-and-operations-2"><i class="fa fa-check"></i><b>11.3</b> Functions and Operations</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="list.html"><a href="list.html#attributes-of-a-list"><i class="fa fa-check"></i><b>11.3.1</b> Attributes of a List</a></li>
+<li class="chapter" data-level="11.3.2" data-path="list.html"><a href="list.html#merging-lists"><i class="fa fa-check"></i><b>11.3.2</b> Merging Lists</a></li>
+<li class="chapter" data-level="11.3.3" data-path="list.html"><a href="list.html#list-information"><i class="fa fa-check"></i><b>11.3.3</b> List Information</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="list.html"><a href="list.html#nested-structure"><i class="fa fa-check"></i><b>11.4</b> Nested Structure</a></li>
+</ul></li>
+<li class="part"><span><b>Algorithms</b></span></li>
+<li class="chapter" data-level="" data-path="third-section.html"><a href="third-section.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="12" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>12</b> Definition of Functions</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="functions.html"><a href="functions.html#creating-a-function"><i class="fa fa-check"></i><b>12.1</b> Creating a Function</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="functions.html"><a href="functions.html#defining-inputs-and-outputs"><i class="fa fa-check"></i><b>12.1.1</b> Defining Inputs and Outputs</a></li>
+<li class="chapter" data-level="" data-path="functions.html"><a href="functions.html#exercises-14"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="functions.html"><a href="functions.html#working-with-functions"><i class="fa fa-check"></i><b>12.2</b> Working with Functions</a></li>
+<li class="chapter" data-level="12.3" data-path="functions.html"><a href="functions.html#function-environment"><i class="fa fa-check"></i><b>12.3</b> Function Environment</a></li>
+<li class="chapter" data-level="12.4" data-path="functions.html"><a href="functions.html#best-practices"><i class="fa fa-check"></i><b>12.4</b> Best Practices</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="functions.html"><a href="functions.html#when-is-a-function-necessary"><i class="fa fa-check"></i><b>12.4.1</b> When is a Function Necessary?</a></li>
+<li class="chapter" data-level="12.4.2" data-path="functions.html"><a href="functions.html#choosing-the-name-of-a-function"><i class="fa fa-check"></i><b>12.4.2</b> Choosing the Name of a Function</a></li>
+<li class="chapter" data-level="12.4.3" data-path="functions.html"><a href="functions.html#simplifying-the-number-of-operations-and-outputs"><i class="fa fa-check"></i><b>12.4.3</b> Simplifying the Number of Operations and Outputs</a></li>
+<li class="chapter" data-level="12.4.4" data-path="functions.html"><a href="functions.html#commenting-and-documenting"><i class="fa fa-check"></i><b>12.4.4</b> Commenting and Documenting</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="functions.html"><a href="functions.html#importing-a-function"><i class="fa fa-check"></i><b>12.5</b> Importing a Function</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="conditionals.html"><a href="conditionals.html"><i class="fa fa-check"></i><b>13</b> Conditional Programming</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="conditionals.html"><a href="conditionals.html#conditional-structures"><i class="fa fa-check"></i><b>13.1</b> Conditional Structures</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="conditionals.html"><a href="conditionals.html#if"><i class="fa fa-check"></i><b>13.1.1</b> if</a></li>
+<li class="chapter" data-level="13.1.2" data-path="conditionals.html"><a href="conditionals.html#ifelse"><i class="fa fa-check"></i><b>13.1.2</b> if…else</a></li>
+<li class="chapter" data-level="13.1.3" data-path="conditionals.html"><a href="conditionals.html#nested"><i class="fa fa-check"></i><b>13.1.3</b> Nested</a></li>
+<li class="chapter" data-level="" data-path="conditionals.html"><a href="conditionals.html#exercises-15"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="conditionals.html"><a href="conditionals.html#other-conditional-operators"><i class="fa fa-check"></i><b>13.2</b> Other Conditional Operators</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="conditionals.html"><a href="conditionals.html#switch"><i class="fa fa-check"></i><b>13.2.1</b> switch</a></li>
+<li class="chapter" data-level="13.2.2" data-path="conditionals.html"><a href="conditionals.html#ifelse-1"><i class="fa fa-check"></i><b>13.2.2</b> ifelse</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="loop.html"><a href="loop.html"><i class="fa fa-check"></i><b>14</b> Iterative Programming</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="loop.html"><a href="loop.html#loops"><i class="fa fa-check"></i><b>14.1</b> Loops</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="loop.html"><a href="loop.html#for"><i class="fa fa-check"></i><b>14.1.1</b> For</a></li>
+<li class="chapter" data-level="14.1.2" data-path="loop.html"><a href="loop.html#while"><i class="fa fa-check"></i><b>14.1.2</b> While</a></li>
+<li class="chapter" data-level="14.1.3" data-path="loop.html"><a href="loop.html#next-and-break"><i class="fa fa-check"></i><b>14.1.3</b> Next and Break</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="loop.html"><a href="loop.html#nested-loops"><i class="fa fa-check"></i><b>14.2</b> Nested Loops</a>
+<ul>
+<li class="chapter" data-level="" data-path="loop.html"><a href="loop.html#exercises-16"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="loop.html"><a href="loop.html#apply-family"><i class="fa fa-check"></i><b>14.3</b> Apply Family</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="loop.html"><a href="loop.html#which-functions-to-apply"><i class="fa fa-check"></i><b>14.3.1</b> Which Functions to Apply?</a></li>
+<li class="chapter" data-level="14.3.2" data-path="loop.html"><a href="loop.html#apply"><i class="fa fa-check"></i><b>14.3.2</b> apply</a></li>
+<li class="chapter" data-level="14.3.3" data-path="loop.html"><a href="loop.html#tapply"><i class="fa fa-check"></i><b>14.3.3</b> tapply</a></li>
+<li class="chapter" data-level="14.3.4" data-path="loop.html"><a href="loop.html#lapply"><i class="fa fa-check"></i><b>14.3.4</b> lapply</a></li>
+<li class="chapter" data-level="14.3.5" data-path="loop.html"><a href="loop.html#sapply"><i class="fa fa-check"></i><b>14.3.5</b> sapply</a></li>
+<li class="chapter" data-level="14.3.6" data-path="loop.html"><a href="loop.html#vapply"><i class="fa fa-check"></i><b>14.3.6</b> vapply</a></li>
+<li class="chapter" data-level="14.3.7" data-path="loop.html"><a href="loop.html#list-of-functions-applied-to-a-list-of-objects"><i class="fa fa-check"></i><b>14.3.7</b> List of Functions Applied to a List of Objects</a></li>
+<li class="chapter" data-level="14.3.8" data-path="loop.html"><a href="loop.html#mapply"><i class="fa fa-check"></i><b>14.3.8</b> mapply</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="loop.html"><a href="loop.html#replicate"><i class="fa fa-check"></i><b>14.4</b> Replicate</a></li>
+</ul></li>
+<li class="part"><span><b>Case study</b></span></li>
+<li class="chapter" data-level="" data-path="introduction-1.html"><a href="introduction-1.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="15" data-path="attachment.html"><a href="attachment.html"><i class="fa fa-check"></i><b>15</b> Caso Studio I: Attachment</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="attachment.html"><a href="attachment.html#infobox"><i class="fa fa-check"></i><b>15.1</b> Infobox</a></li>
+</ul></li>
+<li class="part"><span><b>Advanced Topics</b></span></li>
+<li class="chapter" data-level="" data-path="fourth-section.html"><a href="fourth-section.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="16" data-path="strings.html"><a href="strings.html"><i class="fa fa-check"></i><b>16</b> Strings</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="strings.html"><a href="strings.html#comparing-strings"><i class="fa fa-check"></i><b>16.1</b> Comparing Strings</a></li>
+<li class="chapter" data-level="16.2" data-path="strings.html"><a href="strings.html#constructing-strings"><i class="fa fa-check"></i><b>16.2</b> Constructing Strings</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="strings.html"><a href="strings.html#tolower-and-toupper"><i class="fa fa-check"></i><b>16.2.1</b> <code>tolower()</code> and <code>toupper()</code></a></li>
+<li class="chapter" data-level="16.2.2" data-path="strings.html"><a href="strings.html#paste-and-paste0"><i class="fa fa-check"></i><b>16.2.2</b> <code>paste()</code> and <code>paste0()</code></a></li>
+<li class="chapter" data-level="16.2.3" data-path="strings.html"><a href="strings.html#sprinf"><i class="fa fa-check"></i><b>16.2.3</b> <code>sprinf()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="strings.html"><a href="strings.html#indexing-strings"><i class="fa fa-check"></i><b>16.3</b> Indexing Strings</a>
+<ul>
+<li class="chapter" data-level="16.3.1" data-path="strings.html"><a href="strings.html#nchar"><i class="fa fa-check"></i><b>16.3.1</b> <code>nchar()</code></a></li>
+<li class="chapter" data-level="16.3.2" data-path="strings.html"><a href="strings.html#gregexpr-and-regexpr"><i class="fa fa-check"></i><b>16.3.2</b> <code>gregexpr()</code> and <code>regexpr()</code></a></li>
+<li class="chapter" data-level="16.3.3" data-path="strings.html"><a href="strings.html#substr-and-substring"><i class="fa fa-check"></i><b>16.3.3</b> <code>substr()</code> and <code>substring()</code></a></li>
+<li class="chapter" data-level="16.3.4" data-path="strings.html"><a href="strings.html#startwith-and-endswith"><i class="fa fa-check"></i><b>16.3.4</b> <code>startWith()</code> and <code>endsWith()</code></a></li>
+<li class="chapter" data-level="16.3.5" data-path="strings.html"><a href="strings.html#grep-and-grepl"><i class="fa fa-check"></i><b>16.3.5</b> <code>grep()</code> and <code>grepl()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="strings.html"><a href="strings.html#manipulating-strings"><i class="fa fa-check"></i><b>16.4</b> Manipulating Strings</a>
+<ul>
+<li class="chapter" data-level="16.4.1" data-path="strings.html"><a href="strings.html#gsub-and-sub"><i class="fa fa-check"></i><b>16.4.1</b> <code>gsub()</code> and <code>sub()</code></a></li>
+<li class="chapter" data-level="16.4.2" data-path="strings.html"><a href="strings.html#strsplit"><i class="fa fa-check"></i><b>16.4.2</b> <code>strsplit()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="16.5" data-path="strings.html"><a href="strings.html#regular-expression-regex"><i class="fa fa-check"></i><b>16.5</b> Regular Expression (REGEX)</a></li>
+<li class="chapter" data-level="16.6" data-path="strings.html"><a href="strings.html#further-reading"><i class="fa fa-check"></i><b>16.6</b> Further Reading</a>
+<ul>
+<li class="chapter" data-level="16.6.1" data-path="strings.html"><a href="strings.html#useful-resources"><i class="fa fa-check"></i><b>16.6.1</b> Useful Resources</a></li>
+<li class="chapter" data-level="16.6.2" data-path="strings.html"><a href="strings.html#other-useful-functions"><i class="fa fa-check"></i><b>16.6.2</b> Other Useful Functions</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><span style="font-size: 2.5em">Introduction to R</span></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="factor" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">Chapter "8</span> Factors<a href="factor.html#factor" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In this chapter, we will look at <em>factors</em>, a special type of vector used to store information about a categorical variable (nominal or ordinal). However, before introducing factors, we will describe what attributes of an object are. This will allow us to better understand the functionality of factors later on.</p>
+<div id="attributes" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Object Attributes<a href="factor.html#attributes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In R, objects have what are called <em>attributes</em>, which are useful pieces of information about the object itself, a kind of <em>metadata</em>. These pieces of information do not interfere with the values contained in the objects nor are they normally shown in the output of an object. However, they are particularly useful in some circumstances and allow us to provide special information associated with a specific object.</p>
+<p>Objects have different attributes depending on their type. However, the most commonly used ones include:</p>
+<ul>
+<li><strong>Class</strong> (<code>class</code>) - the class (or type) of an object. This allows us to verify the type of data structure for a particular object.</li>
+<li><strong>Names</strong> (<code>names</code>) - names of the elements of an object. For example, it allows you to assign names to the elements of a vector or to the rows and columns of a matrix or dataframe.</li>
+<li><strong>Dimension</strong> (<code>dim</code>) - the dimension of the object. This attribute is not available for vectors but will be particularly important in the case of matrices and dataframes.</li>
+</ul>
+<p>There are specific functions dedicated to evaluating and possibly modifying the attributes of an object. For example:</p>
+<ul>
+<li><code>attributes()</code> - lists all the attributes of an object</li>
+<li><code>class()</code> - accesses the <code>class</code> attribute of an object</li>
+<li><code>names()</code> - accesses the <code>names</code> attribute of an object</li>
+<li><code>dim()</code> - accesses the <code>dim</code> attribute of an object</li>
+</ul>
+<p>Let’s now see some uses of attributes with vectors. The attributes in the case of other object types will be addressed in their respective chapters.</p>
+<div id="attributes-of-a-vector" class="section level3 hasAnchor" number="8.1.1">
+<h3><span class="header-section-number">8.1.1</span> Attributes of a Vector<a href="factor.html#attributes-of-a-vector" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let’s see how a generic vector initially does not have any attributes.</p>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="factor.html#cb120-1" tabindex="-1"></a>my_vector <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb120-2"><a href="factor.html#cb120-2" tabindex="-1"></a></span>
+<span id="cb120-3"><a href="factor.html#cb120-3" tabindex="-1"></a><span class="fu">attributes</span>(my_vector)</span>
+<span id="cb120-4"><a href="factor.html#cb120-4" tabindex="-1"></a><span class="do">## NULL</span></span></code></pre></div>
+<div id="class" class="section level4 unnumbered hasAnchor">
+<h4>Class<a href="factor.html#class" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>By executing the <code>class()</code> function, however, we can still get the precise type of vector, in this case, <code>"integer"</code>.</p>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="factor.html#cb121-1" tabindex="-1"></a><span class="fu">class</span>(my_vector)</span>
+<span id="cb121-2"><a href="factor.html#cb121-2" tabindex="-1"></a><span class="do">## [1] &quot;integer&quot;</span></span></code></pre></div>
+</div>
+<div id="dimension" class="section level4 unnumbered hasAnchor">
+<h4>Dimension<a href="factor.html#dimension" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>As anticipated, the <code>dim</code> attribute is not available for vectors, though it will become very important in the case of matrices and dataframes. However, an analogous value for the size of a vector is given by its length, which is evaluated with the <code>length()</code> function.</p>
+<pre><code>## NULL
+## [1] 10</code></pre>
+</div>
+<div id="element-names" class="section level4 unnumbered hasAnchor">
+<h4>Element Names<a href="factor.html#element-names" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Initially, the elements of a vector do not have names.</p>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="factor.html#cb123-1" tabindex="-1"></a><span class="fu">names</span>(my_vector)</span>
+<span id="cb123-2"><a href="factor.html#cb123-2" tabindex="-1"></a><span class="do">## NULL</span></span></code></pre></div>
+<p>To set the names of the elements, we need to assign a character vector to <code>names(vector_name)</code>, containing the desired names, with the same length as the vector we are renaming.</p>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="factor.html#cb124-1" tabindex="-1"></a><span class="fu">names</span>(my_vector) <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&quot;Item_&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span>
+<span id="cb124-2"><a href="factor.html#cb124-2" tabindex="-1"></a>my_vector</span>
+<span id="cb124-3"><a href="factor.html#cb124-3" tabindex="-1"></a><span class="do">##  Item_1  Item_2  Item_3  Item_4  Item_5  Item_6  Item_7  Item_8  Item_9 Item_10 </span></span>
+<span id="cb124-4"><a href="factor.html#cb124-4" tabindex="-1"></a><span class="do">##       1       2       3       4       5       6       7       8       9      10</span></span></code></pre></div>
+<p>This process allows us to create what is called a <em>named vector</em>. We can see how the element names now appear among the object’s attributes.</p>
+<pre><code>## $names
+##  [1] &quot;Item_1&quot;  &quot;Item_2&quot;  &quot;Item_3&quot;  &quot;Item_4&quot;  &quot;Item_5&quot;  &quot;Item_6&quot;  &quot;Item_7&quot; 
+##  [8] &quot;Item_8&quot;  &quot;Item_9&quot;  &quot;Item_10&quot;</code></pre>
+<div class="trick" title="Selecting Named Vectors">
+<p>A particular use of named vectors is selecting values by their element names. Note that for this to work correctly, all elements must have different names.</p>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="factor.html#cb126-1" tabindex="-1"></a>my_vector[<span class="fu">c</span>(<span class="st">&quot;Item_3&quot;</span>, <span class="st">&quot;Item_5&quot;</span>)]</span>
+<span id="cb126-2"><a href="factor.html#cb126-2" tabindex="-1"></a><span class="do">## Item_3 Item_5 </span></span>
+<span id="cb126-3"><a href="factor.html#cb126-3" tabindex="-1"></a><span class="do">##      3      5</span></span></code></pre></div>
+<p>In the case of vectors, this approach is rarely used, but we will see that it becomes very common for selecting variables in a dataframe.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="factors" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Factors<a href="factor.html#factors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Factors are a special type of vector that, through the use of attributes, allow for the efficient storage of categorical variables (nominal or ordinal). The command used to create a factor in R is <code>factor()</code> and contains several arguments:</p>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="factor.html#cb127-1" tabindex="-1"></a>factor_name <span class="ot">=</span> <span class="fu">factor</span>(x, <span class="at">levels =</span> , <span class="at">ordered =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<ul>
+<li><code>x</code> - the data for our categorical variable</li>
+<li><code>levels</code>- the possible levels of our categorical variable</li>
+<li><code>ordered</code> - logical value indicating whether it is a nominal (<code>FALSE</code>) or ordinal (<code>TRUE</code>)</li>
+</ul>
+<p>For example, we could create the variable <code>eye_color</code> to record the eye color of members of a class:</p>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="factor.html#cb128-1" tabindex="-1"></a><span class="co"># Create the data</span></span>
+<span id="cb128-2"><a href="factor.html#cb128-2" tabindex="-1"></a>my_values <span class="ot">=</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;green&quot;</span>, <span class="st">&quot;brown&quot;</span>, <span class="st">&quot;blue&quot;</span>), <span class="at">times =</span> <span class="dv">3</span>)</span>
+<span id="cb128-3"><a href="factor.html#cb128-3" tabindex="-1"></a>my_values</span>
+<span id="cb128-4"><a href="factor.html#cb128-4" tabindex="-1"></a><span class="do">## [1] &quot;green&quot; &quot;brown&quot; &quot;blue&quot;  &quot;green&quot; &quot;brown&quot; &quot;blue&quot;  &quot;green&quot; &quot;brown&quot; &quot;blue&quot;</span></span>
+<span id="cb128-5"><a href="factor.html#cb128-5" tabindex="-1"></a></span>
+<span id="cb128-6"><a href="factor.html#cb128-6" tabindex="-1"></a><span class="co"># Create the factor</span></span>
+<span id="cb128-7"><a href="factor.html#cb128-7" tabindex="-1"></a>my_factor <span class="ot">=</span> <span class="fu">factor</span>(my_values)</span>
+<span id="cb128-8"><a href="factor.html#cb128-8" tabindex="-1"></a>my_factor</span>
+<span id="cb128-9"><a href="factor.html#cb128-9" tabindex="-1"></a><span class="do">## [1] green brown blue  green brown blue  green brown blue </span></span>
+<span id="cb128-10"><a href="factor.html#cb128-10" tabindex="-1"></a><span class="do">## Levels: blue brown green</span></span></code></pre></div>
+<p>Note that it is not necessary to specify the <code>levels</code> argument. The levels of the variable are automatically determined from the data present and ordered alphabetically. However, specifying the levels when creating a factor allows us to define the order of the levels and even include levels not present in the data.</p>
+<div id="factor-structure" class="section level3 hasAnchor" number="8.2.1">
+<h3><span class="header-section-number">8.2.1</span> Factor Structure<a href="factor.html#factor-structure" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let’s now understand the structure of factors and the use of attributes.</p>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="factor.html#cb129-1" tabindex="-1"></a><span class="fu">attributes</span>(my_factor)</span>
+<span id="cb129-2"><a href="factor.html#cb129-2" tabindex="-1"></a><span class="do">## $levels</span></span>
+<span id="cb129-3"><a href="factor.html#cb129-3" tabindex="-1"></a><span class="do">## [1] &quot;blue&quot;  &quot;brown&quot; &quot;green&quot;</span></span>
+<span id="cb129-4"><a href="factor.html#cb129-4" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb129-5"><a href="factor.html#cb129-5" tabindex="-1"></a><span class="do">## $class</span></span>
+<span id="cb129-6"><a href="factor.html#cb129-6" tabindex="-1"></a><span class="do">## [1] &quot;factor&quot;</span></span></code></pre></div>
+<p>We see that the class of the object is <code>factor</code> and that there is an additional <code>levels</code> attribute where the possible levels of our variable are stored. But now pay attention to what we get when we evaluate the data type contained in the factor and its structure.</p>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="factor.html#cb130-1" tabindex="-1"></a><span class="co"># Data type</span></span>
+<span id="cb130-2"><a href="factor.html#cb130-2" tabindex="-1"></a><span class="fu">typeof</span>(my_factor)</span>
+<span id="cb130-3"><a href="factor.html#cb130-3" tabindex="-1"></a><span class="do">## [1] &quot;integer&quot;</span></span>
+<span id="cb130-4"><a href="factor.html#cb130-4" tabindex="-1"></a></span>
+<span id="cb130-5"><a href="factor.html#cb130-5" tabindex="-1"></a><span class="co"># Structure</span></span>
+<span id="cb130-6"><a href="factor.html#cb130-6" tabindex="-1"></a><span class="fu">str</span>(my_factor)</span>
+<span id="cb130-7"><a href="factor.html#cb130-7" tabindex="-1"></a><span class="do">##  Factor w/ 3 levels &quot;blue&quot;,&quot;brown&quot;,..: 3 2 1 3 2 1 3 2 1</span></span></code></pre></div>
+<p>We would have expected to get <code>character</code>, thinking that the factor stores the values of our variable as strings. Instead, the factor is made of <code>integer</code> values, and the output of the <code>str()</code> command reports numeric values (along with the variable levels). How do we explain this?</p>
+<p>The solution is simple. When creating a factor, R evaluates the levels present, creating the <code>levels</code> attribute, and then replaces each element with a numeric value that indicates the level of the variable. Therefore, in our example, the value <code>1</code> is associated with the level <code>"blue"</code>, the value <code>2</code> with <code>"brown"</code>, and the value <code>3</code> with <code>"green"</code>. This approach optimizes memory usage but may initially seem unintuitive and can lead to errors.</p>
+<div class="warning" title="Beware of Conversion">
+<p>One of the main errors involves converting a factor back into a regular vector. If we want to get a vector of characters, we can use the <code>as.character()</code> function to get the desired result.</p>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="factor.html#cb131-1" tabindex="-1"></a><span class="fu">as.character</span>(my_factor)</span>
+<span id="cb131-2"><a href="factor.html#cb131-2" tabindex="-1"></a><span class="do">## [1] &quot;green&quot; &quot;brown&quot; &quot;blue&quot;  &quot;green&quot; &quot;brown&quot; &quot;blue&quot;  &quot;green&quot; &quot;brown&quot; &quot;blue&quot;</span></span></code></pre></div>
+<p>However, if we want to get a numeric vector, we need to be particularly careful. Consider the following example where we have the years of education of participants in a study. We might perform some analyses considering this variable as categorical and then convert it back to a numeric variable for further analysis. Watch what happens:</p>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="factor.html#cb132-1" tabindex="-1"></a><span class="co"># Create the variable as a factor</span></span>
+<span id="cb132-2"><a href="factor.html#cb132-2" tabindex="-1"></a>school_years <span class="ot">=</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="dv">11</span>, <span class="dv">8</span>, <span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">11</span>, <span class="dv">4</span>, <span class="dv">11</span>, <span class="dv">8</span>))</span>
+<span id="cb132-3"><a href="factor.html#cb132-3" tabindex="-1"></a>school_years</span>
+<span id="cb132-4"><a href="factor.html#cb132-4" tabindex="-1"></a><span class="do">## [1] 11 8  4  8  11 4  11 8 </span></span>
+<span id="cb132-5"><a href="factor.html#cb132-5" tabindex="-1"></a><span class="do">## Levels: 4 8 11</span></span>
+<span id="cb132-6"><a href="factor.html#cb132-6" tabindex="-1"></a></span>
+<span id="cb132-7"><a href="factor.html#cb132-7" tabindex="-1"></a><span class="co"># Convert to a numeric vector</span></span>
+<span id="cb132-8"><a href="factor.html#cb132-8" tabindex="-1"></a><span class="fu">as.numeric</span>(school_years)</span>
+<span id="cb132-9"><a href="factor.html#cb132-9" tabindex="-1"></a><span class="do">## [1] 3 2 1 2 3 1 3 2</span></span></code></pre></div>
+<p>Unexpectedly, we do not get the original values (i.e., 4, 8, 11) but different values. These are actually the numeric values R used to associate each element with its corresponding level. To get the correct values, we must use the following command:</p>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="factor.html#cb133-1" tabindex="-1"></a><span class="fu">as.numeric</span>(<span class="fu">as.character</span>(school_years))</span>
+<span id="cb133-2"><a href="factor.html#cb133-2" tabindex="-1"></a><span class="do">## [1] 11  8  4  8 11  4 11  8</span></span></code></pre></div>
+<p>This allows us to first replace the values with the correct <em>labels</em>, i.e., the levels of the variable, and then convert everything into a numeric vector.</p>
+<p>It’s important to be very careful in these cases because a potential error might not be immediately apparent.</p>
+</div>
+</div>
+<div id="factor-operations" class="section level3 hasAnchor" number="8.2.2">
+<h3><span class="header-section-number">8.2.2</span> Factor Operations<a href="factor.html#factor-operations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Now that we understand how factors work, let’s look at some common operations.</p>
+<div id="renaming-levels" class="section level4 unnumbered hasAnchor">
+<h4>Renaming Levels<a href="factor.html#renaming-levels" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>It is possible to rename the levels of a factor using the <code>levels()</code> function, which allows us to access the current levels and possibly replace them.</p>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="factor.html#cb134-1" tabindex="-1"></a>my_factor</span>
+<span id="cb134-2"><a href="factor.html#cb134-2" tabindex="-1"></a><span class="do">## [1] green brown blue  green brown blue  green brown blue </span></span>
+<span id="cb134-3"><a href="factor.html#cb134-3" tabindex="-1"></a><span class="do">## Levels: blue brown green</span></span>
+<span id="cb134-4"><a href="factor.html#cb134-4" tabindex="-1"></a><span class="co"># Current levels</span></span>
+<span id="cb134-5"><a href="factor.html#cb134-5" tabindex="-1"></a><span class="fu">levels</span>(my_factor)</span>
+<span id="cb134-6"><a href="factor.html#cb134-6" tabindex="-1"></a><span class="do">## [1] &quot;blue&quot;  &quot;brown&quot; &quot;green&quot;</span></span>
+<span id="cb134-7"><a href="factor.html#cb134-7" tabindex="-1"></a></span>
+<span id="cb134-8"><a href="factor.html#cb134-8" tabindex="-1"></a><span class="co"># Rename the levels (just replace with Italian color names)</span></span>
+<span id="cb134-9"><a href="factor.html#cb134-9" tabindex="-1"></a><span class="fu">levels</span>(my_factor) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;blu&quot;</span>, <span class="st">&quot;marrone&quot;</span>, <span class="st">&quot;verde&quot;</span>)</span>
+<span id="cb134-10"><a href="factor.html#cb134-10" tabindex="-1"></a>my_factor</span>
+<span id="cb134-11"><a href="factor.html#cb134-11" tabindex="-1"></a><span class="do">## [1] verde   marrone blu     verde   marrone blu     verde   marrone blu    </span></span>
+<span id="cb134-12"><a href="factor.html#cb134-12" tabindex="-1"></a><span class="do">## Levels: blu marrone verde</span></span></code></pre></div>
+</div>
+<div id="reordering-levels" class="section level4 unnumbered hasAnchor">
+<h4>Reordering Levels<a href="factor.html#reordering-levels" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>It is important not to confuse reordering levels with renaming them. In the first case, only the order of the levels is modified, while in the second case, all the actual values of the elements would be changed. Generally, it is preferable to redefine the factor by specifying the <code>levels</code> argument.</p>
+<p>Let’s look at an example where we collect data regarding drug dosages:</p>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="factor.html#cb135-1" tabindex="-1"></a>dosage <span class="ot">=</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;medium&quot;</span>, <span class="st">&quot;low&quot;</span>, <span class="st">&quot;high&quot;</span>), <span class="at">times =</span> <span class="dv">2</span>))</span>
+<span id="cb135-2"><a href="factor.html#cb135-2" tabindex="-1"></a>dosage</span>
+<span id="cb135-3"><a href="factor.html#cb135-3" tabindex="-1"></a><span class="do">## [1] medium low    high   medium low    high  </span></span>
+<span id="cb135-4"><a href="factor.html#cb135-4" tabindex="-1"></a><span class="do">## Levels: high low medium</span></span></code></pre></div>
+<p>Without specifying the <code>levels</code> argument, the levels are automatically defined in alphabetical order. Let’s see what happens if, by mistake, we rename the levels instead of correctly reordering them.</p>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="factor.html#cb136-1" tabindex="-1"></a><span class="co"># Create a copy</span></span>
+<span id="cb136-2"><a href="factor.html#cb136-2" tabindex="-1"></a>dosage_wrong <span class="ot">=</span> dosage</span>
+<span id="cb136-3"><a href="factor.html#cb136-3" tabindex="-1"></a></span>
+<span id="cb136-4"><a href="factor.html#cb136-4" tabindex="-1"></a><span class="co"># ERROR: rename the levels</span></span>
+<span id="cb136-5"><a href="factor.html#cb136-5" tabindex="-1"></a><span class="fu">levels</span>(dosage_wrong) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;low&quot;</span>, <span class="st">&quot;medium&quot;</span>, <span class="st">&quot;high&quot;</span>)</span>
+<span id="cb136-6"><a href="factor.html#cb136-6" tabindex="-1"></a>dosage_wrong</span>
+<span id="cb136-7"><a href="factor.html#cb136-7" tabindex="-1"></a><span class="do">## [1] high   medium low    high   medium low   </span></span>
+<span id="cb136-8"><a href="factor.html#cb136-8" tabindex="-1"></a><span class="do">## Levels: low medium high</span></span></code></pre></div>
+<p>Note that this is a serious mistake because by renaming the levels, we have also changed the actual values of the elements. Now the values are all different and nonsensical.</p>
+<p>To correctly reorder the levels, we can reuse the <code>factor()</code> function, specifying the levels in the desired order.</p>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="factor.html#cb137-1" tabindex="-1"></a>dosage <span class="ot">=</span> <span class="fu">factor</span>(dosage, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;low&quot;</span>, <span class="st">&quot;medium&quot;</span>, <span class="st">&quot;high&quot;</span>))</span>
+<span id="cb137-2"><a href="factor.html#cb137-2" tabindex="-1"></a>dosage</span>
+<span id="cb137-3"><a href="factor.html#cb137-3" tabindex="-1"></a><span class="do">## [1] medium low    high   medium low    high  </span></span>
+<span id="cb137-4"><a href="factor.html#cb137-4" tabindex="-1"></a><span class="do">## Levels: low medium high</span></span></code></pre></div>
+<p>This way, we have reordered the levels as we wished without changing the actual values.</p>
+</div>
+<div id="extra" class="section level4 unnumbered hasAnchor">
+<h4>Extra<a href="factor.html#extra" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Several other operations are possible with factors. For instance, we might want to remove a certain level of a factor:</p>
+<ul>
+<li>if we make a subset of a factor and no longer have values associated with that level</li>
+<li>if we simply want to remove a level and the respective observations</li>
+</ul>
+<p>In these cases, we can use the <code>droplevels(x, exclude = ...)</code> function to remove certain levels:</p>
+<pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot;
+## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot;</code></pre>
+<p>As you can see, even though there are no more <code>c</code> values, the factor still retains all the initial levels:</p>
+<pre><code>##  [1] a a a a a a a a a a b b b b b
+## Levels: a b</code></pre>
+<p>You can also directly remove a level, but in this case, the corresponding values would become <code>NA</code>:</p>
+<pre><code>## [1] b b b b b c c
+## Levels: b c</code></pre>
+<p>Just as it is possible to remove a level, it is also possible to add a level to a factor simply by using the <code>factor()</code> command and specifying all the old levels plus the new one:</p>
+<pre><code>##  [1] &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; b    b    b    b    b   
+## [16] c    c   
+## Levels: b c newlevel</code></pre>
+<p>In this case, we used the <code>c(old_levels, new_level)</code> function to create a vector of new levels to use. Alternatively, we can also use the assignment method <code>levels(x) =</code> by specifying a vector of levels or by specifying a single value assigned to the new index:</p>
+<p>You can also combine two factors to obtain a single factor, merging the levels and their respective numeric values. Simply use the <code>c(fac1, fac2)</code> command:</p>
+<pre><code>##  [1] a a a a a b b b b b c c c c c d d d d d
+## Levels: a b c d</code></pre>
+<!-- TODO rbind() with new levels  -->
+</div>
+</div>
+<div id="ordinal-factors" class="section level3 hasAnchor" number="8.2.3">
+<h3><span class="header-section-number">8.2.3</span> Ordinal Factors<a href="factor.html#ordinal-factors" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Finally, let’s look at an example of an ordinal categorical variable. Going back to the previous example regarding drug dosage, it’s clear that there is an ordinal relationship between the various levels of the variable. To create an ordinal variable, we can specify the <code>ordered = TRUE</code> argument:</p>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="factor.html#cb143-1" tabindex="-1"></a>dosage_ord <span class="ot">=</span> <span class="fu">factor</span>(dosage, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;low&quot;</span>, <span class="st">&quot;medium&quot;</span>, <span class="st">&quot;high&quot;</span>), <span class="at">ordered =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb143-2"><a href="factor.html#cb143-2" tabindex="-1"></a>dosage_ord</span>
+<span id="cb143-3"><a href="factor.html#cb143-3" tabindex="-1"></a><span class="do">## [1] medium low    high   medium low    high  </span></span>
+<span id="cb143-4"><a href="factor.html#cb143-4" tabindex="-1"></a><span class="do">## Levels: low &lt; medium &lt; high</span></span></code></pre></div>
+<p>We notice that the ordinal nature of the levels is specified both when the levels are reported and in the object’s class.</p>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="factor.html#cb144-1" tabindex="-1"></a><span class="co"># Nominal categorical variable</span></span>
+<span id="cb144-2"><a href="factor.html#cb144-2" tabindex="-1"></a><span class="fu">class</span>(dosage)</span>
+<span id="cb144-3"><a href="factor.html#cb144-3" tabindex="-1"></a><span class="do">## [1] &quot;factor&quot;</span></span>
+<span id="cb144-4"><a href="factor.html#cb144-4" tabindex="-1"></a></span>
+<span id="cb144-5"><a href="factor.html#cb144-5" tabindex="-1"></a><span class="co"># Ordinal categorical variable</span></span>
+<span id="cb144-6"><a href="factor.html#cb144-6" tabindex="-1"></a><span class="fu">class</span>(dosage_ord)</span>
+<span id="cb144-7"><a href="factor.html#cb144-7" tabindex="-1"></a><span class="do">## [1] &quot;ordered&quot; &quot;factor&quot;</span></span></code></pre></div>
+<div class="tip" title="Variable Type Coding">
+<p>In R, it’s important to correctly code different variables by specifying their type. By appropriately distinguishing categorical variables (nominal and ordinal) from numerical variables and simple character variables, we gain numerous advantages. In R, many packages and functions adopt specific behaviors depending on the variable type, providing us with outputs and results consistent with the nature of the variable.</p>
+<p>Note, for example, how the output of the <code>summary()</code> function changes depending on the variable type.</p>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="factor.html#cb145-1" tabindex="-1"></a><span class="co"># Numerical variable</span></span>
+<span id="cb145-2"><a href="factor.html#cb145-2" tabindex="-1"></a><span class="fu">summary</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>)</span>
+<span id="cb145-3"><a href="factor.html#cb145-3" tabindex="-1"></a><span class="do">##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </span></span>
+<span id="cb145-4"><a href="factor.html#cb145-4" tabindex="-1"></a><span class="do">##     1.0     4.5     8.0     8.0    11.5    15.0</span></span>
+<span id="cb145-5"><a href="factor.html#cb145-5" tabindex="-1"></a></span>
+<span id="cb145-6"><a href="factor.html#cb145-6" tabindex="-1"></a><span class="co"># Categorical variable</span></span>
+<span id="cb145-7"><a href="factor.html#cb145-7" tabindex="-1"></a><span class="fu">summary</span>(dosage)</span>
+<span id="cb145-8"><a href="factor.html#cb145-8" tabindex="-1"></a><span class="do">##    low medium   high </span></span>
+<span id="cb145-9"><a href="factor.html#cb145-9" tabindex="-1"></a><span class="do">##      2      2      2</span></span></code></pre></div>
+<p>This will be particularly important when performing statistical analyses and creating charts and tables.</p>
+</div>
+</div>
+<div id="exercises-5" class="section level3 unnumbered hasAnchor">
+<h3>Exercises<a href="factor.html#exercises-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Complete the following exercises (<a href="https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-08-factors.R">solutions</a>):</p>
+<p>1.Create the categorical variable <code>gender</code> as defined below:</p>
+<pre><code>## [1] M F M F M F F F M
+## Levels: F M</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Rename the levels of the <code>genere</code> variable to <code>"women"</code> and <code>"men"</code>, respectively.</li>
+<li>Create the categorical variable <code>treatment</code> as defined below:</li>
+</ol>
+<pre><code>## [1] CBT            Psychoanalysis CBT            Psychoanalysis CBT           
+## [6] Psychoanalysis Control        Control        CBT           
+## Levels: CBT Control Psychoanalysis</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Correct the 7th and 8th observations in the <code>treatment</code> variable to <code>Medication</code>.</li>
+<li>Add the following new observations to the <code>treatment</code> variable:</li>
+</ol>
+<pre><code>## [1] &quot;Medication&quot; &quot;Control&quot;    &quot;Medication&quot;</code></pre>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="vector.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="matrix.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

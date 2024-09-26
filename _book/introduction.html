@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Introduction | Introduction to R</title>
+  <meta name="description" content="This is an introductory book on R produced by Psicostat, an interdisciplinary research group that combines a passion for statistics and psychology." />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Introduction | Introduction to R" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://psicostat.github.io/Introduction2R_EN/images/logo_psicostat.png" />
+  <meta property="og:description" content="This is an introductory book on R produced by Psicostat, an interdisciplinary research group that combines a passion for statistics and psychology." />
+  <meta name="github-repo" content="psicostat/Introduction2R_EN" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Introduction | Introduction to R" />
+  
+  <meta name="twitter:description" content="This is an introductory book on R produced by Psicostat, an interdisciplinary research group that combines a passion for statistics and psychology." />
+  <meta name="twitter:image" content="https://psicostat.github.io/Introduction2R_EN/images/logo_psicostat.png" />
+
+<meta name="author" content="Claudio Zandonella Callegher and Filippo Gambarota (revision and translation into English by Enrico Toffalini), members of Psicostat" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="install.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentation</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-r"><i class="fa fa-check"></i>Why R</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#contents"><i class="fa fa-check"></i>Contents</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#resources"><i class="fa fa-check"></i>Resources</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#psicostat"><i class="fa fa-check"></i>Psicostat</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#contribute"><i class="fa fa-check"></i>Contribute</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
+</ul></li>
+<li class="part"><span><b>Get Started</b></span></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="1" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>1</b> Installing R e RStudio</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="install.html"><a href="install.html#install-r"><i class="fa fa-check"></i><b>1.1</b> Installing R</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="install.html"><a href="install.html#r-windows"><i class="fa fa-check"></i><b>1.1.1</b> R Windows</a></li>
+<li class="chapter" data-level="1.1.2" data-path="install.html"><a href="install.html#r-macos"><i class="fa fa-check"></i><b>1.1.2</b> R MacOS</a></li>
+<li class="chapter" data-level="1.1.3" data-path="install.html"><a href="install.html#r-linux"><i class="fa fa-check"></i><b>1.1.3</b> R Linux</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="install.html"><a href="install.html#installing-r-studio"><i class="fa fa-check"></i><b>1.2</b> Installing R Studio</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="install.html"><a href="install.html#r-studio-on-linux"><i class="fa fa-check"></i><b>1.2.1</b> R Studio on Linux</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="rstudio-gui.html"><a href="rstudio-gui.html"><i class="fa fa-check"></i><b>2</b> RStudio Interface</a></li>
+<li class="chapter" data-level="3" data-path="first-commands.html"><a href="first-commands.html"><i class="fa fa-check"></i><b>3</b> First steps in R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="first-commands.html"><a href="first-commands.html#math-operators"><i class="fa fa-check"></i><b>3.1</b> Mathematical Operators</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="first-commands.html"><a href="first-commands.html#order-of-operations"><i class="fa fa-check"></i><b>3.1.1</b> Order of Operations</a></li>
+<li class="chapter" data-level="" data-path="first-commands.html"><a href="first-commands.html#exercises"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="first-commands.html"><a href="first-commands.html#operators-rel-log"><i class="fa fa-check"></i><b>3.2</b> Relational and Logical Operators</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="first-commands.html"><a href="first-commands.html#relational-operators"><i class="fa fa-check"></i><b>3.2.1</b> Relational Operators</a></li>
+<li class="chapter" data-level="3.2.2" data-path="first-commands.html"><a href="first-commands.html#logical-operators"><i class="fa fa-check"></i><b>3.2.2</b> Logical Operators</a></li>
+<li class="chapter" data-level="3.2.3" data-path="first-commands.html"><a href="first-commands.html#order-of-evaluation-of-relations"><i class="fa fa-check"></i><b>3.2.3</b> Order of Evaluation of Relations</a></li>
+<li class="chapter" data-level="" data-path="first-commands.html"><a href="first-commands.html#exercises-1"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="objects-functions.html"><a href="objects-functions.html"><i class="fa fa-check"></i><b>4</b> Two Inseparable Companions</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="objects-functions.html"><a href="objects-functions.html#objects-section"><i class="fa fa-check"></i><b>4.1</b> Objects</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="objects-functions.html"><a href="objects-functions.html#assign"><i class="fa fa-check"></i><b>4.1.1</b> Assigning and Calling an Object</a></li>
+<li class="chapter" data-level="4.1.2" data-path="objects-functions.html"><a href="objects-functions.html#objects-names"><i class="fa fa-check"></i><b>4.1.2</b> Object Names</a></li>
+<li class="chapter" data-level="4.1.3" data-path="objects-functions.html"><a href="objects-functions.html#data-types-and-data-structures"><i class="fa fa-check"></i><b>4.1.3</b> Data Types and Data Structures</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="objects-functions.html"><a href="objects-functions.html#functions-def"><i class="fa fa-check"></i><b>4.2</b> Functions</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="objects-functions.html"><a href="objects-functions.html#function-arguments"><i class="fa fa-check"></i><b>4.2.1</b> Function Arguments</a></li>
+<li class="chapter" data-level="4.2.2" data-path="objects-functions.html"><a href="objects-functions.html#help"><i class="fa fa-check"></i><b>4.2.2</b> Help! I need Somebody…Help!</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="working-environment.html"><a href="working-environment.html"><i class="fa fa-check"></i><b>5</b> Working Environment</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="working-environment.html"><a href="working-environment.html#environment"><i class="fa fa-check"></i><b>5.1</b> Environment</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="working-environment.html"><a href="working-environment.html#adding-objects-to-the-environment"><i class="fa fa-check"></i><b>5.1.1</b> Adding Objects to the Environment</a></li>
+<li class="chapter" data-level="5.1.2" data-path="working-environment.html"><a href="working-environment.html#removing-objects-from-the-environment"><i class="fa fa-check"></i><b>5.1.2</b> Removing Objects from the Environment</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="working-environment.html"><a href="working-environment.html#working-directory"><i class="fa fa-check"></i><b>5.2</b> Working Directory</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="working-environment.html"><a href="working-environment.html#computer-organization"><i class="fa fa-check"></i><b>5.2.1</b> Computer Organization</a></li>
+<li class="chapter" data-level="5.2.2" data-path="working-environment.html"><a href="working-environment.html#absolute-path-and-relative-path"><i class="fa fa-check"></i><b>5.2.2</b> Absolute Path and Relative Path</a></li>
+<li class="chapter" data-level="5.2.3" data-path="working-environment.html"><a href="working-environment.html#working-directory-in-r"><i class="fa fa-check"></i><b>5.2.3</b> Working Directory in R</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="working-environment.html"><a href="working-environment.html#packages"><i class="fa fa-check"></i><b>5.3</b> R-packages</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="working-environment.html"><a href="working-environment.html#install.packages"><i class="fa fa-check"></i><b>5.3.1</b> install.packages()</a></li>
+<li class="chapter" data-level="5.3.2" data-path="working-environment.html"><a href="working-environment.html#library"><i class="fa fa-check"></i><b>5.3.2</b> library()</a></li>
+<li class="chapter" data-level="5.3.3" data-path="working-environment.html"><a href="working-environment.html#updating-and-removing-packages"><i class="fa fa-check"></i><b>5.3.3</b> Updating and Removing Packages</a></li>
+<li class="chapter" data-level="5.3.4" data-path="working-environment.html"><a href="working-environment.html#package-documentation"><i class="fa fa-check"></i><b>5.3.4</b> Package Documentation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="working-session.html"><a href="working-session.html"><i class="fa fa-check"></i><b>6</b> Working Session</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="working-session.html"><a href="working-session.html#organizing-scripts"><i class="fa fa-check"></i><b>6.1</b> Organizing Scripts</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="working-session.html"><a href="working-session.html#creating-sections"><i class="fa fa-check"></i><b>6.1.1</b> Creating Sections</a></li>
+<li class="chapter" data-level="6.1.2" data-path="working-session.html"><a href="working-session.html#sintax"><i class="fa fa-check"></i><b>6.1.2</b> Syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="working-session.html"><a href="working-session.html#organizing-projects"><i class="fa fa-check"></i><b>6.2</b> Organizing Projects</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="working-session.html"><a href="working-session.html#rstudio-projects"><i class="fa fa-check"></i><b>6.2.1</b> RStudio Projects</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="working-session.html"><a href="working-session.html#messages-warnings-e-errors"><i class="fa fa-check"></i><b>6.3</b> Messages, Warnings e Errors</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="working-session.html"><a href="working-session.html#resolving-errors"><i class="fa fa-check"></i><b>6.3.1</b> Resolving Errors</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>Data Structures</b></span></li>
+<li class="chapter" data-level="" data-path="second-section.html"><a href="second-section.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="7" data-path="vector.html"><a href="vector.html"><i class="fa fa-check"></i><b>7</b> Vectors</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="vector.html"><a href="vector.html#creation"><i class="fa fa-check"></i><b>7.1</b> Creation</a>
+<ul>
+<li class="chapter" data-level="" data-path="vector.html"><a href="vector.html#exercises-2"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="vector.html"><a href="vector.html#vector-selection"><i class="fa fa-check"></i><b>7.2</b> Selecting Elements</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="vector.html"><a href="vector.html#vector-selection-advanced"><i class="fa fa-check"></i><b>7.2.1</b> Advanced Uses of Selection</a></li>
+<li class="chapter" data-level="" data-path="vector.html"><a href="vector.html#exercises-3"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="vector.html"><a href="vector.html#vector-functions"><i class="fa fa-check"></i><b>7.3</b> Functions and Operations</a>
+<ul>
+<li class="chapter" data-level="" data-path="vector.html"><a href="vector.html#exercises-4"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="vector.html"><a href="vector.html#data-type"><i class="fa fa-check"></i><b>7.4</b> Data Type</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="vector.html"><a href="vector.html#character"><i class="fa fa-check"></i><b>7.4.1</b> Character</a></li>
+<li class="chapter" data-level="7.4.2" data-path="vector.html"><a href="vector.html#numeric"><i class="fa fa-check"></i><b>7.4.2</b> Numeric</a></li>
+<li class="chapter" data-level="7.4.3" data-path="vector.html"><a href="vector.html#integer"><i class="fa fa-check"></i><b>7.4.3</b> Integer</a></li>
+<li class="chapter" data-level="7.4.4" data-path="vector.html"><a href="vector.html#logical-vector"><i class="fa fa-check"></i><b>7.4.4</b> Logical</a></li>
+<li class="chapter" data-level="7.4.5" data-path="vector.html"><a href="vector.html#special-values"><i class="fa fa-check"></i><b>7.4.5</b> Special Values</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="factor.html"><a href="factor.html"><i class="fa fa-check"></i><b>8</b> Factors</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="factor.html"><a href="factor.html#attributes"><i class="fa fa-check"></i><b>8.1</b> Object Attributes</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="factor.html"><a href="factor.html#attributes-of-a-vector"><i class="fa fa-check"></i><b>8.1.1</b> Attributes of a Vector</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="factor.html"><a href="factor.html#factors"><i class="fa fa-check"></i><b>8.2</b> Factors</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="factor.html"><a href="factor.html#factor-structure"><i class="fa fa-check"></i><b>8.2.1</b> Factor Structure</a></li>
+<li class="chapter" data-level="8.2.2" data-path="factor.html"><a href="factor.html#factor-operations"><i class="fa fa-check"></i><b>8.2.2</b> Factor Operations</a></li>
+<li class="chapter" data-level="8.2.3" data-path="factor.html"><a href="factor.html#ordinal-factors"><i class="fa fa-check"></i><b>8.2.3</b> Ordinal Factors</a></li>
+<li class="chapter" data-level="" data-path="factor.html"><a href="factor.html#exercises-5"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="matrix.html"><a href="matrix.html"><i class="fa fa-check"></i><b>9</b> Matrices</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="matrix.html"><a href="matrix.html#creation-1"><i class="fa fa-check"></i><b>9.1</b> Creation</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="matrix.html"><a href="matrix.html#matrix-types"><i class="fa fa-check"></i><b>9.1.1</b> Matrix types</a></li>
+<li class="chapter" data-level="" data-path="matrix.html"><a href="matrix.html#exercises-6"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="matrix.html"><a href="matrix.html#sel-matrix"><i class="fa fa-check"></i><b>9.2</b> Element Selection</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="matrix.html"><a href="matrix.html#matrix-selection-advanced"><i class="fa fa-check"></i><b>9.2.1</b> Advanced Selection Uses</a></li>
+<li class="chapter" data-level="" data-path="matrix.html"><a href="matrix.html#exercises-7"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="matrix.html"><a href="matrix.html#functions-and-operations"><i class="fa fa-check"></i><b>9.3</b> Functions and Operations</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="matrix.html"><a href="matrix.html#mat-prop"><i class="fa fa-check"></i><b>9.3.1</b> Attributes of a Matrix</a></li>
+<li class="chapter" data-level="9.3.2" data-path="matrix.html"><a href="matrix.html#matrix-bind"><i class="fa fa-check"></i><b>9.3.2</b> Combining Matrices</a></li>
+<li class="chapter" data-level="9.3.3" data-path="matrix.html"><a href="matrix.html#mathematical-operators"><i class="fa fa-check"></i><b>9.3.3</b> Mathematical Operators</a></li>
+<li class="chapter" data-level="" data-path="matrix.html"><a href="matrix.html#exercises-8"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="matrix.html"><a href="matrix.html#arrays"><i class="fa fa-check"></i><b>9.4</b> Arrays</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="dataframe.html"><a href="dataframe.html"><i class="fa fa-check"></i><b>10</b> Dataframe</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="dataframe.html"><a href="dataframe.html#creating-a-dataframe"><i class="fa fa-check"></i><b>10.1</b> Creating a dataframe</a>
+<ul>
+<li class="chapter" data-level="" data-path="dataframe.html"><a href="dataframe.html#exercises-9"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="dataframe.html"><a href="dataframe.html#sel-df"><i class="fa fa-check"></i><b>10.2</b> Selecting Elements</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="dataframe.html"><a href="dataframe.html#advanced-selection-uses"><i class="fa fa-check"></i><b>10.2.1</b> Advanced Selection Uses</a></li>
+<li class="chapter" data-level="" data-path="dataframe.html"><a href="dataframe.html#exercises-10"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="dataframe.html"><a href="dataframe.html#functions-and-operations-1"><i class="fa fa-check"></i><b>10.3</b> Functions and Operations</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="dataframe.html"><a href="dataframe.html#attributes-of-a-dataframe"><i class="fa fa-check"></i><b>10.3.1</b> Attributes of a Dataframe</a></li>
+<li class="chapter" data-level="10.3.2" data-path="dataframe.html"><a href="dataframe.html#merging-dataframes"><i class="fa fa-check"></i><b>10.3.2</b> Merging Dataframes</a></li>
+<li class="chapter" data-level="10.3.3" data-path="dataframe.html"><a href="dataframe.html#dataframe-information"><i class="fa fa-check"></i><b>10.3.3</b> Dataframe Information</a></li>
+<li class="chapter" data-level="" data-path="dataframe.html"><a href="dataframe.html#exercises-11"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="list.html"><a href="list.html"><i class="fa fa-check"></i><b>11</b> Lists</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="list.html"><a href="list.html#creating-lists"><i class="fa fa-check"></i><b>11.1</b> Creating Lists</a>
+<ul>
+<li class="chapter" data-level="" data-path="list.html"><a href="list.html#exercises-12"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="list.html"><a href="list.html#selecting-elements"><i class="fa fa-check"></i><b>11.2</b> Selecting Elements</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="list.html"><a href="list.html#advanced-selection-uses-1"><i class="fa fa-check"></i><b>11.2.1</b> Advanced Selection Uses</a></li>
+<li class="chapter" data-level="" data-path="list.html"><a href="list.html#exercises-13"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="list.html"><a href="list.html#functions-and-operations-2"><i class="fa fa-check"></i><b>11.3</b> Functions and Operations</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="list.html"><a href="list.html#attributes-of-a-list"><i class="fa fa-check"></i><b>11.3.1</b> Attributes of a List</a></li>
+<li class="chapter" data-level="11.3.2" data-path="list.html"><a href="list.html#merging-lists"><i class="fa fa-check"></i><b>11.3.2</b> Merging Lists</a></li>
+<li class="chapter" data-level="11.3.3" data-path="list.html"><a href="list.html#list-information"><i class="fa fa-check"></i><b>11.3.3</b> List Information</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="list.html"><a href="list.html#nested-structure"><i class="fa fa-check"></i><b>11.4</b> Nested Structure</a></li>
+</ul></li>
+<li class="part"><span><b>Algorithms</b></span></li>
+<li class="chapter" data-level="" data-path="third-section.html"><a href="third-section.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="12" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>12</b> Definition of Functions</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="functions.html"><a href="functions.html#creating-a-function"><i class="fa fa-check"></i><b>12.1</b> Creating a Function</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="functions.html"><a href="functions.html#defining-inputs-and-outputs"><i class="fa fa-check"></i><b>12.1.1</b> Defining Inputs and Outputs</a></li>
+<li class="chapter" data-level="" data-path="functions.html"><a href="functions.html#exercises-14"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="functions.html"><a href="functions.html#working-with-functions"><i class="fa fa-check"></i><b>12.2</b> Working with Functions</a></li>
+<li class="chapter" data-level="12.3" data-path="functions.html"><a href="functions.html#function-environment"><i class="fa fa-check"></i><b>12.3</b> Function Environment</a></li>
+<li class="chapter" data-level="12.4" data-path="functions.html"><a href="functions.html#best-practices"><i class="fa fa-check"></i><b>12.4</b> Best Practices</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="functions.html"><a href="functions.html#when-is-a-function-necessary"><i class="fa fa-check"></i><b>12.4.1</b> When is a Function Necessary?</a></li>
+<li class="chapter" data-level="12.4.2" data-path="functions.html"><a href="functions.html#choosing-the-name-of-a-function"><i class="fa fa-check"></i><b>12.4.2</b> Choosing the Name of a Function</a></li>
+<li class="chapter" data-level="12.4.3" data-path="functions.html"><a href="functions.html#simplifying-the-number-of-operations-and-outputs"><i class="fa fa-check"></i><b>12.4.3</b> Simplifying the Number of Operations and Outputs</a></li>
+<li class="chapter" data-level="12.4.4" data-path="functions.html"><a href="functions.html#commenting-and-documenting"><i class="fa fa-check"></i><b>12.4.4</b> Commenting and Documenting</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="functions.html"><a href="functions.html#importing-a-function"><i class="fa fa-check"></i><b>12.5</b> Importing a Function</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="conditionals.html"><a href="conditionals.html"><i class="fa fa-check"></i><b>13</b> Conditional Programming</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="conditionals.html"><a href="conditionals.html#conditional-structures"><i class="fa fa-check"></i><b>13.1</b> Conditional Structures</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="conditionals.html"><a href="conditionals.html#if"><i class="fa fa-check"></i><b>13.1.1</b> if</a></li>
+<li class="chapter" data-level="13.1.2" data-path="conditionals.html"><a href="conditionals.html#ifelse"><i class="fa fa-check"></i><b>13.1.2</b> if…else</a></li>
+<li class="chapter" data-level="13.1.3" data-path="conditionals.html"><a href="conditionals.html#nested"><i class="fa fa-check"></i><b>13.1.3</b> Nested</a></li>
+<li class="chapter" data-level="" data-path="conditionals.html"><a href="conditionals.html#exercises-15"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="conditionals.html"><a href="conditionals.html#other-conditional-operators"><i class="fa fa-check"></i><b>13.2</b> Other Conditional Operators</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="conditionals.html"><a href="conditionals.html#switch"><i class="fa fa-check"></i><b>13.2.1</b> switch</a></li>
+<li class="chapter" data-level="13.2.2" data-path="conditionals.html"><a href="conditionals.html#ifelse-1"><i class="fa fa-check"></i><b>13.2.2</b> ifelse</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="loop.html"><a href="loop.html"><i class="fa fa-check"></i><b>14</b> Iterative Programming</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="loop.html"><a href="loop.html#loops"><i class="fa fa-check"></i><b>14.1</b> Loops</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="loop.html"><a href="loop.html#for"><i class="fa fa-check"></i><b>14.1.1</b> For</a></li>
+<li class="chapter" data-level="14.1.2" data-path="loop.html"><a href="loop.html#while"><i class="fa fa-check"></i><b>14.1.2</b> While</a></li>
+<li class="chapter" data-level="14.1.3" data-path="loop.html"><a href="loop.html#next-and-break"><i class="fa fa-check"></i><b>14.1.3</b> Next and Break</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="loop.html"><a href="loop.html#nested-loops"><i class="fa fa-check"></i><b>14.2</b> Nested Loops</a>
+<ul>
+<li class="chapter" data-level="" data-path="loop.html"><a href="loop.html#exercises-16"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="loop.html"><a href="loop.html#apply-family"><i class="fa fa-check"></i><b>14.3</b> Apply Family</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="loop.html"><a href="loop.html#which-functions-to-apply"><i class="fa fa-check"></i><b>14.3.1</b> Which Functions to Apply?</a></li>
+<li class="chapter" data-level="14.3.2" data-path="loop.html"><a href="loop.html#apply"><i class="fa fa-check"></i><b>14.3.2</b> apply</a></li>
+<li class="chapter" data-level="14.3.3" data-path="loop.html"><a href="loop.html#tapply"><i class="fa fa-check"></i><b>14.3.3</b> tapply</a></li>
+<li class="chapter" data-level="14.3.4" data-path="loop.html"><a href="loop.html#lapply"><i class="fa fa-check"></i><b>14.3.4</b> lapply</a></li>
+<li class="chapter" data-level="14.3.5" data-path="loop.html"><a href="loop.html#sapply"><i class="fa fa-check"></i><b>14.3.5</b> sapply</a></li>
+<li class="chapter" data-level="14.3.6" data-path="loop.html"><a href="loop.html#vapply"><i class="fa fa-check"></i><b>14.3.6</b> vapply</a></li>
+<li class="chapter" data-level="14.3.7" data-path="loop.html"><a href="loop.html#list-of-functions-applied-to-a-list-of-objects"><i class="fa fa-check"></i><b>14.3.7</b> List of Functions Applied to a List of Objects</a></li>
+<li class="chapter" data-level="14.3.8" data-path="loop.html"><a href="loop.html#mapply"><i class="fa fa-check"></i><b>14.3.8</b> mapply</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="loop.html"><a href="loop.html#replicate"><i class="fa fa-check"></i><b>14.4</b> Replicate</a></li>
+</ul></li>
+<li class="part"><span><b>Case study</b></span></li>
+<li class="chapter" data-level="" data-path="introduction-1.html"><a href="introduction-1.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="15" data-path="attachment.html"><a href="attachment.html"><i class="fa fa-check"></i><b>15</b> Caso Studio I: Attachment</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="attachment.html"><a href="attachment.html#infobox"><i class="fa fa-check"></i><b>15.1</b> Infobox</a></li>
+</ul></li>
+<li class="part"><span><b>Advanced Topics</b></span></li>
+<li class="chapter" data-level="" data-path="fourth-section.html"><a href="fourth-section.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="16" data-path="strings.html"><a href="strings.html"><i class="fa fa-check"></i><b>16</b> Strings</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="strings.html"><a href="strings.html#comparing-strings"><i class="fa fa-check"></i><b>16.1</b> Comparing Strings</a></li>
+<li class="chapter" data-level="16.2" data-path="strings.html"><a href="strings.html#constructing-strings"><i class="fa fa-check"></i><b>16.2</b> Constructing Strings</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="strings.html"><a href="strings.html#tolower-and-toupper"><i class="fa fa-check"></i><b>16.2.1</b> <code>tolower()</code> and <code>toupper()</code></a></li>
+<li class="chapter" data-level="16.2.2" data-path="strings.html"><a href="strings.html#paste-and-paste0"><i class="fa fa-check"></i><b>16.2.2</b> <code>paste()</code> and <code>paste0()</code></a></li>
+<li class="chapter" data-level="16.2.3" data-path="strings.html"><a href="strings.html#sprinf"><i class="fa fa-check"></i><b>16.2.3</b> <code>sprinf()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="strings.html"><a href="strings.html#indexing-strings"><i class="fa fa-check"></i><b>16.3</b> Indexing Strings</a>
+<ul>
+<li class="chapter" data-level="16.3.1" data-path="strings.html"><a href="strings.html#nchar"><i class="fa fa-check"></i><b>16.3.1</b> <code>nchar()</code></a></li>
+<li class="chapter" data-level="16.3.2" data-path="strings.html"><a href="strings.html#gregexpr-and-regexpr"><i class="fa fa-check"></i><b>16.3.2</b> <code>gregexpr()</code> and <code>regexpr()</code></a></li>
+<li class="chapter" data-level="16.3.3" data-path="strings.html"><a href="strings.html#substr-and-substring"><i class="fa fa-check"></i><b>16.3.3</b> <code>substr()</code> and <code>substring()</code></a></li>
+<li class="chapter" data-level="16.3.4" data-path="strings.html"><a href="strings.html#startwith-and-endswith"><i class="fa fa-check"></i><b>16.3.4</b> <code>startWith()</code> and <code>endsWith()</code></a></li>
+<li class="chapter" data-level="16.3.5" data-path="strings.html"><a href="strings.html#grep-and-grepl"><i class="fa fa-check"></i><b>16.3.5</b> <code>grep()</code> and <code>grepl()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="strings.html"><a href="strings.html#manipulating-strings"><i class="fa fa-check"></i><b>16.4</b> Manipulating Strings</a>
+<ul>
+<li class="chapter" data-level="16.4.1" data-path="strings.html"><a href="strings.html#gsub-and-sub"><i class="fa fa-check"></i><b>16.4.1</b> <code>gsub()</code> and <code>sub()</code></a></li>
+<li class="chapter" data-level="16.4.2" data-path="strings.html"><a href="strings.html#strsplit"><i class="fa fa-check"></i><b>16.4.2</b> <code>strsplit()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="16.5" data-path="strings.html"><a href="strings.html#regular-expression-regex"><i class="fa fa-check"></i><b>16.5</b> Regular Expression (REGEX)</a></li>
+<li class="chapter" data-level="16.6" data-path="strings.html"><a href="strings.html#further-reading"><i class="fa fa-check"></i><b>16.6</b> Further Reading</a>
+<ul>
+<li class="chapter" data-level="16.6.1" data-path="strings.html"><a href="strings.html#useful-resources"><i class="fa fa-check"></i><b>16.6.1</b> Useful Resources</a></li>
+<li class="chapter" data-level="16.6.2" data-path="strings.html"><a href="strings.html#other-useful-functions"><i class="fa fa-check"></i><b>16.6.2</b> Other Useful Functions</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><span style="font-size: 2.5em">Introduction to R</span></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="introduction" class="section level1 unnumbered hasAnchor">
+<h1>Introduction<a href="introduction.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In this section, we will first present the instructions for installing R and RStudio. Then, we will perform the first operations in R and familiarize ourselves with basic programming concepts such as objects and functions. Finally, we will introduce other concepts related to working sessions in R and describe some best practices for using R.</p>
+<p>The chapters are organized as follows:</p>
+<ul>
+<li><strong>Chapter <a href="install.html#install">1</a> - Installing R and RStudio</strong>. Step-by-step instructions for installing R and RStudio.</li>
+<li><strong>Chapter <a href="rstudio-gui.html#rstudio-gui">2</a> - RStudio Interface</strong>. Introduction to the RStudio user interface.</li>
+<li><strong>Chapter <a href="first-commands.html#first-commands">3</a> - First Steps in R</strong>. Mathematical operators, relational operators, logical operators.</li>
+<li><strong>Chapter <a href="objects-functions.html#objects-functions">4</a> - Two Inseparable Companions</strong>. Introduction to the concepts of objects and functions in R.</li>
+<li><strong>Chapter <a href="working-environment.html#working-environment">5</a> - Working Environment</strong>. Introduction to the concepts of Environment, working directory, and R packages.</li>
+<li><strong>Chapter <a href="working-session.html#working-session">6</a> - Working Session</strong>. Description of best practices in working sessions and error handling.</li>
+</ul>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="install.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
