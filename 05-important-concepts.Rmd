@@ -1,4 +1,4 @@
-# Two Inseparable Companions {#objects-functions}
+# Objects & Functions: Two Inseparable Companions {#objects-functions}
 
 ```{r settings, echo = FALSE}
 knitr::opts_chunk$set(

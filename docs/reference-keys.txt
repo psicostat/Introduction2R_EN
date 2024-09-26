@@ -174,8 +174,6 @@ vapply
 list-of-functions-applied-to-a-list-of-objects
 mapply
 replicate
-attachment
-infobox
 strings
 comparing-strings
 constructing-strings

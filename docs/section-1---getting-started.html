@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Introduction to R</title>
+  <title>Section 1 - Getting Started | Introduction to R</title>
   <meta name="description" content="This is an introductory book on R produced by Psicostat, an interdisciplinary research group that combines a passion for statistics and psychology." />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Introduction to R" />
+  <meta property="og:title" content="Section 1 - Getting Started | Introduction to R" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="https://psicostat.github.io/Introduction2R_EN/images/logo_psicostat.png" />
   <meta property="og:description" content="This is an introductory book on R produced by Psicostat, an interdisciplinary research group that combines a passion for statistics and psychology." />
   <meta name="github-repo" content="psicostat/Introduction2R_EN" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Introduction to R" />
+  <meta name="twitter:title" content="Section 1 - Getting Started | Introduction to R" />
   
   <meta name="twitter:description" content="This is an introductory book on R produced by Psicostat, an interdisciplinary research group that combines a passion for statistics and psychology." />
   <meta name="twitter:image" content="https://psicostat.github.io/Introduction2R_EN/images/logo_psicostat.png" />
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="section-1---getting-started.html"/>
+<link rel="prev" href="index.html"/>
+<link rel="next" href="install.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -436,85 +436,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title"><span style="font-size: 2.5em">Introduction to R</span></h1>
-<h2 class="subtitle"><em>Course to Learn the Basics of <strong>R</strong></em></h2>
-<p class="author"><em><a href="https://claudiozandonella.netlify.app/">Claudio Zandonella Callegher</a> and <a href="https://filippogambarota.netlify.app/">Filippo Gambarota</a> (revision and translation into English by Enrico Toffalini), members of <a href="https://psicostat.dpss.psy.unipd.it/">Psicostat</a></em></p>
-<p class="date"><em>26-09-2024</em></p>
-</div>
-<div id="presentation-of-the-book" class="section level1 unnumbered hasAnchor">
-<h1>Presentation of the Book<a href="index.html#presentation-of-the-book" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>In this book we will learn the basics of <strong>R</strong>, one of the best programming language and software for statistical analysis and data visualization. We will start from scratch by understanding the fundamental aspects of R and the concepts behind each programming language that will allow you to later deepen and develop your skills in this beautiful world.</p>
-<div id="why-r" class="section level3 unnumbered hasAnchor">
-<h3>Why R<a href="index.html#why-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>There are many reasons to choose R over other programs used for conducting statistical analyses. First of all, it is a programming language (like Python, Java, C++, or Julia) and not simply a point-and-click interface (such as SPSS or JASP). This initially presents more challenges, but it will reward you in the future because you will have learned to use a very powerful tool.</p>
-<p>Additionally, R is:</p>
+<div id="section-1---getting-started" class="section level1 unnumbered hasAnchor">
+<h1>Section 1 - Getting Started<a href="section-1---getting-started.html#section-1---getting-started" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In this section, we will first present the instructions for installing R and RStudio. Then, we will perform the first operations in R and familiarize ourselves with basic programming concepts such as objects and functions. Finally, we will introduce other concepts related to working sessions in R and describe some best practices for using R.</p>
+<p>The chapters are organized as follows:</p>
 <ul>
-<li>designed for statistics</li>
-<li>free and open-source</li>
-<li>rich in packages</li>
-<li>supported by a large community</li>
-<li>still growing</li>
+<li><strong>Chapter <a href="install.html#install">1</a> - Installing R and RStudio</strong>. Step-by-step instructions for installing R and RStudio.</li>
+<li><strong>Chapter <a href="rstudio-gui.html#rstudio-gui">2</a> - RStudio Interface</strong>. Introduction to the RStudio user interface.</li>
+<li><strong>Chapter <a href="first-commands.html#first-commands">3</a> - First Steps in R</strong>. Mathematical operators, relational operators, logical operators.</li>
+<li><strong>Chapter <a href="objects-functions.html#objects-functions">4</a> - Two Inseparable Companions</strong>. Introduction to the concepts of objects and functions in R.</li>
+<li><strong>Chapter <a href="working-environment.html#working-environment">5</a> - Working Environment</strong>. Introduction to the concepts of Environment, working directory, and R packages.</li>
+<li><strong>Chapter <a href="working-session.html#working-session">6</a> - Working Session</strong>. Description of best practices in working sessions and error handling.</li>
 </ul>
-</div>
-<div id="contents" class="section level3 unnumbered hasAnchor">
-<h3>Contents<a href="index.html#contents" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The book is divided into four main sections:</p>
-<ul>
-<li><strong>Get started</strong>. Once R and RStudio are installed, we will familiarize with the work environment introducing some general aspects and main functions. We will also describe some good rules for starting a workinng session in R.</li>
-<li><strong>Data structure</strong>. We will learn the main objects used in R. Variables, vectors, matrices, data frames, and lists will no longer have secrets and we will understand how to manipulate and use them according to the various needs.</li>
-<li><strong>Algorithms</strong>. Don’t panic. You may have often heard of this as something very complicated, but in reality, algorithms are just a series of instructions that the computer follows when it has to perform a certain task. In this section we will see the main R commands used to define algorithms. This is the advantage of knowing a programming language, it allows us to create new programs that the computer will execute for us.</li>
-<li><strong>Case study</strong>. We will perform a step-by-step analysis that will allow us to learn how to import data, encode variables, prepare the data for analysis, conduct descriptive analyses and create graphs.</li>
-</ul>
-<p>At the end of this book you will probably not be hired by Google, but we hope at least that R does not scare you so much anymore and that maybe someone is interested in learning more about this fantastic world made of lines of code.</p>
-</div>
-<div id="resources" class="section level3 unnumbered hasAnchor">
-<h3>Resources<a href="index.html#resources" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>We point out here some further online material for the interested reader to deepen their knowledge of using R.</p>
-<p>Introductory material:</p>
-<ul>
-<li><em>R for Psychological Science</em> by Danielle Navarro <a href="https://psyr.djnavarro.net/index.html" class="uri">https://psyr.djnavarro.net/index.html</a></li>
-<li><em>Hands-On Programming with R</em> by Garrett Grolemund <a href="https://rstudio-education.github.io/hopr/" class="uri">https://rstudio-education.github.io/hopr/</a></li>
-</ul>
-<p>Intermediate material:</p>
-<ul>
-<li><em>R for Data Science</em> by Hadley Wickham and Garrett Grolemund <a href="https://r4ds.had.co.nz/" class="uri">https://r4ds.had.co.nz/</a></li>
-</ul>
-<p>Advanced material:</p>
-<ul>
-<li><em>R Packages</em> di Hadley Wickham e Jennifer Bryan <a href="https://r-pkgs.org/" class="uri">https://r-pkgs.org/</a></li>
-<li><em>Advanced R</em> di Hadley Wickham <a href="https://adv-r.hadley.nz/" class="uri">https://adv-r.hadley.nz/</a></li>
-</ul>
-</div>
-<div id="psicostat" class="section level3 unnumbered hasAnchor">
-<h3>Psicostat<a href="index.html#psicostat" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>This book was produced by <a href="https://claudiozandonella.netlify.app/">Claudio Zandonella Callegher</a> and <a href="https://filippogambarota.netlify.app/">Filippo Gambarota</a>, and subsequently revised and translated into English by Enrico Toffalini, members of <strong>Psicostat</strong>, an interdisciplinary research group interested in Psychology and Statistics, our goal is to promote the connection between the two fields! If you want to know more about our activities visit our website <a href="https://psicostat.dpss.psy.unipd.it/" class="uri">https://psicostat.dpss.psy.unipd.it/</a> or add yourself to our mailing list <a href="https://lists.dpss.psy.unipd.it/postorius/lists" class="uri">https://lists.dpss.psy.unipd.it/postorius/lists</a>.</p>
-</div>
-<div id="contribute" class="section level3 unnumbered hasAnchor">
-<h3>Contribute<a href="index.html#contribute" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>If you want to collaborate on the revision and writing of this book (of course, everything is in R), visit our GitHub repository: <a href="https://github.com/psicostat/Introduction2R" class="uri">https://github.com/psicostat/Introduction2R</a>.</p>
-</div>
-<div id="acknowledgements" class="section level3 unnumbered hasAnchor">
-<h3>Acknowledgements<a href="index.html#acknowledgements" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The template of this book is based on <a href="https://github.com/rstudio/bookdown-demo">Rstudio Bookdown-demo</a> released under <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0-1.0 license</a> and <a href="https://rstudio4edu.github.io/rstudio4edu-book/">rstudio4edu-book</a> released under <a href="https://creativecommons.org/licenses/by/2.0/">CC BY license</a>. Note that the illustrations used belong to <a href="https://rstudio4edu.github.io/rstudio4edu-book/">rstudio4edu-book</a> and are under <a href="https://creativecommons.org/licenses/by-nc/2.0/">CC BY-NC licensed</a>.</p>
-</div>
-<div id="license" class="section level3 unnumbered hasAnchor">
-<h3>License<a href="index.html#license" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>This book is released under the Creative Commons Attribution-ShareAlike 4.0 International Public License (<a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode">CC BY-SA</a>).
-The illustrations used belong to <a href="https://rstudio4edu.github.io/rstudio4edu-book/">rstudio4edu-book</a> and are licensed under <a href="https://creativecommons.org/licenses/by-nc/2.0/">CC BY-NC</a>.</p>
 
 </div>
-</div>
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="section-1---getting-started.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="install.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

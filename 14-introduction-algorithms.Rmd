@@ -1,6 +1,6 @@
 # (PART\*) Algorithms {-}
 
-# Introduction {#third-section -}
+# Section 3 - Algorithms {#third-section -}
 
 In this section, the main types of objects used in R will be introduced, specifically the primary structures in which data can be organized: Vectors, Matrices, Data Frames, and Lists.
 

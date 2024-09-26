@@ -16,7 +16,7 @@ url: 'https\://psicostat.github.io/Introduction2R_EN/'
 output: bookdown::gitbook
 ---
 
-# Presentation {-}
+# Presentation of the Book {-}
 
 ```{r settings, echo = FALSE}
 knitr::opts_chunk$set(
@@ -27,7 +27,7 @@ knitr::opts_chunk$set(
 
 In this book we will learn the basics of **R**, one of the best programming language and software for statistical analysis and data visualization. We will start from scratch by understanding the fundamental aspects of R and the concepts behind each programming language that will allow you to later deepen and develop your skills in this beautiful world. 
 
-## Why R {-}
+### Why R {-}
 
 There are many reasons to choose R over other programs used for conducting statistical analyses. First of all, it is a programming language (like Python, Java, C++, or Julia) and not simply a point-and-click interface (such as SPSS or JASP). This initially presents more challenges, but it will reward you in the future because you will have learned to use a very powerful tool.
 
@@ -39,7 +39,7 @@ Additionally, R is:
 - supported by a large community
 - still growing
 
-## Contents {-}
+### Contents {-}
 
 The book is divided into four main sections:
 
@@ -51,7 +51,7 @@ The book is divided into four main sections:
 At the end of this book you will probably not be hired by Google, but we hope at least that R does not scare you so much anymore and that maybe someone is interested in learning more about this fantastic world made of lines of code.
 
 
-## Resources {-}
+### Resources {-}
 
 We point out here some further online material for the interested reader to deepen their knowledge of using R.
 
@@ -69,21 +69,21 @@ Advanced material:
 - *R Packages* di Hadley Wickham e Jennifer Bryan https://r-pkgs.org/
 - *Advanced R* di Hadley Wickham https://adv-r.hadley.nz/
 
-## Psicostat {-}
+### Psicostat {-}
 
 This book was produced by [Claudio Zandonella Callegher](https://claudiozandonella.netlify.app/) and [Filippo Gambarota](https://filippogambarota.netlify.app/), and subsequently revised and translated into English by Enrico Toffalini, members of **Psicostat**, an interdisciplinary research group interested in Psychology and Statistics, our goal is to promote the connection between the two fields! If you want to know more about our activities visit our website https://psicostat.dpss.psy.unipd.it/ or add yourself to our mailing list https://lists.dpss.psy.unipd.it/postorius/lists.
 
-## Contribute {-}
+### Contribute {-}
 
 If you want to collaborate on the revision and writing of this book (of course, everything is in R), visit our GitHub repository: https://github.com/psicostat/Introduction2R.
 
 
-## Acknowledgements {-}
+### Acknowledgements {-}
 
 The template of this book is based on [Rstudio Bookdown-demo](https://github.com/rstudio/bookdown-demo) released under [CC0-1.0 license](https://creativecommons.org/publicdomain/zero/1.0/) and [rstudio4edu-book](https://rstudio4edu.github.io/rstudio4edu-book/) released under [CC BY license](https://creativecommons.org/licenses/by/2.0/). Note that the illustrations used belong to [rstudio4edu-book](https://rstudio4edu.github.io/rstudio4edu-book/) and are under [CC BY-NC licensed](https://creativecommons.org/licenses/by-nc/2.0/).
 
 
-## License {-}
+### License {-}
 
 This book is released under the Creative Commons Attribution-ShareAlike 4.0 International Public License ([CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0/legalcode)).
 The illustrations used belong to [rstudio4edu-book](https://rstudio4edu.github.io/rstudio4edu-book/) and are licensed under [CC BY-NC](https://creativecommons.org/licenses/by-nc/2.0/).

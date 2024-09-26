@@ -373,16 +373,16 @@ The `which()` function is very useful for obtaining the **position** within a ve
 
 
 ```
-##  [1] FALSE  TRUE  TRUE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE
-## [1] 2 3 6 7
+##  [1]  TRUE FALSE FALSE FALSE  TRUE FALSE  TRUE  TRUE  TRUE FALSE
+## [1] 1 5 7 8 9
 ```
 
 As you can see, the `which()` function essentially returns the **position** (not the value) where the tested condition is `TRUE`. It’s important to note that these two pieces of code are equivalent:
 
 
 ```
-## [1] 9.267141 6.429891 6.843239 5.958045
-## [1] 9.267141 6.429891 6.843239 5.958045
+## [1]  5.988981  7.949706  6.570454 10.754089  7.641615
+## [1]  5.988981  7.949706  6.570454 10.754089  7.641615
 ```
 
 In fact, as we’ve seen, you can index a vector with another vector indicating the position of elements to extract, or with a **logical** vector of the same length as the original vector.
@@ -512,7 +512,7 @@ Complete the following exercises ([solutions](https://github.com/psicostat/Intro
 5. Calculate the product of the first 10 elements of vector `y` with vector `z`.
 
 
-## Data Type {#data-type}
+## Data Types {#data-type}
 
 We have seen that all elements in a vector must be of the same type. Therefore, there are different types of vectors depending on the type of data they contain.
 
@@ -696,10 +696,10 @@ Using the `sum()` and `mean()` functions with a logical vector, we can evaluate 
 my_values = rnorm(50)  # Generate random numbers
 
 sum(my_values > 0)      # Total number of positive numbers
-## [1] 26
+## [1] 23
 
 mean(my_values > 0)      # Percentage of positive numbers
-## [1] 0.52
+## [1] 0.46
 ```
 :::
 

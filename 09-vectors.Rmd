@@ -433,7 +433,7 @@ Complete the following exercises ([solutions](https://github.com/psicostat/Intro
 5. Calculate the product of the first 10 elements of vector `y` with vector `z`.
 
 
-## Data Type {#data-type}
+## Data Types {#data-type}
 
 We have seen that all elements in a vector must be of the same type. Therefore, there are different types of vectors depending on the type of data they contain.
 
