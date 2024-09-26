@@ -41,16 +41,16 @@ Additionally, R is:
 
 #### Contents {.unnumbered}
 
-The book is divided into four main sections:
+The book is currently divided into four main sections:
 
--   **Get started**. Once R and RStudio are installed, we will familiarize with the work environment introducing some general aspects and main functions. We will also describe some good rules for starting a workinng session in R.
--   **Data structure**. We will learn the main objects used in R. Variables, vectors, matrices, data frames, and lists will no longer have secrets and we will understand how to manipulate and use them according to the various needs.
--   **Algorithms**. Don't panic. You may have often heard of this as something very complicated, but in reality, algorithms are just a series of instructions that the computer follows when it has to perform a certain task. In this section we will see the main R commands used to define algorithms. This is the advantage of knowing a programming language, it allows us to create new programs that the computer will execute for us.
--   **Case study**. We will perform a step-by-step analysis that will allow us to learn how to import data, encode variables, prepare the data for analysis, conduct descriptive analyses and create graphs.
+- **Getting Started**. Once R and RStudio are installed, we will familiarize with the work environment introducing some general aspects and main functions. We will also describe some good rules for starting a workinng session in R.
+- **Data Structures** (*vectors*, *factors*, *matrices*, *dataframes*, *lists*). We will learn the main objects used in R. The most common data structures will no longer have secrets and we will understand how to manipulate and use them according to the various needs.
+- **Algorithms** (e.g., *functions*, *if...else*, *loops*). Don't panic. You may have often heard of this as something very complicated, but in reality, algorithms are just a series of instructions that the computer follows when it has to perform a certain task. In this section we will see the main R commands used to define algorithms. After all, writing algorithms is the real advantage of knowing a programming language!
+- **Advanced Topics**. This section is currently under development. At present, it includes only a single chapter on managing and manipulating strings. Additional chapters will be added in the future.
 
 At the end of this book you will probably not be hired by Google, but we hope at least that R does not scare you so much anymore and that maybe someone is interested in learning more about this fantastic world made of lines of code.
 
-### Resources {.unnumbered}
+#### Resources {.unnumbered}
 
 We point out here some further online material for the interested reader to deepen their knowledge of using R.
 
@@ -68,18 +68,18 @@ Advanced material:
 -   *R Packages* di Hadley Wickham e Jennifer Bryan <https://r-pkgs.org/>
 -   *Advanced R* di Hadley Wickham <https://adv-r.hadley.nz/>
 
-### Psicostat {.unnumbered}
+#### Psicostat {.unnumbered}
 
 This book was produced by [Claudio Zandonella Callegher](https://claudiozandonella.netlify.app/) and [Filippo Gambarota](https://filippogambarota.netlify.app/), and subsequently revised and translated into English by Enrico Toffalini, members of **Psicostat**, an interdisciplinary research group interested in Psychology and Statistics, our goal is to promote the connection between the two fields! If you want to know more about our activities visit our website <https://psicostat.dpss.psy.unipd.it/> or add yourself to our mailing list <https://lists.dpss.psy.unipd.it/postorius/lists>.
 
-### Contribute {.unnumbered}
+#### Contribute {.unnumbered}
 
 If you want to collaborate on the revision and writing of this book (of course, everything is in R), visit our GitHub repository: <https://github.com/psicostat/Introduction2R>.
 
-### Acknowledgements {.unnumbered}
+#### Acknowledgements {.unnumbered}
 
 The template of this book is based on [Rstudio Bookdown-demo](https://github.com/rstudio/bookdown-demo) released under [CC0-1.0 license](https://creativecommons.org/publicdomain/zero/1.0/) and [rstudio4edu-book](https://rstudio4edu.github.io/rstudio4edu-book/) released under [CC BY license](https://creativecommons.org/licenses/by/2.0/). Note that the illustrations used belong to [rstudio4edu-book](https://rstudio4edu.github.io/rstudio4edu-book/) and are under [CC BY-NC licensed](https://creativecommons.org/licenses/by-nc/2.0/).
 
-### License {.unnumbered}
+#### License {.unnumbered}
 
 This book is released under the Creative Commons Attribution-ShareAlike 4.0 International Public License ([CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0/legalcode)). The illustrations used belong to [rstudio4edu-book](https://rstudio4edu.github.io/rstudio4edu-book/) and are licensed under [CC BY-NC](https://creativecommons.org/licenses/by-nc/2.0/).

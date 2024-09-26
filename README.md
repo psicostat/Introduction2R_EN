@@ -16,8 +16,8 @@ The book is currently divided into four main sections:
 
 - **Getting Started**. Once R and RStudio are installed, we will familiarize with the work environment introducing some general aspects and main functions. We will also describe some good rules for starting a workinng session in R.
 - **Data Structures** (*vectors*, *factors*, *matrices*, *dataframes*, *lists*). We will learn the main objects used in R. The most common data structures will no longer have secrets and we will understand how to manipulate and use them according to the various needs.
-- **Algorithms** (e.g., *functions*, *if...else*, *loops*). Don't panic. You may have often heard of this as something very complicated, but in reality, algorithms are just a series of instructions that the computer follows when it has to perform a certain task. In this section we will see the main R commands used to define algorithms. This is the advantage of knowing a programming language, it allows us to create new programs that the computer will execute for us.
-- **Advanced Topics**. This section is currently in progress. It now encompasses only a single chapter on managing and manipulating strings. It will be populated with further chapters in the future.
+- **Algorithms** (e.g., *functions*, *if...else*, *loops*). Don't panic. You may have often heard of this as something very complicated, but in reality, algorithms are just a series of instructions that the computer follows when it has to perform a certain task. In this section we will see the main R commands used to define algorithms. After all, writing algorithms is the real advantage of knowing a programming language!
+- **Advanced Topics**. This section is currently under development. At present, it includes only a single chapter on managing and manipulating strings. Additional chapters will be added in the future.
 
 At the end of this book you will probably not be hired by Google, but we hope at least that R does not scare you so much anymore and that maybe someone is interested in learning more about this fantastic world made of lines of code.
 
