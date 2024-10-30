@@ -602,84 +602,77 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>if we make a subset of a factor and no longer have values associated with that level</li>
 <li>if we simply want to remove a level and the respective observations</li>
 </ul>
-<p>In these cases, we can use the <code>droplevels(x, exclude = ...)</code> function to remove certain levels:</p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="factor.html#cb138-1" tabindex="-1"></a>my_factor <span class="ot">=</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>), <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">5</span>, <span class="dv">2</span>))</span>
-<span id="cb138-2"><a href="factor.html#cb138-2" tabindex="-1"></a>my_factor <span class="ot">=</span> <span class="fu">factor</span>(my_factor)</span>
-<span id="cb138-3"><a href="factor.html#cb138-3" tabindex="-1"></a></span>
-<span id="cb138-4"><a href="factor.html#cb138-4" tabindex="-1"></a><span class="fu">levels</span>(my_factor)</span>
-<span id="cb138-5"><a href="factor.html#cb138-5" tabindex="-1"></a><span class="do">## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot;</span></span>
-<span id="cb138-6"><a href="factor.html#cb138-6" tabindex="-1"></a></span>
-<span id="cb138-7"><a href="factor.html#cb138-7" tabindex="-1"></a><span class="co"># Keep only the values a and b</span></span>
-<span id="cb138-8"><a href="factor.html#cb138-8" tabindex="-1"></a></span>
-<span id="cb138-9"><a href="factor.html#cb138-9" tabindex="-1"></a>my_factor <span class="ot">=</span> my_factor[my_factor <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>)]</span>
-<span id="cb138-10"><a href="factor.html#cb138-10" tabindex="-1"></a><span class="fu">levels</span>(my_factor)</span>
-<span id="cb138-11"><a href="factor.html#cb138-11" tabindex="-1"></a><span class="do">## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot;</span></span></code></pre></div>
-<p>As you can see, even though there are no more <code>c</code> values, the factor still retains all the initial levels:</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="factor.html#cb139-1" tabindex="-1"></a><span class="fu">droplevels</span>(my_factor)</span>
-<span id="cb139-2"><a href="factor.html#cb139-2" tabindex="-1"></a><span class="do">##  [1] a a a a a a a a a a b b b b b</span></span>
-<span id="cb139-3"><a href="factor.html#cb139-3" tabindex="-1"></a><span class="do">## Levels: a b</span></span></code></pre></div>
-<p>You can also directly remove a level, but in this case, the corresponding values would become <code>NA</code>:</p>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="factor.html#cb140-1" tabindex="-1"></a>my_factor <span class="ot">=</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>), <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">5</span>, <span class="dv">2</span>))</span>
-<span id="cb140-2"><a href="factor.html#cb140-2" tabindex="-1"></a>my_factor <span class="ot">=</span> <span class="fu">factor</span>(my_factor)</span>
-<span id="cb140-3"><a href="factor.html#cb140-3" tabindex="-1"></a></span>
-<span id="cb140-4"><a href="factor.html#cb140-4" tabindex="-1"></a>my_factor <span class="ot">=</span> <span class="fu">droplevels</span>(my_factor, <span class="at">exclude =</span> <span class="st">&quot;a&quot;</span>)</span>
-<span id="cb140-5"><a href="factor.html#cb140-5" tabindex="-1"></a>my_factor[<span class="sc">!</span><span class="fu">is.na</span>(my_factor)]</span>
-<span id="cb140-6"><a href="factor.html#cb140-6" tabindex="-1"></a><span class="do">## [1] b b b b b c c</span></span>
-<span id="cb140-7"><a href="factor.html#cb140-7" tabindex="-1"></a><span class="do">## Levels: b c</span></span></code></pre></div>
+<p>Let’s create a factor with levels being <code>a</code>, <code>b</code>, and <code>c</code>:</p>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="factor.html#cb138-1" tabindex="-1"></a>my_factor <span class="ot">=</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>,<span class="st">&quot;c&quot;</span>,<span class="st">&quot;c&quot;</span>),<span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>))</span>
+<span id="cb138-2"><a href="factor.html#cb138-2" tabindex="-1"></a>my_factor</span>
+<span id="cb138-3"><a href="factor.html#cb138-3" tabindex="-1"></a><span class="do">##  [1] a a a a a a a b b b b c c c</span></span>
+<span id="cb138-4"><a href="factor.html#cb138-4" tabindex="-1"></a><span class="do">## Levels: a b c</span></span></code></pre></div>
+<p>Now, let’s copy this factor into a new one, but retaining only the values <code>a</code> and <code>b</code>. As you can see, even though there are no more <code>c</code> values, the factor still retains all the initial levels (including <code>c</code>), because they are part of the attributes that were copied from the original object:</p>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="factor.html#cb139-1" tabindex="-1"></a><span class="co"># Keep only the values &#39;a&#39; and &#39;b&#39;</span></span>
+<span id="cb139-2"><a href="factor.html#cb139-2" tabindex="-1"></a>new_my_factor <span class="ot">=</span> my_factor[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span>
+<span id="cb139-3"><a href="factor.html#cb139-3" tabindex="-1"></a>new_my_factor</span>
+<span id="cb139-4"><a href="factor.html#cb139-4" tabindex="-1"></a><span class="do">##  [1] a a a a a a a b b b</span></span>
+<span id="cb139-5"><a href="factor.html#cb139-5" tabindex="-1"></a><span class="do">## Levels: a b c</span></span></code></pre></div>
+<p>In these cases, we can use the <code>droplevels(x, exclude = ...)</code> function to remove certain levels. We can either specify the particular levels to be removed using the <code>exclude</code> argument, or even indicate no specific levels to be excluded. In the latter case, levels associated with no observations in the vector will automatically be excluded:</p>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="factor.html#cb140-1" tabindex="-1"></a><span class="co"># Explicitly indicate which levels should be removed</span></span>
+<span id="cb140-2"><a href="factor.html#cb140-2" tabindex="-1"></a><span class="fu">droplevels</span>(new_my_factor, <span class="at">exclude=</span><span class="st">&quot;c&quot;</span>)</span>
+<span id="cb140-3"><a href="factor.html#cb140-3" tabindex="-1"></a><span class="do">##  [1] a a a a a a a b b b</span></span>
+<span id="cb140-4"><a href="factor.html#cb140-4" tabindex="-1"></a><span class="do">## Levels: a b</span></span>
+<span id="cb140-5"><a href="factor.html#cb140-5" tabindex="-1"></a></span>
+<span id="cb140-6"><a href="factor.html#cb140-6" tabindex="-1"></a><span class="co"># Indicate no levels to be removed; it will automatically drop levels associated with no observations</span></span>
+<span id="cb140-7"><a href="factor.html#cb140-7" tabindex="-1"></a><span class="fu">droplevels</span>(new_my_factor)</span>
+<span id="cb140-8"><a href="factor.html#cb140-8" tabindex="-1"></a><span class="do">##  [1] a a a a a a a b b b</span></span>
+<span id="cb140-9"><a href="factor.html#cb140-9" tabindex="-1"></a><span class="do">## Levels: a b</span></span></code></pre></div>
+<p>If you use <code>droplevels</code> to forcibly remove a level that is associated with actual values in the vectors (such as <code>a</code>), the corresponding values will become <code>NA</code>:</p>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="factor.html#cb141-1" tabindex="-1"></a><span class="fu">droplevels</span>(new_my_factor, <span class="at">exclude =</span> <span class="st">&quot;a&quot;</span>)</span>
+<span id="cb141-2"><a href="factor.html#cb141-2" tabindex="-1"></a><span class="do">##  [1] &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; b    b    b   </span></span>
+<span id="cb141-3"><a href="factor.html#cb141-3" tabindex="-1"></a><span class="do">## Levels: b</span></span></code></pre></div>
 <p>Just as it is possible to remove a level, it is also possible to add a level to a factor simply by using the <code>factor()</code> command and specifying all the old levels plus the new one:</p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="factor.html#cb141-1" tabindex="-1"></a><span class="fu">factor</span>(my_factor, <span class="at">levels =</span> <span class="fu">c</span>(<span class="fu">levels</span>(my_factor), <span class="st">&quot;newlevel&quot;</span>))</span>
-<span id="cb141-2"><a href="factor.html#cb141-2" tabindex="-1"></a><span class="do">##  [1] &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; b    b    b    b    b   </span></span>
-<span id="cb141-3"><a href="factor.html#cb141-3" tabindex="-1"></a><span class="do">## [16] c    c   </span></span>
-<span id="cb141-4"><a href="factor.html#cb141-4" tabindex="-1"></a><span class="do">## Levels: b c newlevel</span></span></code></pre></div>
-<p>In this case, we used the <code>c(old_levels, new_level)</code> function to create a vector of new levels to use. Alternatively, we can also use the assignment method <code>levels(x) =</code> by specifying a vector of levels or by specifying a single value assigned to the new index:</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="factor.html#cb142-1" tabindex="-1"></a>my_factor <span class="ot">=</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>), <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">5</span>, <span class="dv">2</span>))</span>
-<span id="cb142-2"><a href="factor.html#cb142-2" tabindex="-1"></a>my_factor <span class="ot">=</span> <span class="fu">factor</span>(my_factor)</span>
-<span id="cb142-3"><a href="factor.html#cb142-3" tabindex="-1"></a></span>
-<span id="cb142-4"><a href="factor.html#cb142-4" tabindex="-1"></a><span class="co"># Add a new level with a vector and assignment</span></span>
-<span id="cb142-5"><a href="factor.html#cb142-5" tabindex="-1"></a></span>
-<span id="cb142-6"><a href="factor.html#cb142-6" tabindex="-1"></a><span class="fu">levels</span>(my_factor) <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">levels</span>(my_factor), <span class="st">&quot;newlevel&quot;</span>)</span>
-<span id="cb142-7"><a href="factor.html#cb142-7" tabindex="-1"></a></span>
-<span id="cb142-8"><a href="factor.html#cb142-8" tabindex="-1"></a><span class="co"># Add a new level by specifying the index</span></span>
-<span id="cb142-9"><a href="factor.html#cb142-9" tabindex="-1"></a></span>
-<span id="cb142-10"><a href="factor.html#cb142-10" tabindex="-1"></a><span class="fu">levels</span>(my_factor)[<span class="dv">4</span>] <span class="ot">=</span> <span class="st">&quot;newlevel&quot;</span></span>
-<span id="cb142-11"><a href="factor.html#cb142-11" tabindex="-1"></a></span>
-<span id="cb142-12"><a href="factor.html#cb142-12" tabindex="-1"></a><span class="co"># The my_factor factor has 3 levels, so in the fourth position (empty), I add the new level.</span></span></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="factor.html#cb142-1" tabindex="-1"></a><span class="fu">factor</span>(my_factor, <span class="at">levels =</span> <span class="fu">c</span>(<span class="fu">levels</span>(my_factor), <span class="st">&quot;newlevel&quot;</span>))</span>
+<span id="cb142-2"><a href="factor.html#cb142-2" tabindex="-1"></a><span class="do">##  [1] a a a a a a a b b b b c c c</span></span>
+<span id="cb142-3"><a href="factor.html#cb142-3" tabindex="-1"></a><span class="do">## Levels: a b c newlevel</span></span></code></pre></div>
+<p>In this case, we used the <code>c(old_levels, new_level)</code> function to create a vector of new levels to use, including all the previous levels plus the new one(s). Alternatively, we can also use the assignment method <code>levels(x) =</code> by specifying a vector of levels:</p>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="factor.html#cb143-1" tabindex="-1"></a>my_factor <span class="ot">=</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>,<span class="st">&quot;c&quot;</span>,<span class="st">&quot;c&quot;</span>))</span>
+<span id="cb143-2"><a href="factor.html#cb143-2" tabindex="-1"></a><span class="fu">levels</span>(my_factor) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>,<span class="st">&quot;newlevel&quot;</span>)</span>
+<span id="cb143-3"><a href="factor.html#cb143-3" tabindex="-1"></a>my_factor</span>
+<span id="cb143-4"><a href="factor.html#cb143-4" tabindex="-1"></a><span class="do">##  [1] a a a a a a a b b b b c c c</span></span>
+<span id="cb143-5"><a href="factor.html#cb143-5" tabindex="-1"></a><span class="do">## Levels: a b c newlevel</span></span></code></pre></div>
 <p>You can also combine two factors to obtain a single factor, merging the levels and their respective numeric values. Simply use the <code>c(fac1, fac2)</code> command:</p>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="factor.html#cb143-1" tabindex="-1"></a>fac1 <span class="ot">=</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>), <span class="at">each =</span> <span class="dv">5</span>))</span>
-<span id="cb143-2"><a href="factor.html#cb143-2" tabindex="-1"></a>fac2 <span class="ot">=</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;d&quot;</span>), <span class="at">each =</span> <span class="dv">5</span>))</span>
-<span id="cb143-3"><a href="factor.html#cb143-3" tabindex="-1"></a><span class="fu">c</span>(fac1, fac2)</span>
-<span id="cb143-4"><a href="factor.html#cb143-4" tabindex="-1"></a><span class="do">##  [1] a a a a a b b b b b c c c c c d d d d d</span></span>
-<span id="cb143-5"><a href="factor.html#cb143-5" tabindex="-1"></a><span class="do">## Levels: a b c d</span></span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="factor.html#cb144-1" tabindex="-1"></a>fac1 <span class="ot">=</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>))</span>
+<span id="cb144-2"><a href="factor.html#cb144-2" tabindex="-1"></a>fac2 <span class="ot">=</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;d&quot;</span>,<span class="st">&quot;d&quot;</span>,<span class="st">&quot;d&quot;</span>))</span>
+<span id="cb144-3"><a href="factor.html#cb144-3" tabindex="-1"></a><span class="fu">c</span>(fac1, fac2)</span>
+<span id="cb144-4"><a href="factor.html#cb144-4" tabindex="-1"></a><span class="do">##  [1] a a a a b b c d d d</span></span>
+<span id="cb144-5"><a href="factor.html#cb144-5" tabindex="-1"></a><span class="do">## Levels: a b c d</span></span></code></pre></div>
 <!-- TODO rbind() with new levels  -->
 </div>
 </div>
 <div id="ordinal-factors" class="section level3 hasAnchor" number="8.2.3">
 <h3><span class="header-section-number">8.2.3</span> Ordinal Factors<a href="factor.html#ordinal-factors" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Finally, let’s look at an example of an ordinal categorical variable. Going back to the previous example regarding drug dosage, it’s clear that there is an ordinal relationship between the various levels of the variable. To create an ordinal variable, we can specify the <code>ordered = TRUE</code> argument:</p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="factor.html#cb144-1" tabindex="-1"></a>dosage_ord <span class="ot">=</span> <span class="fu">factor</span>(dosage, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;low&quot;</span>, <span class="st">&quot;medium&quot;</span>, <span class="st">&quot;high&quot;</span>), <span class="at">ordered =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb144-2"><a href="factor.html#cb144-2" tabindex="-1"></a>dosage_ord</span>
-<span id="cb144-3"><a href="factor.html#cb144-3" tabindex="-1"></a><span class="do">## [1] medium low    high   medium low    high  </span></span>
-<span id="cb144-4"><a href="factor.html#cb144-4" tabindex="-1"></a><span class="do">## Levels: low &lt; medium &lt; high</span></span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="factor.html#cb145-1" tabindex="-1"></a>dosage_ord <span class="ot">=</span> <span class="fu">factor</span>(dosage, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;low&quot;</span>, <span class="st">&quot;medium&quot;</span>, <span class="st">&quot;high&quot;</span>), <span class="at">ordered =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb145-2"><a href="factor.html#cb145-2" tabindex="-1"></a>dosage_ord</span>
+<span id="cb145-3"><a href="factor.html#cb145-3" tabindex="-1"></a><span class="do">## [1] medium low    high   medium low    high  </span></span>
+<span id="cb145-4"><a href="factor.html#cb145-4" tabindex="-1"></a><span class="do">## Levels: low &lt; medium &lt; high</span></span></code></pre></div>
 <p>We notice that the ordinal nature of the levels is specified both when the levels are reported and in the object’s class.</p>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="factor.html#cb145-1" tabindex="-1"></a><span class="co"># Nominal categorical variable</span></span>
-<span id="cb145-2"><a href="factor.html#cb145-2" tabindex="-1"></a><span class="fu">class</span>(dosage)</span>
-<span id="cb145-3"><a href="factor.html#cb145-3" tabindex="-1"></a><span class="do">## [1] &quot;factor&quot;</span></span>
-<span id="cb145-4"><a href="factor.html#cb145-4" tabindex="-1"></a></span>
-<span id="cb145-5"><a href="factor.html#cb145-5" tabindex="-1"></a><span class="co"># Ordinal categorical variable</span></span>
-<span id="cb145-6"><a href="factor.html#cb145-6" tabindex="-1"></a><span class="fu">class</span>(dosage_ord)</span>
-<span id="cb145-7"><a href="factor.html#cb145-7" tabindex="-1"></a><span class="do">## [1] &quot;ordered&quot; &quot;factor&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="factor.html#cb146-1" tabindex="-1"></a><span class="co"># Nominal categorical variable</span></span>
+<span id="cb146-2"><a href="factor.html#cb146-2" tabindex="-1"></a><span class="fu">class</span>(dosage)</span>
+<span id="cb146-3"><a href="factor.html#cb146-3" tabindex="-1"></a><span class="do">## [1] &quot;factor&quot;</span></span>
+<span id="cb146-4"><a href="factor.html#cb146-4" tabindex="-1"></a></span>
+<span id="cb146-5"><a href="factor.html#cb146-5" tabindex="-1"></a><span class="co"># Ordinal categorical variable</span></span>
+<span id="cb146-6"><a href="factor.html#cb146-6" tabindex="-1"></a><span class="fu">class</span>(dosage_ord)</span>
+<span id="cb146-7"><a href="factor.html#cb146-7" tabindex="-1"></a><span class="do">## [1] &quot;ordered&quot; &quot;factor&quot;</span></span></code></pre></div>
 <div class="tip" title="Variable Type Coding">
 <p>In R, it’s important to correctly code different variables by specifying their type. By appropriately distinguishing categorical variables (nominal and ordinal) from numerical variables and simple character variables, we gain numerous advantages. In R, many packages and functions adopt specific behaviors depending on the variable type, providing us with outputs and results consistent with the nature of the variable.</p>
 <p>Note, for example, how the output of the <code>summary()</code> function changes depending on the variable type.</p>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="factor.html#cb146-1" tabindex="-1"></a><span class="co"># Numerical variable</span></span>
-<span id="cb146-2"><a href="factor.html#cb146-2" tabindex="-1"></a><span class="fu">summary</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>)</span>
-<span id="cb146-3"><a href="factor.html#cb146-3" tabindex="-1"></a><span class="do">##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </span></span>
-<span id="cb146-4"><a href="factor.html#cb146-4" tabindex="-1"></a><span class="do">##     1.0     4.5     8.0     8.0    11.5    15.0</span></span>
-<span id="cb146-5"><a href="factor.html#cb146-5" tabindex="-1"></a></span>
-<span id="cb146-6"><a href="factor.html#cb146-6" tabindex="-1"></a><span class="co"># Categorical variable</span></span>
-<span id="cb146-7"><a href="factor.html#cb146-7" tabindex="-1"></a><span class="fu">summary</span>(dosage)</span>
-<span id="cb146-8"><a href="factor.html#cb146-8" tabindex="-1"></a><span class="do">##    low medium   high </span></span>
-<span id="cb146-9"><a href="factor.html#cb146-9" tabindex="-1"></a><span class="do">##      2      2      2</span></span></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="factor.html#cb147-1" tabindex="-1"></a><span class="co"># Numerical variable</span></span>
+<span id="cb147-2"><a href="factor.html#cb147-2" tabindex="-1"></a><span class="fu">summary</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>)</span>
+<span id="cb147-3"><a href="factor.html#cb147-3" tabindex="-1"></a><span class="do">##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </span></span>
+<span id="cb147-4"><a href="factor.html#cb147-4" tabindex="-1"></a><span class="do">##     1.0     4.5     8.0     8.0    11.5    15.0</span></span>
+<span id="cb147-5"><a href="factor.html#cb147-5" tabindex="-1"></a></span>
+<span id="cb147-6"><a href="factor.html#cb147-6" tabindex="-1"></a><span class="co"># Categorical variable</span></span>
+<span id="cb147-7"><a href="factor.html#cb147-7" tabindex="-1"></a><span class="fu">summary</span>(dosage)</span>
+<span id="cb147-8"><a href="factor.html#cb147-8" tabindex="-1"></a><span class="do">##    low medium   high </span></span>
+<span id="cb147-9"><a href="factor.html#cb147-9" tabindex="-1"></a><span class="do">##      2      2      2</span></span></code></pre></div>
 <p>This will be particularly important when performing statistical analyses and creating charts and tables.</p>
 </div>
 </div>

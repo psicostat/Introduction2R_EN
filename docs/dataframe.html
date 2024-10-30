@@ -720,26 +720,26 @@ F
 <div id="creating-a-dataframe" class="section level2 hasAnchor" number="10.1">
 <h2><span class="header-section-number">10.1</span> Creating a dataframe<a href="dataframe.html#creating-a-dataframe" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In most cases, you will probably upload existing data (e.g., from a <code>.csv</code> file containing some collected experimental data) rather than creating a dataframe from scratch in R. However, let’s now see how to create a new dataframe. The command to create a dataframe is <code>data.frame()</code>:</p>
-<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="dataframe.html#cb198-1" tabindex="-1"></a>nome_df <span class="ot">=</span> <span class="fu">data.frame</span>(</span>
-<span id="cb198-2"><a href="dataframe.html#cb198-2" tabindex="-1"></a>  <span class="at">variable1 =</span> <span class="fu">c</span>(...),</span>
-<span id="cb198-3"><a href="dataframe.html#cb198-3" tabindex="-1"></a>  <span class="at">variable2 =</span> <span class="fu">c</span>(...),</span>
-<span id="cb198-4"><a href="dataframe.html#cb198-4" tabindex="-1"></a>  ...)</span></code></pre></div>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="dataframe.html#cb199-1" tabindex="-1"></a>nome_df <span class="ot">=</span> <span class="fu">data.frame</span>(</span>
+<span id="cb199-2"><a href="dataframe.html#cb199-2" tabindex="-1"></a>  <span class="at">variable1 =</span> <span class="fu">c</span>(...),</span>
+<span id="cb199-3"><a href="dataframe.html#cb199-3" tabindex="-1"></a>  <span class="at">variable2 =</span> <span class="fu">c</span>(...),</span>
+<span id="cb199-4"><a href="dataframe.html#cb199-4" tabindex="-1"></a>  ...)</span></code></pre></div>
 <p>Creating a dataframe is slightly different from matrices. Intuitively, it’s like combining several columns (where one may contain names, another dates, and so on) rather than inserting values by row or column as in matrices. In fact, to create a <code>dataframe</code>, you need to specify the columns one by one, indicating <code>column_name = values</code> within the <code>data.frame()</code> command. Let’s see an example in R:</p>
-<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="dataframe.html#cb199-1" tabindex="-1"></a>my_data <span class="ot">=</span> <span class="fu">data.frame</span>(</span>
-<span id="cb199-2"><a href="dataframe.html#cb199-2" tabindex="-1"></a>  <span class="at">Id =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>),</span>
-<span id="cb199-3"><a href="dataframe.html#cb199-3" tabindex="-1"></a>  <span class="at">names =</span> <span class="fu">c</span>(<span class="st">&quot;Alice&quot;</span>, <span class="st">&quot;Bruno&quot;</span>, <span class="st">&quot;Carla&quot;</span>, <span class="st">&quot;Diego&quot;</span>, <span class="st">&quot;Elisa&quot;</span>),</span>
-<span id="cb199-4"><a href="dataframe.html#cb199-4" tabindex="-1"></a>  <span class="at">gender =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>,<span class="st">&quot;F&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>)),</span>
-<span id="cb199-5"><a href="dataframe.html#cb199-5" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">22</span>, <span class="dv">25</span>, <span class="dv">23</span>, <span class="dv">22</span>, <span class="dv">24</span>),</span>
-<span id="cb199-6"><a href="dataframe.html#cb199-6" tabindex="-1"></a>  <span class="at">faculty =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;Psychology&quot;</span>, <span class="st">&quot;Engineering&quot;</span>, <span class="st">&quot;Medicine&quot;</span>, <span class="st">&quot;Arts&quot;</span>, <span class="st">&quot;Psychology&quot;</span>))</span>
-<span id="cb199-7"><a href="dataframe.html#cb199-7" tabindex="-1"></a>)</span>
-<span id="cb199-8"><a href="dataframe.html#cb199-8" tabindex="-1"></a></span>
-<span id="cb199-9"><a href="dataframe.html#cb199-9" tabindex="-1"></a>my_data</span>
-<span id="cb199-10"><a href="dataframe.html#cb199-10" tabindex="-1"></a><span class="do">##   Id names gender age     faculty</span></span>
-<span id="cb199-11"><a href="dataframe.html#cb199-11" tabindex="-1"></a><span class="do">## 1  1 Alice      F  22  Psychology</span></span>
-<span id="cb199-12"><a href="dataframe.html#cb199-12" tabindex="-1"></a><span class="do">## 2  2 Bruno      M  25 Engineering</span></span>
-<span id="cb199-13"><a href="dataframe.html#cb199-13" tabindex="-1"></a><span class="do">## 3  3 Carla      F  23    Medicine</span></span>
-<span id="cb199-14"><a href="dataframe.html#cb199-14" tabindex="-1"></a><span class="do">## 4  4 Diego      M  22        Arts</span></span>
-<span id="cb199-15"><a href="dataframe.html#cb199-15" tabindex="-1"></a><span class="do">## 5  5 Elisa      F  24  Psychology</span></span></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="dataframe.html#cb200-1" tabindex="-1"></a>my_data <span class="ot">=</span> <span class="fu">data.frame</span>(</span>
+<span id="cb200-2"><a href="dataframe.html#cb200-2" tabindex="-1"></a>  <span class="at">Id =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>),</span>
+<span id="cb200-3"><a href="dataframe.html#cb200-3" tabindex="-1"></a>  <span class="at">names =</span> <span class="fu">c</span>(<span class="st">&quot;Alice&quot;</span>, <span class="st">&quot;Bruno&quot;</span>, <span class="st">&quot;Carla&quot;</span>, <span class="st">&quot;Diego&quot;</span>, <span class="st">&quot;Elisa&quot;</span>),</span>
+<span id="cb200-4"><a href="dataframe.html#cb200-4" tabindex="-1"></a>  <span class="at">gender =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>,<span class="st">&quot;F&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>)),</span>
+<span id="cb200-5"><a href="dataframe.html#cb200-5" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">22</span>, <span class="dv">25</span>, <span class="dv">23</span>, <span class="dv">22</span>, <span class="dv">24</span>),</span>
+<span id="cb200-6"><a href="dataframe.html#cb200-6" tabindex="-1"></a>  <span class="at">faculty =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;Psychology&quot;</span>, <span class="st">&quot;Engineering&quot;</span>, <span class="st">&quot;Medicine&quot;</span>, <span class="st">&quot;Arts&quot;</span>, <span class="st">&quot;Psychology&quot;</span>))</span>
+<span id="cb200-7"><a href="dataframe.html#cb200-7" tabindex="-1"></a>)</span>
+<span id="cb200-8"><a href="dataframe.html#cb200-8" tabindex="-1"></a></span>
+<span id="cb200-9"><a href="dataframe.html#cb200-9" tabindex="-1"></a>my_data</span>
+<span id="cb200-10"><a href="dataframe.html#cb200-10" tabindex="-1"></a><span class="do">##   Id names gender age     faculty</span></span>
+<span id="cb200-11"><a href="dataframe.html#cb200-11" tabindex="-1"></a><span class="do">## 1  1 Alice      F  22  Psychology</span></span>
+<span id="cb200-12"><a href="dataframe.html#cb200-12" tabindex="-1"></a><span class="do">## 2  2 Bruno      M  25 Engineering</span></span>
+<span id="cb200-13"><a href="dataframe.html#cb200-13" tabindex="-1"></a><span class="do">## 3  3 Carla      F  23    Medicine</span></span>
+<span id="cb200-14"><a href="dataframe.html#cb200-14" tabindex="-1"></a><span class="do">## 4  4 Diego      M  22        Arts</span></span>
+<span id="cb200-15"><a href="dataframe.html#cb200-15" tabindex="-1"></a><span class="do">## 5  5 Elisa      F  24  Psychology</span></span></code></pre></div>
 <p>In this case, we’ve created a hypothetical dataframe where each row represents a subject, and each column represents a certain characteristic of that subject, like gender, age, and so on.</p>
 <div class="tip" title="ID">
 <p>It’s always recommended to define a column (e.g., <code>Id</code>) where you assign a unique identifier to each subject. This allows you to identify them without risking errors. For example, using a name (or even first and last names) may not be ideal because multiple people could have the same name, making it difficult to distinguish between them. While this may not seem strictly needed when using <em>wide</em> dataframes, as different rows always represent different individuals, that becomes crucial when using <em>long</em> dataframes, as multiple rows may or may not represent data from the same individual.</p>
@@ -760,128 +760,128 @@ F
 <div id="sel-df" class="section level2 hasAnchor" number="10.2">
 <h2><span class="header-section-number">10.2</span> Selecting Elements<a href="dataframe.html#sel-df" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To select one or more values from a dataframe, you can use row and column indices within square brackets, similar to matrices:</p>
-<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="dataframe.html#cb200-1" tabindex="-1"></a>dataframe_name[<span class="sc">&lt;</span>row<span class="sc">-</span>index<span class="sc">&gt;</span>, <span class="sc">&lt;</span>column<span class="sc">-</span>index<span class="sc">&gt;</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="dataframe.html#cb201-1" tabindex="-1"></a>dataframe_name[<span class="sc">&lt;</span>row<span class="sc">-</span>index<span class="sc">&gt;</span>, <span class="sc">&lt;</span>column<span class="sc">-</span>index<span class="sc">&gt;</span>]</span></code></pre></div>
 <p>Remember that the order <code>[&lt;row-index&gt;, &lt;column-index&gt;]</code> is fixed and must be followed for the selection to work correctly. You can perform various types of selections depending on your needs, using the same procedures seen for matrices. For example, using the <code>my_data</code> dataframe created earlier, we can select:</p>
-<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="dataframe.html#cb201-1" tabindex="-1"></a>my_data</span>
-<span id="cb201-2"><a href="dataframe.html#cb201-2" tabindex="-1"></a><span class="do">##    Id    names gender age     faculty</span></span>
-<span id="cb201-3"><a href="dataframe.html#cb201-3" tabindex="-1"></a><span class="do">## 1   1    Alice      F  22  Psychology</span></span>
-<span id="cb201-4"><a href="dataframe.html#cb201-4" tabindex="-1"></a><span class="do">## 2   2    Bruno      M  25 Engineering</span></span>
-<span id="cb201-5"><a href="dataframe.html#cb201-5" tabindex="-1"></a><span class="do">## 3   3    Carla      F  23    Medicine</span></span>
-<span id="cb201-6"><a href="dataframe.html#cb201-6" tabindex="-1"></a><span class="do">## 4   4    Diego      M  22        Arts</span></span>
-<span id="cb201-7"><a href="dataframe.html#cb201-7" tabindex="-1"></a><span class="do">## 5   5    Elisa      F  24  Psychology</span></span>
-<span id="cb201-8"><a href="dataframe.html#cb201-8" tabindex="-1"></a><span class="do">## 6   6 Fabrizio      M  35        Arts</span></span>
-<span id="cb201-9"><a href="dataframe.html#cb201-9" tabindex="-1"></a><span class="do">## 7   7   Gloria      F  26 Engineering</span></span>
-<span id="cb201-10"><a href="dataframe.html#cb201-10" tabindex="-1"></a><span class="do">## 8   8   Herman      M  20  Psychology</span></span>
-<span id="cb201-11"><a href="dataframe.html#cb201-11" tabindex="-1"></a><span class="do">## 9   9    Irene      F  23  Statistics</span></span>
-<span id="cb201-12"><a href="dataframe.html#cb201-12" tabindex="-1"></a><span class="do">## 10 10     Luca      M  22 Engineering</span></span>
-<span id="cb201-13"><a href="dataframe.html#cb201-13" tabindex="-1"></a></span>
-<span id="cb201-14"><a href="dataframe.html#cb201-14" tabindex="-1"></a><span class="co"># Value in 3rd row and 2nd column</span></span>
-<span id="cb201-15"><a href="dataframe.html#cb201-15" tabindex="-1"></a>my_data[<span class="dv">3</span>,<span class="dv">4</span>]</span>
-<span id="cb201-16"><a href="dataframe.html#cb201-16" tabindex="-1"></a><span class="do">## [1] 23</span></span>
-<span id="cb201-17"><a href="dataframe.html#cb201-17" tabindex="-1"></a></span>
-<span id="cb201-18"><a href="dataframe.html#cb201-18" tabindex="-1"></a><span class="co"># All variables of the 1st and 3rd rows</span></span>
-<span id="cb201-19"><a href="dataframe.html#cb201-19" tabindex="-1"></a>my_data[<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>), ]</span>
-<span id="cb201-20"><a href="dataframe.html#cb201-20" tabindex="-1"></a><span class="do">##   Id names gender age     faculty</span></span>
-<span id="cb201-21"><a href="dataframe.html#cb201-21" tabindex="-1"></a><span class="do">## 2  2 Bruno      M  25 Engineering</span></span>
-<span id="cb201-22"><a href="dataframe.html#cb201-22" tabindex="-1"></a><span class="do">## 3  3 Carla      F  23    Medicine</span></span>
-<span id="cb201-23"><a href="dataframe.html#cb201-23" tabindex="-1"></a></span>
-<span id="cb201-24"><a href="dataframe.html#cb201-24" tabindex="-1"></a><span class="co"># All values of the 5th variable</span></span>
-<span id="cb201-25"><a href="dataframe.html#cb201-25" tabindex="-1"></a>my_data[ , <span class="dv">5</span>]</span>
-<span id="cb201-26"><a href="dataframe.html#cb201-26" tabindex="-1"></a><span class="do">##  [1] Psychology  Engineering Medicine    Arts        Psychology  Arts       </span></span>
-<span id="cb201-27"><a href="dataframe.html#cb201-27" tabindex="-1"></a><span class="do">##  [7] Engineering Psychology  Statistics  Engineering</span></span>
-<span id="cb201-28"><a href="dataframe.html#cb201-28" tabindex="-1"></a><span class="do">## Levels: Arts Engineering Medicine Psychology Statistics</span></span>
-<span id="cb201-29"><a href="dataframe.html#cb201-29" tabindex="-1"></a></span>
-<span id="cb201-30"><a href="dataframe.html#cb201-30" tabindex="-1"></a><span class="co"># Values of the 2nd and 4th variables for the 3rd and 5th rows</span></span>
-<span id="cb201-31"><a href="dataframe.html#cb201-31" tabindex="-1"></a>my_data[<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>), <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>)]</span>
-<span id="cb201-32"><a href="dataframe.html#cb201-32" tabindex="-1"></a><span class="do">##   names age</span></span>
-<span id="cb201-33"><a href="dataframe.html#cb201-33" tabindex="-1"></a><span class="do">## 3 Carla  23</span></span>
-<span id="cb201-34"><a href="dataframe.html#cb201-34" tabindex="-1"></a><span class="do">## 5 Elisa  24</span></span></code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="dataframe.html#cb202-1" tabindex="-1"></a>my_data</span>
+<span id="cb202-2"><a href="dataframe.html#cb202-2" tabindex="-1"></a><span class="do">##    Id    names gender age     faculty</span></span>
+<span id="cb202-3"><a href="dataframe.html#cb202-3" tabindex="-1"></a><span class="do">## 1   1    Alice      F  22  Psychology</span></span>
+<span id="cb202-4"><a href="dataframe.html#cb202-4" tabindex="-1"></a><span class="do">## 2   2    Bruno      M  25 Engineering</span></span>
+<span id="cb202-5"><a href="dataframe.html#cb202-5" tabindex="-1"></a><span class="do">## 3   3    Carla      F  23    Medicine</span></span>
+<span id="cb202-6"><a href="dataframe.html#cb202-6" tabindex="-1"></a><span class="do">## 4   4    Diego      M  22        Arts</span></span>
+<span id="cb202-7"><a href="dataframe.html#cb202-7" tabindex="-1"></a><span class="do">## 5   5    Elisa      F  24  Psychology</span></span>
+<span id="cb202-8"><a href="dataframe.html#cb202-8" tabindex="-1"></a><span class="do">## 6   6 Fabrizio      M  35        Arts</span></span>
+<span id="cb202-9"><a href="dataframe.html#cb202-9" tabindex="-1"></a><span class="do">## 7   7   Gloria      F  26 Engineering</span></span>
+<span id="cb202-10"><a href="dataframe.html#cb202-10" tabindex="-1"></a><span class="do">## 8   8   Herman      M  20  Psychology</span></span>
+<span id="cb202-11"><a href="dataframe.html#cb202-11" tabindex="-1"></a><span class="do">## 9   9    Irene      F  23  Statistics</span></span>
+<span id="cb202-12"><a href="dataframe.html#cb202-12" tabindex="-1"></a><span class="do">## 10 10     Luca      M  22 Engineering</span></span>
+<span id="cb202-13"><a href="dataframe.html#cb202-13" tabindex="-1"></a></span>
+<span id="cb202-14"><a href="dataframe.html#cb202-14" tabindex="-1"></a><span class="co"># Value in 3rd row and 2nd column</span></span>
+<span id="cb202-15"><a href="dataframe.html#cb202-15" tabindex="-1"></a>my_data[<span class="dv">3</span>,<span class="dv">4</span>]</span>
+<span id="cb202-16"><a href="dataframe.html#cb202-16" tabindex="-1"></a><span class="do">## [1] 23</span></span>
+<span id="cb202-17"><a href="dataframe.html#cb202-17" tabindex="-1"></a></span>
+<span id="cb202-18"><a href="dataframe.html#cb202-18" tabindex="-1"></a><span class="co"># All variables of the 1st and 3rd rows</span></span>
+<span id="cb202-19"><a href="dataframe.html#cb202-19" tabindex="-1"></a>my_data[<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>), ]</span>
+<span id="cb202-20"><a href="dataframe.html#cb202-20" tabindex="-1"></a><span class="do">##   Id names gender age     faculty</span></span>
+<span id="cb202-21"><a href="dataframe.html#cb202-21" tabindex="-1"></a><span class="do">## 2  2 Bruno      M  25 Engineering</span></span>
+<span id="cb202-22"><a href="dataframe.html#cb202-22" tabindex="-1"></a><span class="do">## 3  3 Carla      F  23    Medicine</span></span>
+<span id="cb202-23"><a href="dataframe.html#cb202-23" tabindex="-1"></a></span>
+<span id="cb202-24"><a href="dataframe.html#cb202-24" tabindex="-1"></a><span class="co"># All values of the 5th variable</span></span>
+<span id="cb202-25"><a href="dataframe.html#cb202-25" tabindex="-1"></a>my_data[ , <span class="dv">5</span>]</span>
+<span id="cb202-26"><a href="dataframe.html#cb202-26" tabindex="-1"></a><span class="do">##  [1] Psychology  Engineering Medicine    Arts        Psychology  Arts       </span></span>
+<span id="cb202-27"><a href="dataframe.html#cb202-27" tabindex="-1"></a><span class="do">##  [7] Engineering Psychology  Statistics  Engineering</span></span>
+<span id="cb202-28"><a href="dataframe.html#cb202-28" tabindex="-1"></a><span class="do">## Levels: Arts Engineering Medicine Psychology Statistics</span></span>
+<span id="cb202-29"><a href="dataframe.html#cb202-29" tabindex="-1"></a></span>
+<span id="cb202-30"><a href="dataframe.html#cb202-30" tabindex="-1"></a><span class="co"># Values of the 2nd and 4th variables for the 3rd and 5th rows</span></span>
+<span id="cb202-31"><a href="dataframe.html#cb202-31" tabindex="-1"></a>my_data[<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>), <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>)]</span>
+<span id="cb202-32"><a href="dataframe.html#cb202-32" tabindex="-1"></a><span class="do">##   names age</span></span>
+<span id="cb202-33"><a href="dataframe.html#cb202-33" tabindex="-1"></a><span class="do">## 3 Carla  23</span></span>
+<span id="cb202-34"><a href="dataframe.html#cb202-34" tabindex="-1"></a><span class="do">## 5 Elisa  24</span></span></code></pre></div>
 <p>However, when working with dataframes, it’s more common to refer to the column names and use logical conditions to select values of interest.</p>
 <div id="selecting-columns-by-variable-names" class="section level4 unnumbered hasAnchor">
 <h4>Selecting Columns by Variable Names<a href="dataframe.html#selecting-columns-by-variable-names" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>One significant difference between matrices and dataframes is that you can access columns using the <code>$</code> operator and the column name, using the following syntax:</p>
-<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="dataframe.html#cb202-1" tabindex="-1"></a>dataframe_name<span class="sc">$</span>variable_name</span></code></pre></div>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="dataframe.html#cb203-1" tabindex="-1"></a>dataframe_name<span class="sc">$</span>variable_name</span></code></pre></div>
 <p>This allows you to access that specific column directly without using indices and square brackets. For example:</p>
-<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="dataframe.html#cb203-1" tabindex="-1"></a><span class="co"># Select the &quot;names&quot; variable</span></span>
-<span id="cb203-2"><a href="dataframe.html#cb203-2" tabindex="-1"></a>my_data<span class="sc">$</span>names</span>
-<span id="cb203-3"><a href="dataframe.html#cb203-3" tabindex="-1"></a><span class="do">##  [1] &quot;Alice&quot;    &quot;Bruno&quot;    &quot;Carla&quot;    &quot;Diego&quot;    &quot;Elisa&quot;    &quot;Fabrizio&quot;</span></span>
-<span id="cb203-4"><a href="dataframe.html#cb203-4" tabindex="-1"></a><span class="do">##  [7] &quot;Gloria&quot;   &quot;Herman&quot;   &quot;Irene&quot;    &quot;Luca&quot;</span></span>
-<span id="cb203-5"><a href="dataframe.html#cb203-5" tabindex="-1"></a></span>
-<span id="cb203-6"><a href="dataframe.html#cb203-6" tabindex="-1"></a><span class="co"># Select the &quot;faculty&quot; variable</span></span>
-<span id="cb203-7"><a href="dataframe.html#cb203-7" tabindex="-1"></a>my_data<span class="sc">$</span>faculty</span>
-<span id="cb203-8"><a href="dataframe.html#cb203-8" tabindex="-1"></a><span class="do">##  [1] Psychology  Engineering Medicine    Arts        Psychology  Arts       </span></span>
-<span id="cb203-9"><a href="dataframe.html#cb203-9" tabindex="-1"></a><span class="do">##  [7] Engineering Psychology  Statistics  Engineering</span></span>
-<span id="cb203-10"><a href="dataframe.html#cb203-10" tabindex="-1"></a><span class="do">## Levels: Arts Engineering Medicine Psychology Statistics</span></span></code></pre></div>
-<p>Alternatively, you can use the usual square bracket selection method by specifying the column names instead of column indices. This allows you to select multiple variables at once. For example:</p>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="dataframe.html#cb204-1" tabindex="-1"></a><span class="co"># Select only the &quot;names&quot; variable</span></span>
-<span id="cb204-2"><a href="dataframe.html#cb204-2" tabindex="-1"></a>my_data[ , <span class="st">&quot;names&quot;</span>]</span>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="dataframe.html#cb204-1" tabindex="-1"></a><span class="co"># Select the &quot;names&quot; variable</span></span>
+<span id="cb204-2"><a href="dataframe.html#cb204-2" tabindex="-1"></a>my_data<span class="sc">$</span>names</span>
 <span id="cb204-3"><a href="dataframe.html#cb204-3" tabindex="-1"></a><span class="do">##  [1] &quot;Alice&quot;    &quot;Bruno&quot;    &quot;Carla&quot;    &quot;Diego&quot;    &quot;Elisa&quot;    &quot;Fabrizio&quot;</span></span>
 <span id="cb204-4"><a href="dataframe.html#cb204-4" tabindex="-1"></a><span class="do">##  [7] &quot;Gloria&quot;   &quot;Herman&quot;   &quot;Irene&quot;    &quot;Luca&quot;</span></span>
 <span id="cb204-5"><a href="dataframe.html#cb204-5" tabindex="-1"></a></span>
-<span id="cb204-6"><a href="dataframe.html#cb204-6" tabindex="-1"></a><span class="co"># Select the &quot;names&quot;, &quot;gender&quot;, and &quot;faculty&quot; variables</span></span>
-<span id="cb204-7"><a href="dataframe.html#cb204-7" tabindex="-1"></a>my_data[ , <span class="fu">c</span>(<span class="st">&quot;names&quot;</span>, <span class="st">&quot;gender&quot;</span>, <span class="st">&quot;faculty&quot;</span>)]</span>
-<span id="cb204-8"><a href="dataframe.html#cb204-8" tabindex="-1"></a><span class="do">##       names gender     faculty</span></span>
-<span id="cb204-9"><a href="dataframe.html#cb204-9" tabindex="-1"></a><span class="do">## 1     Alice      F  Psychology</span></span>
-<span id="cb204-10"><a href="dataframe.html#cb204-10" tabindex="-1"></a><span class="do">## 2     Bruno      M Engineering</span></span>
-<span id="cb204-11"><a href="dataframe.html#cb204-11" tabindex="-1"></a><span class="do">## 3     Carla      F    Medicine</span></span>
-<span id="cb204-12"><a href="dataframe.html#cb204-12" tabindex="-1"></a><span class="do">## 4     Diego      M        Arts</span></span>
-<span id="cb204-13"><a href="dataframe.html#cb204-13" tabindex="-1"></a><span class="do">## 5     Elisa      F  Psychology</span></span>
-<span id="cb204-14"><a href="dataframe.html#cb204-14" tabindex="-1"></a><span class="do">## 6  Fabrizio      M        Arts</span></span>
-<span id="cb204-15"><a href="dataframe.html#cb204-15" tabindex="-1"></a><span class="do">## 7    Gloria      F Engineering</span></span>
-<span id="cb204-16"><a href="dataframe.html#cb204-16" tabindex="-1"></a><span class="do">## 8    Herman      M  Psychology</span></span>
-<span id="cb204-17"><a href="dataframe.html#cb204-17" tabindex="-1"></a><span class="do">## 9     Irene      F  Statistics</span></span>
-<span id="cb204-18"><a href="dataframe.html#cb204-18" tabindex="-1"></a><span class="do">## 10     Luca      M Engineering</span></span></code></pre></div>
+<span id="cb204-6"><a href="dataframe.html#cb204-6" tabindex="-1"></a><span class="co"># Select the &quot;faculty&quot; variable</span></span>
+<span id="cb204-7"><a href="dataframe.html#cb204-7" tabindex="-1"></a>my_data<span class="sc">$</span>faculty</span>
+<span id="cb204-8"><a href="dataframe.html#cb204-8" tabindex="-1"></a><span class="do">##  [1] Psychology  Engineering Medicine    Arts        Psychology  Arts       </span></span>
+<span id="cb204-9"><a href="dataframe.html#cb204-9" tabindex="-1"></a><span class="do">##  [7] Engineering Psychology  Statistics  Engineering</span></span>
+<span id="cb204-10"><a href="dataframe.html#cb204-10" tabindex="-1"></a><span class="do">## Levels: Arts Engineering Medicine Psychology Statistics</span></span></code></pre></div>
+<p>Alternatively, you can use the usual square bracket selection method by specifying the column names instead of column indices. This allows you to select multiple variables at once. For example:</p>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="dataframe.html#cb205-1" tabindex="-1"></a><span class="co"># Select only the &quot;names&quot; variable</span></span>
+<span id="cb205-2"><a href="dataframe.html#cb205-2" tabindex="-1"></a>my_data[ , <span class="st">&quot;names&quot;</span>]</span>
+<span id="cb205-3"><a href="dataframe.html#cb205-3" tabindex="-1"></a><span class="do">##  [1] &quot;Alice&quot;    &quot;Bruno&quot;    &quot;Carla&quot;    &quot;Diego&quot;    &quot;Elisa&quot;    &quot;Fabrizio&quot;</span></span>
+<span id="cb205-4"><a href="dataframe.html#cb205-4" tabindex="-1"></a><span class="do">##  [7] &quot;Gloria&quot;   &quot;Herman&quot;   &quot;Irene&quot;    &quot;Luca&quot;</span></span>
+<span id="cb205-5"><a href="dataframe.html#cb205-5" tabindex="-1"></a></span>
+<span id="cb205-6"><a href="dataframe.html#cb205-6" tabindex="-1"></a><span class="co"># Select the &quot;names&quot;, &quot;gender&quot;, and &quot;faculty&quot; variables</span></span>
+<span id="cb205-7"><a href="dataframe.html#cb205-7" tabindex="-1"></a>my_data[ , <span class="fu">c</span>(<span class="st">&quot;names&quot;</span>, <span class="st">&quot;gender&quot;</span>, <span class="st">&quot;faculty&quot;</span>)]</span>
+<span id="cb205-8"><a href="dataframe.html#cb205-8" tabindex="-1"></a><span class="do">##       names gender     faculty</span></span>
+<span id="cb205-9"><a href="dataframe.html#cb205-9" tabindex="-1"></a><span class="do">## 1     Alice      F  Psychology</span></span>
+<span id="cb205-10"><a href="dataframe.html#cb205-10" tabindex="-1"></a><span class="do">## 2     Bruno      M Engineering</span></span>
+<span id="cb205-11"><a href="dataframe.html#cb205-11" tabindex="-1"></a><span class="do">## 3     Carla      F    Medicine</span></span>
+<span id="cb205-12"><a href="dataframe.html#cb205-12" tabindex="-1"></a><span class="do">## 4     Diego      M        Arts</span></span>
+<span id="cb205-13"><a href="dataframe.html#cb205-13" tabindex="-1"></a><span class="do">## 5     Elisa      F  Psychology</span></span>
+<span id="cb205-14"><a href="dataframe.html#cb205-14" tabindex="-1"></a><span class="do">## 6  Fabrizio      M        Arts</span></span>
+<span id="cb205-15"><a href="dataframe.html#cb205-15" tabindex="-1"></a><span class="do">## 7    Gloria      F Engineering</span></span>
+<span id="cb205-16"><a href="dataframe.html#cb205-16" tabindex="-1"></a><span class="do">## 8    Herman      M  Psychology</span></span>
+<span id="cb205-17"><a href="dataframe.html#cb205-17" tabindex="-1"></a><span class="do">## 9     Irene      F  Statistics</span></span>
+<span id="cb205-18"><a href="dataframe.html#cb205-18" tabindex="-1"></a><span class="do">## 10     Luca      M Engineering</span></span></code></pre></div>
 <p>Note that the variable names must be provided as strings.</p>
 </div>
 <div id="selecting-rows-with-logical-conditions" class="section level4 unnumbered hasAnchor">
 <h4>Selecting Rows with Logical Conditions<a href="dataframe.html#selecting-rows-with-logical-conditions" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We’ve seen earlier how to construct logical propositions to select only values that meet a certain condition in the case of vectors and matrices. Now, this function becomes particularly useful as it allows us to <em>query</em> the dataframe in a simple and intuitive way. By using a logical condition, we can <em>filter</em> the observations that satisfy a given condition and retrieve only the information of interest.</p>
 <p>In the canonical syntax <code>[&lt;row-index&gt;, &lt;column-index&gt;]</code>, the row indices are replaced with a logical condition to filter the rows, and the column indices are replaced with the names of the variables of interest. We use the following syntax:</p>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="dataframe.html#cb205-1" tabindex="-1"></a>dataframe_name[<span class="sc">&lt;</span>logical_condition_rows<span class="sc">&gt;</span>, <span class="sc">&lt;</span>variable_names<span class="sc">&gt;</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="dataframe.html#cb206-1" tabindex="-1"></a>dataframe_name[<span class="sc">&lt;</span>logical_condition_rows<span class="sc">&gt;</span>, <span class="sc">&lt;</span>variable_names<span class="sc">&gt;</span>]</span></code></pre></div>
 <p>Here are some examples of selection:</p>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="dataframe.html#cb206-1" tabindex="-1"></a><span class="co"># All data for &quot;Diego&quot; (Id == 4)</span></span>
-<span id="cb206-2"><a href="dataframe.html#cb206-2" tabindex="-1"></a>my_data[my_data<span class="sc">$</span>Id <span class="sc">==</span> <span class="dv">4</span> , ]</span>
-<span id="cb206-3"><a href="dataframe.html#cb206-3" tabindex="-1"></a><span class="do">##   Id names gender age faculty</span></span>
-<span id="cb206-4"><a href="dataframe.html#cb206-4" tabindex="-1"></a><span class="do">## 4  4 Diego      M  22    Arts</span></span>
-<span id="cb206-5"><a href="dataframe.html#cb206-5" tabindex="-1"></a></span>
-<span id="cb206-6"><a href="dataframe.html#cb206-6" tabindex="-1"></a><span class="co"># All data for females</span></span>
-<span id="cb206-7"><a href="dataframe.html#cb206-7" tabindex="-1"></a>my_data[my_data<span class="sc">$</span>gender <span class="sc">==</span> <span class="st">&quot;F&quot;</span> , ]</span>
-<span id="cb206-8"><a href="dataframe.html#cb206-8" tabindex="-1"></a><span class="do">##   Id  names gender age     faculty</span></span>
-<span id="cb206-9"><a href="dataframe.html#cb206-9" tabindex="-1"></a><span class="do">## 1  1  Alice      F  22  Psychology</span></span>
-<span id="cb206-10"><a href="dataframe.html#cb206-10" tabindex="-1"></a><span class="do">## 3  3  Carla      F  23    Medicine</span></span>
-<span id="cb206-11"><a href="dataframe.html#cb206-11" tabindex="-1"></a><span class="do">## 5  5  Elisa      F  24  Psychology</span></span>
-<span id="cb206-12"><a href="dataframe.html#cb206-12" tabindex="-1"></a><span class="do">## 7  7 Gloria      F  26 Engineering</span></span>
-<span id="cb206-13"><a href="dataframe.html#cb206-13" tabindex="-1"></a><span class="do">## 9  9  Irene      F  23  Statistics</span></span>
-<span id="cb206-14"><a href="dataframe.html#cb206-14" tabindex="-1"></a></span>
-<span id="cb206-15"><a href="dataframe.html#cb206-15" tabindex="-1"></a><span class="co"># Faculties of subjects older than 24 years</span></span>
-<span id="cb206-16"><a href="dataframe.html#cb206-16" tabindex="-1"></a>my_data[my_data<span class="sc">$</span>age <span class="sc">&gt;</span> <span class="dv">24</span> , <span class="fu">c</span>(<span class="st">&quot;age&quot;</span>, <span class="st">&quot;faculty&quot;</span>)]</span>
-<span id="cb206-17"><a href="dataframe.html#cb206-17" tabindex="-1"></a><span class="do">##   age     faculty</span></span>
-<span id="cb206-18"><a href="dataframe.html#cb206-18" tabindex="-1"></a><span class="do">## 2  25 Engineering</span></span>
-<span id="cb206-19"><a href="dataframe.html#cb206-19" tabindex="-1"></a><span class="do">## 6  35        Arts</span></span>
-<span id="cb206-20"><a href="dataframe.html#cb206-20" tabindex="-1"></a><span class="do">## 7  26 Engineering</span></span></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="dataframe.html#cb207-1" tabindex="-1"></a><span class="co"># All data for &quot;Diego&quot; (Id == 4)</span></span>
+<span id="cb207-2"><a href="dataframe.html#cb207-2" tabindex="-1"></a>my_data[my_data<span class="sc">$</span>Id <span class="sc">==</span> <span class="dv">4</span> , ]</span>
+<span id="cb207-3"><a href="dataframe.html#cb207-3" tabindex="-1"></a><span class="do">##   Id names gender age faculty</span></span>
+<span id="cb207-4"><a href="dataframe.html#cb207-4" tabindex="-1"></a><span class="do">## 4  4 Diego      M  22    Arts</span></span>
+<span id="cb207-5"><a href="dataframe.html#cb207-5" tabindex="-1"></a></span>
+<span id="cb207-6"><a href="dataframe.html#cb207-6" tabindex="-1"></a><span class="co"># All data for females</span></span>
+<span id="cb207-7"><a href="dataframe.html#cb207-7" tabindex="-1"></a>my_data[my_data<span class="sc">$</span>gender <span class="sc">==</span> <span class="st">&quot;F&quot;</span> , ]</span>
+<span id="cb207-8"><a href="dataframe.html#cb207-8" tabindex="-1"></a><span class="do">##   Id  names gender age     faculty</span></span>
+<span id="cb207-9"><a href="dataframe.html#cb207-9" tabindex="-1"></a><span class="do">## 1  1  Alice      F  22  Psychology</span></span>
+<span id="cb207-10"><a href="dataframe.html#cb207-10" tabindex="-1"></a><span class="do">## 3  3  Carla      F  23    Medicine</span></span>
+<span id="cb207-11"><a href="dataframe.html#cb207-11" tabindex="-1"></a><span class="do">## 5  5  Elisa      F  24  Psychology</span></span>
+<span id="cb207-12"><a href="dataframe.html#cb207-12" tabindex="-1"></a><span class="do">## 7  7 Gloria      F  26 Engineering</span></span>
+<span id="cb207-13"><a href="dataframe.html#cb207-13" tabindex="-1"></a><span class="do">## 9  9  Irene      F  23  Statistics</span></span>
+<span id="cb207-14"><a href="dataframe.html#cb207-14" tabindex="-1"></a></span>
+<span id="cb207-15"><a href="dataframe.html#cb207-15" tabindex="-1"></a><span class="co"># Faculties of subjects older than 24 years</span></span>
+<span id="cb207-16"><a href="dataframe.html#cb207-16" tabindex="-1"></a>my_data[my_data<span class="sc">$</span>age <span class="sc">&gt;</span> <span class="dv">24</span> , <span class="fu">c</span>(<span class="st">&quot;age&quot;</span>, <span class="st">&quot;faculty&quot;</span>)]</span>
+<span id="cb207-17"><a href="dataframe.html#cb207-17" tabindex="-1"></a><span class="do">##   age     faculty</span></span>
+<span id="cb207-18"><a href="dataframe.html#cb207-18" tabindex="-1"></a><span class="do">## 2  25 Engineering</span></span>
+<span id="cb207-19"><a href="dataframe.html#cb207-19" tabindex="-1"></a><span class="do">## 6  35        Arts</span></span>
+<span id="cb207-20"><a href="dataframe.html#cb207-20" tabindex="-1"></a><span class="do">## 7  26 Engineering</span></span></code></pre></div>
 <p>Note that when defining a logical condition using the dataframe’s variables, it’s still necessary to include the dataframe name. In the previous example, we would have encountered an error by simply using <code>age &gt; 24</code>, as this would refer to the object <code>age</code> (which doesn’t exist), not the <code>age</code> variable contained in <code>my_data</code>.</p>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="dataframe.html#cb207-1" tabindex="-1"></a>my_data[age <span class="sc">&gt;</span> <span class="dv">24</span> , <span class="fu">c</span>(<span class="st">&quot;age&quot;</span>, <span class="st">&quot;faculty&quot;</span>)]</span>
-<span id="cb207-2"><a href="dataframe.html#cb207-2" tabindex="-1"></a><span class="do">## Error in eval(expr, envir, enclos): object &#39;age&#39; not found</span></span></code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="dataframe.html#cb208-1" tabindex="-1"></a>my_data[age <span class="sc">&gt;</span> <span class="dv">24</span> , <span class="fu">c</span>(<span class="st">&quot;age&quot;</span>, <span class="st">&quot;faculty&quot;</span>)]</span>
+<span id="cb208-2"><a href="dataframe.html#cb208-2" tabindex="-1"></a><span class="do">## Error in eval(expr, envir, enclos): object &#39;age&#39; not found</span></span></code></pre></div>
 <p>Similarly to what we saw with vectors, using the condition <code>my_data$age &gt; 24</code> returns a vector of <code>TRUE</code> and <code>FALSE</code> values depending on whether the condition is met or not.</p>
 <p>By using logical operators <strong>AND</strong> (<code>&amp;</code>), <strong>OR</strong> (<code>|</code>), and <strong>NOT</strong> (<code>!</code>), we can combine multiple logical operations to create more complex, yet still intuitive, indexing queries. For example, to select “subjects between 20 and 25 years old enrolled in psychology,” we would write:</p>
-<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="dataframe.html#cb208-1" tabindex="-1"></a>my_data[my_data<span class="sc">$</span>age<span class="sc">&gt;=</span><span class="dv">20</span> <span class="sc">&amp;</span> my_data<span class="sc">$</span>age<span class="sc">&lt;=</span><span class="dv">25</span> <span class="sc">&amp;</span> my_data<span class="sc">$</span>faculty<span class="sc">==</span><span class="st">&quot;Psychology&quot;</span> , ]</span>
-<span id="cb208-2"><a href="dataframe.html#cb208-2" tabindex="-1"></a><span class="do">##   Id  names gender age    faculty</span></span>
-<span id="cb208-3"><a href="dataframe.html#cb208-3" tabindex="-1"></a><span class="do">## 1  1  Alice      F  22 Psychology</span></span>
-<span id="cb208-4"><a href="dataframe.html#cb208-4" tabindex="-1"></a><span class="do">## 5  5  Elisa      F  24 Psychology</span></span>
-<span id="cb208-5"><a href="dataframe.html#cb208-5" tabindex="-1"></a><span class="do">## 8  8 Herman      M  20 Psychology</span></span></code></pre></div>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="dataframe.html#cb209-1" tabindex="-1"></a>my_data[my_data<span class="sc">$</span>age<span class="sc">&gt;=</span><span class="dv">20</span> <span class="sc">&amp;</span> my_data<span class="sc">$</span>age<span class="sc">&lt;=</span><span class="dv">25</span> <span class="sc">&amp;</span> my_data<span class="sc">$</span>faculty<span class="sc">==</span><span class="st">&quot;Psychology&quot;</span> , ]</span>
+<span id="cb209-2"><a href="dataframe.html#cb209-2" tabindex="-1"></a><span class="do">##   Id  names gender age    faculty</span></span>
+<span id="cb209-3"><a href="dataframe.html#cb209-3" tabindex="-1"></a><span class="do">## 1  1  Alice      F  22 Psychology</span></span>
+<span id="cb209-4"><a href="dataframe.html#cb209-4" tabindex="-1"></a><span class="do">## 5  5  Elisa      F  24 Psychology</span></span>
+<span id="cb209-5"><a href="dataframe.html#cb209-5" tabindex="-1"></a><span class="do">## 8  8 Herman      M  20 Psychology</span></span></code></pre></div>
 <p>By using this indexing method, we can appreciate the true power of dataframes. We now have a very simple and intuitive method for working with complex data structures that contain different data types.</p>
 <div class="design" title="Selection Output">
 <p>Two important aspects regarding the result of a selection are the type of output obtained and how to save it.</p>
 <div id="output-type" class="section level4 unnumbered hasAnchor">
 <h4>Output Type<a href="dataframe.html#output-type" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Similarly to matrices, selection commands do not always return the same type of object. When we select a single variable, the result is a vector, while selecting two or more variables returns a dataframe.</p>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="dataframe.html#cb209-1" tabindex="-1"></a><span class="co"># Single variable</span></span>
-<span id="cb209-2"><a href="dataframe.html#cb209-2" tabindex="-1"></a><span class="fu">class</span>(my_data<span class="sc">$</span>age)</span>
-<span id="cb209-3"><a href="dataframe.html#cb209-3" tabindex="-1"></a><span class="do">## [1] &quot;numeric&quot;</span></span>
-<span id="cb209-4"><a href="dataframe.html#cb209-4" tabindex="-1"></a></span>
-<span id="cb209-5"><a href="dataframe.html#cb209-5" tabindex="-1"></a><span class="co"># Multiple variables</span></span>
-<span id="cb209-6"><a href="dataframe.html#cb209-6" tabindex="-1"></a><span class="fu">class</span>(my_data[ , <span class="fu">c</span>(<span class="st">&quot;names&quot;</span>, <span class="st">&quot;age&quot;</span>)])</span>
-<span id="cb209-7"><a href="dataframe.html#cb209-7" tabindex="-1"></a><span class="do">## [1] &quot;data.frame&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="dataframe.html#cb210-1" tabindex="-1"></a><span class="co"># Single variable</span></span>
+<span id="cb210-2"><a href="dataframe.html#cb210-2" tabindex="-1"></a><span class="fu">class</span>(my_data<span class="sc">$</span>age)</span>
+<span id="cb210-3"><a href="dataframe.html#cb210-3" tabindex="-1"></a><span class="do">## [1] &quot;numeric&quot;</span></span>
+<span id="cb210-4"><a href="dataframe.html#cb210-4" tabindex="-1"></a></span>
+<span id="cb210-5"><a href="dataframe.html#cb210-5" tabindex="-1"></a><span class="co"># Multiple variables</span></span>
+<span id="cb210-6"><a href="dataframe.html#cb210-6" tabindex="-1"></a><span class="fu">class</span>(my_data[ , <span class="fu">c</span>(<span class="st">&quot;names&quot;</span>, <span class="st">&quot;age&quot;</span>)])</span>
+<span id="cb210-7"><a href="dataframe.html#cb210-7" tabindex="-1"></a><span class="do">## [1] &quot;data.frame&quot;</span></span></code></pre></div>
 </div>
 <div id="saving-the-selection" class="section level4 unnumbered hasAnchor">
 <h4>Saving the Selection<a href="dataframe.html#saving-the-selection" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -895,95 +895,95 @@ F
 <div id="modifying-elements" class="section level4 unnumbered hasAnchor">
 <h4>Modifying Elements<a href="dataframe.html#modifying-elements" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Similar to other objects, we can modify values by selecting the old value in the dataframe and using the <code>=</code> (or <code>&lt;-</code>) operator to assign the new value.</p>
-<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="dataframe.html#cb210-1" tabindex="-1"></a>my_data[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span> , ]</span>
-<span id="cb210-2"><a href="dataframe.html#cb210-2" tabindex="-1"></a><span class="do">##   Id names gender age     faculty</span></span>
-<span id="cb210-3"><a href="dataframe.html#cb210-3" tabindex="-1"></a><span class="do">## 1  1 Alice      F  22  Psychology</span></span>
-<span id="cb210-4"><a href="dataframe.html#cb210-4" tabindex="-1"></a><span class="do">## 2  2 Bruno      M  25 Engineering</span></span>
-<span id="cb210-5"><a href="dataframe.html#cb210-5" tabindex="-1"></a><span class="do">## 3  3 Carla      F  23    Medicine</span></span>
-<span id="cb210-6"><a href="dataframe.html#cb210-6" tabindex="-1"></a><span class="do">## 4  4 Diego      M  22        Arts</span></span>
-<span id="cb210-7"><a href="dataframe.html#cb210-7" tabindex="-1"></a><span class="do">## 5  5 Elisa      F  24  Psychology</span></span>
-<span id="cb210-8"><a href="dataframe.html#cb210-8" tabindex="-1"></a></span>
-<span id="cb210-9"><a href="dataframe.html#cb210-9" tabindex="-1"></a><span class="co"># Replace the name in the 4th row with &quot;Davide&quot;</span></span>
-<span id="cb210-10"><a href="dataframe.html#cb210-10" tabindex="-1"></a>my_data[<span class="dv">4</span> , <span class="st">&quot;names&quot;</span>] <span class="ot">=</span> <span class="st">&quot;Davide&quot;</span></span>
-<span id="cb210-11"><a href="dataframe.html#cb210-11" tabindex="-1"></a></span>
-<span id="cb210-12"><a href="dataframe.html#cb210-12" tabindex="-1"></a>my_data[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span> , ]</span>
-<span id="cb210-13"><a href="dataframe.html#cb210-13" tabindex="-1"></a><span class="do">##   Id  names gender age     faculty</span></span>
-<span id="cb210-14"><a href="dataframe.html#cb210-14" tabindex="-1"></a><span class="do">## 1  1  Alice      F  22  Psychology</span></span>
-<span id="cb210-15"><a href="dataframe.html#cb210-15" tabindex="-1"></a><span class="do">## 2  2  Bruno      M  25 Engineering</span></span>
-<span id="cb210-16"><a href="dataframe.html#cb210-16" tabindex="-1"></a><span class="do">## 3  3  Carla      F  23    Medicine</span></span>
-<span id="cb210-17"><a href="dataframe.html#cb210-17" tabindex="-1"></a><span class="do">## 4  4 Davide      M  22        Arts</span></span>
-<span id="cb210-18"><a href="dataframe.html#cb210-18" tabindex="-1"></a><span class="do">## 5  5  Elisa      F  24  Psychology</span></span></code></pre></div>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="dataframe.html#cb211-1" tabindex="-1"></a>my_data[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span> , ]</span>
+<span id="cb211-2"><a href="dataframe.html#cb211-2" tabindex="-1"></a><span class="do">##   Id names gender age     faculty</span></span>
+<span id="cb211-3"><a href="dataframe.html#cb211-3" tabindex="-1"></a><span class="do">## 1  1 Alice      F  22  Psychology</span></span>
+<span id="cb211-4"><a href="dataframe.html#cb211-4" tabindex="-1"></a><span class="do">## 2  2 Bruno      M  25 Engineering</span></span>
+<span id="cb211-5"><a href="dataframe.html#cb211-5" tabindex="-1"></a><span class="do">## 3  3 Carla      F  23    Medicine</span></span>
+<span id="cb211-6"><a href="dataframe.html#cb211-6" tabindex="-1"></a><span class="do">## 4  4 Diego      M  22        Arts</span></span>
+<span id="cb211-7"><a href="dataframe.html#cb211-7" tabindex="-1"></a><span class="do">## 5  5 Elisa      F  24  Psychology</span></span>
+<span id="cb211-8"><a href="dataframe.html#cb211-8" tabindex="-1"></a></span>
+<span id="cb211-9"><a href="dataframe.html#cb211-9" tabindex="-1"></a><span class="co"># Replace the name in the 4th row with &quot;Davide&quot;</span></span>
+<span id="cb211-10"><a href="dataframe.html#cb211-10" tabindex="-1"></a>my_data[<span class="dv">4</span> , <span class="st">&quot;names&quot;</span>] <span class="ot">=</span> <span class="st">&quot;Davide&quot;</span></span>
+<span id="cb211-11"><a href="dataframe.html#cb211-11" tabindex="-1"></a></span>
+<span id="cb211-12"><a href="dataframe.html#cb211-12" tabindex="-1"></a>my_data[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span> , ]</span>
+<span id="cb211-13"><a href="dataframe.html#cb211-13" tabindex="-1"></a><span class="do">##   Id  names gender age     faculty</span></span>
+<span id="cb211-14"><a href="dataframe.html#cb211-14" tabindex="-1"></a><span class="do">## 1  1  Alice      F  22  Psychology</span></span>
+<span id="cb211-15"><a href="dataframe.html#cb211-15" tabindex="-1"></a><span class="do">## 2  2  Bruno      M  25 Engineering</span></span>
+<span id="cb211-16"><a href="dataframe.html#cb211-16" tabindex="-1"></a><span class="do">## 3  3  Carla      F  23    Medicine</span></span>
+<span id="cb211-17"><a href="dataframe.html#cb211-17" tabindex="-1"></a><span class="do">## 4  4 Davide      M  22        Arts</span></span>
+<span id="cb211-18"><a href="dataframe.html#cb211-18" tabindex="-1"></a><span class="do">## 5  5  Elisa      F  24  Psychology</span></span></code></pre></div>
 </div>
 <div id="remove-rows-or-columns" class="section level4 unnumbered hasAnchor">
 <h4>Remove Rows or Columns<a href="dataframe.html#remove-rows-or-columns" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Similarly to matrices, to remove rows (or columns) from a <code>dataframe</code>, you need to indicate the row (or column) indices to remove within square brackets, preceded by the <code>-</code> (<em>minus</em>) operator.</p>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="dataframe.html#cb211-1" tabindex="-1"></a><span class="co"># Remove the first 5 observations/rows</span></span>
-<span id="cb211-2"><a href="dataframe.html#cb211-2" tabindex="-1"></a>my_data[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) , ]</span>
-<span id="cb211-3"><a href="dataframe.html#cb211-3" tabindex="-1"></a><span class="do">##    Id    names gender age     faculty</span></span>
-<span id="cb211-4"><a href="dataframe.html#cb211-4" tabindex="-1"></a><span class="do">## 6   6 Fabrizio      M  35        Arts</span></span>
-<span id="cb211-5"><a href="dataframe.html#cb211-5" tabindex="-1"></a><span class="do">## 7   7   Gloria      F  26 Engineering</span></span>
-<span id="cb211-6"><a href="dataframe.html#cb211-6" tabindex="-1"></a><span class="do">## 8   8   Herman      M  20  Psychology</span></span>
-<span id="cb211-7"><a href="dataframe.html#cb211-7" tabindex="-1"></a><span class="do">## 9   9    Irene      F  23  Statistics</span></span>
-<span id="cb211-8"><a href="dataframe.html#cb211-8" tabindex="-1"></a><span class="do">## 10 10     Luca      M  22 Engineering</span></span>
-<span id="cb211-9"><a href="dataframe.html#cb211-9" tabindex="-1"></a></span>
-<span id="cb211-10"><a href="dataframe.html#cb211-10" tabindex="-1"></a><span class="co"># Remove the third column</span></span>
-<span id="cb211-11"><a href="dataframe.html#cb211-11" tabindex="-1"></a>my_data[ , <span class="sc">-</span><span class="dv">3</span>]</span>
-<span id="cb211-12"><a href="dataframe.html#cb211-12" tabindex="-1"></a><span class="do">##    Id    names age     faculty</span></span>
-<span id="cb211-13"><a href="dataframe.html#cb211-13" tabindex="-1"></a><span class="do">## 1   1    Alice  22  Psychology</span></span>
-<span id="cb211-14"><a href="dataframe.html#cb211-14" tabindex="-1"></a><span class="do">## 2   2    Bruno  25 Engineering</span></span>
-<span id="cb211-15"><a href="dataframe.html#cb211-15" tabindex="-1"></a><span class="do">## 3   3    Carla  23    Medicine</span></span>
-<span id="cb211-16"><a href="dataframe.html#cb211-16" tabindex="-1"></a><span class="do">## 4   4   Davide  22        Arts</span></span>
-<span id="cb211-17"><a href="dataframe.html#cb211-17" tabindex="-1"></a><span class="do">## 5   5    Elisa  24  Psychology</span></span>
-<span id="cb211-18"><a href="dataframe.html#cb211-18" tabindex="-1"></a><span class="do">## 6   6 Fabrizio  35        Arts</span></span>
-<span id="cb211-19"><a href="dataframe.html#cb211-19" tabindex="-1"></a><span class="do">## 7   7   Gloria  26 Engineering</span></span>
-<span id="cb211-20"><a href="dataframe.html#cb211-20" tabindex="-1"></a><span class="do">## 8   8   Herman  20  Psychology</span></span>
-<span id="cb211-21"><a href="dataframe.html#cb211-21" tabindex="-1"></a><span class="do">## 9   9    Irene  23  Statistics</span></span>
-<span id="cb211-22"><a href="dataframe.html#cb211-22" tabindex="-1"></a><span class="do">## 10 10     Luca  22 Engineering</span></span></code></pre></div>
-<p>You can also exclude (and in a sense remove) information using logical operators such as <em>NOT</em> (i.e., <code>!</code>) and <em>not equal to</em> (<code>!=</code>). In the following examples, only rows where the <code>faculty</code> information is <em>not equal to</em> (i.e., <em>different from</em>) <code>Psychology</code> are kept (so, observations associated with <code>Psychology</code> are practically removed from the dataframe):</p>
-<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="dataframe.html#cb212-1" tabindex="-1"></a><span class="co"># Select everything except psychology students</span></span>
-<span id="cb212-2"><a href="dataframe.html#cb212-2" tabindex="-1"></a>my_data[my_data<span class="sc">$</span>faculty <span class="sc">!=</span> <span class="st">&quot;Psychology&quot;</span> , ]</span>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="dataframe.html#cb212-1" tabindex="-1"></a><span class="co"># Remove the first 5 observations/rows</span></span>
+<span id="cb212-2"><a href="dataframe.html#cb212-2" tabindex="-1"></a>my_data[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) , ]</span>
 <span id="cb212-3"><a href="dataframe.html#cb212-3" tabindex="-1"></a><span class="do">##    Id    names gender age     faculty</span></span>
-<span id="cb212-4"><a href="dataframe.html#cb212-4" tabindex="-1"></a><span class="do">## 2   2    Bruno      M  25 Engineering</span></span>
-<span id="cb212-5"><a href="dataframe.html#cb212-5" tabindex="-1"></a><span class="do">## 3   3    Carla      F  23    Medicine</span></span>
-<span id="cb212-6"><a href="dataframe.html#cb212-6" tabindex="-1"></a><span class="do">## 4   4   Davide      M  22        Arts</span></span>
-<span id="cb212-7"><a href="dataframe.html#cb212-7" tabindex="-1"></a><span class="do">## 6   6 Fabrizio      M  35        Arts</span></span>
-<span id="cb212-8"><a href="dataframe.html#cb212-8" tabindex="-1"></a><span class="do">## 7   7   Gloria      F  26 Engineering</span></span>
-<span id="cb212-9"><a href="dataframe.html#cb212-9" tabindex="-1"></a><span class="do">## 9   9    Irene      F  23  Statistics</span></span>
-<span id="cb212-10"><a href="dataframe.html#cb212-10" tabindex="-1"></a><span class="do">## 10 10     Luca      M  22 Engineering</span></span></code></pre></div>
-<p>Removing multiple categories, such as both <code>Psychology</code> and <code>Statistics</code> while keeping the rest may be a bit more difficult. Here are two possible methods, the second one may be more efficient when writing:</p>
-<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="dataframe.html#cb213-1" tabindex="-1"></a><span class="co"># method 1 : keep rows where &quot;faculty&quot; is not &quot;Psychology&quot; AND not &quot;Statistics&quot;</span></span>
-<span id="cb213-2"><a href="dataframe.html#cb213-2" tabindex="-1"></a>my_data[my_data<span class="sc">$</span>faculty <span class="sc">!=</span> <span class="st">&quot;Psychology&quot;</span> <span class="sc">&amp;</span> my_data<span class="sc">$</span>faculty <span class="sc">!=</span> <span class="st">&quot;Statistics&quot;</span> , ]</span>
+<span id="cb212-4"><a href="dataframe.html#cb212-4" tabindex="-1"></a><span class="do">## 6   6 Fabrizio      M  35        Arts</span></span>
+<span id="cb212-5"><a href="dataframe.html#cb212-5" tabindex="-1"></a><span class="do">## 7   7   Gloria      F  26 Engineering</span></span>
+<span id="cb212-6"><a href="dataframe.html#cb212-6" tabindex="-1"></a><span class="do">## 8   8   Herman      M  20  Psychology</span></span>
+<span id="cb212-7"><a href="dataframe.html#cb212-7" tabindex="-1"></a><span class="do">## 9   9    Irene      F  23  Statistics</span></span>
+<span id="cb212-8"><a href="dataframe.html#cb212-8" tabindex="-1"></a><span class="do">## 10 10     Luca      M  22 Engineering</span></span>
+<span id="cb212-9"><a href="dataframe.html#cb212-9" tabindex="-1"></a></span>
+<span id="cb212-10"><a href="dataframe.html#cb212-10" tabindex="-1"></a><span class="co"># Remove the third column</span></span>
+<span id="cb212-11"><a href="dataframe.html#cb212-11" tabindex="-1"></a>my_data[ , <span class="sc">-</span><span class="dv">3</span>]</span>
+<span id="cb212-12"><a href="dataframe.html#cb212-12" tabindex="-1"></a><span class="do">##    Id    names age     faculty</span></span>
+<span id="cb212-13"><a href="dataframe.html#cb212-13" tabindex="-1"></a><span class="do">## 1   1    Alice  22  Psychology</span></span>
+<span id="cb212-14"><a href="dataframe.html#cb212-14" tabindex="-1"></a><span class="do">## 2   2    Bruno  25 Engineering</span></span>
+<span id="cb212-15"><a href="dataframe.html#cb212-15" tabindex="-1"></a><span class="do">## 3   3    Carla  23    Medicine</span></span>
+<span id="cb212-16"><a href="dataframe.html#cb212-16" tabindex="-1"></a><span class="do">## 4   4   Davide  22        Arts</span></span>
+<span id="cb212-17"><a href="dataframe.html#cb212-17" tabindex="-1"></a><span class="do">## 5   5    Elisa  24  Psychology</span></span>
+<span id="cb212-18"><a href="dataframe.html#cb212-18" tabindex="-1"></a><span class="do">## 6   6 Fabrizio  35        Arts</span></span>
+<span id="cb212-19"><a href="dataframe.html#cb212-19" tabindex="-1"></a><span class="do">## 7   7   Gloria  26 Engineering</span></span>
+<span id="cb212-20"><a href="dataframe.html#cb212-20" tabindex="-1"></a><span class="do">## 8   8   Herman  20  Psychology</span></span>
+<span id="cb212-21"><a href="dataframe.html#cb212-21" tabindex="-1"></a><span class="do">## 9   9    Irene  23  Statistics</span></span>
+<span id="cb212-22"><a href="dataframe.html#cb212-22" tabindex="-1"></a><span class="do">## 10 10     Luca  22 Engineering</span></span></code></pre></div>
+<p>You can also exclude (and in a sense remove) information using logical operators such as <em>NOT</em> (i.e., <code>!</code>) and <em>not equal to</em> (<code>!=</code>). In the following examples, only rows where the <code>faculty</code> information is <em>not equal to</em> (i.e., <em>different from</em>) <code>Psychology</code> are kept (so, observations associated with <code>Psychology</code> are practically removed from the dataframe):</p>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="dataframe.html#cb213-1" tabindex="-1"></a><span class="co"># Select everything except psychology students</span></span>
+<span id="cb213-2"><a href="dataframe.html#cb213-2" tabindex="-1"></a>my_data[my_data<span class="sc">$</span>faculty <span class="sc">!=</span> <span class="st">&quot;Psychology&quot;</span> , ]</span>
 <span id="cb213-3"><a href="dataframe.html#cb213-3" tabindex="-1"></a><span class="do">##    Id    names gender age     faculty</span></span>
 <span id="cb213-4"><a href="dataframe.html#cb213-4" tabindex="-1"></a><span class="do">## 2   2    Bruno      M  25 Engineering</span></span>
 <span id="cb213-5"><a href="dataframe.html#cb213-5" tabindex="-1"></a><span class="do">## 3   3    Carla      F  23    Medicine</span></span>
 <span id="cb213-6"><a href="dataframe.html#cb213-6" tabindex="-1"></a><span class="do">## 4   4   Davide      M  22        Arts</span></span>
 <span id="cb213-7"><a href="dataframe.html#cb213-7" tabindex="-1"></a><span class="do">## 6   6 Fabrizio      M  35        Arts</span></span>
 <span id="cb213-8"><a href="dataframe.html#cb213-8" tabindex="-1"></a><span class="do">## 7   7   Gloria      F  26 Engineering</span></span>
-<span id="cb213-9"><a href="dataframe.html#cb213-9" tabindex="-1"></a><span class="do">## 10 10     Luca      M  22 Engineering</span></span>
-<span id="cb213-10"><a href="dataframe.html#cb213-10" tabindex="-1"></a></span>
-<span id="cb213-11"><a href="dataframe.html#cb213-11" tabindex="-1"></a><span class="co"># method 2 : keep all rows but NOT those in the vector c(&quot;Psychology&quot;, &quot;Statistics&quot;)</span></span>
-<span id="cb213-12"><a href="dataframe.html#cb213-12" tabindex="-1"></a>my_data[<span class="sc">!</span>my_data<span class="sc">$</span>faculty <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Psychology&quot;</span>,<span class="st">&quot;Statistics&quot;</span>) , ]</span>
-<span id="cb213-13"><a href="dataframe.html#cb213-13" tabindex="-1"></a><span class="do">##    Id    names gender age     faculty</span></span>
-<span id="cb213-14"><a href="dataframe.html#cb213-14" tabindex="-1"></a><span class="do">## 2   2    Bruno      M  25 Engineering</span></span>
-<span id="cb213-15"><a href="dataframe.html#cb213-15" tabindex="-1"></a><span class="do">## 3   3    Carla      F  23    Medicine</span></span>
-<span id="cb213-16"><a href="dataframe.html#cb213-16" tabindex="-1"></a><span class="do">## 4   4   Davide      M  22        Arts</span></span>
-<span id="cb213-17"><a href="dataframe.html#cb213-17" tabindex="-1"></a><span class="do">## 6   6 Fabrizio      M  35        Arts</span></span>
-<span id="cb213-18"><a href="dataframe.html#cb213-18" tabindex="-1"></a><span class="do">## 7   7   Gloria      F  26 Engineering</span></span>
-<span id="cb213-19"><a href="dataframe.html#cb213-19" tabindex="-1"></a><span class="do">## 10 10     Luca      M  22 Engineering</span></span></code></pre></div>
+<span id="cb213-9"><a href="dataframe.html#cb213-9" tabindex="-1"></a><span class="do">## 9   9    Irene      F  23  Statistics</span></span>
+<span id="cb213-10"><a href="dataframe.html#cb213-10" tabindex="-1"></a><span class="do">## 10 10     Luca      M  22 Engineering</span></span></code></pre></div>
+<p>Removing multiple categories, such as both <code>Psychology</code> and <code>Statistics</code> while keeping the rest may be a bit more difficult. Here are two possible methods, the second one may be more efficient when writing:</p>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="dataframe.html#cb214-1" tabindex="-1"></a><span class="co"># method 1 : keep rows where &quot;faculty&quot; is not &quot;Psychology&quot; AND not &quot;Statistics&quot;</span></span>
+<span id="cb214-2"><a href="dataframe.html#cb214-2" tabindex="-1"></a>my_data[my_data<span class="sc">$</span>faculty <span class="sc">!=</span> <span class="st">&quot;Psychology&quot;</span> <span class="sc">&amp;</span> my_data<span class="sc">$</span>faculty <span class="sc">!=</span> <span class="st">&quot;Statistics&quot;</span> , ]</span>
+<span id="cb214-3"><a href="dataframe.html#cb214-3" tabindex="-1"></a><span class="do">##    Id    names gender age     faculty</span></span>
+<span id="cb214-4"><a href="dataframe.html#cb214-4" tabindex="-1"></a><span class="do">## 2   2    Bruno      M  25 Engineering</span></span>
+<span id="cb214-5"><a href="dataframe.html#cb214-5" tabindex="-1"></a><span class="do">## 3   3    Carla      F  23    Medicine</span></span>
+<span id="cb214-6"><a href="dataframe.html#cb214-6" tabindex="-1"></a><span class="do">## 4   4   Davide      M  22        Arts</span></span>
+<span id="cb214-7"><a href="dataframe.html#cb214-7" tabindex="-1"></a><span class="do">## 6   6 Fabrizio      M  35        Arts</span></span>
+<span id="cb214-8"><a href="dataframe.html#cb214-8" tabindex="-1"></a><span class="do">## 7   7   Gloria      F  26 Engineering</span></span>
+<span id="cb214-9"><a href="dataframe.html#cb214-9" tabindex="-1"></a><span class="do">## 10 10     Luca      M  22 Engineering</span></span>
+<span id="cb214-10"><a href="dataframe.html#cb214-10" tabindex="-1"></a></span>
+<span id="cb214-11"><a href="dataframe.html#cb214-11" tabindex="-1"></a><span class="co"># method 2 : keep all rows but NOT those in the vector c(&quot;Psychology&quot;, &quot;Statistics&quot;)</span></span>
+<span id="cb214-12"><a href="dataframe.html#cb214-12" tabindex="-1"></a>my_data[<span class="sc">!</span>my_data<span class="sc">$</span>faculty <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Psychology&quot;</span>,<span class="st">&quot;Statistics&quot;</span>) , ]</span>
+<span id="cb214-13"><a href="dataframe.html#cb214-13" tabindex="-1"></a><span class="do">##    Id    names gender age     faculty</span></span>
+<span id="cb214-14"><a href="dataframe.html#cb214-14" tabindex="-1"></a><span class="do">## 2   2    Bruno      M  25 Engineering</span></span>
+<span id="cb214-15"><a href="dataframe.html#cb214-15" tabindex="-1"></a><span class="do">## 3   3    Carla      F  23    Medicine</span></span>
+<span id="cb214-16"><a href="dataframe.html#cb214-16" tabindex="-1"></a><span class="do">## 4   4   Davide      M  22        Arts</span></span>
+<span id="cb214-17"><a href="dataframe.html#cb214-17" tabindex="-1"></a><span class="do">## 6   6 Fabrizio      M  35        Arts</span></span>
+<span id="cb214-18"><a href="dataframe.html#cb214-18" tabindex="-1"></a><span class="do">## 7   7   Gloria      F  26 Engineering</span></span>
+<span id="cb214-19"><a href="dataframe.html#cb214-19" tabindex="-1"></a><span class="do">## 10 10     Luca      M  22 Engineering</span></span></code></pre></div>
 <p>A strategy similar to the second method shown just above could be used for removing multiple columns by names. Actually, the <code>-</code> (<em>minus</em>) will not work when listing columns by name. Let’s say we want to visualize the <code>my_data</code> dataframe but removing the columns related to <code>gender</code> and <code>age</code>. We may proceed as follow:</p>
-<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="dataframe.html#cb214-1" tabindex="-1"></a><span class="co"># Select all column names that are NOT in the vector c(&quot;gender&quot;,&quot;age&quot;)</span></span>
-<span id="cb214-2"><a href="dataframe.html#cb214-2" tabindex="-1"></a>my_data[ , <span class="sc">!</span><span class="fu">colnames</span>(my_data) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;gender&quot;</span>,<span class="st">&quot;age&quot;</span>)]</span>
-<span id="cb214-3"><a href="dataframe.html#cb214-3" tabindex="-1"></a><span class="do">##    Id    names     faculty</span></span>
-<span id="cb214-4"><a href="dataframe.html#cb214-4" tabindex="-1"></a><span class="do">## 1   1    Alice  Psychology</span></span>
-<span id="cb214-5"><a href="dataframe.html#cb214-5" tabindex="-1"></a><span class="do">## 2   2    Bruno Engineering</span></span>
-<span id="cb214-6"><a href="dataframe.html#cb214-6" tabindex="-1"></a><span class="do">## 3   3    Carla    Medicine</span></span>
-<span id="cb214-7"><a href="dataframe.html#cb214-7" tabindex="-1"></a><span class="do">## 4   4   Davide        Arts</span></span>
-<span id="cb214-8"><a href="dataframe.html#cb214-8" tabindex="-1"></a><span class="do">## 5   5    Elisa  Psychology</span></span>
-<span id="cb214-9"><a href="dataframe.html#cb214-9" tabindex="-1"></a><span class="do">## 6   6 Fabrizio        Arts</span></span>
-<span id="cb214-10"><a href="dataframe.html#cb214-10" tabindex="-1"></a><span class="do">## 7   7   Gloria Engineering</span></span>
-<span id="cb214-11"><a href="dataframe.html#cb214-11" tabindex="-1"></a><span class="do">## 8   8   Herman  Psychology</span></span>
-<span id="cb214-12"><a href="dataframe.html#cb214-12" tabindex="-1"></a><span class="do">## 9   9    Irene  Statistics</span></span>
-<span id="cb214-13"><a href="dataframe.html#cb214-13" tabindex="-1"></a><span class="do">## 10 10     Luca Engineering</span></span></code></pre></div>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="dataframe.html#cb215-1" tabindex="-1"></a><span class="co"># Select all column names that are NOT in the vector c(&quot;gender&quot;,&quot;age&quot;)</span></span>
+<span id="cb215-2"><a href="dataframe.html#cb215-2" tabindex="-1"></a>my_data[ , <span class="sc">!</span><span class="fu">colnames</span>(my_data) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;gender&quot;</span>,<span class="st">&quot;age&quot;</span>)]</span>
+<span id="cb215-3"><a href="dataframe.html#cb215-3" tabindex="-1"></a><span class="do">##    Id    names     faculty</span></span>
+<span id="cb215-4"><a href="dataframe.html#cb215-4" tabindex="-1"></a><span class="do">## 1   1    Alice  Psychology</span></span>
+<span id="cb215-5"><a href="dataframe.html#cb215-5" tabindex="-1"></a><span class="do">## 2   2    Bruno Engineering</span></span>
+<span id="cb215-6"><a href="dataframe.html#cb215-6" tabindex="-1"></a><span class="do">## 3   3    Carla    Medicine</span></span>
+<span id="cb215-7"><a href="dataframe.html#cb215-7" tabindex="-1"></a><span class="do">## 4   4   Davide        Arts</span></span>
+<span id="cb215-8"><a href="dataframe.html#cb215-8" tabindex="-1"></a><span class="do">## 5   5    Elisa  Psychology</span></span>
+<span id="cb215-9"><a href="dataframe.html#cb215-9" tabindex="-1"></a><span class="do">## 6   6 Fabrizio        Arts</span></span>
+<span id="cb215-10"><a href="dataframe.html#cb215-10" tabindex="-1"></a><span class="do">## 7   7   Gloria Engineering</span></span>
+<span id="cb215-11"><a href="dataframe.html#cb215-11" tabindex="-1"></a><span class="do">## 8   8   Herman  Psychology</span></span>
+<span id="cb215-12"><a href="dataframe.html#cb215-12" tabindex="-1"></a><span class="do">## 9   9    Irene  Statistics</span></span>
+<span id="cb215-13"><a href="dataframe.html#cb215-13" tabindex="-1"></a><span class="do">## 10 10     Luca Engineering</span></span></code></pre></div>
 <p>Note that the “removal” operation is actually a “selection” operation. Therefore, if you want to keep the changes, you need to save the result.</p>
 <div class="warning" title="Be Careful When Removing">
 <p>Using the <code>-</code> operator is somewhat risky, especially if the object created (or overwritten) is then used in other operations. Removing information, unless strictly necessary, is not a good practice. If you need to select part of the data, it’s always better to create a new dataframe (or a new object in general) while keeping a version of the original data available.</p>
@@ -1104,63 +1104,63 @@ Summary of the dataframe
 </tbody>
 </table>
 <p>We will now describe in detail some particular uses, considering an example of a reduced version of the <code>my_data</code> dataframe created earlier.</p>
-<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="dataframe.html#cb215-1" tabindex="-1"></a>data_short <span class="ot">=</span> my_data[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, ]</span>
-<span id="cb215-2"><a href="dataframe.html#cb215-2" tabindex="-1"></a>data_short</span>
-<span id="cb215-3"><a href="dataframe.html#cb215-3" tabindex="-1"></a><span class="do">##   Id  names gender age     faculty</span></span>
-<span id="cb215-4"><a href="dataframe.html#cb215-4" tabindex="-1"></a><span class="do">## 1  1  Alice      F  22  Psychology</span></span>
-<span id="cb215-5"><a href="dataframe.html#cb215-5" tabindex="-1"></a><span class="do">## 2  2  Bruno      M  25 Engineering</span></span>
-<span id="cb215-6"><a href="dataframe.html#cb215-6" tabindex="-1"></a><span class="do">## 3  3  Carla      F  23    Medicine</span></span>
-<span id="cb215-7"><a href="dataframe.html#cb215-7" tabindex="-1"></a><span class="do">## 4  4 Davide      M  22        Arts</span></span>
-<span id="cb215-8"><a href="dataframe.html#cb215-8" tabindex="-1"></a><span class="do">## 5  5  Elisa      F  24  Psychology</span></span></code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="dataframe.html#cb216-1" tabindex="-1"></a>data_short <span class="ot">=</span> my_data[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, ]</span>
+<span id="cb216-2"><a href="dataframe.html#cb216-2" tabindex="-1"></a>data_short</span>
+<span id="cb216-3"><a href="dataframe.html#cb216-3" tabindex="-1"></a><span class="do">##   Id  names gender age     faculty</span></span>
+<span id="cb216-4"><a href="dataframe.html#cb216-4" tabindex="-1"></a><span class="do">## 1  1  Alice      F  22  Psychology</span></span>
+<span id="cb216-5"><a href="dataframe.html#cb216-5" tabindex="-1"></a><span class="do">## 2  2  Bruno      M  25 Engineering</span></span>
+<span id="cb216-6"><a href="dataframe.html#cb216-6" tabindex="-1"></a><span class="do">## 3  3  Carla      F  23    Medicine</span></span>
+<span id="cb216-7"><a href="dataframe.html#cb216-7" tabindex="-1"></a><span class="do">## 4  4 Davide      M  22        Arts</span></span>
+<span id="cb216-8"><a href="dataframe.html#cb216-8" tabindex="-1"></a><span class="do">## 5  5  Elisa      F  24  Psychology</span></span></code></pre></div>
 <div id="attributes-of-a-dataframe" class="section level3 hasAnchor" number="10.3.1">
 <h3><span class="header-section-number">10.3.1</span> Attributes of a Dataframe<a href="dataframe.html#attributes-of-a-dataframe" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We saw in Chapter <a href="factor.html#attributes">8.1</a> that objects in R possess what are called <em>attributes</em>, useful information about the object itself, akin to <em>metadata</em>. We will now, similarly to matrices, evaluate the dimensions of a dataframe and the names of its rows and columns.</p>
 <div id="dimensions-1" class="section level4 unnumbered hasAnchor">
 <h4>Dimensions<a href="dataframe.html#dimensions-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Recall that a dataframe is a <strong>two-dimensional</strong> object consisting of rows and columns. To obtain the number of rows and columns in a dataframe, we can use the <code>nrow()</code> and <code>ncol()</code> functions, respectively.</p>
-<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="dataframe.html#cb216-1" tabindex="-1"></a><span class="co"># Number of rows</span></span>
-<span id="cb216-2"><a href="dataframe.html#cb216-2" tabindex="-1"></a><span class="fu">nrow</span>(my_data)</span>
-<span id="cb216-3"><a href="dataframe.html#cb216-3" tabindex="-1"></a><span class="do">## [1] 10</span></span>
-<span id="cb216-4"><a href="dataframe.html#cb216-4" tabindex="-1"></a></span>
-<span id="cb216-5"><a href="dataframe.html#cb216-5" tabindex="-1"></a><span class="co"># Number of columns</span></span>
-<span id="cb216-6"><a href="dataframe.html#cb216-6" tabindex="-1"></a><span class="fu">ncol</span>(my_data)</span>
-<span id="cb216-7"><a href="dataframe.html#cb216-7" tabindex="-1"></a><span class="do">## [1] 5</span></span></code></pre></div>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="dataframe.html#cb217-1" tabindex="-1"></a><span class="co"># Number of rows</span></span>
+<span id="cb217-2"><a href="dataframe.html#cb217-2" tabindex="-1"></a><span class="fu">nrow</span>(my_data)</span>
+<span id="cb217-3"><a href="dataframe.html#cb217-3" tabindex="-1"></a><span class="do">## [1] 10</span></span>
+<span id="cb217-4"><a href="dataframe.html#cb217-4" tabindex="-1"></a></span>
+<span id="cb217-5"><a href="dataframe.html#cb217-5" tabindex="-1"></a><span class="co"># Number of columns</span></span>
+<span id="cb217-6"><a href="dataframe.html#cb217-6" tabindex="-1"></a><span class="fu">ncol</span>(my_data)</span>
+<span id="cb217-7"><a href="dataframe.html#cb217-7" tabindex="-1"></a><span class="do">## [1] 5</span></span></code></pre></div>
 <p>Alternatively, as with matrices, we can use the <code>dim()</code> function, which returns a vector with two values: the first representing the number of rows and the second the number of columns.</p>
 </div>
 <div id="row-and-column-names-1" class="section level4 unnumbered hasAnchor">
 <h4>Row and Column Names<a href="dataframe.html#row-and-column-names-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Similarly to matrices, you can access the row and column names using the <code>rownames()</code> and <code>colnames()</code> functions, respectively. By default, dataframes require names only for the columns, while rows are assigned names based on their row indices. However, it’s possible to name rows with arbitrary values, although this is rarely used.</p>
-<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="dataframe.html#cb217-1" tabindex="-1"></a><span class="co"># Check the current names</span></span>
-<span id="cb217-2"><a href="dataframe.html#cb217-2" tabindex="-1"></a><span class="fu">rownames</span>(data_short)</span>
-<span id="cb217-3"><a href="dataframe.html#cb217-3" tabindex="-1"></a><span class="do">## [1] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; &quot;5&quot;</span></span>
-<span id="cb217-4"><a href="dataframe.html#cb217-4" tabindex="-1"></a><span class="fu">colnames</span>(data_short)</span>
-<span id="cb217-5"><a href="dataframe.html#cb217-5" tabindex="-1"></a><span class="do">## [1] &quot;Id&quot;      &quot;names&quot;   &quot;gender&quot;  &quot;age&quot;     &quot;faculty&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="dataframe.html#cb218-1" tabindex="-1"></a><span class="co"># Check the current names</span></span>
+<span id="cb218-2"><a href="dataframe.html#cb218-2" tabindex="-1"></a><span class="fu">rownames</span>(data_short)</span>
+<span id="cb218-3"><a href="dataframe.html#cb218-3" tabindex="-1"></a><span class="do">## [1] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; &quot;5&quot;</span></span>
+<span id="cb218-4"><a href="dataframe.html#cb218-4" tabindex="-1"></a><span class="fu">colnames</span>(data_short)</span>
+<span id="cb218-5"><a href="dataframe.html#cb218-5" tabindex="-1"></a><span class="do">## [1] &quot;Id&quot;      &quot;names&quot;   &quot;gender&quot;  &quot;age&quot;     &quot;faculty&quot;</span></span></code></pre></div>
 <p>To set row and/or column names, assign a character vector of the same length as the dimension you’re renaming to <code>rownames(dataframe_name)</code> or <code>colnames(dataframe_name)</code>.</p>
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="dataframe.html#cb218-1" tabindex="-1"></a><span class="co"># Assign names to the rows</span></span>
-<span id="cb218-2"><a href="dataframe.html#cb218-2" tabindex="-1"></a><span class="fu">rownames</span>(data_short) <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&quot;Subj_&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(data_short))</span>
-<span id="cb218-3"><a href="dataframe.html#cb218-3" tabindex="-1"></a></span>
-<span id="cb218-4"><a href="dataframe.html#cb218-4" tabindex="-1"></a><span class="co"># Assign names to the columns</span></span>
-<span id="cb218-5"><a href="dataframe.html#cb218-5" tabindex="-1"></a><span class="fu">colnames</span>(data_short) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Id&quot;</span>, <span class="st">&quot;Name&quot;</span>, <span class="st">&quot;Gender&quot;</span>, <span class="st">&quot;Age&quot;</span>, <span class="st">&quot;Faculty&quot;</span>)</span>
-<span id="cb218-6"><a href="dataframe.html#cb218-6" tabindex="-1"></a></span>
-<span id="cb218-7"><a href="dataframe.html#cb218-7" tabindex="-1"></a>data_short</span>
-<span id="cb218-8"><a href="dataframe.html#cb218-8" tabindex="-1"></a><span class="do">##        Id   Name Gender Age     Faculty</span></span>
-<span id="cb218-9"><a href="dataframe.html#cb218-9" tabindex="-1"></a><span class="do">## Subj_1  1  Alice      F  22  Psychology</span></span>
-<span id="cb218-10"><a href="dataframe.html#cb218-10" tabindex="-1"></a><span class="do">## Subj_2  2  Bruno      M  25 Engineering</span></span>
-<span id="cb218-11"><a href="dataframe.html#cb218-11" tabindex="-1"></a><span class="do">## Subj_3  3  Carla      F  23    Medicine</span></span>
-<span id="cb218-12"><a href="dataframe.html#cb218-12" tabindex="-1"></a><span class="do">## Subj_4  4 Davide      M  22        Arts</span></span>
-<span id="cb218-13"><a href="dataframe.html#cb218-13" tabindex="-1"></a><span class="do">## Subj_5  5  Elisa      F  24  Psychology</span></span></code></pre></div>
-<p>Finally, note that the <code>names()</code> function for dataframes is analogous to <code>colnames()</code>, and you can use <code>NULL</code> to remove, for example, row names.</p>
-<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="dataframe.html#cb219-1" tabindex="-1"></a><span class="fu">names</span>(data_short)</span>
-<span id="cb219-2"><a href="dataframe.html#cb219-2" tabindex="-1"></a><span class="do">## [1] &quot;Id&quot;      &quot;Name&quot;    &quot;Gender&quot;  &quot;Age&quot;     &quot;Faculty&quot;</span></span>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="dataframe.html#cb219-1" tabindex="-1"></a><span class="co"># Assign names to the rows</span></span>
+<span id="cb219-2"><a href="dataframe.html#cb219-2" tabindex="-1"></a><span class="fu">rownames</span>(data_short) <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&quot;Subj_&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(data_short))</span>
 <span id="cb219-3"><a href="dataframe.html#cb219-3" tabindex="-1"></a></span>
-<span id="cb219-4"><a href="dataframe.html#cb219-4" tabindex="-1"></a><span class="fu">rownames</span>(data_short) <span class="ot">=</span> <span class="cn">NULL</span></span>
-<span id="cb219-5"><a href="dataframe.html#cb219-5" tabindex="-1"></a>data_short</span>
-<span id="cb219-6"><a href="dataframe.html#cb219-6" tabindex="-1"></a><span class="do">##   Id   Name Gender Age     Faculty</span></span>
-<span id="cb219-7"><a href="dataframe.html#cb219-7" tabindex="-1"></a><span class="do">## 1  1  Alice      F  22  Psychology</span></span>
-<span id="cb219-8"><a href="dataframe.html#cb219-8" tabindex="-1"></a><span class="do">## 2  2  Bruno      M  25 Engineering</span></span>
-<span id="cb219-9"><a href="dataframe.html#cb219-9" tabindex="-1"></a><span class="do">## 3  3  Carla      F  23    Medicine</span></span>
-<span id="cb219-10"><a href="dataframe.html#cb219-10" tabindex="-1"></a><span class="do">## 4  4 Davide      M  22        Arts</span></span>
-<span id="cb219-11"><a href="dataframe.html#cb219-11" tabindex="-1"></a><span class="do">## 5  5  Elisa      F  24  Psychology</span></span></code></pre></div>
+<span id="cb219-4"><a href="dataframe.html#cb219-4" tabindex="-1"></a><span class="co"># Assign names to the columns</span></span>
+<span id="cb219-5"><a href="dataframe.html#cb219-5" tabindex="-1"></a><span class="fu">colnames</span>(data_short) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Id&quot;</span>, <span class="st">&quot;Name&quot;</span>, <span class="st">&quot;Gender&quot;</span>, <span class="st">&quot;Age&quot;</span>, <span class="st">&quot;Faculty&quot;</span>)</span>
+<span id="cb219-6"><a href="dataframe.html#cb219-6" tabindex="-1"></a></span>
+<span id="cb219-7"><a href="dataframe.html#cb219-7" tabindex="-1"></a>data_short</span>
+<span id="cb219-8"><a href="dataframe.html#cb219-8" tabindex="-1"></a><span class="do">##        Id   Name Gender Age     Faculty</span></span>
+<span id="cb219-9"><a href="dataframe.html#cb219-9" tabindex="-1"></a><span class="do">## Subj_1  1  Alice      F  22  Psychology</span></span>
+<span id="cb219-10"><a href="dataframe.html#cb219-10" tabindex="-1"></a><span class="do">## Subj_2  2  Bruno      M  25 Engineering</span></span>
+<span id="cb219-11"><a href="dataframe.html#cb219-11" tabindex="-1"></a><span class="do">## Subj_3  3  Carla      F  23    Medicine</span></span>
+<span id="cb219-12"><a href="dataframe.html#cb219-12" tabindex="-1"></a><span class="do">## Subj_4  4 Davide      M  22        Arts</span></span>
+<span id="cb219-13"><a href="dataframe.html#cb219-13" tabindex="-1"></a><span class="do">## Subj_5  5  Elisa      F  24  Psychology</span></span></code></pre></div>
+<p>Finally, note that the <code>names()</code> function for dataframes is analogous to <code>colnames()</code>, and you can use <code>NULL</code> to remove, for example, row names.</p>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="dataframe.html#cb220-1" tabindex="-1"></a><span class="fu">names</span>(data_short)</span>
+<span id="cb220-2"><a href="dataframe.html#cb220-2" tabindex="-1"></a><span class="do">## [1] &quot;Id&quot;      &quot;Name&quot;    &quot;Gender&quot;  &quot;Age&quot;     &quot;Faculty&quot;</span></span>
+<span id="cb220-3"><a href="dataframe.html#cb220-3" tabindex="-1"></a></span>
+<span id="cb220-4"><a href="dataframe.html#cb220-4" tabindex="-1"></a><span class="fu">rownames</span>(data_short) <span class="ot">=</span> <span class="cn">NULL</span></span>
+<span id="cb220-5"><a href="dataframe.html#cb220-5" tabindex="-1"></a>data_short</span>
+<span id="cb220-6"><a href="dataframe.html#cb220-6" tabindex="-1"></a><span class="do">##   Id   Name Gender Age     Faculty</span></span>
+<span id="cb220-7"><a href="dataframe.html#cb220-7" tabindex="-1"></a><span class="do">## 1  1  Alice      F  22  Psychology</span></span>
+<span id="cb220-8"><a href="dataframe.html#cb220-8" tabindex="-1"></a><span class="do">## 2  2  Bruno      M  25 Engineering</span></span>
+<span id="cb220-9"><a href="dataframe.html#cb220-9" tabindex="-1"></a><span class="do">## 3  3  Carla      F  23    Medicine</span></span>
+<span id="cb220-10"><a href="dataframe.html#cb220-10" tabindex="-1"></a><span class="do">## 4  4 Davide      M  22        Arts</span></span>
+<span id="cb220-11"><a href="dataframe.html#cb220-11" tabindex="-1"></a><span class="do">## 5  5  Elisa      F  24  Psychology</span></span></code></pre></div>
 </div>
 </div>
 <div id="merging-dataframes" class="section level3 hasAnchor" number="10.3.2">
@@ -1169,42 +1169,42 @@ Summary of the dataframe
 <div id="dataframename-new_var" class="section level4 unnumbered hasAnchor">
 <h4><code>dataframe$name = new_var</code><a href="dataframe.html#dataframename-new_var" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>With the syntax <code>dataframe$name = new_var</code>, we add a new column named <code>name</code> to the dataframe, taking values from <code>new_var</code>. This new variable must have the same number of values as there are rows in the dataframe.</p>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="dataframe.html#cb220-1" tabindex="-1"></a><span class="co"># Add the &quot;average&quot; column</span></span>
-<span id="cb220-2"><a href="dataframe.html#cb220-2" tabindex="-1"></a>data_short<span class="sc">$</span>Average <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">27.5</span>, <span class="fl">23.6</span>, <span class="fl">28.3</span>, <span class="fl">29.2</span>, <span class="fl">24.8</span>)</span>
-<span id="cb220-3"><a href="dataframe.html#cb220-3" tabindex="-1"></a></span>
-<span id="cb220-4"><a href="dataframe.html#cb220-4" tabindex="-1"></a><span class="co"># note that this is the same as:</span></span>
-<span id="cb220-5"><a href="dataframe.html#cb220-5" tabindex="-1"></a>average_grades <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">27.5</span>, <span class="fl">23.6</span>, <span class="fl">28.3</span>, <span class="fl">29.2</span>, <span class="fl">24.8</span>)</span>
-<span id="cb220-6"><a href="dataframe.html#cb220-6" tabindex="-1"></a>data_short<span class="sc">$</span>Average <span class="ot">=</span> average_grades</span>
-<span id="cb220-7"><a href="dataframe.html#cb220-7" tabindex="-1"></a></span>
-<span id="cb220-8"><a href="dataframe.html#cb220-8" tabindex="-1"></a>data_short</span>
-<span id="cb220-9"><a href="dataframe.html#cb220-9" tabindex="-1"></a><span class="do">##   Id   Name Gender Age     Faculty Average</span></span>
-<span id="cb220-10"><a href="dataframe.html#cb220-10" tabindex="-1"></a><span class="do">## 1  1  Alice      F  22  Psychology    27.5</span></span>
-<span id="cb220-11"><a href="dataframe.html#cb220-11" tabindex="-1"></a><span class="do">## 2  2  Bruno      M  25 Engineering    23.6</span></span>
-<span id="cb220-12"><a href="dataframe.html#cb220-12" tabindex="-1"></a><span class="do">## 3  3  Carla      F  23    Medicine    28.3</span></span>
-<span id="cb220-13"><a href="dataframe.html#cb220-13" tabindex="-1"></a><span class="do">## 4  4 Davide      M  22        Arts    29.2</span></span>
-<span id="cb220-14"><a href="dataframe.html#cb220-14" tabindex="-1"></a><span class="do">## 5  5  Elisa      F  24  Psychology    24.8</span></span></code></pre></div>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="dataframe.html#cb221-1" tabindex="-1"></a><span class="co"># Add the &quot;average&quot; column</span></span>
+<span id="cb221-2"><a href="dataframe.html#cb221-2" tabindex="-1"></a>data_short<span class="sc">$</span>Average <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">27.5</span>, <span class="fl">23.6</span>, <span class="fl">28.3</span>, <span class="fl">29.2</span>, <span class="fl">24.8</span>)</span>
+<span id="cb221-3"><a href="dataframe.html#cb221-3" tabindex="-1"></a></span>
+<span id="cb221-4"><a href="dataframe.html#cb221-4" tabindex="-1"></a><span class="co"># note that this is the same as:</span></span>
+<span id="cb221-5"><a href="dataframe.html#cb221-5" tabindex="-1"></a>average_grades <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">27.5</span>, <span class="fl">23.6</span>, <span class="fl">28.3</span>, <span class="fl">29.2</span>, <span class="fl">24.8</span>)</span>
+<span id="cb221-6"><a href="dataframe.html#cb221-6" tabindex="-1"></a>data_short<span class="sc">$</span>Average <span class="ot">=</span> average_grades</span>
+<span id="cb221-7"><a href="dataframe.html#cb221-7" tabindex="-1"></a></span>
+<span id="cb221-8"><a href="dataframe.html#cb221-8" tabindex="-1"></a>data_short</span>
+<span id="cb221-9"><a href="dataframe.html#cb221-9" tabindex="-1"></a><span class="do">##   Id   Name Gender Age     Faculty Average</span></span>
+<span id="cb221-10"><a href="dataframe.html#cb221-10" tabindex="-1"></a><span class="do">## 1  1  Alice      F  22  Psychology    27.5</span></span>
+<span id="cb221-11"><a href="dataframe.html#cb221-11" tabindex="-1"></a><span class="do">## 2  2  Bruno      M  25 Engineering    23.6</span></span>
+<span id="cb221-12"><a href="dataframe.html#cb221-12" tabindex="-1"></a><span class="do">## 3  3  Carla      F  23    Medicine    28.3</span></span>
+<span id="cb221-13"><a href="dataframe.html#cb221-13" tabindex="-1"></a><span class="do">## 4  4 Davide      M  22        Arts    29.2</span></span>
+<span id="cb221-14"><a href="dataframe.html#cb221-14" tabindex="-1"></a><span class="do">## 5  5  Elisa      F  24  Psychology    24.8</span></span></code></pre></div>
 </div>
 <div id="cbind" class="section level4 unnumbered hasAnchor">
 <h4><code>cbind()</code><a href="dataframe.html#cbind" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>With the <code>cbind()</code> function, we can add one or more variables to our dataframe. Note that, unlike using the <code>$</code> operator, the result is not automatically saved; it must be assigned to a new object <code>dataframe = cbind(dataframe, new_var)</code>. In this case, the column name will be new_var. If we want to rename the column, we can use the syntax <code>cbind(dataframe, "name" = new_var)</code> or name the object directly:</p>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="dataframe.html#cb221-1" tabindex="-1"></a><span class="co"># Add the &quot;number_of_exams&quot; variable</span></span>
-<span id="cb221-2"><a href="dataframe.html#cb221-2" tabindex="-1"></a>number_of_exams <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">14</span>, <span class="dv">13</span>, <span class="dv">10</span>, <span class="dv">8</span>)</span>
-<span id="cb221-3"><a href="dataframe.html#cb221-3" tabindex="-1"></a></span>
-<span id="cb221-4"><a href="dataframe.html#cb221-4" tabindex="-1"></a><span class="fu">cbind</span>(data_short, number_of_exams) <span class="co"># without specifying the name</span></span>
-<span id="cb221-5"><a href="dataframe.html#cb221-5" tabindex="-1"></a><span class="do">##   Id   Name Gender Age     Faculty Average number_of_exams</span></span>
-<span id="cb221-6"><a href="dataframe.html#cb221-6" tabindex="-1"></a><span class="do">## 1  1  Alice      F  22  Psychology    27.5              12</span></span>
-<span id="cb221-7"><a href="dataframe.html#cb221-7" tabindex="-1"></a><span class="do">## 2  2  Bruno      M  25 Engineering    23.6              14</span></span>
-<span id="cb221-8"><a href="dataframe.html#cb221-8" tabindex="-1"></a><span class="do">## 3  3  Carla      F  23    Medicine    28.3              13</span></span>
-<span id="cb221-9"><a href="dataframe.html#cb221-9" tabindex="-1"></a><span class="do">## 4  4 Davide      M  22        Arts    29.2              10</span></span>
-<span id="cb221-10"><a href="dataframe.html#cb221-10" tabindex="-1"></a><span class="do">## 5  5  Elisa      F  24  Psychology    24.8               8</span></span>
-<span id="cb221-11"><a href="dataframe.html#cb221-11" tabindex="-1"></a></span>
-<span id="cb221-12"><a href="dataframe.html#cb221-12" tabindex="-1"></a><span class="fu">cbind</span>(data_short, <span class="st">&quot;N_exams&quot;</span> <span class="ot">=</span> number_of_exams) <span class="co"># specifying the name</span></span>
-<span id="cb221-13"><a href="dataframe.html#cb221-13" tabindex="-1"></a><span class="do">##   Id   Name Gender Age     Faculty Average N_exams</span></span>
-<span id="cb221-14"><a href="dataframe.html#cb221-14" tabindex="-1"></a><span class="do">## 1  1  Alice      F  22  Psychology    27.5      12</span></span>
-<span id="cb221-15"><a href="dataframe.html#cb221-15" tabindex="-1"></a><span class="do">## 2  2  Bruno      M  25 Engineering    23.6      14</span></span>
-<span id="cb221-16"><a href="dataframe.html#cb221-16" tabindex="-1"></a><span class="do">## 3  3  Carla      F  23    Medicine    28.3      13</span></span>
-<span id="cb221-17"><a href="dataframe.html#cb221-17" tabindex="-1"></a><span class="do">## 4  4 Davide      M  22        Arts    29.2      10</span></span>
-<span id="cb221-18"><a href="dataframe.html#cb221-18" tabindex="-1"></a><span class="do">## 5  5  Elisa      F  24  Psychology    24.8       8</span></span></code></pre></div>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="dataframe.html#cb222-1" tabindex="-1"></a><span class="co"># Add the &quot;number_of_exams&quot; variable</span></span>
+<span id="cb222-2"><a href="dataframe.html#cb222-2" tabindex="-1"></a>number_of_exams <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">14</span>, <span class="dv">13</span>, <span class="dv">10</span>, <span class="dv">8</span>)</span>
+<span id="cb222-3"><a href="dataframe.html#cb222-3" tabindex="-1"></a></span>
+<span id="cb222-4"><a href="dataframe.html#cb222-4" tabindex="-1"></a><span class="fu">cbind</span>(data_short, number_of_exams) <span class="co"># without specifying the name</span></span>
+<span id="cb222-5"><a href="dataframe.html#cb222-5" tabindex="-1"></a><span class="do">##   Id   Name Gender Age     Faculty Average number_of_exams</span></span>
+<span id="cb222-6"><a href="dataframe.html#cb222-6" tabindex="-1"></a><span class="do">## 1  1  Alice      F  22  Psychology    27.5              12</span></span>
+<span id="cb222-7"><a href="dataframe.html#cb222-7" tabindex="-1"></a><span class="do">## 2  2  Bruno      M  25 Engineering    23.6              14</span></span>
+<span id="cb222-8"><a href="dataframe.html#cb222-8" tabindex="-1"></a><span class="do">## 3  3  Carla      F  23    Medicine    28.3              13</span></span>
+<span id="cb222-9"><a href="dataframe.html#cb222-9" tabindex="-1"></a><span class="do">## 4  4 Davide      M  22        Arts    29.2              10</span></span>
+<span id="cb222-10"><a href="dataframe.html#cb222-10" tabindex="-1"></a><span class="do">## 5  5  Elisa      F  24  Psychology    24.8               8</span></span>
+<span id="cb222-11"><a href="dataframe.html#cb222-11" tabindex="-1"></a></span>
+<span id="cb222-12"><a href="dataframe.html#cb222-12" tabindex="-1"></a><span class="fu">cbind</span>(data_short, <span class="st">&quot;N_exams&quot;</span> <span class="ot">=</span> number_of_exams) <span class="co"># specifying the name</span></span>
+<span id="cb222-13"><a href="dataframe.html#cb222-13" tabindex="-1"></a><span class="do">##   Id   Name Gender Age     Faculty Average N_exams</span></span>
+<span id="cb222-14"><a href="dataframe.html#cb222-14" tabindex="-1"></a><span class="do">## 1  1  Alice      F  22  Psychology    27.5      12</span></span>
+<span id="cb222-15"><a href="dataframe.html#cb222-15" tabindex="-1"></a><span class="do">## 2  2  Bruno      M  25 Engineering    23.6      14</span></span>
+<span id="cb222-16"><a href="dataframe.html#cb222-16" tabindex="-1"></a><span class="do">## 3  3  Carla      F  23    Medicine    28.3      13</span></span>
+<span id="cb222-17"><a href="dataframe.html#cb222-17" tabindex="-1"></a><span class="do">## 4  4 Davide      M  22        Arts    29.2      10</span></span>
+<span id="cb222-18"><a href="dataframe.html#cb222-18" tabindex="-1"></a><span class="do">## 5  5  Elisa      F  24  Psychology    24.8       8</span></span></code></pre></div>
 <p>Again, the new variable must have the same number of values as there are rows in the dataframe.</p>
 </div>
 <div id="rbind" class="section level4 unnumbered hasAnchor">
@@ -1215,49 +1215,49 @@ Summary of the dataframe
 <li>The same column names</li>
 </ul>
 <p>In the following example, we simply add one single row to an existing dataframe:</p>
-<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="dataframe.html#cb222-1" tabindex="-1"></a>data_short</span>
-<span id="cb222-2"><a href="dataframe.html#cb222-2" tabindex="-1"></a><span class="do">##   Id   Name Gender Age     Faculty Average</span></span>
-<span id="cb222-3"><a href="dataframe.html#cb222-3" tabindex="-1"></a><span class="do">## 1  1  Alice      F  22  Psychology    27.5</span></span>
-<span id="cb222-4"><a href="dataframe.html#cb222-4" tabindex="-1"></a><span class="do">## 2  2  Bruno      M  25 Engineering    23.6</span></span>
-<span id="cb222-5"><a href="dataframe.html#cb222-5" tabindex="-1"></a><span class="do">## 3  3  Carla      F  23    Medicine    28.3</span></span>
-<span id="cb222-6"><a href="dataframe.html#cb222-6" tabindex="-1"></a><span class="do">## 4  4 Davide      M  22        Arts    29.2</span></span>
-<span id="cb222-7"><a href="dataframe.html#cb222-7" tabindex="-1"></a><span class="do">## 5  5  Elisa      F  24  Psychology    24.8</span></span>
-<span id="cb222-8"><a href="dataframe.html#cb222-8" tabindex="-1"></a></span>
-<span id="cb222-9"><a href="dataframe.html#cb222-9" tabindex="-1"></a><span class="co"># New data with the same columns, but named differently</span></span>
-<span id="cb222-10"><a href="dataframe.html#cb222-10" tabindex="-1"></a>new_data <span class="ot">=</span> <span class="fu">data.frame</span>(</span>
-<span id="cb222-11"><a href="dataframe.html#cb222-11" tabindex="-1"></a>  <span class="at">Id =</span> <span class="dv">6</span>,</span>
-<span id="cb222-12"><a href="dataframe.html#cb222-12" tabindex="-1"></a>  <span class="at">Name =</span> <span class="st">&quot;Marta&quot;</span>,</span>
-<span id="cb222-13"><a href="dataframe.html#cb222-13" tabindex="-1"></a>  <span class="at">Sex =</span> <span class="st">&quot;F&quot;</span>,      <span class="co"># note &quot;Sex&quot; instead of &quot;Gender&quot;</span></span>
-<span id="cb222-14"><a href="dataframe.html#cb222-14" tabindex="-1"></a>  <span class="at">Age =</span> <span class="dv">44</span>,</span>
-<span id="cb222-15"><a href="dataframe.html#cb222-15" tabindex="-1"></a>  <span class="at">Faculty =</span> <span class="st">&quot;Philosophy&quot;</span>,</span>
-<span id="cb222-16"><a href="dataframe.html#cb222-16" tabindex="-1"></a>  <span class="at">Average =</span> <span class="fl">28.7</span></span>
-<span id="cb222-17"><a href="dataframe.html#cb222-17" tabindex="-1"></a>)</span>
-<span id="cb222-18"><a href="dataframe.html#cb222-18" tabindex="-1"></a></span>
-<span id="cb222-19"><a href="dataframe.html#cb222-19" tabindex="-1"></a>new_data</span>
-<span id="cb222-20"><a href="dataframe.html#cb222-20" tabindex="-1"></a><span class="do">##   Id  Name Sex Age    Faculty Average</span></span>
-<span id="cb222-21"><a href="dataframe.html#cb222-21" tabindex="-1"></a><span class="do">## 1  6 Marta   F  44 Philosophy    28.7</span></span>
-<span id="cb222-22"><a href="dataframe.html#cb222-22" tabindex="-1"></a></span>
-<span id="cb222-23"><a href="dataframe.html#cb222-23" tabindex="-1"></a><span class="fu">rbind</span>(data_short, new_data) <span class="co"># Error!</span></span>
-<span id="cb222-24"><a href="dataframe.html#cb222-24" tabindex="-1"></a><span class="do">## Error in match.names(clabs, names(xi)): names do not match previous names</span></span>
-<span id="cb222-25"><a href="dataframe.html#cb222-25" tabindex="-1"></a></span>
-<span id="cb222-26"><a href="dataframe.html#cb222-26" tabindex="-1"></a><span class="co"># New data with the same columns having the exact same names</span></span>
-<span id="cb222-27"><a href="dataframe.html#cb222-27" tabindex="-1"></a>new_data <span class="ot">=</span> <span class="fu">data.frame</span>(</span>
-<span id="cb222-28"><a href="dataframe.html#cb222-28" tabindex="-1"></a>  <span class="at">Id =</span> <span class="dv">6</span>,</span>
-<span id="cb222-29"><a href="dataframe.html#cb222-29" tabindex="-1"></a>  <span class="at">Name =</span> <span class="st">&quot;Marta&quot;</span>,</span>
-<span id="cb222-30"><a href="dataframe.html#cb222-30" tabindex="-1"></a>  <span class="at">Gender =</span> <span class="st">&quot;F&quot;</span>, </span>
-<span id="cb222-31"><a href="dataframe.html#cb222-31" tabindex="-1"></a>  <span class="at">Age =</span> <span class="dv">44</span>,</span>
-<span id="cb222-32"><a href="dataframe.html#cb222-32" tabindex="-1"></a>  <span class="at">Faculty =</span> <span class="st">&quot;Philosophy&quot;</span>,</span>
-<span id="cb222-33"><a href="dataframe.html#cb222-33" tabindex="-1"></a>  <span class="at">Average =</span> <span class="fl">28.7</span></span>
-<span id="cb222-34"><a href="dataframe.html#cb222-34" tabindex="-1"></a>)</span>
-<span id="cb222-35"><a href="dataframe.html#cb222-35" tabindex="-1"></a></span>
-<span id="cb222-36"><a href="dataframe.html#cb222-36" tabindex="-1"></a><span class="fu">rbind</span>(data_short, new_data)</span>
-<span id="cb222-37"><a href="dataframe.html#cb222-37" tabindex="-1"></a><span class="do">##   Id   Name Gender Age     Faculty Average</span></span>
-<span id="cb222-38"><a href="dataframe.html#cb222-38" tabindex="-1"></a><span class="do">## 1  1  Alice      F  22  Psychology    27.5</span></span>
-<span id="cb222-39"><a href="dataframe.html#cb222-39" tabindex="-1"></a><span class="do">## 2  2  Bruno      M  25 Engineering    23.6</span></span>
-<span id="cb222-40"><a href="dataframe.html#cb222-40" tabindex="-1"></a><span class="do">## 3  3  Carla      F  23    Medicine    28.3</span></span>
-<span id="cb222-41"><a href="dataframe.html#cb222-41" tabindex="-1"></a><span class="do">## 4  4 Davide      M  22        Arts    29.2</span></span>
-<span id="cb222-42"><a href="dataframe.html#cb222-42" tabindex="-1"></a><span class="do">## 5  5  Elisa      F  24  Psychology    24.8</span></span>
-<span id="cb222-43"><a href="dataframe.html#cb222-43" tabindex="-1"></a><span class="do">## 6  6  Marta      F  44  Philosophy    28.7</span></span></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="dataframe.html#cb223-1" tabindex="-1"></a>data_short</span>
+<span id="cb223-2"><a href="dataframe.html#cb223-2" tabindex="-1"></a><span class="do">##   Id   Name Gender Age     Faculty Average</span></span>
+<span id="cb223-3"><a href="dataframe.html#cb223-3" tabindex="-1"></a><span class="do">## 1  1  Alice      F  22  Psychology    27.5</span></span>
+<span id="cb223-4"><a href="dataframe.html#cb223-4" tabindex="-1"></a><span class="do">## 2  2  Bruno      M  25 Engineering    23.6</span></span>
+<span id="cb223-5"><a href="dataframe.html#cb223-5" tabindex="-1"></a><span class="do">## 3  3  Carla      F  23    Medicine    28.3</span></span>
+<span id="cb223-6"><a href="dataframe.html#cb223-6" tabindex="-1"></a><span class="do">## 4  4 Davide      M  22        Arts    29.2</span></span>
+<span id="cb223-7"><a href="dataframe.html#cb223-7" tabindex="-1"></a><span class="do">## 5  5  Elisa      F  24  Psychology    24.8</span></span>
+<span id="cb223-8"><a href="dataframe.html#cb223-8" tabindex="-1"></a></span>
+<span id="cb223-9"><a href="dataframe.html#cb223-9" tabindex="-1"></a><span class="co"># New data with the same columns, but named differently</span></span>
+<span id="cb223-10"><a href="dataframe.html#cb223-10" tabindex="-1"></a>new_data <span class="ot">=</span> <span class="fu">data.frame</span>(</span>
+<span id="cb223-11"><a href="dataframe.html#cb223-11" tabindex="-1"></a>  <span class="at">Id =</span> <span class="dv">6</span>,</span>
+<span id="cb223-12"><a href="dataframe.html#cb223-12" tabindex="-1"></a>  <span class="at">Name =</span> <span class="st">&quot;Marta&quot;</span>,</span>
+<span id="cb223-13"><a href="dataframe.html#cb223-13" tabindex="-1"></a>  <span class="at">Sex =</span> <span class="st">&quot;F&quot;</span>,      <span class="co"># note &quot;Sex&quot; instead of &quot;Gender&quot;</span></span>
+<span id="cb223-14"><a href="dataframe.html#cb223-14" tabindex="-1"></a>  <span class="at">Age =</span> <span class="dv">44</span>,</span>
+<span id="cb223-15"><a href="dataframe.html#cb223-15" tabindex="-1"></a>  <span class="at">Faculty =</span> <span class="st">&quot;Philosophy&quot;</span>,</span>
+<span id="cb223-16"><a href="dataframe.html#cb223-16" tabindex="-1"></a>  <span class="at">Average =</span> <span class="fl">28.7</span></span>
+<span id="cb223-17"><a href="dataframe.html#cb223-17" tabindex="-1"></a>)</span>
+<span id="cb223-18"><a href="dataframe.html#cb223-18" tabindex="-1"></a></span>
+<span id="cb223-19"><a href="dataframe.html#cb223-19" tabindex="-1"></a>new_data</span>
+<span id="cb223-20"><a href="dataframe.html#cb223-20" tabindex="-1"></a><span class="do">##   Id  Name Sex Age    Faculty Average</span></span>
+<span id="cb223-21"><a href="dataframe.html#cb223-21" tabindex="-1"></a><span class="do">## 1  6 Marta   F  44 Philosophy    28.7</span></span>
+<span id="cb223-22"><a href="dataframe.html#cb223-22" tabindex="-1"></a></span>
+<span id="cb223-23"><a href="dataframe.html#cb223-23" tabindex="-1"></a><span class="fu">rbind</span>(data_short, new_data) <span class="co"># Error!</span></span>
+<span id="cb223-24"><a href="dataframe.html#cb223-24" tabindex="-1"></a><span class="do">## Error in match.names(clabs, names(xi)): names do not match previous names</span></span>
+<span id="cb223-25"><a href="dataframe.html#cb223-25" tabindex="-1"></a></span>
+<span id="cb223-26"><a href="dataframe.html#cb223-26" tabindex="-1"></a><span class="co"># New data with the same columns having the exact same names</span></span>
+<span id="cb223-27"><a href="dataframe.html#cb223-27" tabindex="-1"></a>new_data <span class="ot">=</span> <span class="fu">data.frame</span>(</span>
+<span id="cb223-28"><a href="dataframe.html#cb223-28" tabindex="-1"></a>  <span class="at">Id =</span> <span class="dv">6</span>,</span>
+<span id="cb223-29"><a href="dataframe.html#cb223-29" tabindex="-1"></a>  <span class="at">Name =</span> <span class="st">&quot;Marta&quot;</span>,</span>
+<span id="cb223-30"><a href="dataframe.html#cb223-30" tabindex="-1"></a>  <span class="at">Gender =</span> <span class="st">&quot;F&quot;</span>, </span>
+<span id="cb223-31"><a href="dataframe.html#cb223-31" tabindex="-1"></a>  <span class="at">Age =</span> <span class="dv">44</span>,</span>
+<span id="cb223-32"><a href="dataframe.html#cb223-32" tabindex="-1"></a>  <span class="at">Faculty =</span> <span class="st">&quot;Philosophy&quot;</span>,</span>
+<span id="cb223-33"><a href="dataframe.html#cb223-33" tabindex="-1"></a>  <span class="at">Average =</span> <span class="fl">28.7</span></span>
+<span id="cb223-34"><a href="dataframe.html#cb223-34" tabindex="-1"></a>)</span>
+<span id="cb223-35"><a href="dataframe.html#cb223-35" tabindex="-1"></a></span>
+<span id="cb223-36"><a href="dataframe.html#cb223-36" tabindex="-1"></a><span class="fu">rbind</span>(data_short, new_data)</span>
+<span id="cb223-37"><a href="dataframe.html#cb223-37" tabindex="-1"></a><span class="do">##   Id   Name Gender Age     Faculty Average</span></span>
+<span id="cb223-38"><a href="dataframe.html#cb223-38" tabindex="-1"></a><span class="do">## 1  1  Alice      F  22  Psychology    27.5</span></span>
+<span id="cb223-39"><a href="dataframe.html#cb223-39" tabindex="-1"></a><span class="do">## 2  2  Bruno      M  25 Engineering    23.6</span></span>
+<span id="cb223-40"><a href="dataframe.html#cb223-40" tabindex="-1"></a><span class="do">## 3  3  Carla      F  23    Medicine    28.3</span></span>
+<span id="cb223-41"><a href="dataframe.html#cb223-41" tabindex="-1"></a><span class="do">## 4  4 Davide      M  22        Arts    29.2</span></span>
+<span id="cb223-42"><a href="dataframe.html#cb223-42" tabindex="-1"></a><span class="do">## 5  5  Elisa      F  24  Psychology    24.8</span></span>
+<span id="cb223-43"><a href="dataframe.html#cb223-43" tabindex="-1"></a><span class="do">## 6  6  Marta      F  44  Philosophy    28.7</span></span></code></pre></div>
 <p>Again, you need to save the result to keep the changes (which we have not done in the above example).</p>
 </div>
 </div>
@@ -1267,43 +1267,43 @@ Summary of the dataframe
 <ul>
 <li><code>head()</code> (or <code>tail()</code>) allows us to view the first (or last) rows of our dataframe:</li>
 </ul>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="dataframe.html#cb223-1" tabindex="-1"></a><span class="fu">head</span>(my_data)</span>
-<span id="cb223-2"><a href="dataframe.html#cb223-2" tabindex="-1"></a><span class="do">##   Id    names gender age     faculty</span></span>
-<span id="cb223-3"><a href="dataframe.html#cb223-3" tabindex="-1"></a><span class="do">## 1  1    Alice      F  22  Psychology</span></span>
-<span id="cb223-4"><a href="dataframe.html#cb223-4" tabindex="-1"></a><span class="do">## 2  2    Bruno      M  25 Engineering</span></span>
-<span id="cb223-5"><a href="dataframe.html#cb223-5" tabindex="-1"></a><span class="do">## 3  3    Carla      F  23    Medicine</span></span>
-<span id="cb223-6"><a href="dataframe.html#cb223-6" tabindex="-1"></a><span class="do">## 4  4   Davide      M  22        Arts</span></span>
-<span id="cb223-7"><a href="dataframe.html#cb223-7" tabindex="-1"></a><span class="do">## 5  5    Elisa      F  24  Psychology</span></span>
-<span id="cb223-8"><a href="dataframe.html#cb223-8" tabindex="-1"></a><span class="do">## 6  6 Fabrizio      M  35        Arts</span></span>
-<span id="cb223-9"><a href="dataframe.html#cb223-9" tabindex="-1"></a><span class="fu">tail</span>(my_data)</span>
-<span id="cb223-10"><a href="dataframe.html#cb223-10" tabindex="-1"></a><span class="do">##    Id    names gender age     faculty</span></span>
-<span id="cb223-11"><a href="dataframe.html#cb223-11" tabindex="-1"></a><span class="do">## 5   5    Elisa      F  24  Psychology</span></span>
-<span id="cb223-12"><a href="dataframe.html#cb223-12" tabindex="-1"></a><span class="do">## 6   6 Fabrizio      M  35        Arts</span></span>
-<span id="cb223-13"><a href="dataframe.html#cb223-13" tabindex="-1"></a><span class="do">## 7   7   Gloria      F  26 Engineering</span></span>
-<span id="cb223-14"><a href="dataframe.html#cb223-14" tabindex="-1"></a><span class="do">## 8   8   Herman      M  20  Psychology</span></span>
-<span id="cb223-15"><a href="dataframe.html#cb223-15" tabindex="-1"></a><span class="do">## 9   9    Irene      F  23  Statistics</span></span>
-<span id="cb223-16"><a href="dataframe.html#cb223-16" tabindex="-1"></a><span class="do">## 10 10     Luca      M  22 Engineering</span></span></code></pre></div>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="dataframe.html#cb224-1" tabindex="-1"></a><span class="fu">head</span>(my_data)</span>
+<span id="cb224-2"><a href="dataframe.html#cb224-2" tabindex="-1"></a><span class="do">##   Id    names gender age     faculty</span></span>
+<span id="cb224-3"><a href="dataframe.html#cb224-3" tabindex="-1"></a><span class="do">## 1  1    Alice      F  22  Psychology</span></span>
+<span id="cb224-4"><a href="dataframe.html#cb224-4" tabindex="-1"></a><span class="do">## 2  2    Bruno      M  25 Engineering</span></span>
+<span id="cb224-5"><a href="dataframe.html#cb224-5" tabindex="-1"></a><span class="do">## 3  3    Carla      F  23    Medicine</span></span>
+<span id="cb224-6"><a href="dataframe.html#cb224-6" tabindex="-1"></a><span class="do">## 4  4   Davide      M  22        Arts</span></span>
+<span id="cb224-7"><a href="dataframe.html#cb224-7" tabindex="-1"></a><span class="do">## 5  5    Elisa      F  24  Psychology</span></span>
+<span id="cb224-8"><a href="dataframe.html#cb224-8" tabindex="-1"></a><span class="do">## 6  6 Fabrizio      M  35        Arts</span></span>
+<span id="cb224-9"><a href="dataframe.html#cb224-9" tabindex="-1"></a><span class="fu">tail</span>(my_data)</span>
+<span id="cb224-10"><a href="dataframe.html#cb224-10" tabindex="-1"></a><span class="do">##    Id    names gender age     faculty</span></span>
+<span id="cb224-11"><a href="dataframe.html#cb224-11" tabindex="-1"></a><span class="do">## 5   5    Elisa      F  24  Psychology</span></span>
+<span id="cb224-12"><a href="dataframe.html#cb224-12" tabindex="-1"></a><span class="do">## 6   6 Fabrizio      M  35        Arts</span></span>
+<span id="cb224-13"><a href="dataframe.html#cb224-13" tabindex="-1"></a><span class="do">## 7   7   Gloria      F  26 Engineering</span></span>
+<span id="cb224-14"><a href="dataframe.html#cb224-14" tabindex="-1"></a><span class="do">## 8   8   Herman      M  20  Psychology</span></span>
+<span id="cb224-15"><a href="dataframe.html#cb224-15" tabindex="-1"></a><span class="do">## 9   9    Irene      F  23  Statistics</span></span>
+<span id="cb224-16"><a href="dataframe.html#cb224-16" tabindex="-1"></a><span class="do">## 10 10     Luca      M  22 Engineering</span></span></code></pre></div>
 <ul>
 <li><code>str()</code> lets us evaluate the structure of the dataset, providing useful information such as the number of observations, the number of variables, and the type of variables:</li>
 </ul>
-<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="dataframe.html#cb224-1" tabindex="-1"></a><span class="fu">str</span>(my_data)</span>
-<span id="cb224-2"><a href="dataframe.html#cb224-2" tabindex="-1"></a><span class="do">## &#39;data.frame&#39;:    10 obs. of  5 variables:</span></span>
-<span id="cb224-3"><a href="dataframe.html#cb224-3" tabindex="-1"></a><span class="do">##  $ Id     : int  1 2 3 4 5 6 7 8 9 10</span></span>
-<span id="cb224-4"><a href="dataframe.html#cb224-4" tabindex="-1"></a><span class="do">##  $ names  : chr  &quot;Alice&quot; &quot;Bruno&quot; &quot;Carla&quot; &quot;Davide&quot; ...</span></span>
-<span id="cb224-5"><a href="dataframe.html#cb224-5" tabindex="-1"></a><span class="do">##  $ gender : Factor w/ 2 levels &quot;F&quot;,&quot;M&quot;: 1 2 1 2 1 2 1 2 1 2</span></span>
-<span id="cb224-6"><a href="dataframe.html#cb224-6" tabindex="-1"></a><span class="do">##  $ age    : num  22 25 23 22 24 35 26 20 23 22</span></span>
-<span id="cb224-7"><a href="dataframe.html#cb224-7" tabindex="-1"></a><span class="do">##  $ faculty: Factor w/ 5 levels &quot;Arts&quot;,&quot;Engineering&quot;,..: 4 2 3 1 4 1 2 4 5 2</span></span></code></pre></div>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="dataframe.html#cb225-1" tabindex="-1"></a><span class="fu">str</span>(my_data)</span>
+<span id="cb225-2"><a href="dataframe.html#cb225-2" tabindex="-1"></a><span class="do">## &#39;data.frame&#39;:    10 obs. of  5 variables:</span></span>
+<span id="cb225-3"><a href="dataframe.html#cb225-3" tabindex="-1"></a><span class="do">##  $ Id     : int  1 2 3 4 5 6 7 8 9 10</span></span>
+<span id="cb225-4"><a href="dataframe.html#cb225-4" tabindex="-1"></a><span class="do">##  $ names  : chr  &quot;Alice&quot; &quot;Bruno&quot; &quot;Carla&quot; &quot;Davide&quot; ...</span></span>
+<span id="cb225-5"><a href="dataframe.html#cb225-5" tabindex="-1"></a><span class="do">##  $ gender : Factor w/ 2 levels &quot;F&quot;,&quot;M&quot;: 1 2 1 2 1 2 1 2 1 2</span></span>
+<span id="cb225-6"><a href="dataframe.html#cb225-6" tabindex="-1"></a><span class="do">##  $ age    : num  22 25 23 22 24 35 26 20 23 22</span></span>
+<span id="cb225-7"><a href="dataframe.html#cb225-7" tabindex="-1"></a><span class="do">##  $ faculty: Factor w/ 5 levels &quot;Arts&quot;,&quot;Engineering&quot;,..: 4 2 3 1 4 1 2 4 5 2</span></span></code></pre></div>
 <ul>
 <li><code>summary()</code> gives us summary information about the variables depending on their type:</li>
 </ul>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="dataframe.html#cb225-1" tabindex="-1"></a><span class="fu">summary</span>(my_data)</span>
-<span id="cb225-2"><a href="dataframe.html#cb225-2" tabindex="-1"></a><span class="do">##        Id           names           gender      age               faculty </span></span>
-<span id="cb225-3"><a href="dataframe.html#cb225-3" tabindex="-1"></a><span class="do">##  Min.   : 1.00   Length:10          F:5    Min.   :20.00   Arts       :2  </span></span>
-<span id="cb225-4"><a href="dataframe.html#cb225-4" tabindex="-1"></a><span class="do">##  1st Qu.: 3.25   Class :character   M:5    1st Qu.:22.00   Engineering:3  </span></span>
-<span id="cb225-5"><a href="dataframe.html#cb225-5" tabindex="-1"></a><span class="do">##  Median : 5.50   Mode  :character          Median :23.00   Medicine   :1  </span></span>
-<span id="cb225-6"><a href="dataframe.html#cb225-6" tabindex="-1"></a><span class="do">##  Mean   : 5.50                             Mean   :24.20   Psychology :3  </span></span>
-<span id="cb225-7"><a href="dataframe.html#cb225-7" tabindex="-1"></a><span class="do">##  3rd Qu.: 7.75                             3rd Qu.:24.75   Statistics :1  </span></span>
-<span id="cb225-8"><a href="dataframe.html#cb225-8" tabindex="-1"></a><span class="do">##  Max.   :10.00                             Max.   :35.00</span></span></code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="dataframe.html#cb226-1" tabindex="-1"></a><span class="fu">summary</span>(my_data)</span>
+<span id="cb226-2"><a href="dataframe.html#cb226-2" tabindex="-1"></a><span class="do">##        Id           names           gender      age               faculty </span></span>
+<span id="cb226-3"><a href="dataframe.html#cb226-3" tabindex="-1"></a><span class="do">##  Min.   : 1.00   Length:10          F:5    Min.   :20.00   Arts       :2  </span></span>
+<span id="cb226-4"><a href="dataframe.html#cb226-4" tabindex="-1"></a><span class="do">##  1st Qu.: 3.25   Class :character   M:5    1st Qu.:22.00   Engineering:3  </span></span>
+<span id="cb226-5"><a href="dataframe.html#cb226-5" tabindex="-1"></a><span class="do">##  Median : 5.50   Mode  :character          Median :23.00   Medicine   :1  </span></span>
+<span id="cb226-6"><a href="dataframe.html#cb226-6" tabindex="-1"></a><span class="do">##  Mean   : 5.50                             Mean   :24.20   Psychology :3  </span></span>
+<span id="cb226-7"><a href="dataframe.html#cb226-7" tabindex="-1"></a><span class="do">##  3rd Qu.: 7.75                             3rd Qu.:24.75   Statistics :1  </span></span>
+<span id="cb226-8"><a href="dataframe.html#cb226-8" tabindex="-1"></a><span class="do">##  Max.   :10.00                             Max.   :35.00</span></span></code></pre></div>
 </div>
 <div id="exercises-11" class="section level3 unnumbered hasAnchor">
 <h3>Exercises<a href="dataframe.html#exercises-11" class="anchor-section" aria-label="Anchor link to header"></a></h3>

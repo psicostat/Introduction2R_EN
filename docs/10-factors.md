@@ -264,43 +264,49 @@ Several other operations are possible with factors. For instance, we might want 
 - if we make a subset of a factor and no longer have values associated with that level
 - if we simply want to remove a level and the respective observations
 
-In these cases, we can use the `droplevels(x, exclude = ...)` function to remove certain levels:
+Let's create a factor with levels being `a`, `b`, and `c`:
 
 
 ```r
-my_factor = rep(c("a", "b", "c"), c(10, 5, 2))
-my_factor = factor(my_factor)
-
-levels(my_factor)
-## [1] "a" "b" "c"
-
-# Keep only the values a and b
-
-my_factor = my_factor[my_factor %in% c("a", "b")]
-levels(my_factor)
-## [1] "a" "b" "c"
+my_factor = factor(c("a","a","a","a","a","a","a","b","b","b","b","c","c","c"),levels=c("a","b","c"))
+my_factor
+##  [1] a a a a a a a b b b b c c c
+## Levels: a b c
 ```
 
-As you can see, even though there are no more `c` values, the factor still retains all the initial levels:
+Now, let's copy this factor into a new one, but retaining only the values `a` and `b`. As you can see, even though there are no more `c` values, the factor still retains all the initial levels (including `c`), because they are part of the attributes that were copied from the original object: 
 
 
 ```r
-droplevels(my_factor)
-##  [1] a a a a a a a a a a b b b b b
+# Keep only the values 'a' and 'b'
+new_my_factor = my_factor[1:10]
+new_my_factor
+##  [1] a a a a a a a b b b
+## Levels: a b c
+```
+
+In these cases, we can use the `droplevels(x, exclude = ...)` function to remove certain levels. We can either specify the particular levels to be removed using the `exclude` argument, or even indicate no specific levels to be excluded. In the latter case, levels associated with no observations in the vector will automatically be excluded: 
+
+
+```r
+# Explicitly indicate which levels should be removed
+droplevels(new_my_factor, exclude="c")
+##  [1] a a a a a a a b b b
+## Levels: a b
+
+# Indicate no levels to be removed; it will automatically drop levels associated with no observations
+droplevels(new_my_factor)
+##  [1] a a a a a a a b b b
 ## Levels: a b
 ```
 
-You can also directly remove a level, but in this case, the corresponding values would become `NA`:
+If you use `droplevels` to forcibly remove a level that is associated with actual values in the vectors (such as `a`), the corresponding values will become `NA`:
 
 
 ```r
-my_factor = rep(c("a", "b", "c"), c(10, 5, 2))
-my_factor = factor(my_factor)
-
-my_factor = droplevels(my_factor, exclude = "a")
-my_factor[!is.na(my_factor)]
-## [1] b b b b b c c
-## Levels: b c
+droplevels(new_my_factor, exclude = "a")
+##  [1] <NA> <NA> <NA> <NA> <NA> <NA> <NA> b    b    b   
+## Levels: b
 ```
 
 Just as it is possible to remove a level, it is also possible to add a level to a factor simply by using the `factor()` command and specifying all the old levels plus the new one:
@@ -308,37 +314,29 @@ Just as it is possible to remove a level, it is also possible to add a level to 
 
 ```r
 factor(my_factor, levels = c(levels(my_factor), "newlevel"))
-##  [1] <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> b    b    b    b    b   
-## [16] c    c   
-## Levels: b c newlevel
+##  [1] a a a a a a a b b b b c c c
+## Levels: a b c newlevel
 ```
 
-In this case, we used the `c(old_levels, new_level)` function to create a vector of new levels to use. Alternatively, we can also use the assignment method `levels(x) =` by specifying a vector of levels or by specifying a single value assigned to the new index:
+In this case, we used the `c(old_levels, new_level)` function to create a vector of new levels to use, including all the previous levels plus the new one(s). Alternatively, we can also use the assignment method `levels(x) =` by specifying a vector of levels:
 
 
 ```r
-my_factor = rep(c("a", "b", "c"), c(10, 5, 2))
-my_factor = factor(my_factor)
-
-# Add a new level with a vector and assignment
-
-levels(my_factor) = c(levels(my_factor), "newlevel")
-
-# Add a new level by specifying the index
-
-levels(my_factor)[4] = "newlevel"
-
-# The my_factor factor has 3 levels, so in the fourth position (empty), I add the new level.
+my_factor = factor(c("a","a","a","a","a","a","a","b","b","b","b","c","c","c"))
+levels(my_factor) = c("a","b","c","newlevel")
+my_factor
+##  [1] a a a a a a a b b b b c c c
+## Levels: a b c newlevel
 ```
 
 You can also combine two factors to obtain a single factor, merging the levels and their respective numeric values. Simply use the `c(fac1, fac2)` command:
 
 
 ```r
-fac1 = factor(rep(c("a", "b", "c"), each = 5))
-fac2 = factor(rep(c("d"), each = 5))
+fac1 = factor(c("a","a","a","a","b","b","c"))
+fac2 = factor(c("d","d","d"))
 c(fac1, fac2)
-##  [1] a a a a a b b b b b c c c c c d d d d d
+##  [1] a a a a b b c d d d
 ## Levels: a b c d
 ```
 
