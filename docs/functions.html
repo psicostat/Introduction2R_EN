@@ -434,27 +434,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="creating-a-function" class="section level2 hasAnchor" number="12.1">
 <h2><span class="header-section-number">12.1</span> Creating a Function<a href="functions.html#creating-a-function" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The command used to create a function in R is <code>function()</code> followed by curly brackets <code>{ }</code> within which the function body must be specified:</p>
-<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="functions.html#cb250-1" tabindex="-1"></a>function_name <span class="ot">=</span> <span class="cf">function</span>( ){</span>
-<span id="cb250-2"><a href="functions.html#cb250-2" tabindex="-1"></a>  <span class="sc">&lt;</span><span class="cf">function</span><span class="sc">-</span>body<span class="sc">&gt;</span></span>
-<span id="cb250-3"><a href="functions.html#cb250-3" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="functions.html#cb251-1" tabindex="-1"></a>function_name <span class="ot">=</span> <span class="cf">function</span>( ){</span>
+<span id="cb251-2"><a href="functions.html#cb251-2" tabindex="-1"></a>  <span class="sc">&lt;</span><span class="cf">function</span><span class="sc">-</span>body<span class="sc">&gt;</span></span>
+<span id="cb251-3"><a href="functions.html#cb251-3" tabindex="-1"></a>}</span></code></pre></div>
 <p>Note that it is necessary to assign the function to an object, for example <code>my_function</code>, which will become the name of our function. To execute the function, simply, as with any other function, specify the function name followed by parentheses, in our case <code>my_function()</code>. Let’s look at some examples of simple functions:</p>
-<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="functions.html#cb251-1" tabindex="-1"></a><span class="co"># Define the function</span></span>
-<span id="cb251-2"><a href="functions.html#cb251-2" tabindex="-1"></a>my_greetings <span class="ot">=</span> <span class="cf">function</span>(){</span>
-<span id="cb251-3"><a href="functions.html#cb251-3" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Hello World!&quot;</span>)</span>
-<span id="cb251-4"><a href="functions.html#cb251-4" tabindex="-1"></a>}</span>
-<span id="cb251-5"><a href="functions.html#cb251-5" tabindex="-1"></a></span>
-<span id="cb251-6"><a href="functions.html#cb251-6" tabindex="-1"></a><span class="fu">my_greetings</span>()</span>
-<span id="cb251-7"><a href="functions.html#cb251-7" tabindex="-1"></a><span class="do">## [1] &quot;Hello World!&quot;</span></span>
-<span id="cb251-8"><a href="functions.html#cb251-8" tabindex="-1"></a></span>
-<span id="cb251-9"><a href="functions.html#cb251-9" tabindex="-1"></a><span class="co"># Define another function</span></span>
-<span id="cb251-10"><a href="functions.html#cb251-10" tabindex="-1"></a>my_sum <span class="ot">=</span> <span class="cf">function</span>(){</span>
-<span id="cb251-11"><a href="functions.html#cb251-11" tabindex="-1"></a>  x <span class="ot">=</span> <span class="dv">7</span></span>
-<span id="cb251-12"><a href="functions.html#cb251-12" tabindex="-1"></a>  y <span class="ot">=</span> <span class="dv">3</span></span>
-<span id="cb251-13"><a href="functions.html#cb251-13" tabindex="-1"></a>  x <span class="sc">+</span> y</span>
-<span id="cb251-14"><a href="functions.html#cb251-14" tabindex="-1"></a>}</span>
-<span id="cb251-15"><a href="functions.html#cb251-15" tabindex="-1"></a></span>
-<span id="cb251-16"><a href="functions.html#cb251-16" tabindex="-1"></a><span class="fu">my_sum</span>()</span>
-<span id="cb251-17"><a href="functions.html#cb251-17" tabindex="-1"></a><span class="do">## [1] 10</span></span></code></pre></div>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="functions.html#cb252-1" tabindex="-1"></a><span class="co"># Define the function</span></span>
+<span id="cb252-2"><a href="functions.html#cb252-2" tabindex="-1"></a>my_greetings <span class="ot">=</span> <span class="cf">function</span>(){</span>
+<span id="cb252-3"><a href="functions.html#cb252-3" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Hello World!&quot;</span>)</span>
+<span id="cb252-4"><a href="functions.html#cb252-4" tabindex="-1"></a>}</span>
+<span id="cb252-5"><a href="functions.html#cb252-5" tabindex="-1"></a></span>
+<span id="cb252-6"><a href="functions.html#cb252-6" tabindex="-1"></a><span class="fu">my_greetings</span>()</span>
+<span id="cb252-7"><a href="functions.html#cb252-7" tabindex="-1"></a><span class="do">## [1] &quot;Hello World!&quot;</span></span>
+<span id="cb252-8"><a href="functions.html#cb252-8" tabindex="-1"></a></span>
+<span id="cb252-9"><a href="functions.html#cb252-9" tabindex="-1"></a><span class="co"># Define another function</span></span>
+<span id="cb252-10"><a href="functions.html#cb252-10" tabindex="-1"></a>my_sum <span class="ot">=</span> <span class="cf">function</span>(){</span>
+<span id="cb252-11"><a href="functions.html#cb252-11" tabindex="-1"></a>  x <span class="ot">=</span> <span class="dv">7</span></span>
+<span id="cb252-12"><a href="functions.html#cb252-12" tabindex="-1"></a>  y <span class="ot">=</span> <span class="dv">3</span></span>
+<span id="cb252-13"><a href="functions.html#cb252-13" tabindex="-1"></a>  x <span class="sc">+</span> y</span>
+<span id="cb252-14"><a href="functions.html#cb252-14" tabindex="-1"></a>}</span>
+<span id="cb252-15"><a href="functions.html#cb252-15" tabindex="-1"></a></span>
+<span id="cb252-16"><a href="functions.html#cb252-16" tabindex="-1"></a><span class="fu">my_sum</span>()</span>
+<span id="cb252-17"><a href="functions.html#cb252-17" tabindex="-1"></a><span class="do">## [1] 10</span></span></code></pre></div>
 <p>When we call our function, R will execute the function body and return the result of the last command executed. However, the functions in the previous example prove to be of little use since they always perform the same operations without allowing us to specify the function inputs. Furthermore, even though they are very simple functions, it might not be clear what output is actually returned by the function.</p>
 <p>:::{design title=“Function Names” data-latex=“[Function Names]”}
 When defining the name of a function, it’s useful to follow the same guidelines regarding object names (see Chapter <a href="objects-functions.html#objects-names">4.1.2</a>). In this case, to ensure the name is <strong>self-descriptive</strong>, it’s common to use verbs that summarize the action performed by the function.
@@ -467,79 +467,79 @@ When defining the name of a function, it’s useful to follow the same guideline
 <li><strong>Output</strong> - To specify the output of a function, the <code>return()</code> function is used, indicating between the parentheses the name of the object you wish to return as the result of the function.</li>
 </ul>
 <p>The definition of a function with all its elements will follow the following pattern:</p>
-<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="functions.html#cb252-1" tabindex="-1"></a>function_name <span class="ot">=</span> <span class="cf">function</span>(argument_1, argument_2, ...){</span>
-<span id="cb252-2"><a href="functions.html#cb252-2" tabindex="-1"></a>  <span class="sc">&lt;</span><span class="cf">function</span><span class="sc">-</span>body<span class="sc">&gt;</span></span>
-<span id="cb252-3"><a href="functions.html#cb252-3" tabindex="-1"></a>  <span class="fu">return</span>(<span class="sc">&lt;</span>output<span class="sc">-</span>name<span class="sc">&gt;</span>)</span>
-<span id="cb252-4"><a href="functions.html#cb252-4" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="functions.html#cb253-1" tabindex="-1"></a>function_name <span class="ot">=</span> <span class="cf">function</span>(argument_1, argument_2, ...){</span>
+<span id="cb253-2"><a href="functions.html#cb253-2" tabindex="-1"></a>  <span class="sc">&lt;</span><span class="cf">function</span><span class="sc">-</span>body<span class="sc">&gt;</span></span>
+<span id="cb253-3"><a href="functions.html#cb253-3" tabindex="-1"></a>  <span class="fu">return</span>(<span class="sc">&lt;</span>output<span class="sc">-</span>name<span class="sc">&gt;</span>)</span>
+<span id="cb253-4"><a href="functions.html#cb253-4" tabindex="-1"></a>}</span></code></pre></div>
 <p>Now, we can rewrite the previous functions, allowing the inputs to be customized and highlighting what the returned output is.</p>
-<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="functions.html#cb253-1" tabindex="-1"></a><span class="co"># Redefine my_greetings()</span></span>
-<span id="cb253-2"><a href="functions.html#cb253-2" tabindex="-1"></a>my_greetings <span class="ot">=</span> <span class="cf">function</span>(name){</span>
-<span id="cb253-3"><a href="functions.html#cb253-3" tabindex="-1"></a>  greetings <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&quot;Hello &quot;</span>, name, <span class="st">&quot;!&quot;</span>)</span>
-<span id="cb253-4"><a href="functions.html#cb253-4" tabindex="-1"></a>  <span class="fu">return</span>(greetings)</span>
-<span id="cb253-5"><a href="functions.html#cb253-5" tabindex="-1"></a>}</span>
-<span id="cb253-6"><a href="functions.html#cb253-6" tabindex="-1"></a></span>
-<span id="cb253-7"><a href="functions.html#cb253-7" tabindex="-1"></a><span class="fu">my_greetings</span>(<span class="at">name =</span> <span class="st">&quot;Psicostat&quot;</span>)</span>
-<span id="cb253-8"><a href="functions.html#cb253-8" tabindex="-1"></a><span class="do">## [1] &quot;Hello Psicostat!&quot;</span></span>
-<span id="cb253-9"><a href="functions.html#cb253-9" tabindex="-1"></a></span>
-<span id="cb253-10"><a href="functions.html#cb253-10" tabindex="-1"></a><span class="co"># Redefine my_sum()</span></span>
-<span id="cb253-11"><a href="functions.html#cb253-11" tabindex="-1"></a>my_sum <span class="ot">=</span> <span class="cf">function</span>(x, y){</span>
-<span id="cb253-12"><a href="functions.html#cb253-12" tabindex="-1"></a>  result <span class="ot">=</span> x <span class="sc">+</span> y</span>
-<span id="cb253-13"><a href="functions.html#cb253-13" tabindex="-1"></a>  <span class="fu">return</span>(result)</span>
-<span id="cb253-14"><a href="functions.html#cb253-14" tabindex="-1"></a>}</span>
-<span id="cb253-15"><a href="functions.html#cb253-15" tabindex="-1"></a></span>
-<span id="cb253-16"><a href="functions.html#cb253-16" tabindex="-1"></a><span class="fu">my_sum</span>(<span class="at">x =</span> <span class="dv">8</span>, <span class="at">y =</span> <span class="dv">6</span>)</span>
-<span id="cb253-17"><a href="functions.html#cb253-17" tabindex="-1"></a><span class="do">## [1] 14</span></span></code></pre></div>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="functions.html#cb254-1" tabindex="-1"></a><span class="co"># Redefine my_greetings()</span></span>
+<span id="cb254-2"><a href="functions.html#cb254-2" tabindex="-1"></a>my_greetings <span class="ot">=</span> <span class="cf">function</span>(name){</span>
+<span id="cb254-3"><a href="functions.html#cb254-3" tabindex="-1"></a>  greetings <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&quot;Hello &quot;</span>, name, <span class="st">&quot;!&quot;</span>)</span>
+<span id="cb254-4"><a href="functions.html#cb254-4" tabindex="-1"></a>  <span class="fu">return</span>(greetings)</span>
+<span id="cb254-5"><a href="functions.html#cb254-5" tabindex="-1"></a>}</span>
+<span id="cb254-6"><a href="functions.html#cb254-6" tabindex="-1"></a></span>
+<span id="cb254-7"><a href="functions.html#cb254-7" tabindex="-1"></a><span class="fu">my_greetings</span>(<span class="at">name =</span> <span class="st">&quot;Psicostat&quot;</span>)</span>
+<span id="cb254-8"><a href="functions.html#cb254-8" tabindex="-1"></a><span class="do">## [1] &quot;Hello Psicostat!&quot;</span></span>
+<span id="cb254-9"><a href="functions.html#cb254-9" tabindex="-1"></a></span>
+<span id="cb254-10"><a href="functions.html#cb254-10" tabindex="-1"></a><span class="co"># Redefine my_sum()</span></span>
+<span id="cb254-11"><a href="functions.html#cb254-11" tabindex="-1"></a>my_sum <span class="ot">=</span> <span class="cf">function</span>(x, y){</span>
+<span id="cb254-12"><a href="functions.html#cb254-12" tabindex="-1"></a>  result <span class="ot">=</span> x <span class="sc">+</span> y</span>
+<span id="cb254-13"><a href="functions.html#cb254-13" tabindex="-1"></a>  <span class="fu">return</span>(result)</span>
+<span id="cb254-14"><a href="functions.html#cb254-14" tabindex="-1"></a>}</span>
+<span id="cb254-15"><a href="functions.html#cb254-15" tabindex="-1"></a></span>
+<span id="cb254-16"><a href="functions.html#cb254-16" tabindex="-1"></a><span class="fu">my_sum</span>(<span class="at">x =</span> <span class="dv">8</span>, <span class="at">y =</span> <span class="dv">6</span>)</span>
+<span id="cb254-17"><a href="functions.html#cb254-17" tabindex="-1"></a><span class="do">## [1] 14</span></span></code></pre></div>
 <div class="design" title="User Input">
 <p>If necessary, you can make the function itself ask the user to input specific information through the <code>readline()</code> function.</p>
 <p>Using the <code>readline()</code> function, a message set in the <code>prompt</code> argument will appear in the console (remember to leave a space at the end). The user will be prompted to type an alphanumeric sequence and then press <em>enter</em>. The values entered by the user will be saved as a character variable in the object we specify and can be used later in the function.</p>
-<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="functions.html#cb254-1" tabindex="-1"></a>happy_birthday <span class="ot">=</span> <span class="cf">function</span>(){</span>
-<span id="cb254-2"><a href="functions.html#cb254-2" tabindex="-1"></a>  name <span class="ot">=</span> <span class="fu">readline</span>(<span class="at">prompt =</span> <span class="st">&quot;Enter your name: &quot;</span>)</span>
-<span id="cb254-3"><a href="functions.html#cb254-3" tabindex="-1"></a>  message <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&quot;Happy Birthday &quot;</span>, name, <span class="st">&quot;!&quot;</span>)</span>
-<span id="cb254-4"><a href="functions.html#cb254-4" tabindex="-1"></a>  <span class="fu">return</span>(message)</span>
-<span id="cb254-5"><a href="functions.html#cb254-5" tabindex="-1"></a>}</span>
-<span id="cb254-6"><a href="functions.html#cb254-6" tabindex="-1"></a></span>
-<span id="cb254-7"><a href="functions.html#cb254-7" tabindex="-1"></a><span class="fu">happy_birthday</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="functions.html#cb255-1" tabindex="-1"></a>happy_birthday <span class="ot">=</span> <span class="cf">function</span>(){</span>
+<span id="cb255-2"><a href="functions.html#cb255-2" tabindex="-1"></a>  name <span class="ot">=</span> <span class="fu">readline</span>(<span class="at">prompt =</span> <span class="st">&quot;Enter your name: &quot;</span>)</span>
+<span id="cb255-3"><a href="functions.html#cb255-3" tabindex="-1"></a>  message <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&quot;Happy Birthday &quot;</span>, name, <span class="st">&quot;!&quot;</span>)</span>
+<span id="cb255-4"><a href="functions.html#cb255-4" tabindex="-1"></a>  <span class="fu">return</span>(message)</span>
+<span id="cb255-5"><a href="functions.html#cb255-5" tabindex="-1"></a>}</span>
+<span id="cb255-6"><a href="functions.html#cb255-6" tabindex="-1"></a></span>
+<span id="cb255-7"><a href="functions.html#cb255-7" tabindex="-1"></a><span class="fu">happy_birthday</span>()</span></code></pre></div>
 <p>Note that this function can only be used in interactive R sessions since direct user input is required.</p>
 </div>
 <div id="default-arguments" class="section level4 unnumbered hasAnchor">
 <h4>Default Arguments<a href="functions.html#default-arguments" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We have seen how to add arguments that must be defined by the user when using the function. If the user does not specify one or more arguments, R will return an error message indicating that there are unspecified arguments without default values.</p>
-<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="functions.html#cb255-1" tabindex="-1"></a><span class="fu">my_sum</span>(<span class="at">x =</span> <span class="dv">5</span>)</span>
-<span id="cb255-2"><a href="functions.html#cb255-2" tabindex="-1"></a><span class="do">## Error in my_sum(x = 5): argument &quot;y&quot; is missing, with no default</span></span></code></pre></div>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="functions.html#cb256-1" tabindex="-1"></a><span class="fu">my_sum</span>(<span class="at">x =</span> <span class="dv">5</span>)</span>
+<span id="cb256-2"><a href="functions.html#cb256-2" tabindex="-1"></a><span class="do">## Error in my_sum(x = 5): argument &quot;y&quot; is missing, with no default</span></span></code></pre></div>
 <p>To assign default values to a function’s arguments, simply specify them when creating the function within the parentheses as <code>argument_name = &lt;default-value&gt;</code>. If not otherwise specified, the arguments will take their default values. However, users are free to specify the function’s arguments according to their needs. For example, let’s set a default value for <code>y = 10</code> in the <code>my_sum()</code> function.</p>
-<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="functions.html#cb256-1" tabindex="-1"></a>my_sum <span class="ot">=</span> <span class="cf">function</span>(x, <span class="at">y =</span> <span class="dv">10</span>){</span>
-<span id="cb256-2"><a href="functions.html#cb256-2" tabindex="-1"></a>  result <span class="ot">=</span> x <span class="sc">+</span> y</span>
-<span id="cb256-3"><a href="functions.html#cb256-3" tabindex="-1"></a>  <span class="fu">return</span>(result)</span>
-<span id="cb256-4"><a href="functions.html#cb256-4" tabindex="-1"></a>}</span>
-<span id="cb256-5"><a href="functions.html#cb256-5" tabindex="-1"></a></span>
-<span id="cb256-6"><a href="functions.html#cb256-6" tabindex="-1"></a><span class="co"># Use the default value of y</span></span>
-<span id="cb256-7"><a href="functions.html#cb256-7" tabindex="-1"></a><span class="fu">my_sum</span>(<span class="at">x =</span> <span class="dv">5</span>)</span>
-<span id="cb256-8"><a href="functions.html#cb256-8" tabindex="-1"></a><span class="do">## [1] 15</span></span>
-<span id="cb256-9"><a href="functions.html#cb256-9" tabindex="-1"></a></span>
-<span id="cb256-10"><a href="functions.html#cb256-10" tabindex="-1"></a><span class="co"># Specify the value of y</span></span>
-<span id="cb256-11"><a href="functions.html#cb256-11" tabindex="-1"></a><span class="fu">my_sum</span>(<span class="at">x =</span> <span class="dv">5</span>,  <span class="at">y =</span> <span class="dv">8</span>)</span>
-<span id="cb256-12"><a href="functions.html#cb256-12" tabindex="-1"></a><span class="do">## [1] 13</span></span></code></pre></div>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="functions.html#cb257-1" tabindex="-1"></a>my_sum <span class="ot">=</span> <span class="cf">function</span>(x, <span class="at">y =</span> <span class="dv">10</span>){</span>
+<span id="cb257-2"><a href="functions.html#cb257-2" tabindex="-1"></a>  result <span class="ot">=</span> x <span class="sc">+</span> y</span>
+<span id="cb257-3"><a href="functions.html#cb257-3" tabindex="-1"></a>  <span class="fu">return</span>(result)</span>
+<span id="cb257-4"><a href="functions.html#cb257-4" tabindex="-1"></a>}</span>
+<span id="cb257-5"><a href="functions.html#cb257-5" tabindex="-1"></a></span>
+<span id="cb257-6"><a href="functions.html#cb257-6" tabindex="-1"></a><span class="co"># Use the default value of y</span></span>
+<span id="cb257-7"><a href="functions.html#cb257-7" tabindex="-1"></a><span class="fu">my_sum</span>(<span class="at">x =</span> <span class="dv">5</span>)</span>
+<span id="cb257-8"><a href="functions.html#cb257-8" tabindex="-1"></a><span class="do">## [1] 15</span></span>
+<span id="cb257-9"><a href="functions.html#cb257-9" tabindex="-1"></a></span>
+<span id="cb257-10"><a href="functions.html#cb257-10" tabindex="-1"></a><span class="co"># Specify the value of y</span></span>
+<span id="cb257-11"><a href="functions.html#cb257-11" tabindex="-1"></a><span class="fu">my_sum</span>(<span class="at">x =</span> <span class="dv">5</span>,  <span class="at">y =</span> <span class="dv">8</span>)</span>
+<span id="cb257-12"><a href="functions.html#cb257-12" tabindex="-1"></a><span class="do">## [1] 13</span></span></code></pre></div>
 <p>This practice is widely used to specify particular behaviors of functions. Generally, functions are defined with a default behavior, but certain arguments can be specified for particular needs only when necessary.</p>
 <div class="trick" title="match.arg()">
 <p>To enforce the selection of an argument from a limited set of values, a vector of possible values can be specified in the argument definition. The selection must then be validated using the <code>match.arg()</code> function, as shown in the following example:</p>
-<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="functions.html#cb257-1" tabindex="-1"></a><span class="co"># Redefine my_greetings()</span></span>
-<span id="cb257-2"><a href="functions.html#cb257-2" tabindex="-1"></a>my_greetings <span class="ot">=</span> <span class="cf">function</span>(name, <span class="at">type =</span> <span class="fu">c</span>(<span class="st">&quot;Hello&quot;</span>, <span class="st">&quot;Goodbye&quot;</span>)){</span>
-<span id="cb257-3"><a href="functions.html#cb257-3" tabindex="-1"></a>  type <span class="ot">=</span> <span class="fu">match.arg</span>(type)</span>
-<span id="cb257-4"><a href="functions.html#cb257-4" tabindex="-1"></a>  greetings <span class="ot">=</span> <span class="fu">paste0</span>(type,<span class="st">&quot; &quot;</span>, name, <span class="st">&quot;!&quot;</span>)</span>
-<span id="cb257-5"><a href="functions.html#cb257-5" tabindex="-1"></a>  <span class="fu">return</span>(greetings)</span>
-<span id="cb257-6"><a href="functions.html#cb257-6" tabindex="-1"></a>}</span>
-<span id="cb257-7"><a href="functions.html#cb257-7" tabindex="-1"></a></span>
-<span id="cb257-8"><a href="functions.html#cb257-8" tabindex="-1"></a><span class="co"># Choose type</span></span>
-<span id="cb257-9"><a href="functions.html#cb257-9" tabindex="-1"></a><span class="fu">my_greetings</span>(<span class="at">name =</span> <span class="st">&quot;Psicostat&quot;</span>, <span class="at">type =</span> <span class="st">&quot;Goodbye&quot;</span>)</span>
-<span id="cb257-10"><a href="functions.html#cb257-10" tabindex="-1"></a><span class="do">## [1] &quot;Goodbye Psicostat!&quot;</span></span>
-<span id="cb257-11"><a href="functions.html#cb257-11" tabindex="-1"></a></span>
-<span id="cb257-12"><a href="functions.html#cb257-12" tabindex="-1"></a><span class="co"># Default value</span></span>
-<span id="cb257-13"><a href="functions.html#cb257-13" tabindex="-1"></a><span class="fu">my_greetings</span>(<span class="at">name =</span> <span class="st">&quot;Psicostat&quot;</span>)</span>
-<span id="cb257-14"><a href="functions.html#cb257-14" tabindex="-1"></a><span class="do">## [1] &quot;Hello Psicostat!&quot;</span></span>
-<span id="cb257-15"><a href="functions.html#cb257-15" tabindex="-1"></a></span>
-<span id="cb257-16"><a href="functions.html#cb257-16" tabindex="-1"></a><span class="co"># Invalid value</span></span>
-<span id="cb257-17"><a href="functions.html#cb257-17" tabindex="-1"></a><span class="fu">my_greetings</span>(<span class="at">name =</span> <span class="st">&quot;Psicostat&quot;</span>, <span class="at">type =</span> <span class="st">&quot;Guten Tag&quot;</span>)</span>
-<span id="cb257-18"><a href="functions.html#cb257-18" tabindex="-1"></a><span class="do">## Error in match.arg(type): &#39;arg&#39; should be one of &quot;Hello&quot;, &quot;Goodbye&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="functions.html#cb258-1" tabindex="-1"></a><span class="co"># Redefine my_greetings()</span></span>
+<span id="cb258-2"><a href="functions.html#cb258-2" tabindex="-1"></a>my_greetings <span class="ot">=</span> <span class="cf">function</span>(name, <span class="at">type =</span> <span class="fu">c</span>(<span class="st">&quot;Hello&quot;</span>, <span class="st">&quot;Goodbye&quot;</span>)){</span>
+<span id="cb258-3"><a href="functions.html#cb258-3" tabindex="-1"></a>  type <span class="ot">=</span> <span class="fu">match.arg</span>(type)</span>
+<span id="cb258-4"><a href="functions.html#cb258-4" tabindex="-1"></a>  greetings <span class="ot">=</span> <span class="fu">paste0</span>(type,<span class="st">&quot; &quot;</span>, name, <span class="st">&quot;!&quot;</span>)</span>
+<span id="cb258-5"><a href="functions.html#cb258-5" tabindex="-1"></a>  <span class="fu">return</span>(greetings)</span>
+<span id="cb258-6"><a href="functions.html#cb258-6" tabindex="-1"></a>}</span>
+<span id="cb258-7"><a href="functions.html#cb258-7" tabindex="-1"></a></span>
+<span id="cb258-8"><a href="functions.html#cb258-8" tabindex="-1"></a><span class="co"># Choose type</span></span>
+<span id="cb258-9"><a href="functions.html#cb258-9" tabindex="-1"></a><span class="fu">my_greetings</span>(<span class="at">name =</span> <span class="st">&quot;Psicostat&quot;</span>, <span class="at">type =</span> <span class="st">&quot;Goodbye&quot;</span>)</span>
+<span id="cb258-10"><a href="functions.html#cb258-10" tabindex="-1"></a><span class="do">## [1] &quot;Goodbye Psicostat!&quot;</span></span>
+<span id="cb258-11"><a href="functions.html#cb258-11" tabindex="-1"></a></span>
+<span id="cb258-12"><a href="functions.html#cb258-12" tabindex="-1"></a><span class="co"># Default value</span></span>
+<span id="cb258-13"><a href="functions.html#cb258-13" tabindex="-1"></a><span class="fu">my_greetings</span>(<span class="at">name =</span> <span class="st">&quot;Psicostat&quot;</span>)</span>
+<span id="cb258-14"><a href="functions.html#cb258-14" tabindex="-1"></a><span class="do">## [1] &quot;Hello Psicostat!&quot;</span></span>
+<span id="cb258-15"><a href="functions.html#cb258-15" tabindex="-1"></a></span>
+<span id="cb258-16"><a href="functions.html#cb258-16" tabindex="-1"></a><span class="co"># Invalid value</span></span>
+<span id="cb258-17"><a href="functions.html#cb258-17" tabindex="-1"></a><span class="fu">my_greetings</span>(<span class="at">name =</span> <span class="st">&quot;Psicostat&quot;</span>, <span class="at">type =</span> <span class="st">&quot;Guten Tag&quot;</span>)</span>
+<span id="cb258-18"><a href="functions.html#cb258-18" tabindex="-1"></a><span class="do">## Error in match.arg(type): &#39;arg&#39; should be one of &quot;Hello&quot;, &quot;Goodbye&quot;</span></span></code></pre></div>
 <p>The <code>match.arg()</code> function allows comparing the specified value against those indicated in the argument definition, returning an error if there is no match. Note how, if unspecified, the default value is the first one indicated in the definition.</p>
 </div>
 </div>
@@ -563,18 +563,18 @@ When defining the name of a function, it’s useful to follow the same guideline
 <h2><span class="header-section-number">12.2</span> Working with Functions<a href="functions.html#working-with-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Functions are undoubtedly the most useful and advanced aspect of the R language and programming languages in general. The packages developed in R are nothing more than a collection of functions that work together for a specific purpose. Besides the function’s purpose, it is important to understand how to handle <strong>errors and unexpected events</strong>. If the function accepts arguments, the end-user or even ourselves can mistakenly use it in the wrong way. Therefore, it is crucial to understand how to read errors but, more importantly, how to create useful error or warning messages for using the function.</p>
 <p>Let’s take the sum function <code>+</code>, for example. Even though it might not seem like it, the <code>+</code> operator is actually a function. We have already seen above how we could write a <code>my_sum()</code> function that does the same as <code>+</code>:</p>
-<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="functions.html#cb258-1" tabindex="-1"></a>my_sum <span class="ot">=</span> <span class="cf">function</span>(x, y){</span>
-<span id="cb258-2"><a href="functions.html#cb258-2" tabindex="-1"></a>  res <span class="ot">=</span> x <span class="sc">+</span> y</span>
-<span id="cb258-3"><a href="functions.html#cb258-3" tabindex="-1"></a>  <span class="fu">return</span>(res)</span>
-<span id="cb258-4"><a href="functions.html#cb258-4" tabindex="-1"></a>}</span>
-<span id="cb258-5"><a href="functions.html#cb258-5" tabindex="-1"></a></span>
-<span id="cb258-6"><a href="functions.html#cb258-6" tabindex="-1"></a><span class="fu">my_sum</span>(<span class="dv">1</span>, <span class="dv">5</span>)</span>
-<span id="cb258-7"><a href="functions.html#cb258-7" tabindex="-1"></a><span class="do">## [1] 6</span></span>
-<span id="cb258-8"><a href="functions.html#cb258-8" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">5</span></span>
-<span id="cb258-9"><a href="functions.html#cb258-9" tabindex="-1"></a><span class="do">## [1] 6</span></span></code></pre></div>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="functions.html#cb259-1" tabindex="-1"></a>my_sum <span class="ot">=</span> <span class="cf">function</span>(x, y){</span>
+<span id="cb259-2"><a href="functions.html#cb259-2" tabindex="-1"></a>  res <span class="ot">=</span> x <span class="sc">+</span> y</span>
+<span id="cb259-3"><a href="functions.html#cb259-3" tabindex="-1"></a>  <span class="fu">return</span>(res)</span>
+<span id="cb259-4"><a href="functions.html#cb259-4" tabindex="-1"></a>}</span>
+<span id="cb259-5"><a href="functions.html#cb259-5" tabindex="-1"></a></span>
+<span id="cb259-6"><a href="functions.html#cb259-6" tabindex="-1"></a><span class="fu">my_sum</span>(<span class="dv">1</span>, <span class="dv">5</span>)</span>
+<span id="cb259-7"><a href="functions.html#cb259-7" tabindex="-1"></a><span class="do">## [1] 6</span></span>
+<span id="cb259-8"><a href="functions.html#cb259-8" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">5</span></span>
+<span id="cb259-9"><a href="functions.html#cb259-9" tabindex="-1"></a><span class="do">## [1] 6</span></span></code></pre></div>
 <p>We have defined a (rather simple) function to calculate the sum of two numbers. What happens if we try to add a number to a string? Clearly, this is an operation that makes no sense, and we expect some kind of error:</p>
-<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="functions.html#cb259-1" tabindex="-1"></a><span class="fu">my_sum</span>(<span class="st">&quot;any_string&quot;</span>, <span class="dv">5</span>)</span>
-<span id="cb259-2"><a href="functions.html#cb259-2" tabindex="-1"></a><span class="do">## Error in x + y: non-numeric argument to binary operator</span></span></code></pre></div>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="functions.html#cb260-1" tabindex="-1"></a><span class="fu">my_sum</span>(<span class="st">&quot;any_string&quot;</span>, <span class="dv">5</span>)</span>
+<span id="cb260-2"><a href="functions.html#cb260-2" tabindex="-1"></a><span class="do">## Error in x + y: non-numeric argument to binary operator</span></span></code></pre></div>
 <p>In this case, we see an <code>Error...</code> message with the useful information that one of the arguments used is <code>non-numeric</code>. It is a simple, targeted message and, most importantly, it does not provide a result because a fundamental condition (summing applies only to numbers) is not met. The <code>+</code> function already includes this check, but if we wanted to implement a <strong>check</strong> and provide a <strong>message</strong>, we have several options:</p>
 <ul>
 <li><code>stop(&lt;message&gt;, .call = TRUE)</code>: If placed inside a function, it halts execution and provides the specified message as an <code>Error</code>.</li>
@@ -583,46 +583,27 @@ When defining the name of a function, it’s useful to follow the same guideline
 <li><code>message()</code>: Provides a simple message without altering the function’s execution, useful for informing about operations performed.</li>
 </ul>
 <p>Returning to the sum example, imagine we want to write a function that sums only positive numbers. In other words, we want the <code>x</code> and <code>y</code> values input to the function to be positive in order for the function to execute. We can then include a <code>conditional check</code> and use the <code>stop()</code> function if the condition is not met:</p>
-<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="functions.html#cb260-1" tabindex="-1"></a>my_positive_sum <span class="ot">=</span> <span class="cf">function</span>(x, y){</span>
-<span id="cb260-2"><a href="functions.html#cb260-2" tabindex="-1"></a>  <span class="cf">if</span>(x <span class="sc">&lt;</span> <span class="dv">0</span> <span class="sc">|</span> y <span class="sc">&lt;</span> <span class="dv">0</span>){</span>
-<span id="cb260-3"><a href="functions.html#cb260-3" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">&quot;The arguments must be positive numbers!&quot;</span>)</span>
-<span id="cb260-4"><a href="functions.html#cb260-4" tabindex="-1"></a>  }</span>
-<span id="cb260-5"><a href="functions.html#cb260-5" tabindex="-1"></a>  res <span class="ot">=</span> x <span class="sc">+</span> y</span>
-<span id="cb260-6"><a href="functions.html#cb260-6" tabindex="-1"></a>  <span class="fu">return</span>(res)</span>
-<span id="cb260-7"><a href="functions.html#cb260-7" tabindex="-1"></a>}</span>
-<span id="cb260-8"><a href="functions.html#cb260-8" tabindex="-1"></a></span>
-<span id="cb260-9"><a href="functions.html#cb260-9" tabindex="-1"></a><span class="fu">my_positive_sum</span>(<span class="dv">10</span>, <span class="dv">5</span>)</span>
-<span id="cb260-10"><a href="functions.html#cb260-10" tabindex="-1"></a><span class="do">## [1] 15</span></span>
-<span id="cb260-11"><a href="functions.html#cb260-11" tabindex="-1"></a><span class="fu">my_positive_sum</span>(<span class="dv">10</span>, <span class="sc">-</span><span class="dv">5</span>)</span>
-<span id="cb260-12"><a href="functions.html#cb260-12" tabindex="-1"></a><span class="do">## Error in my_positive_sum(10, -5): The arguments must be positive numbers!</span></span></code></pre></div>
-<p>A faster way to manage execution halts is by using <code>stopifnot()</code>. However, the logic is slightly different from using <code>if</code> + <code>stop()</code>. In the previous example, the logic is: <em>“if x or y is less than 0, stop.”</em> With <code>stopifnot()</code>, we use reverse logic, meaning we specify what we want to be <code>TRUE</code> and halt the execution if it is <code>FALSE</code>. In our case, we use <code>stopifnot(x &gt; 0, y &gt; 0)</code>, which means to stop if <code>x</code> or <code>y</code> <em>is NOT</em> greater than <code>0</code>. Unlike <code>stop()</code>, this does not provide a customized message but returns the first condition that is not met:</p>
 <div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="functions.html#cb261-1" tabindex="-1"></a>my_positive_sum <span class="ot">=</span> <span class="cf">function</span>(x, y){</span>
-<span id="cb261-2"><a href="functions.html#cb261-2" tabindex="-1"></a>  <span class="fu">stopifnot</span>(x <span class="sc">&gt;</span> <span class="dv">0</span>, y <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
-<span id="cb261-3"><a href="functions.html#cb261-3" tabindex="-1"></a>  res <span class="ot">=</span> x <span class="sc">+</span> y</span>
-<span id="cb261-4"><a href="functions.html#cb261-4" tabindex="-1"></a>  <span class="fu">return</span>(res)</span>
-<span id="cb261-5"><a href="functions.html#cb261-5" tabindex="-1"></a>}</span>
-<span id="cb261-6"><a href="functions.html#cb261-6" tabindex="-1"></a><span class="fu">my_positive_sum</span>(<span class="dv">10</span>, <span class="sc">-</span><span class="dv">5</span>)</span>
-<span id="cb261-7"><a href="functions.html#cb261-7" tabindex="-1"></a><span class="do">## Error in my_positive_sum(10, -5): y &gt; 0 is not TRUE</span></span></code></pre></div>
-<p>Similarly, let’s imagine (with a bit of imagination) that our function is not reliable for numbers less than 10, meaning it might occasionally produce incorrect results. In this case, we don’t want to halt execution but provide a <code>warning</code> message:</p>
+<span id="cb261-2"><a href="functions.html#cb261-2" tabindex="-1"></a>  <span class="cf">if</span>(x <span class="sc">&lt;</span> <span class="dv">0</span> <span class="sc">|</span> y <span class="sc">&lt;</span> <span class="dv">0</span>){</span>
+<span id="cb261-3"><a href="functions.html#cb261-3" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">&quot;The arguments must be positive numbers!&quot;</span>)</span>
+<span id="cb261-4"><a href="functions.html#cb261-4" tabindex="-1"></a>  }</span>
+<span id="cb261-5"><a href="functions.html#cb261-5" tabindex="-1"></a>  res <span class="ot">=</span> x <span class="sc">+</span> y</span>
+<span id="cb261-6"><a href="functions.html#cb261-6" tabindex="-1"></a>  <span class="fu">return</span>(res)</span>
+<span id="cb261-7"><a href="functions.html#cb261-7" tabindex="-1"></a>}</span>
+<span id="cb261-8"><a href="functions.html#cb261-8" tabindex="-1"></a></span>
+<span id="cb261-9"><a href="functions.html#cb261-9" tabindex="-1"></a><span class="fu">my_positive_sum</span>(<span class="dv">10</span>, <span class="dv">5</span>)</span>
+<span id="cb261-10"><a href="functions.html#cb261-10" tabindex="-1"></a><span class="do">## [1] 15</span></span>
+<span id="cb261-11"><a href="functions.html#cb261-11" tabindex="-1"></a><span class="fu">my_positive_sum</span>(<span class="dv">10</span>, <span class="sc">-</span><span class="dv">5</span>)</span>
+<span id="cb261-12"><a href="functions.html#cb261-12" tabindex="-1"></a><span class="do">## Error in my_positive_sum(10, -5): The arguments must be positive numbers!</span></span></code></pre></div>
+<p>A faster way to manage execution halts is by using <code>stopifnot()</code>. However, the logic is slightly different from using <code>if</code> + <code>stop()</code>. In the previous example, the logic is: <em>“if x or y is less than 0, stop.”</em> With <code>stopifnot()</code>, we use reverse logic, meaning we specify what we want to be <code>TRUE</code> and halt the execution if it is <code>FALSE</code>. In our case, we use <code>stopifnot(x &gt; 0, y &gt; 0)</code>, which means to stop if <code>x</code> or <code>y</code> <em>is NOT</em> greater than <code>0</code>. Unlike <code>stop()</code>, this does not provide a customized message but returns the first condition that is not met:</p>
 <div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="functions.html#cb262-1" tabindex="-1"></a>my_positive_sum <span class="ot">=</span> <span class="cf">function</span>(x, y){</span>
-<span id="cb262-2"><a href="functions.html#cb262-2" tabindex="-1"></a>  <span class="co"># Error</span></span>
-<span id="cb262-3"><a href="functions.html#cb262-3" tabindex="-1"></a>  <span class="cf">if</span>(x <span class="sc">&lt;</span> <span class="dv">0</span> <span class="sc">|</span> y <span class="sc">&lt;</span> <span class="dv">0</span>){</span>
-<span id="cb262-4"><a href="functions.html#cb262-4" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">&quot;The arguments must be positive numbers!&quot;</span>)</span>
-<span id="cb262-5"><a href="functions.html#cb262-5" tabindex="-1"></a>  }</span>
-<span id="cb262-6"><a href="functions.html#cb262-6" tabindex="-1"></a>  <span class="co"># Warning</span></span>
-<span id="cb262-7"><a href="functions.html#cb262-7" tabindex="-1"></a>  <span class="cf">if</span>(x <span class="sc">&lt;</span> <span class="dv">10</span> <span class="sc">|</span> y <span class="sc">&lt;</span> <span class="dv">10</span>){</span>
-<span id="cb262-8"><a href="functions.html#cb262-8" tabindex="-1"></a>    <span class="fu">warning</span>(<span class="st">&quot;For some strange reason, the function doesn&#39;t handle numbers below 10 very well, be careful! :)&quot;</span>)</span>
-<span id="cb262-9"><a href="functions.html#cb262-9" tabindex="-1"></a>  }</span>
-<span id="cb262-10"><a href="functions.html#cb262-10" tabindex="-1"></a>  res <span class="ot">=</span> x <span class="sc">+</span> y</span>
-<span id="cb262-11"><a href="functions.html#cb262-11" tabindex="-1"></a>  <span class="fu">return</span>(res)</span>
-<span id="cb262-12"><a href="functions.html#cb262-12" tabindex="-1"></a>}</span>
-<span id="cb262-13"><a href="functions.html#cb262-13" tabindex="-1"></a></span>
-<span id="cb262-14"><a href="functions.html#cb262-14" tabindex="-1"></a><span class="fu">my_positive_sum</span>(<span class="dv">15</span>, <span class="dv">4</span>)</span>
-<span id="cb262-15"><a href="functions.html#cb262-15" tabindex="-1"></a><span class="do">## Warning in my_positive_sum(15, 4): For some strange reason, the function</span></span>
-<span id="cb262-16"><a href="functions.html#cb262-16" tabindex="-1"></a><span class="do">## doesn&#39;t handle numbers below 10 very well, be careful! :)</span></span>
-<span id="cb262-17"><a href="functions.html#cb262-17" tabindex="-1"></a><span class="do">## [1] 19</span></span></code></pre></div>
-<p>As you can see, we get the result (which is, of course, correct), but also a <code>warning</code> message that alerts us to this possible (but not critical) issue.</p>
-<p>Lastly, we can accompany the result with a message under certain conditions, providing additional information using the <code>message()</code> function:</p>
+<span id="cb262-2"><a href="functions.html#cb262-2" tabindex="-1"></a>  <span class="fu">stopifnot</span>(x <span class="sc">&gt;</span> <span class="dv">0</span>, y <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
+<span id="cb262-3"><a href="functions.html#cb262-3" tabindex="-1"></a>  res <span class="ot">=</span> x <span class="sc">+</span> y</span>
+<span id="cb262-4"><a href="functions.html#cb262-4" tabindex="-1"></a>  <span class="fu">return</span>(res)</span>
+<span id="cb262-5"><a href="functions.html#cb262-5" tabindex="-1"></a>}</span>
+<span id="cb262-6"><a href="functions.html#cb262-6" tabindex="-1"></a><span class="fu">my_positive_sum</span>(<span class="dv">10</span>, <span class="sc">-</span><span class="dv">5</span>)</span>
+<span id="cb262-7"><a href="functions.html#cb262-7" tabindex="-1"></a><span class="do">## Error in my_positive_sum(10, -5): y &gt; 0 is not TRUE</span></span></code></pre></div>
+<p>Similarly, let’s imagine (with a bit of imagination) that our function is not reliable for numbers less than 10, meaning it might occasionally produce incorrect results. In this case, we don’t want to halt execution but provide a <code>warning</code> message:</p>
 <div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="functions.html#cb263-1" tabindex="-1"></a>my_positive_sum <span class="ot">=</span> <span class="cf">function</span>(x, y){</span>
 <span id="cb263-2"><a href="functions.html#cb263-2" tabindex="-1"></a>  <span class="co"># Error</span></span>
 <span id="cb263-3"><a href="functions.html#cb263-3" tabindex="-1"></a>  <span class="cf">if</span>(x <span class="sc">&lt;</span> <span class="dv">0</span> <span class="sc">|</span> y <span class="sc">&lt;</span> <span class="dv">0</span>){</span>
@@ -633,78 +614,97 @@ When defining the name of a function, it’s useful to follow the same guideline
 <span id="cb263-8"><a href="functions.html#cb263-8" tabindex="-1"></a>    <span class="fu">warning</span>(<span class="st">&quot;For some strange reason, the function doesn&#39;t handle numbers below 10 very well, be careful! :)&quot;</span>)</span>
 <span id="cb263-9"><a href="functions.html#cb263-9" tabindex="-1"></a>  }</span>
 <span id="cb263-10"><a href="functions.html#cb263-10" tabindex="-1"></a>  res <span class="ot">=</span> x <span class="sc">+</span> y</span>
-<span id="cb263-11"><a href="functions.html#cb263-11" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">&quot;Great job! :)&quot;</span>)</span>
-<span id="cb263-12"><a href="functions.html#cb263-12" tabindex="-1"></a>  <span class="fu">return</span>(res)</span>
-<span id="cb263-13"><a href="functions.html#cb263-13" tabindex="-1"></a>}</span>
-<span id="cb263-14"><a href="functions.html#cb263-14" tabindex="-1"></a></span>
-<span id="cb263-15"><a href="functions.html#cb263-15" tabindex="-1"></a><span class="fu">my_positive_sum</span>(<span class="dv">12</span>, <span class="dv">10</span>)</span>
-<span id="cb263-16"><a href="functions.html#cb263-16" tabindex="-1"></a><span class="do">## Great job! :)</span></span>
-<span id="cb263-17"><a href="functions.html#cb263-17" tabindex="-1"></a><span class="do">## [1] 22</span></span></code></pre></div>
+<span id="cb263-11"><a href="functions.html#cb263-11" tabindex="-1"></a>  <span class="fu">return</span>(res)</span>
+<span id="cb263-12"><a href="functions.html#cb263-12" tabindex="-1"></a>}</span>
+<span id="cb263-13"><a href="functions.html#cb263-13" tabindex="-1"></a></span>
+<span id="cb263-14"><a href="functions.html#cb263-14" tabindex="-1"></a><span class="fu">my_positive_sum</span>(<span class="dv">15</span>, <span class="dv">4</span>)</span>
+<span id="cb263-15"><a href="functions.html#cb263-15" tabindex="-1"></a><span class="do">## Warning in my_positive_sum(15, 4): For some strange reason, the function</span></span>
+<span id="cb263-16"><a href="functions.html#cb263-16" tabindex="-1"></a><span class="do">## doesn&#39;t handle numbers below 10 very well, be careful! :)</span></span>
+<span id="cb263-17"><a href="functions.html#cb263-17" tabindex="-1"></a><span class="do">## [1] 19</span></span></code></pre></div>
+<p>As you can see, we get the result (which is, of course, correct), but also a <code>warning</code> message that alerts us to this possible (but not critical) issue.</p>
+<p>Lastly, we can accompany the result with a message under certain conditions, providing additional information using the <code>message()</code> function:</p>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="functions.html#cb264-1" tabindex="-1"></a>my_positive_sum <span class="ot">=</span> <span class="cf">function</span>(x, y){</span>
+<span id="cb264-2"><a href="functions.html#cb264-2" tabindex="-1"></a>  <span class="co"># Error</span></span>
+<span id="cb264-3"><a href="functions.html#cb264-3" tabindex="-1"></a>  <span class="cf">if</span>(x <span class="sc">&lt;</span> <span class="dv">0</span> <span class="sc">|</span> y <span class="sc">&lt;</span> <span class="dv">0</span>){</span>
+<span id="cb264-4"><a href="functions.html#cb264-4" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">&quot;The arguments must be positive numbers!&quot;</span>)</span>
+<span id="cb264-5"><a href="functions.html#cb264-5" tabindex="-1"></a>  }</span>
+<span id="cb264-6"><a href="functions.html#cb264-6" tabindex="-1"></a>  <span class="co"># Warning</span></span>
+<span id="cb264-7"><a href="functions.html#cb264-7" tabindex="-1"></a>  <span class="cf">if</span>(x <span class="sc">&lt;</span> <span class="dv">10</span> <span class="sc">|</span> y <span class="sc">&lt;</span> <span class="dv">10</span>){</span>
+<span id="cb264-8"><a href="functions.html#cb264-8" tabindex="-1"></a>    <span class="fu">warning</span>(<span class="st">&quot;For some strange reason, the function doesn&#39;t handle numbers below 10 very well, be careful! :)&quot;</span>)</span>
+<span id="cb264-9"><a href="functions.html#cb264-9" tabindex="-1"></a>  }</span>
+<span id="cb264-10"><a href="functions.html#cb264-10" tabindex="-1"></a>  res <span class="ot">=</span> x <span class="sc">+</span> y</span>
+<span id="cb264-11"><a href="functions.html#cb264-11" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">&quot;Great job! :)&quot;</span>)</span>
+<span id="cb264-12"><a href="functions.html#cb264-12" tabindex="-1"></a>  <span class="fu">return</span>(res)</span>
+<span id="cb264-13"><a href="functions.html#cb264-13" tabindex="-1"></a>}</span>
+<span id="cb264-14"><a href="functions.html#cb264-14" tabindex="-1"></a></span>
+<span id="cb264-15"><a href="functions.html#cb264-15" tabindex="-1"></a><span class="fu">my_positive_sum</span>(<span class="dv">12</span>, <span class="dv">10</span>)</span>
+<span id="cb264-16"><a href="functions.html#cb264-16" tabindex="-1"></a><span class="do">## Great job! :)</span></span>
+<span id="cb264-17"><a href="functions.html#cb264-17" tabindex="-1"></a><span class="do">## [1] 22</span></span></code></pre></div>
 <p>One last important aspect concerns what happens when we assign the result of a function in the presence of errors, warnings, or messages. In general, except in cases where errors occur (hence using the <code>stop()</code> function), the output remains the same, and the message is simply printed to the console:</p>
-<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="functions.html#cb264-1" tabindex="-1"></a>res1 <span class="ot">=</span> <span class="fu">my_positive_sum</span>(<span class="dv">10</span>,<span class="dv">5</span>)</span>
-<span id="cb264-2"><a href="functions.html#cb264-2" tabindex="-1"></a><span class="do">## Warning in my_positive_sum(10, 5): For some strange reason, the function</span></span>
-<span id="cb264-3"><a href="functions.html#cb264-3" tabindex="-1"></a><span class="do">## doesn&#39;t handle numbers below 10 very well, be careful! :)</span></span>
-<span id="cb264-4"><a href="functions.html#cb264-4" tabindex="-1"></a><span class="do">## Great job! :)</span></span>
-<span id="cb264-5"><a href="functions.html#cb264-5" tabindex="-1"></a>res2 <span class="ot">=</span> <span class="fu">my_positive_sum</span>(<span class="dv">10</span>,<span class="dv">23</span>)</span>
-<span id="cb264-6"><a href="functions.html#cb264-6" tabindex="-1"></a><span class="do">## Great job! :)</span></span>
-<span id="cb264-7"><a href="functions.html#cb264-7" tabindex="-1"></a>res3 <span class="ot">=</span> <span class="fu">my_positive_sum</span>(<span class="dv">10</span>,<span class="sc">-</span><span class="dv">1</span>)</span>
-<span id="cb264-8"><a href="functions.html#cb264-8" tabindex="-1"></a><span class="do">## Error in my_positive_sum(10, -1): The arguments must be positive numbers!</span></span>
-<span id="cb264-9"><a href="functions.html#cb264-9" tabindex="-1"></a></span>
-<span id="cb264-10"><a href="functions.html#cb264-10" tabindex="-1"></a>res1</span>
-<span id="cb264-11"><a href="functions.html#cb264-11" tabindex="-1"></a><span class="do">## [1] 15</span></span>
-<span id="cb264-12"><a href="functions.html#cb264-12" tabindex="-1"></a>res2</span>
-<span id="cb264-13"><a href="functions.html#cb264-13" tabindex="-1"></a><span class="do">## [1] 33</span></span>
-<span id="cb264-14"><a href="functions.html#cb264-14" tabindex="-1"></a>res3 <span class="co"># no output</span></span>
-<span id="cb264-15"><a href="functions.html#cb264-15" tabindex="-1"></a><span class="do">## Error in eval(expr, envir, enclos): object &#39;res3&#39; not found</span></span></code></pre></div>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="functions.html#cb265-1" tabindex="-1"></a>res1 <span class="ot">=</span> <span class="fu">my_positive_sum</span>(<span class="dv">10</span>,<span class="dv">5</span>)</span>
+<span id="cb265-2"><a href="functions.html#cb265-2" tabindex="-1"></a><span class="do">## Warning in my_positive_sum(10, 5): For some strange reason, the function</span></span>
+<span id="cb265-3"><a href="functions.html#cb265-3" tabindex="-1"></a><span class="do">## doesn&#39;t handle numbers below 10 very well, be careful! :)</span></span>
+<span id="cb265-4"><a href="functions.html#cb265-4" tabindex="-1"></a><span class="do">## Great job! :)</span></span>
+<span id="cb265-5"><a href="functions.html#cb265-5" tabindex="-1"></a>res2 <span class="ot">=</span> <span class="fu">my_positive_sum</span>(<span class="dv">10</span>,<span class="dv">23</span>)</span>
+<span id="cb265-6"><a href="functions.html#cb265-6" tabindex="-1"></a><span class="do">## Great job! :)</span></span>
+<span id="cb265-7"><a href="functions.html#cb265-7" tabindex="-1"></a>res3 <span class="ot">=</span> <span class="fu">my_positive_sum</span>(<span class="dv">10</span>,<span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb265-8"><a href="functions.html#cb265-8" tabindex="-1"></a><span class="do">## Error in my_positive_sum(10, -1): The arguments must be positive numbers!</span></span>
+<span id="cb265-9"><a href="functions.html#cb265-9" tabindex="-1"></a></span>
+<span id="cb265-10"><a href="functions.html#cb265-10" tabindex="-1"></a>res1</span>
+<span id="cb265-11"><a href="functions.html#cb265-11" tabindex="-1"></a><span class="do">## [1] 15</span></span>
+<span id="cb265-12"><a href="functions.html#cb265-12" tabindex="-1"></a>res2</span>
+<span id="cb265-13"><a href="functions.html#cb265-13" tabindex="-1"></a><span class="do">## [1] 33</span></span>
+<span id="cb265-14"><a href="functions.html#cb265-14" tabindex="-1"></a>res3 <span class="co"># no output</span></span>
+<span id="cb265-15"><a href="functions.html#cb265-15" tabindex="-1"></a><span class="do">## Error in eval(expr, envir, enclos): object &#39;res3&#39; not found</span></span></code></pre></div>
 <p>As you can see, when an error occurs and we stop execution, the function, despite being expected to return an output, does not provide any result because it was interrupted.</p>
 </div>
 <div id="function-environment" class="section level2 hasAnchor" number="12.3">
 <h2><span class="header-section-number">12.3</span> Function Environment<a href="functions.html#function-environment" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The concept of <em>environment</em> in R is quite complex. In simple terms, all the operations we normally perform in the console or in a script happen within what is called the <em>global environment</em>. When we write and execute a function, we are creating a function object (in the <em>global environment</em>), which in turn creates an internal environment to perform the specified operations. Let’s imagine we have this function <code>my_fun()</code> that takes a value <code>x</code> and adds it to a value <code>y</code>, which is not an argument.</p>
-<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="functions.html#cb265-1" tabindex="-1"></a>my_fun <span class="ot">=</span> <span class="cf">function</span>(x){</span>
-<span id="cb265-2"><a href="functions.html#cb265-2" tabindex="-1"></a>  <span class="fu">return</span>(x <span class="sc">+</span> y)</span>
-<span id="cb265-3"><a href="functions.html#cb265-3" tabindex="-1"></a>}</span>
-<span id="cb265-4"><a href="functions.html#cb265-4" tabindex="-1"></a></span>
-<span id="cb265-5"><a href="functions.html#cb265-5" tabindex="-1"></a><span class="fu">my_fun</span>(<span class="dv">10</span>)</span>
-<span id="cb265-6"><a href="functions.html#cb265-6" tabindex="-1"></a><span class="do">## Error in my_fun(10): object &#39;y&#39; not found</span></span></code></pre></div>
-<p>Clearly, we get an error because the object <code>y</code> was not created. However, if we create the <code>y</code> object inside the function, it will perform the addition correctly, but it will not create the <code>y</code> object in the global environment.</p>
 <div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="functions.html#cb266-1" tabindex="-1"></a>my_fun <span class="ot">=</span> <span class="cf">function</span>(x){</span>
-<span id="cb266-2"><a href="functions.html#cb266-2" tabindex="-1"></a>  y <span class="ot">=</span> <span class="dv">1</span></span>
-<span id="cb266-3"><a href="functions.html#cb266-3" tabindex="-1"></a>  <span class="fu">return</span>(x <span class="sc">+</span> y)</span>
-<span id="cb266-4"><a href="functions.html#cb266-4" tabindex="-1"></a>}</span>
-<span id="cb266-5"><a href="functions.html#cb266-5" tabindex="-1"></a></span>
-<span id="cb266-6"><a href="functions.html#cb266-6" tabindex="-1"></a><span class="fu">my_fun</span>(<span class="dv">10</span>)</span>
-<span id="cb266-7"><a href="functions.html#cb266-7" tabindex="-1"></a><span class="do">## [1] 11</span></span>
-<span id="cb266-8"><a href="functions.html#cb266-8" tabindex="-1"></a><span class="fu">ls</span>() <span class="co"># we only have our function as an object</span></span>
-<span id="cb266-9"><a href="functions.html#cb266-9" tabindex="-1"></a><span class="do">## [1] &quot;my_fun&quot;          &quot;my_greetings&quot;    &quot;my_positive_sum&quot; &quot;my_sum&quot;         </span></span>
-<span id="cb266-10"><a href="functions.html#cb266-10" tabindex="-1"></a><span class="do">## [5] &quot;res1&quot;            &quot;res2&quot;</span></span></code></pre></div>
+<span id="cb266-2"><a href="functions.html#cb266-2" tabindex="-1"></a>  <span class="fu">return</span>(x <span class="sc">+</span> y)</span>
+<span id="cb266-3"><a href="functions.html#cb266-3" tabindex="-1"></a>}</span>
+<span id="cb266-4"><a href="functions.html#cb266-4" tabindex="-1"></a></span>
+<span id="cb266-5"><a href="functions.html#cb266-5" tabindex="-1"></a><span class="fu">my_fun</span>(<span class="dv">10</span>)</span>
+<span id="cb266-6"><a href="functions.html#cb266-6" tabindex="-1"></a><span class="do">## Error in my_fun(10): object &#39;y&#39; not found</span></span></code></pre></div>
+<p>Clearly, we get an error because the object <code>y</code> was not created. However, if we create the <code>y</code> object inside the function, it will perform the addition correctly, but it will not create the <code>y</code> object in the global environment.</p>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="functions.html#cb267-1" tabindex="-1"></a>my_fun <span class="ot">=</span> <span class="cf">function</span>(x){</span>
+<span id="cb267-2"><a href="functions.html#cb267-2" tabindex="-1"></a>  y <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb267-3"><a href="functions.html#cb267-3" tabindex="-1"></a>  <span class="fu">return</span>(x <span class="sc">+</span> y)</span>
+<span id="cb267-4"><a href="functions.html#cb267-4" tabindex="-1"></a>}</span>
+<span id="cb267-5"><a href="functions.html#cb267-5" tabindex="-1"></a></span>
+<span id="cb267-6"><a href="functions.html#cb267-6" tabindex="-1"></a><span class="fu">my_fun</span>(<span class="dv">10</span>)</span>
+<span id="cb267-7"><a href="functions.html#cb267-7" tabindex="-1"></a><span class="do">## [1] 11</span></span>
+<span id="cb267-8"><a href="functions.html#cb267-8" tabindex="-1"></a><span class="fu">ls</span>() <span class="co"># we only have our function as an object</span></span>
+<span id="cb267-9"><a href="functions.html#cb267-9" tabindex="-1"></a><span class="do">## [1] &quot;my_fun&quot;          &quot;my_greetings&quot;    &quot;my_positive_sum&quot; &quot;my_sum&quot;         </span></span>
+<span id="cb267-10"><a href="functions.html#cb267-10" tabindex="-1"></a><span class="do">## [5] &quot;res1&quot;            &quot;res2&quot;</span></span></code></pre></div>
 <p>From this, it’s clear that what happens inside the function is somewhat compartmentalized compared to the global environment. The only way to influence the global environment is to assign the result of the function, thus creating a new object:</p>
-<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="functions.html#cb267-1" tabindex="-1"></a>res <span class="ot">=</span> <span class="fu">my_fun</span>(<span class="dv">10</span>)</span>
-<span id="cb267-2"><a href="functions.html#cb267-2" tabindex="-1"></a><span class="fu">ls</span>()</span>
-<span id="cb267-3"><a href="functions.html#cb267-3" tabindex="-1"></a><span class="do">## [1] &quot;my_fun&quot;          &quot;my_greetings&quot;    &quot;my_positive_sum&quot; &quot;my_sum&quot;         </span></span>
-<span id="cb267-4"><a href="functions.html#cb267-4" tabindex="-1"></a><span class="do">## [5] &quot;res&quot;             &quot;res1&quot;            &quot;res2&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="functions.html#cb268-1" tabindex="-1"></a>res <span class="ot">=</span> <span class="fu">my_fun</span>(<span class="dv">10</span>)</span>
+<span id="cb268-2"><a href="functions.html#cb268-2" tabindex="-1"></a><span class="fu">ls</span>()</span>
+<span id="cb268-3"><a href="functions.html#cb268-3" tabindex="-1"></a><span class="do">## [1] &quot;my_fun&quot;          &quot;my_greetings&quot;    &quot;my_positive_sum&quot; &quot;my_sum&quot;         </span></span>
+<span id="cb268-4"><a href="functions.html#cb268-4" tabindex="-1"></a><span class="do">## [5] &quot;res&quot;             &quot;res1&quot;            &quot;res2&quot;</span></span></code></pre></div>
 <p>Another important point, especially for managing side effects, is the fact that the function does <strong>not</strong> modify and does <strong>not</strong> interfere with objects in the <em>global environment</em> that have the same names as objects within the <em>function environment</em>:</p>
-<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="functions.html#cb268-1" tabindex="-1"></a>y <span class="ot">=</span> <span class="dv">10</span> <span class="co"># global environment</span></span>
-<span id="cb268-2"><a href="functions.html#cb268-2" tabindex="-1"></a></span>
-<span id="cb268-3"><a href="functions.html#cb268-3" tabindex="-1"></a>my_fun <span class="ot">=</span> <span class="cf">function</span>(x){</span>
-<span id="cb268-4"><a href="functions.html#cb268-4" tabindex="-1"></a>  y <span class="ot">=</span> <span class="dv">1</span> <span class="co"># function environment</span></span>
-<span id="cb268-5"><a href="functions.html#cb268-5" tabindex="-1"></a>  <span class="fu">return</span>(x <span class="sc">+</span> y) <span class="co"># this uses the function&#39;s y</span></span>
-<span id="cb268-6"><a href="functions.html#cb268-6" tabindex="-1"></a>}</span>
-<span id="cb268-7"><a href="functions.html#cb268-7" tabindex="-1"></a></span>
-<span id="cb268-8"><a href="functions.html#cb268-8" tabindex="-1"></a><span class="fu">my_fun</span>(<span class="dv">1</span>)</span>
-<span id="cb268-9"><a href="functions.html#cb268-9" tabindex="-1"></a><span class="do">## [1] 2</span></span>
-<span id="cb268-10"><a href="functions.html#cb268-10" tabindex="-1"></a>y</span>
-<span id="cb268-11"><a href="functions.html#cb268-11" tabindex="-1"></a><span class="do">## [1] 10</span></span></code></pre></div>
-<p>As you can see, we created an object <code>y</code> inside the function. If executed in the same environment, this would have overwritten the previous value. The result is based on the value of <code>y</code> created in the function environment, and the global <code>y</code> was not modified.</p>
-<p>One final important point concerns the relationship between the function environment and the global environment. We have seen their independence, but this is not absolute. If, inside the function, we use a variable defined only in the global environment, the function will automatically use that value (if not specified internally). This is useful for allowing functions and global variables to work together, but it is always preferable to create an independent function environment and provide <strong>arguments</strong> for all the necessary objects.</p>
-<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="functions.html#cb269-1" tabindex="-1"></a>y <span class="ot">=</span> <span class="dv">10</span></span>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="functions.html#cb269-1" tabindex="-1"></a>y <span class="ot">=</span> <span class="dv">10</span> <span class="co"># global environment</span></span>
 <span id="cb269-2"><a href="functions.html#cb269-2" tabindex="-1"></a></span>
 <span id="cb269-3"><a href="functions.html#cb269-3" tabindex="-1"></a>my_fun <span class="ot">=</span> <span class="cf">function</span>(x){</span>
-<span id="cb269-4"><a href="functions.html#cb269-4" tabindex="-1"></a>  <span class="fu">return</span>(x <span class="sc">+</span> y) <span class="co"># no &quot;y&quot; exists in the local function environment, therefore, &quot;y&quot; from global environment is used</span></span>
-<span id="cb269-5"><a href="functions.html#cb269-5" tabindex="-1"></a>}</span>
-<span id="cb269-6"><a href="functions.html#cb269-6" tabindex="-1"></a></span>
-<span id="cb269-7"><a href="functions.html#cb269-7" tabindex="-1"></a><span class="fu">my_fun</span>(<span class="dv">1</span>)</span>
-<span id="cb269-8"><a href="functions.html#cb269-8" tabindex="-1"></a><span class="do">## [1] 11</span></span></code></pre></div>
+<span id="cb269-4"><a href="functions.html#cb269-4" tabindex="-1"></a>  y <span class="ot">=</span> <span class="dv">1</span> <span class="co"># function environment</span></span>
+<span id="cb269-5"><a href="functions.html#cb269-5" tabindex="-1"></a>  <span class="fu">return</span>(x <span class="sc">+</span> y) <span class="co"># this uses the function&#39;s y</span></span>
+<span id="cb269-6"><a href="functions.html#cb269-6" tabindex="-1"></a>}</span>
+<span id="cb269-7"><a href="functions.html#cb269-7" tabindex="-1"></a></span>
+<span id="cb269-8"><a href="functions.html#cb269-8" tabindex="-1"></a><span class="fu">my_fun</span>(<span class="dv">1</span>)</span>
+<span id="cb269-9"><a href="functions.html#cb269-9" tabindex="-1"></a><span class="do">## [1] 2</span></span>
+<span id="cb269-10"><a href="functions.html#cb269-10" tabindex="-1"></a>y</span>
+<span id="cb269-11"><a href="functions.html#cb269-11" tabindex="-1"></a><span class="do">## [1] 10</span></span></code></pre></div>
+<p>As you can see, we created an object <code>y</code> inside the function. If executed in the same environment, this would have overwritten the previous value. The result is based on the value of <code>y</code> created in the function environment, and the global <code>y</code> was not modified.</p>
+<p>One final important point concerns the relationship between the function environment and the global environment. We have seen their independence, but this is not absolute. If, inside the function, we use a variable defined only in the global environment, the function will automatically use that value (if not specified internally). This is useful for allowing functions and global variables to work together, but it is always preferable to create an independent function environment and provide <strong>arguments</strong> for all the necessary objects.</p>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="functions.html#cb270-1" tabindex="-1"></a>y <span class="ot">=</span> <span class="dv">10</span></span>
+<span id="cb270-2"><a href="functions.html#cb270-2" tabindex="-1"></a></span>
+<span id="cb270-3"><a href="functions.html#cb270-3" tabindex="-1"></a>my_fun <span class="ot">=</span> <span class="cf">function</span>(x){</span>
+<span id="cb270-4"><a href="functions.html#cb270-4" tabindex="-1"></a>  <span class="fu">return</span>(x <span class="sc">+</span> y) <span class="co"># no &quot;y&quot; exists in the local function environment, therefore, &quot;y&quot; from global environment is used</span></span>
+<span id="cb270-5"><a href="functions.html#cb270-5" tabindex="-1"></a>}</span>
+<span id="cb270-6"><a href="functions.html#cb270-6" tabindex="-1"></a></span>
+<span id="cb270-7"><a href="functions.html#cb270-7" tabindex="-1"></a><span class="fu">my_fun</span>(<span class="dv">1</span>)</span>
+<span id="cb270-8"><a href="functions.html#cb270-8" tabindex="-1"></a><span class="do">## [1] 11</span></span></code></pre></div>
 <p>The key points to remember when defining and using functions are:</p>
 <ul>
 <li>Every time a function is executed, the internal environment is recreated, so it’s like starting from scratch.</li>
@@ -725,63 +725,63 @@ When defining the name of a function, it’s useful to follow the same guideline
 <div id="when-is-a-function-necessary" class="section level3 hasAnchor" number="12.4.1">
 <h3><span class="header-section-number">12.4.1</span> When is a Function Necessary?<a href="functions.html#when-is-a-function-necessary" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><a href="https://r4ds.had.co.nz/functions.html#when-should-you-write-a-function">Hadley Wickam</a> suggests that if we repeat a series of operations more than twice, it might be better to write a function. Let’s imagine we have a series of objects and want to perform the same operation on all of them. For example, we want to <em>center</em> (i.e., subtract the mean from all the values of a numeric vector) a numeric vector:</p>
-<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="functions.html#cb270-1" tabindex="-1"></a>vect1 <span class="ot">=</span> <span class="fu">runif</span>(<span class="dv">10</span>)</span>
-<span id="cb270-2"><a href="functions.html#cb270-2" tabindex="-1"></a>vect2 <span class="ot">=</span> <span class="fu">runif</span>(<span class="dv">10</span>)</span>
-<span id="cb270-3"><a href="functions.html#cb270-3" tabindex="-1"></a>vect3 <span class="ot">=</span> <span class="fu">runif</span>(<span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="functions.html#cb271-1" tabindex="-1"></a>vect1 <span class="ot">=</span> <span class="fu">runif</span>(<span class="dv">10</span>)</span>
+<span id="cb271-2"><a href="functions.html#cb271-2" tabindex="-1"></a>vect2 <span class="ot">=</span> <span class="fu">runif</span>(<span class="dv">10</span>)</span>
+<span id="cb271-3"><a href="functions.html#cb271-3" tabindex="-1"></a>vect3 <span class="ot">=</span> <span class="fu">runif</span>(<span class="dv">10</span>)</span></code></pre></div>
 <p>In previous chapters, we saw how to use the <code>apply</code> family and how a function can be applied to a series of objects. But let’s imagine a case where we have a very long script and at various points, we perform a certain operation:</p>
-<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="functions.html#cb271-1" tabindex="-1"></a><span class="co"># Mean centering</span></span>
-<span id="cb271-2"><a href="functions.html#cb271-2" tabindex="-1"></a>vect1 <span class="sc">-</span> <span class="fu">mean</span>(vect2)</span>
-<span id="cb271-3"><a href="functions.html#cb271-3" tabindex="-1"></a><span class="do">##  [1] -0.59902421  0.13092925 -0.34474304  0.01599091 -0.32044316  0.33153013</span></span>
-<span id="cb271-4"><a href="functions.html#cb271-4" tabindex="-1"></a><span class="do">##  [7] -0.08580426  0.10482805 -0.41959917 -0.08444837</span></span>
-<span id="cb271-5"><a href="functions.html#cb271-5" tabindex="-1"></a>vect2 <span class="sc">-</span> <span class="fu">mean</span>(vect2)</span>
-<span id="cb271-6"><a href="functions.html#cb271-6" tabindex="-1"></a><span class="do">##  [1] -0.58289080 -0.07350754  0.24682101  0.12220650 -0.04034631  0.20926805</span></span>
-<span id="cb271-7"><a href="functions.html#cb271-7" tabindex="-1"></a><span class="do">##  [7]  0.06878079  0.31381450 -0.20757238 -0.05657382</span></span>
-<span id="cb271-8"><a href="functions.html#cb271-8" tabindex="-1"></a>vect3 <span class="sc">-</span> <span class="fu">mean</span>(vect3)</span>
-<span id="cb271-9"><a href="functions.html#cb271-9" tabindex="-1"></a><span class="do">##  [1] -0.52788890  0.01888566 -0.31150143  0.04503190  0.29057634  0.25152762</span></span>
-<span id="cb271-10"><a href="functions.html#cb271-10" tabindex="-1"></a><span class="do">##  [7]  0.02246881  0.35700949 -0.48443213  0.33832265</span></span></code></pre></div>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="functions.html#cb272-1" tabindex="-1"></a><span class="co"># Mean centering</span></span>
+<span id="cb272-2"><a href="functions.html#cb272-2" tabindex="-1"></a>vect1 <span class="sc">-</span> <span class="fu">mean</span>(vect2)</span>
+<span id="cb272-3"><a href="functions.html#cb272-3" tabindex="-1"></a><span class="do">##  [1]  0.2147224 -0.1394082 -0.6578533  0.1548657  0.1358378 -0.4898488</span></span>
+<span id="cb272-4"><a href="functions.html#cb272-4" tabindex="-1"></a><span class="do">##  [7] -0.3760436 -0.3361154 -0.6053179 -0.3000041</span></span>
+<span id="cb272-5"><a href="functions.html#cb272-5" tabindex="-1"></a>vect2 <span class="sc">-</span> <span class="fu">mean</span>(vect2)</span>
+<span id="cb272-6"><a href="functions.html#cb272-6" tabindex="-1"></a><span class="do">##  [1]  0.260255879  0.302672126 -0.334737381  0.009525459 -0.257989514</span></span>
+<span id="cb272-7"><a href="functions.html#cb272-7" tabindex="-1"></a><span class="do">##  [6]  0.326912350  0.019329193 -0.026771294  0.305777162 -0.604973978</span></span>
+<span id="cb272-8"><a href="functions.html#cb272-8" tabindex="-1"></a>vect3 <span class="sc">-</span> <span class="fu">mean</span>(vect3)</span>
+<span id="cb272-9"><a href="functions.html#cb272-9" tabindex="-1"></a><span class="do">##  [1]  0.03621800  0.51384285  0.21278012  0.02210049 -0.39979472 -0.40192531</span></span>
+<span id="cb272-10"><a href="functions.html#cb272-10" tabindex="-1"></a><span class="do">##  [7] -0.01688609 -0.28161866  0.09716632  0.21811699</span></span></code></pre></div>
 <p>The operation is performed correctly and is also easy to understand. However, we are always doing the same thing, just changing an input (the very definition of a function), so we can:</p>
-<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="functions.html#cb272-1" tabindex="-1"></a>my_fun <span class="ot">=</span> <span class="cf">function</span>(x){</span>
-<span id="cb272-2"><a href="functions.html#cb272-2" tabindex="-1"></a>  <span class="fu">return</span>(x <span class="sc">-</span> <span class="fu">mean</span>(x))</span>
-<span id="cb272-3"><a href="functions.html#cb272-3" tabindex="-1"></a>}</span>
-<span id="cb272-4"><a href="functions.html#cb272-4" tabindex="-1"></a></span>
-<span id="cb272-5"><a href="functions.html#cb272-5" tabindex="-1"></a><span class="fu">my_fun</span>(vect1)</span>
-<span id="cb272-6"><a href="functions.html#cb272-6" tabindex="-1"></a><span class="do">##  [1] -0.47194582  0.25800764 -0.21766466  0.14306929 -0.19336477  0.45860851</span></span>
-<span id="cb272-7"><a href="functions.html#cb272-7" tabindex="-1"></a><span class="do">##  [7]  0.04127413  0.23190644 -0.29252078  0.04263001</span></span>
-<span id="cb272-8"><a href="functions.html#cb272-8" tabindex="-1"></a><span class="fu">my_fun</span>(vect2)</span>
-<span id="cb272-9"><a href="functions.html#cb272-9" tabindex="-1"></a><span class="do">##  [1] -0.58289080 -0.07350754  0.24682101  0.12220650 -0.04034631  0.20926805</span></span>
-<span id="cb272-10"><a href="functions.html#cb272-10" tabindex="-1"></a><span class="do">##  [7]  0.06878079  0.31381450 -0.20757238 -0.05657382</span></span>
-<span id="cb272-11"><a href="functions.html#cb272-11" tabindex="-1"></a><span class="fu">my_fun</span>(vect3)</span>
-<span id="cb272-12"><a href="functions.html#cb272-12" tabindex="-1"></a><span class="do">##  [1] -0.52788890  0.01888566 -0.31150143  0.04503190  0.29057634  0.25152762</span></span>
-<span id="cb272-13"><a href="functions.html#cb272-13" tabindex="-1"></a><span class="do">##  [7]  0.02246881  0.35700949 -0.48443213  0.33832265</span></span></code></pre></div>
-<p>The code hasn’t changed much in terms of lines or complexity. However, imagine realizing an error or wanting to change or extend the operations on <code>vect1</code>, <code>vect2</code>, and <code>vect3</code>. In the first case, you would have to go line by line through the script and modify the code. In the case of a function, simply changing the operations will apply them every time the function is called. Let’s imagine that we also want to <em>standardize</em> (subtract the mean and divide by the standard deviation) our vectors:</p>
 <div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="functions.html#cb273-1" tabindex="-1"></a>my_fun <span class="ot">=</span> <span class="cf">function</span>(x){</span>
-<span id="cb273-2"><a href="functions.html#cb273-2" tabindex="-1"></a>  res <span class="ot">=</span> (x <span class="sc">-</span> <span class="fu">mean</span>(x)) <span class="sc">/</span> <span class="fu">sd</span>(x)</span>
-<span id="cb273-3"><a href="functions.html#cb273-3" tabindex="-1"></a>  <span class="fu">return</span>(res)</span>
-<span id="cb273-4"><a href="functions.html#cb273-4" tabindex="-1"></a>}</span>
-<span id="cb273-5"><a href="functions.html#cb273-5" tabindex="-1"></a></span>
-<span id="cb273-6"><a href="functions.html#cb273-6" tabindex="-1"></a><span class="fu">my_fun</span>(vect1)</span>
-<span id="cb273-7"><a href="functions.html#cb273-7" tabindex="-1"></a><span class="do">##  [1] -1.6373490  0.8951209 -0.7551566  0.4963586 -0.6708516  1.5910771</span></span>
-<span id="cb273-8"><a href="functions.html#cb273-8" tabindex="-1"></a><span class="do">##  [7]  0.1431947  0.8045665 -1.0148593  0.1478988</span></span>
-<span id="cb273-9"><a href="functions.html#cb273-9" tabindex="-1"></a><span class="fu">my_fun</span>(vect2)</span>
-<span id="cb273-10"><a href="functions.html#cb273-10" tabindex="-1"></a><span class="do">##  [1] -2.2281266 -0.2809859  0.9434846  0.4671399 -0.1542256  0.7999366</span></span>
-<span id="cb273-11"><a href="functions.html#cb273-11" tabindex="-1"></a><span class="do">##  [7]  0.2629177  1.1995702 -0.7934549 -0.2162560</span></span>
-<span id="cb273-12"><a href="functions.html#cb273-12" tabindex="-1"></a><span class="fu">my_fun</span>(vect3)</span>
-<span id="cb273-13"><a href="functions.html#cb273-13" tabindex="-1"></a><span class="do">##  [1] -1.58138919  0.05657549 -0.93316037  0.13490140  0.87047537  0.75349769</span></span>
-<span id="cb273-14"><a href="functions.html#cb273-14" tabindex="-1"></a><span class="do">##  [7]  0.06730950  1.06948820 -1.45120639  1.01350831</span></span></code></pre></div>
+<span id="cb273-2"><a href="functions.html#cb273-2" tabindex="-1"></a>  <span class="fu">return</span>(x <span class="sc">-</span> <span class="fu">mean</span>(x))</span>
+<span id="cb273-3"><a href="functions.html#cb273-3" tabindex="-1"></a>}</span>
+<span id="cb273-4"><a href="functions.html#cb273-4" tabindex="-1"></a></span>
+<span id="cb273-5"><a href="functions.html#cb273-5" tabindex="-1"></a><span class="fu">my_fun</span>(vect1)</span>
+<span id="cb273-6"><a href="functions.html#cb273-6" tabindex="-1"></a><span class="do">##  [1]  0.45463897  0.10050837 -0.41793681  0.39478225  0.37575434 -0.24993230</span></span>
+<span id="cb273-7"><a href="functions.html#cb273-7" tabindex="-1"></a><span class="do">##  [7] -0.13612707 -0.09619882 -0.36540136 -0.06008756</span></span>
+<span id="cb273-8"><a href="functions.html#cb273-8" tabindex="-1"></a><span class="fu">my_fun</span>(vect2)</span>
+<span id="cb273-9"><a href="functions.html#cb273-9" tabindex="-1"></a><span class="do">##  [1]  0.260255879  0.302672126 -0.334737381  0.009525459 -0.257989514</span></span>
+<span id="cb273-10"><a href="functions.html#cb273-10" tabindex="-1"></a><span class="do">##  [6]  0.326912350  0.019329193 -0.026771294  0.305777162 -0.604973978</span></span>
+<span id="cb273-11"><a href="functions.html#cb273-11" tabindex="-1"></a><span class="fu">my_fun</span>(vect3)</span>
+<span id="cb273-12"><a href="functions.html#cb273-12" tabindex="-1"></a><span class="do">##  [1]  0.03621800  0.51384285  0.21278012  0.02210049 -0.39979472 -0.40192531</span></span>
+<span id="cb273-13"><a href="functions.html#cb273-13" tabindex="-1"></a><span class="do">##  [7] -0.01688609 -0.28161866  0.09716632  0.21811699</span></span></code></pre></div>
+<p>The code hasn’t changed much in terms of lines or complexity. However, imagine realizing an error or wanting to change or extend the operations on <code>vect1</code>, <code>vect2</code>, and <code>vect3</code>. In the first case, you would have to go line by line through the script and modify the code. In the case of a function, simply changing the operations will apply them every time the function is called. Let’s imagine that we also want to <em>standardize</em> (subtract the mean and divide by the standard deviation) our vectors:</p>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="functions.html#cb274-1" tabindex="-1"></a>my_fun <span class="ot">=</span> <span class="cf">function</span>(x){</span>
+<span id="cb274-2"><a href="functions.html#cb274-2" tabindex="-1"></a>  res <span class="ot">=</span> (x <span class="sc">-</span> <span class="fu">mean</span>(x)) <span class="sc">/</span> <span class="fu">sd</span>(x)</span>
+<span id="cb274-3"><a href="functions.html#cb274-3" tabindex="-1"></a>  <span class="fu">return</span>(res)</span>
+<span id="cb274-4"><a href="functions.html#cb274-4" tabindex="-1"></a>}</span>
+<span id="cb274-5"><a href="functions.html#cb274-5" tabindex="-1"></a></span>
+<span id="cb274-6"><a href="functions.html#cb274-6" tabindex="-1"></a><span class="fu">my_fun</span>(vect1)</span>
+<span id="cb274-7"><a href="functions.html#cb274-7" tabindex="-1"></a><span class="do">##  [1]  1.4251658  0.3150656 -1.3101148  1.2375317  1.1778846 -0.7834677</span></span>
+<span id="cb274-8"><a href="functions.html#cb274-8" tabindex="-1"></a><span class="do">##  [7] -0.4267202 -0.3015564 -1.1454309 -0.1883577</span></span>
+<span id="cb274-9"><a href="functions.html#cb274-9" tabindex="-1"></a><span class="fu">my_fun</span>(vect2)</span>
+<span id="cb274-10"><a href="functions.html#cb274-10" tabindex="-1"></a><span class="do">##  [1]  0.82049938  0.95422356 -1.05531454  0.03003057 -0.81335429  1.03064484</span></span>
+<span id="cb274-11"><a href="functions.html#cb274-11" tabindex="-1"></a><span class="do">##  [7]  0.06093845 -0.08440090  0.96401269 -1.90727977</span></span>
+<span id="cb274-12"><a href="functions.html#cb274-12" tabindex="-1"></a><span class="fu">my_fun</span>(vect3)</span>
+<span id="cb274-13"><a href="functions.html#cb274-13" tabindex="-1"></a><span class="do">##  [1]  0.12389513  1.75776200  0.72788172  0.07560172 -1.36762432 -1.37491266</span></span>
+<span id="cb274-14"><a href="functions.html#cb274-14" tabindex="-1"></a><span class="do">##  [7] -0.05776420 -0.96336570  0.33238814  0.74613816</span></span></code></pre></div>
 <p>Of course, the combination of functions and the <code>apply</code> family allows everything to be even more compact and efficient:</p>
-<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="functions.html#cb274-1" tabindex="-1"></a>my_list <span class="ot">=</span> <span class="fu">list</span>(vect1, vect2, vect3)</span>
-<span id="cb274-2"><a href="functions.html#cb274-2" tabindex="-1"></a><span class="fu">lapply</span>(my_list, my_fun)</span>
-<span id="cb274-3"><a href="functions.html#cb274-3" tabindex="-1"></a><span class="do">## [[1]]</span></span>
-<span id="cb274-4"><a href="functions.html#cb274-4" tabindex="-1"></a><span class="do">##  [1] -1.6373490  0.8951209 -0.7551566  0.4963586 -0.6708516  1.5910771</span></span>
-<span id="cb274-5"><a href="functions.html#cb274-5" tabindex="-1"></a><span class="do">##  [7]  0.1431947  0.8045665 -1.0148593  0.1478988</span></span>
-<span id="cb274-6"><a href="functions.html#cb274-6" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb274-7"><a href="functions.html#cb274-7" tabindex="-1"></a><span class="do">## [[2]]</span></span>
-<span id="cb274-8"><a href="functions.html#cb274-8" tabindex="-1"></a><span class="do">##  [1] -2.2281266 -0.2809859  0.9434846  0.4671399 -0.1542256  0.7999366</span></span>
-<span id="cb274-9"><a href="functions.html#cb274-9" tabindex="-1"></a><span class="do">##  [7]  0.2629177  1.1995702 -0.7934549 -0.2162560</span></span>
-<span id="cb274-10"><a href="functions.html#cb274-10" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb274-11"><a href="functions.html#cb274-11" tabindex="-1"></a><span class="do">## [[3]]</span></span>
-<span id="cb274-12"><a href="functions.html#cb274-12" tabindex="-1"></a><span class="do">##  [1] -1.58138919  0.05657549 -0.93316037  0.13490140  0.87047537  0.75349769</span></span>
-<span id="cb274-13"><a href="functions.html#cb274-13" tabindex="-1"></a><span class="do">##  [7]  0.06730950  1.06948820 -1.45120639  1.01350831</span></span></code></pre></div>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="functions.html#cb275-1" tabindex="-1"></a>my_list <span class="ot">=</span> <span class="fu">list</span>(vect1, vect2, vect3)</span>
+<span id="cb275-2"><a href="functions.html#cb275-2" tabindex="-1"></a><span class="fu">lapply</span>(my_list, my_fun)</span>
+<span id="cb275-3"><a href="functions.html#cb275-3" tabindex="-1"></a><span class="do">## [[1]]</span></span>
+<span id="cb275-4"><a href="functions.html#cb275-4" tabindex="-1"></a><span class="do">##  [1]  1.4251658  0.3150656 -1.3101148  1.2375317  1.1778846 -0.7834677</span></span>
+<span id="cb275-5"><a href="functions.html#cb275-5" tabindex="-1"></a><span class="do">##  [7] -0.4267202 -0.3015564 -1.1454309 -0.1883577</span></span>
+<span id="cb275-6"><a href="functions.html#cb275-6" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb275-7"><a href="functions.html#cb275-7" tabindex="-1"></a><span class="do">## [[2]]</span></span>
+<span id="cb275-8"><a href="functions.html#cb275-8" tabindex="-1"></a><span class="do">##  [1]  0.82049938  0.95422356 -1.05531454  0.03003057 -0.81335429  1.03064484</span></span>
+<span id="cb275-9"><a href="functions.html#cb275-9" tabindex="-1"></a><span class="do">##  [7]  0.06093845 -0.08440090  0.96401269 -1.90727977</span></span>
+<span id="cb275-10"><a href="functions.html#cb275-10" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb275-11"><a href="functions.html#cb275-11" tabindex="-1"></a><span class="do">## [[3]]</span></span>
+<span id="cb275-12"><a href="functions.html#cb275-12" tabindex="-1"></a><span class="do">##  [1]  0.12389513  1.75776200  0.72788172  0.07560172 -1.36762432 -1.37491266</span></span>
+<span id="cb275-13"><a href="functions.html#cb275-13" tabindex="-1"></a><span class="do">##  [7] -0.05776420 -0.96336570  0.33238814  0.74613816</span></span></code></pre></div>
 </div>
 <div id="choosing-the-name-of-a-function" class="section level3 hasAnchor" number="12.4.2">
 <h3><span class="header-section-number">12.4.2</span> Choosing the Name of a Function<a href="functions.html#choosing-the-name-of-a-function" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -802,50 +802,50 @@ When defining the name of a function, it’s useful to follow the same guideline
 </ul>
 <p>If we have designed a function with too many outputs, it’s too complex, or it has too many inputs, we might consider breaking the function into sub-functions.</p>
 <p>Let’s take an example with our <code>center_vect()</code>. We can think of various alternatives and extensions of this function. For instance, we might want to create a function that either centers or standardizes the vector. We might also choose to center it using the mean or the median. So, we can think of a macro function <code>trans_vect()</code> that transforms the vector based on the arguments:</p>
-<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="functions.html#cb275-1" tabindex="-1"></a>trans_vect <span class="ot">=</span> <span class="cf">function</span>(x, <span class="at">what =</span> <span class="fu">c</span>(<span class="st">&quot;center_mean&quot;</span>, <span class="st">&quot;center_median&quot;</span>, <span class="st">&quot;standardize&quot;</span>)){</span>
-<span id="cb275-2"><a href="functions.html#cb275-2" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">match.arg</span>(what) <span class="sc">==</span> <span class="st">&quot;center_mean&quot;</span>){</span>
-<span id="cb275-3"><a href="functions.html#cb275-3" tabindex="-1"></a>    res <span class="ot">=</span> x <span class="sc">-</span> <span class="fu">mean</span>(x)</span>
-<span id="cb275-4"><a href="functions.html#cb275-4" tabindex="-1"></a>  }<span class="cf">else</span> <span class="cf">if</span>(<span class="fu">match.arg</span>(what) <span class="sc">==</span> <span class="st">&quot;center_median&quot;</span>){</span>
-<span id="cb275-5"><a href="functions.html#cb275-5" tabindex="-1"></a>    res <span class="ot">=</span> x <span class="sc">-</span> <span class="fu">median</span>(x)</span>
-<span id="cb275-6"><a href="functions.html#cb275-6" tabindex="-1"></a>  }<span class="cf">else</span> <span class="cf">if</span>(<span class="fu">match.arg</span>(what) <span class="sc">==</span> <span class="st">&quot;standardize&quot;</span>){</span>
-<span id="cb275-7"><a href="functions.html#cb275-7" tabindex="-1"></a>    res <span class="ot">=</span> (x <span class="sc">-</span> <span class="fu">mean</span>(x))<span class="sc">/</span><span class="fu">sd</span>(x)</span>
-<span id="cb275-8"><a href="functions.html#cb275-8" tabindex="-1"></a>  }</span>
-<span id="cb275-9"><a href="functions.html#cb275-9" tabindex="-1"></a>  <span class="fu">return</span>(res)</span>
-<span id="cb275-10"><a href="functions.html#cb275-10" tabindex="-1"></a>}</span>
-<span id="cb275-11"><a href="functions.html#cb275-11" tabindex="-1"></a></span>
-<span id="cb275-12"><a href="functions.html#cb275-12" tabindex="-1"></a>vect <span class="ot">=</span> <span class="fu">runif</span>(<span class="dv">10</span>)</span>
-<span id="cb275-13"><a href="functions.html#cb275-13" tabindex="-1"></a><span class="fu">trans_vect</span>(vect, <span class="st">&quot;center_mean&quot;</span>)</span>
-<span id="cb275-14"><a href="functions.html#cb275-14" tabindex="-1"></a><span class="do">##  [1]  0.05082598 -0.35683893 -0.29559260 -0.05141014 -0.23760210 -0.33672015</span></span>
-<span id="cb275-15"><a href="functions.html#cb275-15" tabindex="-1"></a><span class="do">##  [7]  0.04181302  0.42676028  0.31747201  0.44129262</span></span>
-<span id="cb275-16"><a href="functions.html#cb275-16" tabindex="-1"></a><span class="fu">trans_vect</span>(vect, <span class="st">&quot;center_mean&quot;</span>)</span>
-<span id="cb275-17"><a href="functions.html#cb275-17" tabindex="-1"></a><span class="do">##  [1]  0.05082598 -0.35683893 -0.29559260 -0.05141014 -0.23760210 -0.33672015</span></span>
-<span id="cb275-18"><a href="functions.html#cb275-18" tabindex="-1"></a><span class="do">##  [7]  0.04181302  0.42676028  0.31747201  0.44129262</span></span>
-<span id="cb275-19"><a href="functions.html#cb275-19" tabindex="-1"></a><span class="fu">trans_vect</span>(vect, <span class="st">&quot;standardize&quot;</span>)</span>
-<span id="cb275-20"><a href="functions.html#cb275-20" tabindex="-1"></a><span class="do">##  [1]  0.1635515 -1.1482618 -0.9511790 -0.1654312 -0.7645730 -1.0835221</span></span>
-<span id="cb275-21"><a href="functions.html#cb275-21" tabindex="-1"></a><span class="do">##  [7]  0.1345489  1.3732597  1.0215841  1.4200229</span></span></code></pre></div>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="functions.html#cb276-1" tabindex="-1"></a>trans_vect <span class="ot">=</span> <span class="cf">function</span>(x, <span class="at">what =</span> <span class="fu">c</span>(<span class="st">&quot;center_mean&quot;</span>, <span class="st">&quot;center_median&quot;</span>, <span class="st">&quot;standardize&quot;</span>)){</span>
+<span id="cb276-2"><a href="functions.html#cb276-2" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">match.arg</span>(what) <span class="sc">==</span> <span class="st">&quot;center_mean&quot;</span>){</span>
+<span id="cb276-3"><a href="functions.html#cb276-3" tabindex="-1"></a>    res <span class="ot">=</span> x <span class="sc">-</span> <span class="fu">mean</span>(x)</span>
+<span id="cb276-4"><a href="functions.html#cb276-4" tabindex="-1"></a>  }<span class="cf">else</span> <span class="cf">if</span>(<span class="fu">match.arg</span>(what) <span class="sc">==</span> <span class="st">&quot;center_median&quot;</span>){</span>
+<span id="cb276-5"><a href="functions.html#cb276-5" tabindex="-1"></a>    res <span class="ot">=</span> x <span class="sc">-</span> <span class="fu">median</span>(x)</span>
+<span id="cb276-6"><a href="functions.html#cb276-6" tabindex="-1"></a>  }<span class="cf">else</span> <span class="cf">if</span>(<span class="fu">match.arg</span>(what) <span class="sc">==</span> <span class="st">&quot;standardize&quot;</span>){</span>
+<span id="cb276-7"><a href="functions.html#cb276-7" tabindex="-1"></a>    res <span class="ot">=</span> (x <span class="sc">-</span> <span class="fu">mean</span>(x))<span class="sc">/</span><span class="fu">sd</span>(x)</span>
+<span id="cb276-8"><a href="functions.html#cb276-8" tabindex="-1"></a>  }</span>
+<span id="cb276-9"><a href="functions.html#cb276-9" tabindex="-1"></a>  <span class="fu">return</span>(res)</span>
+<span id="cb276-10"><a href="functions.html#cb276-10" tabindex="-1"></a>}</span>
+<span id="cb276-11"><a href="functions.html#cb276-11" tabindex="-1"></a></span>
+<span id="cb276-12"><a href="functions.html#cb276-12" tabindex="-1"></a>vect <span class="ot">=</span> <span class="fu">runif</span>(<span class="dv">10</span>)</span>
+<span id="cb276-13"><a href="functions.html#cb276-13" tabindex="-1"></a><span class="fu">trans_vect</span>(vect, <span class="st">&quot;center_mean&quot;</span>)</span>
+<span id="cb276-14"><a href="functions.html#cb276-14" tabindex="-1"></a><span class="do">##  [1]  0.15278690  0.17812609 -0.35645687 -0.03092247 -0.21312023  0.39603688</span></span>
+<span id="cb276-15"><a href="functions.html#cb276-15" tabindex="-1"></a><span class="do">##  [7]  0.10468574 -0.06936699  0.32052326 -0.48229230</span></span>
+<span id="cb276-16"><a href="functions.html#cb276-16" tabindex="-1"></a><span class="fu">trans_vect</span>(vect, <span class="st">&quot;center_mean&quot;</span>)</span>
+<span id="cb276-17"><a href="functions.html#cb276-17" tabindex="-1"></a><span class="do">##  [1]  0.15278690  0.17812609 -0.35645687 -0.03092247 -0.21312023  0.39603688</span></span>
+<span id="cb276-18"><a href="functions.html#cb276-18" tabindex="-1"></a><span class="do">##  [7]  0.10468574 -0.06936699  0.32052326 -0.48229230</span></span>
+<span id="cb276-19"><a href="functions.html#cb276-19" tabindex="-1"></a><span class="fu">trans_vect</span>(vect, <span class="st">&quot;standardize&quot;</span>)</span>
+<span id="cb276-20"><a href="functions.html#cb276-20" tabindex="-1"></a><span class="do">##  [1]  0.5341097  0.6226900 -1.2460956 -0.1080982 -0.7450219  1.3844587</span></span>
+<span id="cb276-21"><a href="functions.html#cb276-21" tabindex="-1"></a><span class="do">##  [7]  0.3659585 -0.2424919  1.1204795 -1.6859889</span></span></code></pre></div>
 <p>The function is very clear, but it still contains some weaknesses. The user must insert a string to perform the operation. There are multiple <code>if</code> conditions, and the function’s purpose might be too broad. A better solution might be to write 3 simpler, more focused, and easier-to-maintain functions:</p>
-<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="functions.html#cb276-1" tabindex="-1"></a>center_vect_mean <span class="ot">=</span> <span class="cf">function</span>(x){</span>
-<span id="cb276-2"><a href="functions.html#cb276-2" tabindex="-1"></a>  <span class="fu">return</span>(x <span class="sc">-</span> <span class="fu">mean</span>(x))</span>
-<span id="cb276-3"><a href="functions.html#cb276-3" tabindex="-1"></a>}</span>
-<span id="cb276-4"><a href="functions.html#cb276-4" tabindex="-1"></a></span>
-<span id="cb276-5"><a href="functions.html#cb276-5" tabindex="-1"></a>center_vect_median <span class="ot">=</span> <span class="cf">function</span>(x){</span>
-<span id="cb276-6"><a href="functions.html#cb276-6" tabindex="-1"></a>  <span class="fu">return</span>(x <span class="sc">-</span> <span class="fu">median</span>(x))</span>
-<span id="cb276-7"><a href="functions.html#cb276-7" tabindex="-1"></a>}</span>
-<span id="cb276-8"><a href="functions.html#cb276-8" tabindex="-1"></a></span>
-<span id="cb276-9"><a href="functions.html#cb276-9" tabindex="-1"></a>standardize_vect <span class="ot">=</span> <span class="cf">function</span>(x){</span>
-<span id="cb276-10"><a href="functions.html#cb276-10" tabindex="-1"></a>  <span class="fu">return</span>((x <span class="sc">-</span> <span class="fu">mean</span>(x)) <span class="sc">/</span> <span class="fu">sd</span>(x))</span>
-<span id="cb276-11"><a href="functions.html#cb276-11" tabindex="-1"></a>}</span>
-<span id="cb276-12"><a href="functions.html#cb276-12" tabindex="-1"></a></span>
-<span id="cb276-13"><a href="functions.html#cb276-13" tabindex="-1"></a>vect <span class="ot">=</span> <span class="fu">runif</span>(<span class="dv">10</span>)</span>
-<span id="cb276-14"><a href="functions.html#cb276-14" tabindex="-1"></a><span class="fu">center_vect_mean</span>(vect)</span>
-<span id="cb276-15"><a href="functions.html#cb276-15" tabindex="-1"></a><span class="do">##  [1]  0.05524942 -0.06055135  0.50342973 -0.25512093 -0.34928928 -0.23218551</span></span>
-<span id="cb276-16"><a href="functions.html#cb276-16" tabindex="-1"></a><span class="do">##  [7]  0.49801737  0.27693614 -0.10342374 -0.33306187</span></span>
-<span id="cb276-17"><a href="functions.html#cb276-17" tabindex="-1"></a><span class="fu">center_vect_median</span>(vect)</span>
-<span id="cb276-18"><a href="functions.html#cb276-18" tabindex="-1"></a><span class="do">##  [1]  0.1372370  0.0214362  0.5854173 -0.1731334 -0.2673017 -0.1501980</span></span>
-<span id="cb276-19"><a href="functions.html#cb276-19" tabindex="-1"></a><span class="do">##  [7]  0.5800049  0.3589237 -0.0214362 -0.2510743</span></span>
-<span id="cb276-20"><a href="functions.html#cb276-20" tabindex="-1"></a><span class="fu">standardize_vect</span>(vect)</span>
-<span id="cb276-21"><a href="functions.html#cb276-21" tabindex="-1"></a><span class="do">##  [1]  0.1702782 -0.1866186  1.5515654 -0.7862801 -1.0765060 -0.7155934</span></span>
-<span id="cb276-22"><a href="functions.html#cb276-22" tabindex="-1"></a><span class="do">##  [7]  1.5348845  0.8535144 -0.3187509 -1.0264933</span></span></code></pre></div>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="functions.html#cb277-1" tabindex="-1"></a>center_vect_mean <span class="ot">=</span> <span class="cf">function</span>(x){</span>
+<span id="cb277-2"><a href="functions.html#cb277-2" tabindex="-1"></a>  <span class="fu">return</span>(x <span class="sc">-</span> <span class="fu">mean</span>(x))</span>
+<span id="cb277-3"><a href="functions.html#cb277-3" tabindex="-1"></a>}</span>
+<span id="cb277-4"><a href="functions.html#cb277-4" tabindex="-1"></a></span>
+<span id="cb277-5"><a href="functions.html#cb277-5" tabindex="-1"></a>center_vect_median <span class="ot">=</span> <span class="cf">function</span>(x){</span>
+<span id="cb277-6"><a href="functions.html#cb277-6" tabindex="-1"></a>  <span class="fu">return</span>(x <span class="sc">-</span> <span class="fu">median</span>(x))</span>
+<span id="cb277-7"><a href="functions.html#cb277-7" tabindex="-1"></a>}</span>
+<span id="cb277-8"><a href="functions.html#cb277-8" tabindex="-1"></a></span>
+<span id="cb277-9"><a href="functions.html#cb277-9" tabindex="-1"></a>standardize_vect <span class="ot">=</span> <span class="cf">function</span>(x){</span>
+<span id="cb277-10"><a href="functions.html#cb277-10" tabindex="-1"></a>  <span class="fu">return</span>((x <span class="sc">-</span> <span class="fu">mean</span>(x)) <span class="sc">/</span> <span class="fu">sd</span>(x))</span>
+<span id="cb277-11"><a href="functions.html#cb277-11" tabindex="-1"></a>}</span>
+<span id="cb277-12"><a href="functions.html#cb277-12" tabindex="-1"></a></span>
+<span id="cb277-13"><a href="functions.html#cb277-13" tabindex="-1"></a>vect <span class="ot">=</span> <span class="fu">runif</span>(<span class="dv">10</span>)</span>
+<span id="cb277-14"><a href="functions.html#cb277-14" tabindex="-1"></a><span class="fu">center_vect_mean</span>(vect)</span>
+<span id="cb277-15"><a href="functions.html#cb277-15" tabindex="-1"></a><span class="do">##  [1]  0.08718911  0.30982808  0.37223435  0.27564324 -0.06887353 -0.10619913</span></span>
+<span id="cb277-16"><a href="functions.html#cb277-16" tabindex="-1"></a><span class="do">##  [7]  0.07026160 -0.37554680 -0.50028400 -0.06425293</span></span>
+<span id="cb277-17"><a href="functions.html#cb277-17" tabindex="-1"></a><span class="fu">center_vect_median</span>(vect)</span>
+<span id="cb277-18"><a href="functions.html#cb277-18" tabindex="-1"></a><span class="do">##  [1]  0.08418477  0.30682375  0.36923001  0.27263891 -0.07187786 -0.10920346</span></span>
+<span id="cb277-19"><a href="functions.html#cb277-19" tabindex="-1"></a><span class="do">##  [7]  0.06725726 -0.37855113 -0.50328833 -0.06725726</span></span>
+<span id="cb277-20"><a href="functions.html#cb277-20" tabindex="-1"></a><span class="fu">standardize_vect</span>(vect)</span>
+<span id="cb277-21"><a href="functions.html#cb277-21" tabindex="-1"></a><span class="do">##  [1]  0.3051940  1.0845123  1.3029572  0.9648528 -0.2410827 -0.3717360</span></span>
+<span id="cb277-22"><a href="functions.html#cb277-22" tabindex="-1"></a><span class="do">##  [7]  0.2459415 -1.3145520 -1.7511781 -0.2249089</span></span></code></pre></div>
 <p>This way, the code is much more readable and clear, both inside the functions and when the functions are used. Another alternative would be to group the “centering” functions, specifying whether to use the mean or the median, and separate the standardization.</p>
 </div>
 <div id="commenting-and-documenting" class="section level3 hasAnchor" number="12.4.4">
@@ -871,19 +871,19 @@ When defining the name of a function, it’s useful to follow the same guideline
 |-- functions/
     |-- my_functions.R</code></pre>
 <p>Where the <code>my_functions.R</code> script is a script where all the functions are declared:</p>
-<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="functions.html#cb278-1" tabindex="-1"></a>fun1 <span class="ot">=</span> <span class="cf">function</span>(x){</span>
-<span id="cb278-2"><a href="functions.html#cb278-2" tabindex="-1"></a>  <span class="co"># do</span></span>
-<span id="cb278-3"><a href="functions.html#cb278-3" tabindex="-1"></a>}</span>
-<span id="cb278-4"><a href="functions.html#cb278-4" tabindex="-1"></a></span>
-<span id="cb278-5"><a href="functions.html#cb278-5" tabindex="-1"></a>fun2 <span class="ot">=</span> <span class="cf">function</span>(x){</span>
-<span id="cb278-6"><a href="functions.html#cb278-6" tabindex="-1"></a>  <span class="co"># do</span></span>
-<span id="cb278-7"><a href="functions.html#cb278-7" tabindex="-1"></a>}</span>
-<span id="cb278-8"><a href="functions.html#cb278-8" tabindex="-1"></a></span>
-<span id="cb278-9"><a href="functions.html#cb278-9" tabindex="-1"></a>fun3 <span class="ot">=</span> <span class="cf">function</span>(x){</span>
-<span id="cb278-10"><a href="functions.html#cb278-10" tabindex="-1"></a>  <span class="co"># do</span></span>
-<span id="cb278-11"><a href="functions.html#cb278-11" tabindex="-1"></a>}</span>
-<span id="cb278-12"><a href="functions.html#cb278-12" tabindex="-1"></a></span>
-<span id="cb278-13"><a href="functions.html#cb278-13" tabindex="-1"></a>...</span></code></pre></div>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="functions.html#cb279-1" tabindex="-1"></a>fun1 <span class="ot">=</span> <span class="cf">function</span>(x){</span>
+<span id="cb279-2"><a href="functions.html#cb279-2" tabindex="-1"></a>  <span class="co"># do</span></span>
+<span id="cb279-3"><a href="functions.html#cb279-3" tabindex="-1"></a>}</span>
+<span id="cb279-4"><a href="functions.html#cb279-4" tabindex="-1"></a></span>
+<span id="cb279-5"><a href="functions.html#cb279-5" tabindex="-1"></a>fun2 <span class="ot">=</span> <span class="cf">function</span>(x){</span>
+<span id="cb279-6"><a href="functions.html#cb279-6" tabindex="-1"></a>  <span class="co"># do</span></span>
+<span id="cb279-7"><a href="functions.html#cb279-7" tabindex="-1"></a>}</span>
+<span id="cb279-8"><a href="functions.html#cb279-8" tabindex="-1"></a></span>
+<span id="cb279-9"><a href="functions.html#cb279-9" tabindex="-1"></a>fun3 <span class="ot">=</span> <span class="cf">function</span>(x){</span>
+<span id="cb279-10"><a href="functions.html#cb279-10" tabindex="-1"></a>  <span class="co"># do</span></span>
+<span id="cb279-11"><a href="functions.html#cb279-11" tabindex="-1"></a>}</span>
+<span id="cb279-12"><a href="functions.html#cb279-12" tabindex="-1"></a></span>
+<span id="cb279-13"><a href="functions.html#cb279-13" tabindex="-1"></a>...</span></code></pre></div>
 <p>By writing at the beginning of your main script <code>source("functions/my_functions.R")</code>, all the functions will be loaded into the working environment.</p>
 <!-- TODO print vs cat (aspetto nel return) -->
 

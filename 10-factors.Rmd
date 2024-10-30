@@ -222,7 +222,7 @@ Several other operations are possible with factors. For instance, we might want 
 
 In these cases, we can use the `droplevels(x, exclude = ...)` function to remove certain levels:
 
-```{r}
+```{r, echo=T}
 my_factor = rep(c("a", "b", "c"), c(10, 5, 2))
 my_factor = factor(my_factor)
 
@@ -236,13 +236,13 @@ levels(my_factor)
 
 As you can see, even though there are no more `c` values, the factor still retains all the initial levels:
 
-```{r}
+```{r, echo=T}
 droplevels(my_factor)
 ```
 
 You can also directly remove a level, but in this case, the corresponding values would become `NA`:
 
-```{r}
+```{r, echo=T}
 my_factor = rep(c("a", "b", "c"), c(10, 5, 2))
 my_factor = factor(my_factor)
 
@@ -252,13 +252,13 @@ my_factor[!is.na(my_factor)]
 
 Just as it is possible to remove a level, it is also possible to add a level to a factor simply by using the `factor()` command and specifying all the old levels plus the new one:
 
-```{r}
+```{r, echo=T}
 factor(my_factor, levels = c(levels(my_factor), "newlevel"))
 ```
 
 In this case, we used the `c(old_levels, new_level)` function to create a vector of new levels to use. Alternatively, we can also use the assignment method `levels(x) =` by specifying a vector of levels or by specifying a single value assigned to the new index:
 
-```{r}
+```{r, echo=T}
 my_factor = rep(c("a", "b", "c"), c(10, 5, 2))
 my_factor = factor(my_factor)
 
@@ -276,7 +276,7 @@ levels(my_factor)[4] = "newlevel"
 
 You can also combine two factors to obtain a single factor, merging the levels and their respective numeric values. Simply use the `c(fac1, fac2)` command:
 
-```{r}
+```{r, echo=T}
 fac1 = factor(rep(c("a", "b", "c"), each = 5))
 fac2 = factor(rep(c("d"), each = 5))
 c(fac1, fac2)
