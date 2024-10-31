@@ -1,6 +1,6 @@
-# (PART\*) Data Structures {-}
+<!--# (PART\*) Data Structures {-}-->
 
-# Section 2 - Data Structures  {#second-section -}
+# **DATA STRUCTURES**  {#second-section -}
 
 In this section, the main types of objects used in R will be introduced. Specifically, the main structures in which data can be organized: Vectors, Matrices, Data Frames, and Lists.
 

@@ -1,6 +1,6 @@
-# (PART\*) Getting Started {-}
+<!--# (PART\*) Getting Started {-}-->
 
-# Section 1 - Getting Started {-}
+# **GETTING STARTED** {-}
 
 In this section, we will first present the instructions for installing R and RStudio. Then, we will perform the first operations in R and familiarize ourselves with basic programming concepts such as objects and functions. Finally, we will introduce other concepts related to working sessions in R and describe some best practices for using R.
 
