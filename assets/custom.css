@@ -47,6 +47,17 @@ li.appendix span, li.part span { /* for TOC part names */
 }
 
 
+table {
+    white-space: pre-line;
+}
+
+
+::selection {
+    background-color: #760000; 
+    color: white; 
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
 /* The next two rules make the horizontal line go straight across in top navbar */
 
 .summary > li:first-child {
@@ -148,7 +159,7 @@ div.deffun {
 }
 
 div.design:before {
-    content: "Approfondimento: " attr(title);
+    content: "Focus: " attr(title);
     color: #7c972e;
 }
 div.design {

@@ -25,7 +25,7 @@ At the beginning of the work session, our Environment will be empty (see Figure 
 </div>
 
 
-```r
+``` r
 # Empty Environment
 ls()
 ## character(0)
@@ -36,7 +36,7 @@ ls()
 Once objects are created, they will be present in our Environment, and the `ls()` command will return a character vector listing all their names.
 
 
-```r
+``` r
 # Create objects
 x =  c(2,4,6,8)
 y =  27
@@ -61,7 +61,7 @@ To remove an object from the environment, you can use the `remove()` command or 
 
 
 
-```r
+``` r
 # Remove an object
 rm(word)
 ls()
@@ -83,9 +83,9 @@ Keeping your Environment organized and being aware of the objects currently pres
 - **Using objects that have not yet been created**. In this case, the error is easy to spot because R will warn us with "*object '<object-name>' not found*". You simply need to execute the command to create the requested object.
 
 
-```r
+``` r
 my_object
-## Error in eval(expr, envir, enclos): object 'my_object' not found
+## Error: object 'my_object' not found
 ```
 
 - **Using objects with "*old*" values**. If you don't keep your environment organized, it may happen that different objects are created during successive work sessions. At this point, you might lose track of the real content of the objects and end up using objects assuming they contain certain values when, in fact, they contain something else. This would make any result meaningless. Be very careful because R cannot warn you about this error (for R, they are just numbers); you must be aware of whether the executed commands make sense or not.
@@ -148,7 +148,7 @@ To indicate the file’s location, I could use either an:
 - **absolute path** - the file’s *"absolute"* location relative to the system’s *root directory*, which is the main folder of the entire computer.
 
 
-```r
+``` r
 # Mac
 "/Users/<username>/Desktop/Introduction2R/Dati/My-data.Rda"
 
@@ -160,7 +160,7 @@ To indicate the file’s location, I could use either an:
 - **relative path** - the file’s location relative to our current position in the computer from which we are executing the command, i.e., relative to the **working directory** of our work session. Continuing the previous example, if our working directory were the `Desktop/Introduction2R` folder, we would have the following relative paths:
 
 
-```r
+``` r
 # Mac
 "Dati/My-data.Rda"
 
@@ -177,7 +177,7 @@ If you use a relative path to indicate a file’s location, it is important that
 Returning to the previous example, let’s suppose our current working directory is `Desktop` instead of `Desktop/Introduction2R`. Running the `load()` command to load the data using the now-invalid relative path would result in:
 
 
-```r
+``` r
 load("Dati/My-data.Rda")
 ## Warning in readChar(con, 5L, useBytes = TRUE): cannot open compressed file
 ## 'Dati/My-data.Rda', probable reason 'No such file or directory'
@@ -196,29 +196,29 @@ As you may have noticed from the previous examples, both the structure used to o
 
 - The character used to separate folders in the path definition is `"/"`:
 
-```r
+``` r
 "Introduction2R/Dati/My-data.Rda"
 ```
 - The root-directory is indicated by starting the path with the `"/"` character:
 
-```r
+``` r
 "/Users/<username>/Desktop/Introduction2R/Dati/My-data.Rda"
 ```
 - The user’s *home* directory (i.e., `/Users/<username>/`) is indicated by starting the path with the `"~"` character:
 
-```r
+``` r
 "~/Desktop/Introduction2R/Dati/My-data.Rda"
 ```
 
 #### Windows {-}
 - The character used to separate folders in the path definition is `"\"`:
 
-```r
+``` r
 "Introduction2R\Dati\My-data.Rda"
 ```
 - The root-directory is indicated by `"c:\"`:
 
-```r
+``` r
 "c:\Users\<username>\Desktop\Introduction2R\Dati\My-data.Rda"
 ```
 :::
@@ -236,7 +236,7 @@ Note that in the following examples, in R, the `"/"` character is always used to
 In R, you can check the current working directory using the `getwd()` command, which will return the absolute path of the current location.
 
 
-```r
+``` r
 getwd()
 ## [1] "/Users/<username>/Desktop/Introduction2R"
 ```
@@ -260,7 +260,7 @@ By clicking the arrow next to it, the *Files* panel in the bottom right will be 
 Per cambiare la working directory è possibile utilizzare il comando `setwd()` indicando il path (absolute o relative) della nuova working directory. Nota come, nel caso in cui venga indicato un relative path, questo dovrà indicare la posizione della nuova working directory rispetto alla vecchia working directory.
 
 
-```r
+``` r
 getwd()
 ## [1] "/Users/<username>/Desktop/Introduction2R"
 
@@ -288,7 +288,7 @@ Note that you can take advantage of auto-completion when typing the path. Inside
 Additionally, you can use the special characters `"./"` and `"../"` to refer to the current working directory and the *parent folder* (i.e., the folder that contains the current working directory), respectively. `"../"` allows us to navigate backward from our current location through the computer’s folder structure.
 
 
-```r
+``` r
 getwd()
 ## [1] "/Users/<username>/Desktop/Introduction2R"
 
@@ -324,7 +324,7 @@ Now, let’s see how to perform these operations in R.
 To install packages from CRAN into our library, you can use the `install.packages()` command, specifying the name of the desired package in parentheses.
 
 
-```r
+``` r
 # A great package for statistical analysis by John Fox
 # a great statistician... known as Jonny the fox to friends ;)
 install.packages("car")
@@ -349,7 +349,7 @@ Once the package is installed, it will appear in the library, which is the list 
 :::{.design title="Binary or Source Version?" data-latex="[Binary or Source Version?]"}
 When installing packages, R might display a message similar to the following:
 
-```r
+``` r
 There are binary versions available but the
   source versions are later:
            binary source needs_compilation
@@ -376,7 +376,7 @@ For a detailed discussion, see <https://community.rstudio.com/t/meaning-of-commo
 To use the functions of a package already present in our library, we now need to load it into our work session. To do this, we can use the `library()` command, specifying the name of the required package in parentheses.
 
 
-```r
+``` r
 library(car)
 ```
 
@@ -393,7 +393,7 @@ Now we are finally ready to use the package’s functions in our work session.
 There is a little trick to using a specific function from a package without having to load the package into your session. To do this, you can use the syntax:
 
 
-```r
+``` r
 <nome-pacchetto>::<nome-funzione>()
 
 # Example with the Anova function from the car package
@@ -449,7 +449,7 @@ Github is used as a development platform for many R packages, so it’s possible
 To install a package directly from Github, you can use the `install_github()` command from the `devtools` package, specifying the URL of the desired repository.
 
 
-```r
+``` r
 install.packages("devtools")
 
 # ggplot2 the best package for graphics

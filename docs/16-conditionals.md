@@ -13,7 +13,7 @@ There are several possibilities in R, but the logic of executing operations only
 ### if
 
 
-```r
+``` r
 knitr::include_graphics("images/if_chart.png")
 ```
 
@@ -27,7 +27,7 @@ knitr::include_graphics("images/if_chart.png")
 Per scrivere la struttura condizionale della Figura \@ref(fig:plot-if-chart) si usa la seguente sintassi in R:
 
 
-```r
+``` r
   ...
   if (<test>) {
      <code-to-execute>
@@ -40,7 +40,7 @@ Per scrivere la struttura condizionale della Figura \@ref(fig:plot-if-chart) si 
 - Single 'if'
 
 
-```r
+``` r
 my_function = function(value){
   if(value > 0){
     cat("The value is greater than 0\n")
@@ -57,7 +57,7 @@ my_function(-5)
 
 - Multiple 'if'
 
-```r
+``` r
 my_function = function(value){
   if(value > 0){
     cat("The value is greater than 0\n")
@@ -85,7 +85,7 @@ my_function(-5)
 Using a simple `if` might not be sufficient in some situations. This is because an `if` can be seen as a temporary deviation from the main script (clearly illustrated in Figure \@ref(fig:plot-if-chart)) that is taken only if a condition is true; otherwise, the script continues. If you want a more "symmetric" structure, you can execute some operations if the condition is true (`if`) and others for all other scenarios (`else`). Figure \@ref(fig:plot-ifelse-chart) clearly shows this different structure in the flow.
 
 
-```r
+``` r
 knitr::include_graphics("images/ifelse_chart.png")
 ```
 
@@ -99,7 +99,7 @@ knitr::include_graphics("images/ifelse_chart.png")
 In R, this is implemented as follows:
 
 
-```r
+``` r
   ...
   if (<test>) {
     <code-to-execute>
@@ -113,7 +113,7 @@ In R, this is implemented as follows:
 
 - single 'if...else'
 
-```r
+``` r
 my_function = function(value){
   if(value >= 0){
     cat("The value is greater than or equal to 0\n")
@@ -133,7 +133,7 @@ my_function(-5)
 
 - multiple 'if...else'
 
-```r
+``` r
 my_function = function(value){
   if(value > 0){
     cat("The value is greater than 0\n")
@@ -163,7 +163,7 @@ It is important to understand the difference between using multiple `if` and `el
 In addition to chaining a series of `if` and `else if`, you can nest one or more `if` inside another. This allows you to check conditions that depend on the previous check and thus cannot be executed in series.
 
 
-```r
+``` r
 knitr::include_graphics("images/ifnested.png")
 ```
 
@@ -175,7 +175,7 @@ knitr::include_graphics("images/ifnested.png")
 #### Nested 'if' structure {-}
 
 
-```r
+``` r
   ...
   if (<test>) {
     if(<test>) {
@@ -190,7 +190,7 @@ knitr::include_graphics("images/ifnested.png")
 #### Example {-}
 
 
-```r
+``` r
 my_function = function(value){
   if(value > 0){
     if(value > 10) {
@@ -239,7 +239,7 @@ The `switch` operator is a useful alternative when we want to execute a portion 
 #### `switch` structure {-}
 
 
-```r
+``` r
 switch(my_value,
        case1 = action1,
        case2 = action2,
@@ -258,7 +258,7 @@ There are a few rules to consider when using a `switch` statement:
 #### Example {-}
 
 
-```r
+``` r
 my_colors = function(color){
   new_color = switch(color,
        "red" = "red",
@@ -282,7 +282,7 @@ my_colors("orange")
 The `if`, `else`, and `else if` statements work only for a single value. In other words, you can't test the same condition on a series of elements. In the next chapter, we will discuss iterative programming, which allows you to repeat a series of operations. However, using the `ifelse()` function, you can implement a vectorized version of conditional operations. The structure is as follows:
 
 
-```r
+``` r
 ifelse(test = , yes = , no = )
 ```
 
@@ -297,7 +297,7 @@ Where:
 Imagine we have a vector of numbers representing ages, and we want to execute something based on whether the age is greater than or less than 18 years, for example, simply displaying "adult" or "minor". Using a simple `if`, we see:
 
 
-```r
+``` r
 age = c(18, 19, 11, 10, 23, 55, 33, 26, 10)
 if(age < 18){
     print("Minor")
@@ -310,7 +310,7 @@ if(age < 18){
 An error is incurred because `age` is not a single value, and therefore only the first value is used. This demonstrates that `if` doesn't work on a list of elements. Instead, using `ifelse`:
 
 
-```r
+``` r
 age = c(18, 19, 11, 10, 23, 55, 33, 26, 10)
 ifelse(age < 18, yes = print("Minor"), no = print("Adult"))
 ## [1] "Minor"

@@ -13,7 +13,7 @@ Many of the functions we've used so far, such as the `sum()` or `mean()` functio
 The first type of iterative structure is called a `for` loop. The idea is to repeat a series of instructions a **predetermined** number of times. Figure \@ref(fig:plot-for-loop) represents the concept of a for loop. Similar to the conditional structures discussed in the previous chapter, when we write a loop, we temporarily enter a part of the code, execute the required operations, and then continue with the rest of the code. What is referred to as `i` in the image is a conventional way of indicating the counting of operations. If we want to repeat an operation 1000 times, `i` starts at 1 and goes up to 1000.
 
 
-```r
+``` r
 knitr::include_graphics("images/for_loop.png")
 ```
 
@@ -27,7 +27,7 @@ knitr::include_graphics("images/for_loop.png")
 In R, the syntax for writing a `for` loop is as follows:
 
 
-```r
+``` r
 for (i in c(...)) {
     <code-to-execute>
 }
@@ -48,7 +48,7 @@ Informally, there are two types of loops: one that uses a generic counter assign
 - Loop with directly the values of interest:
 
 
-```r
+``` r
 # numeric
 # characters
 for (name in c("Alessio", "Beatrice", "Carlo")){
@@ -62,7 +62,7 @@ for (name in c("Alessio", "Beatrice", "Carlo")){
 Loop that uses a generic counter to index the elements:
 
 
-```r
+``` r
 my_vector = c(93, 27, 46, 99)
 
 # i in 1:length(my_vector)
@@ -78,7 +78,7 @@ for (i in seq_along(my_vector)){
 This distinction is very useful and often a source of errors. If you use the vector directly and your counter takes the values of the vector, you "lose" a position index. In the example of the loop with names, if we wanted to know and print the position that Alessio occupies, we would need to modify the approach by using a generic counter as well. We can create it outside the loop and update it manually:
 
 
-```r
+``` r
 i = 1
 for (name in c("Alessio", "Beatrice", "Carlo")){
   print(paste0(name, " is number ", i))
@@ -92,7 +92,7 @@ for (name in c("Alessio", "Beatrice", "Carlo")){
 In general, the best approach is always to use a loop with indices and not the actual values, so you can access both pieces of information.
 
 
-```r
+``` r
 names = c("Alessio", "Beatrice", "Carlo")
 
 for (i in seq_along(names)){
@@ -108,7 +108,7 @@ for (i in seq_along(names)){
 :::{.trick title="seq_along() " data-latex="[Next and Break]"}
 
 
-```r
+``` r
 my_vector = c(93, 27, 46, 99)
 my_NULL = NULL
 
@@ -146,7 +146,7 @@ If we had to sum `n` numbers manually, the structure would be as follows:
 As you can see, this is an iterative structure, counting from 1 to the length of $x$, and in each iteration, adding the next number to the sum of the previous ones. In R:
 
 
-```r
+``` r
 my_values = c(2,4,6,8)
 
 # Calculate sum of values
@@ -166,7 +166,7 @@ The structure is the same as our reasoning above. I create a "starting" variable
 Since we use an index that takes a range of values, we can not only access a vector using our index but also progressively create or replace a vector.
 
 
-```r
+``` r
 # Calculate column sum
 my_matrix = matrix(1:24, nrow = 4, ncol = 6)
 
@@ -196,7 +196,7 @@ sum_cols
 The `while` loop can be considered a generalization of the `for` loop. In other words, the `for` loop is a particular type of `while` loop.
 
 
-```r
+``` r
 knitr::include_graphics("images/while_loop.png")
 ```
 
@@ -214,7 +214,7 @@ The syntax is more concise than the `for` loop because we don't define any count
 In other words, at each iteration, the `<test>` condition is evaluated. If it is true, the operation is executed; otherwise, the loop stops.
 
 
-```r
+``` r
 while (<test>) {
     <code-to-execute>
 }
@@ -225,7 +225,7 @@ while (<test>) {
 If we want to perform a **countdown**:
 
 
-```r
+``` r
 count = 5
 
 while(count >= 0){
@@ -249,7 +249,7 @@ When writing a `while` loop, it's important to ensure two things:
 If the second condition is not met, we end up with what is called an `endless loop`, like this:
 
 
-```r
+``` r
 count = 5
 
 # Warning: infinite loop
@@ -263,7 +263,7 @@ while(count >= 0){
 We previously introduced that `for` is a particular type of `while`. Conceptually, we can think of a `for` loop as a `while` loop where our counter `i` increments until it reaches the length of the vector we are iterating over. In other words, we can write a `for` loop in the following way:
 
 
-```r
+``` r
 names = c("Alessio", "Beatrice", "Carlo")
 i = 1 # counter
 
@@ -287,7 +287,7 @@ Within an iterative structure, we can execute any type of operation, including c
 
 - with a `for` loop:
 
-```r
+``` r
 my_vector = 1:6
 
 for (i in seq_along(my_vector)){
@@ -303,7 +303,7 @@ for (i in seq_along(my_vector)){
 
 - with a `while` loop:
 
-```r
+``` r
 count = 7
 
 while(count >= 0){
@@ -324,7 +324,7 @@ while(count >= 0){
 Once you understand the iterative structure, it's easy to expand its potential by nesting one loop inside another. You can have as many *nested* loops as necessary, but this increases not only the complexity but also the execution time. To better understand what happens inside a nested loop, it's helpful to visualize the indices:
 
 
-```r
+``` r
 for(i in 1:3){ # level 1
   for(j in 1:3){ # level 2
     for(l in 1:3){ # level 3
@@ -391,7 +391,7 @@ Before illustrating the various functions, it’s helpful to understand the gene
 Hadley Wickam[^talk-map] provides a great example to understand the difference between `loop` and `*apply`. Imagine you have a series of vectors and want to apply some functions to each vector; we could set up a simple loop in this way:
 
 
-```r
+``` r
 list_vect = list(
   vect1 = rnorm(100),
   vect2 = rnorm(100),
@@ -416,7 +416,7 @@ Although it is perfectly correct, this writing has several problems:
 - It is very redundant. Between calculating the mean, median, and standard deviation, the only thing that changes is the function being applied, while for each, we must pre-allocate a variable, set up indexing based on the iteration to select the list element, and store the result. To improve this, we can wrap the entire structure (pre-allocation, indexing, and storing) into a function and use this function with the list as input and the function to apply. Using the `sapply` function:
 
 
-```r
+``` r
 means = lapply(list_vect, mean)
 means
 ## $vect1
@@ -480,7 +480,7 @@ Before detailing each `*apply` function, it’s important to understand what typ
 In the previous example, we used the `mean` function simply by writing `lapply(list_vec, mean)`. This is possible because `mean` requires only one argument. However, if we wanted to apply more complex functions or add arguments, we could use the more general syntax:
 
 
-```r
+``` r
 means = lapply(list_vect, function(x) mean(x))
 means
 ## $vect1
@@ -502,7 +502,7 @@ means
 The only difference here is that we defined an **anonymous** function with the syntax `function(x) ...`. This is interpreted as *"for each element of `list_vect`, treat it as `x` and apply the `mean()` function to each element of `list_vect`."* Anonymous functions allow us to write functions that aren't saved or available in R and apply them directly to a series of elements. We can also use more complex functions, such as centering each element of `list_vect`:
 
 
-```r
+``` r
 centered_list = lapply(list_vect, function(x) x - mean(x))
 centered_list
 ## $vect1
@@ -612,7 +612,7 @@ In this case, it’s clear that `x` is a placeholder for each element of the `li
 The use of anonymous functions is extremely useful and clear once you understand the notation. However, for more complex functions, it’s often more convenient to save the function in an object and then apply it, as with `mean`. Using the example of centering a variable:
 
 
-```r
+``` r
 center_vect = function(x){
   return(x - mean(x))
 }
@@ -623,7 +623,7 @@ centered_list = lapply(list_vect, center_vect)
 We can also apply complex functions as **anonymous** by using curly braces, just as if we were declaring a function:
 
 
-```r
+``` r
 center_vect = function(x){
   return(x - mean(x))
 }
@@ -637,7 +637,7 @@ centered_list = lapply(list_vect, function(x){
 One last point concerns the parallelism between `x` in our examples and `i` in the `for` loops we discussed earlier. Just like `i`, `x` is a simple convention, and you can use any name to define the generic argument. Moreover, it’s useful to think of `x` in the same role as `i`: in the previous function, `x` took on the value of each element in `list_vect` just as the `for` loop uses the values of the vector we are iterating over. Sometimes, it can be useful to apply an **indexing** principle with the `*apply` family as well:
 
 
-```r
+``` r
 means = lapply(seq_along(list_vect), function(i) mean(list_vect[[i]]))
 means
 ## [[1]]
@@ -663,7 +663,7 @@ In this case, the argument is no longer the list but a vector of numbers from 1 
 The `apply` function is used on **matrices** and **dataframes** to apply a function to each dimension (row or column). The structure of the function is as follows:
 
 
-```r
+``` r
 apply(X = , MARGIN = , FUN = , ...)
 ```
 
@@ -678,7 +678,7 @@ Where:
 - Simple functions:
 
 
-```r
+``` r
 my_matrix = matrix(1:24, nrow = 4, ncol = 6)
 
 # For rows
@@ -693,7 +693,7 @@ apply(my_matrix, MARGIN = 2, FUN = sum)
 - Complex functions:
 
 
-```r
+``` r
 # Coefficient of Variation
 apply(my_matrix, MARGIN = 2, FUN = 
         function(x){
@@ -710,7 +710,7 @@ apply(my_matrix, MARGIN = 2, FUN =
 `tapply` is useful when you want to apply a function to an element that is **grouped** by another variable. The syntax is as follows:
 
 
-```r
+``` r
 tapply(X = , INDEX = , FUN = , ...)
 ```
 
@@ -723,7 +723,7 @@ Where:
 #### Examples {-}
 
 
-```r
+``` r
 my_data = data.frame(
   y = sample(c(2,4,6,8,10), size = 32, replace = TRUE),
   gender = factor(rep(c("F", "M"), each = 16)),
@@ -754,7 +754,7 @@ tapply(my_data$y, INDEX = list(my_data$class, my_data$gender), FUN = mean)
 This is perhaps the most commonly used and general function. It can be applied to any type of data, whether a list of elements or a vector. The key characteristic is that it always returns a list as the result, regardless of the input type. The syntax is as follows:
 
 
-```r
+``` r
 lapply(X = , FUN = , ...)
 ```
 
@@ -766,7 +766,7 @@ Where:
 #### Examples {-}
 
 
-```r
+``` r
 my_list = list(
   sample_norm = rnorm(10, mean = 0, sd = 1),
   sample_unif = runif(15, min = 0, max = 1),
@@ -796,14 +796,14 @@ lapply(my_list, FUN = mean)
 `sapply` has the same functionality as `lapply` but also has the ability to return a simplified version (if possible) of the output.
 
 
-```r
+``` r
 sapply(X = , FUN = , ... )
 ```
 
 #### Examples {-}
 
 
-```r
+``` r
 # Mean  
 sapply(my_list, FUN = mean)
 ## sample_norm sample_unif sample_pois 
@@ -813,7 +813,7 @@ sapply(my_list, FUN = mean)
 To understand the difference, let’s apply both `lapply` and `sapply` with the previous examples:
 
 
-```r
+``` r
 sapply(list_vect, mean)
 ##        vect1        vect2        vect3        vect4        vect5 
 ## -0.174484405 -0.001581971  0.003746107 -0.104084425  0.297884925
@@ -854,7 +854,7 @@ As you can see, the result of these operations corresponds to one value per elem
 ### vapply
 
 
-```r
+``` r
 vapply(X = , FUN = , FUN.VALUE =  ,... )
 ```
 
@@ -863,7 +863,7 @@ vapply(X = , FUN = , FUN.VALUE =  ,... )
 `vapply `is similar to both `lapply` and `sapply`. However, it requires the type of output to be specified in advance. For this reason, it’s considered a more *robust* version of the previous functions because it provides more control over what happens.
 
 
-```r
+``` r
 # Mean 
 vapply(my_list, FUN = mean, FUN.VALUE = numeric(length = 1L))
 ## sample_norm sample_unif sample_pois 
@@ -877,7 +877,7 @@ In this case, as before, we define the list on which to apply the function. Howe
 `sapply()` does not always return the same type of object, while `vapply()` requires you to specify the output type for each iteration.
 
 
-```r
+``` r
 x1 = list(
   sample_unif = c(-1, runif(15, min = 0, max = 1)),
   sample_norm = rnorm(5, mean = 0, sd = 1),
@@ -918,7 +918,7 @@ vapply(x2, negative_values, FUN.VALUE = numeric(1))
 Advanced users may employ the `*apply` family to extend the *"apply a function to a list of objects"* formula by applying different functions in a highly compact way. Functions in R are objects like any others and can be stored in lists:
 
 
-```r
+``` r
 list_funs = list(
   "mean" = mean,
   "median" = median,
@@ -951,7 +951,7 @@ What we did here is create a list of functions and then write two `lapply` and `
 `mapply` is the most complex version of the apply functions because it extends the number of lists we want to use to *n*. The syntax is as follows:
 
 
-```r
+``` r
 mapply(FUN, ...)
 ```
 
@@ -963,7 +963,7 @@ Where:
 Let's try generating some vectors from a normal distribution using the `rnorm()` function with different values of sample size, mean, and standard deviation:
 
 
-```r
+``` r
 ns = c(10, 3, 5)
 means = c(10, 20, 30)
 sds = c(2, 5, 7)
@@ -992,7 +992,7 @@ The syntax is certainly less clear compared to the previous examples, but the id
 `replicate` is a slightly different but extremely useful function. It allows you to repeat a series of operations a specified number of times.
 
 
-```r
+``` r
 replicate(n = , expr = )
 ```
 
@@ -1005,7 +1005,7 @@ Where:
 
 - Simple: 
 
-```r
+``` r
 sample_info = replicate(n = 1000,{
   my_sample = rnorm(n = 20, mean = 0, sd = 1)
   my_mean = mean(my_sample)
@@ -1019,7 +1019,7 @@ str(sample_info)
 
 - Complex: 
 
-```r
+``` r
 sample_info = replicate(n = 1000, {
   my_sample = rnorm(n = 20, mean = 0, sd = 1)
   my_mean = mean(my_sample)
@@ -1048,7 +1048,7 @@ head(sample_info)
 It's important to emphasize that repetition is the foundation of any iterative structure we've seen so far. In fact, the same result (in terms of readability, speed, and versatility) can be obtained indistinguishably with a `for` loop, `lapply`, or `replicate`. Reusing the previous example:
 
 
-```r
+``` r
 
 ## replicate
 

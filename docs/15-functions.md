@@ -11,7 +11,7 @@ This is one of the main advantages of using a programming language, i.e., being 
 The command used to create a function in R is `function()` followed by curly brackets `{ }` within which the function body must be specified:
 
 
-```r
+``` r
 function_name = function( ){
   <function-body>
 }
@@ -20,7 +20,7 @@ function_name = function( ){
 Note that it is necessary to assign the function to an object, for example `my_function`, which will become the name of our function. To execute the function, simply, as with any other function, specify the function name followed by parentheses, in our case `my_function()`. Let's look at some examples of simple functions:
 
 
-```r
+``` r
 # Define the function
 my_greetings = function(){
   print("Hello World!")
@@ -55,7 +55,7 @@ Remember that, in general, functions receive objects as inputs, perform specific
 
 The definition of a function with all its elements will follow the following pattern:
 
-```r
+``` r
 function_name = function(argument_1, argument_2, ...){
   <function-body>
   return(<output-name>)
@@ -65,7 +65,7 @@ function_name = function(argument_1, argument_2, ...){
 Now, we can rewrite the previous functions, allowing the inputs to be customized and highlighting what the returned output is.
 
 
-```r
+``` r
 # Redefine my_greetings()
 my_greetings = function(name){
   greetings = paste0("Hello ", name, "!")
@@ -91,7 +91,7 @@ If necessary, you can make the function itself ask the user to input specific in
 Using the `readline()` function, a message set in the `prompt` argument will appear in the console (remember to leave a space at the end). The user will be prompted to type an alphanumeric sequence and then press *enter*. The values entered by the user will be saved as a character variable in the object we specify and can be used later in the function.
 
 
-```r
+``` r
 happy_birthday = function(){
   name = readline(prompt = "Enter your name: ")
   message = paste0("Happy Birthday ", name, "!")
@@ -109,7 +109,7 @@ Note that this function can only be used in interactive R sessions since direct 
 We have seen how to add arguments that must be defined by the user when using the function. If the user does not specify one or more arguments, R will return an error message indicating that there are unspecified arguments without default values.
 
 
-```r
+``` r
 my_sum(x = 5)
 ## Error in my_sum(x = 5): argument "y" is missing, with no default
 ```
@@ -117,7 +117,7 @@ my_sum(x = 5)
 To assign default values to a function's arguments, simply specify them when creating the function within the parentheses as `argument_name = <default-value>`. If not otherwise specified, the arguments will take their default values. However, users are free to specify the function's arguments according to their needs. For example, let's set a default value for `y = 10` in the `my_sum()` function.
 
 
-```r
+``` r
 my_sum = function(x, y = 10){
   result = x + y
   return(result)
@@ -138,7 +138,7 @@ This practice is widely used to specify particular behaviors of functions. Gener
 To enforce the selection of an argument from a limited set of values, a vector of possible values can be specified in the argument definition. The selection must then be validated using the `match.arg()` function, as shown in the following example:
 
 
-```r
+``` r
 # Redefine my_greetings()
 my_greetings = function(name, type = c("Hello", "Goodbye")){
   type = match.arg(type)
@@ -183,7 +183,7 @@ Functions are undoubtedly the most useful and advanced aspect of the R language 
 Let's take the sum function `+`, for example. Even though it might not seem like it, the `+` operator is actually a function. We have already seen above how we could write a `my_sum()` function that does the same as `+`:
 
 
-```r
+``` r
 my_sum = function(x, y){
   res = x + y
   return(res)
@@ -198,7 +198,7 @@ my_sum(1, 5)
 We have defined a (rather simple) function to calculate the sum of two numbers. What happens if we try to add a number to a string? Clearly, this is an operation that makes no sense, and we expect some kind of error:
 
 
-```r
+``` r
 my_sum("any_string", 5)
 ## Error in x + y: non-numeric argument to binary operator
 ```
@@ -213,7 +213,7 @@ In this case, we see an `Error...` message with the useful information that one 
 Returning to the sum example, imagine we want to write a function that sums only positive numbers. In other words, we want the `x` and `y` values input to the function to be positive in order for the function to execute. We can then include a `conditional check` and use the `stop()` function if the condition is not met:
 
 
-```r
+``` r
 my_positive_sum = function(x, y){
   if(x < 0 | y < 0){
     stop("The arguments must be positive numbers!")
@@ -231,7 +231,7 @@ my_positive_sum(10, -5)
 A faster way to manage execution halts is by using `stopifnot()`. However, the logic is slightly different from using `if` + `stop()`. In the previous example, the logic is: *"if x or y is less than 0, stop."* With `stopifnot()`, we use reverse logic, meaning we specify what we want to be `TRUE` and halt the execution if it is `FALSE`. In our case, we use `stopifnot(x > 0, y > 0)`, which means to stop if `x` or `y` *is NOT* greater than `0`. Unlike `stop()`, this does not provide a customized message but returns the first condition that is not met:
 
 
-```r
+``` r
 my_positive_sum = function(x, y){
   stopifnot(x > 0, y > 0)
   res = x + y
@@ -244,7 +244,7 @@ my_positive_sum(10, -5)
 Similarly, let's imagine (with a bit of imagination) that our function is not reliable for numbers less than 10, meaning it might occasionally produce incorrect results. In this case, we don't want to halt execution but provide a `warning` message:
 
 
-```r
+``` r
 my_positive_sum = function(x, y){
   # Error
   if(x < 0 | y < 0){
@@ -269,7 +269,7 @@ As you can see, we get the result (which is, of course, correct), but also a `wa
 Lastly, we can accompany the result with a message under certain conditions, providing additional information using the `message()` function:
 
 
-```r
+``` r
 my_positive_sum = function(x, y){
   # Error
   if(x < 0 | y < 0){
@@ -292,7 +292,7 @@ my_positive_sum(12, 10)
 One last important aspect concerns what happens when we assign the result of a function in the presence of errors, warnings, or messages. In general, except in cases where errors occur (hence using the `stop()` function), the output remains the same, and the message is simply printed to the console:
 
 
-```r
+``` r
 res1 = my_positive_sum(10,5)
 ## Warning in my_positive_sum(10, 5): For some strange reason, the function
 ## doesn't handle numbers below 10 very well, be careful! :)
@@ -307,7 +307,7 @@ res1
 res2
 ## [1] 33
 res3 # no output
-## Error in eval(expr, envir, enclos): object 'res3' not found
+## Error: object 'res3' not found
 ```
 
 As you can see, when an error occurs and we stop execution, the function, despite being expected to return an output, does not provide any result because it was interrupted.
@@ -317,7 +317,7 @@ As you can see, when an error occurs and we stop execution, the function, despit
 The concept of *environment* in R is quite complex. In simple terms, all the operations we normally perform in the console or in a script happen within what is called the *global environment*. When we write and execute a function, we are creating a function object (in the *global environment*), which in turn creates an internal environment to perform the specified operations. Let's imagine we have this function `my_fun()` that takes a value `x` and adds it to a value `y`, which is not an argument.
 
 
-```r
+``` r
 my_fun = function(x){
   return(x + y)
 }
@@ -328,7 +328,7 @@ my_fun(10)
 Clearly, we get an error because the object `y` was not created. However, if we create the `y` object inside the function, it will perform the addition correctly, but it will not create the `y` object in the global environment.
 
 
-```r
+``` r
 my_fun = function(x){
   y = 1
   return(x + y)
@@ -344,7 +344,7 @@ ls() # we only have our function as an object
 From this, it's clear that what happens inside the function is somewhat compartmentalized compared to the global environment. The only way to influence the global environment is to assign the result of the function, thus creating a new object:
 
 
-```r
+``` r
 res = my_fun(10)
 ls()
 ## [1] "my_fun"          "my_greetings"    "my_positive_sum" "my_sum"         
@@ -354,7 +354,7 @@ ls()
 Another important point, especially for managing side effects, is the fact that the function does **not** modify and does **not** interfere with objects in the *global environment* that have the same names as objects within the *function environment*:
 
 
-```r
+``` r
 y = 10 # global environment
 
 my_fun = function(x){
@@ -373,7 +373,7 @@ As you can see, we created an object `y` inside the function. If executed in the
 One final important point concerns the relationship between the function environment and the global environment. We have seen their independence, but this is not absolute. If, inside the function, we use a variable defined only in the global environment, the function will automatically use that value (if not specified internally). This is useful for allowing functions and global variables to work together, but it is always preferable to create an independent function environment and provide **arguments** for all the necessary objects.
 
 
-```r
+``` r
 y = 10
 
 my_fun = function(x){
@@ -406,7 +406,7 @@ Writing functions is certainly the most important aspect when writing code. It a
 [Hadley Wickam](https://r4ds.had.co.nz/functions.html#when-should-you-write-a-function) suggests that if we repeat a series of operations more than twice, it might be better to write a function. Let's imagine we have a series of objects and want to perform the same operation on all of them. For example, we want to *center* (i.e., subtract the mean from all the values of a numeric vector) a numeric vector:
 
 
-```r
+``` r
 vect1 = runif(10)
 vect2 = runif(10)
 vect3 = runif(10)
@@ -415,75 +415,75 @@ vect3 = runif(10)
 In previous chapters, we saw how to use the `apply` family and how a function can be applied to a series of objects. But let's imagine a case where we have a very long script and at various points, we perform a certain operation:
 
 
-```r
+``` r
 # Mean centering
 vect1 - mean(vect2)
-##  [1]  0.40098909 -0.12932080  0.44413496  0.27614783  0.37099587 -0.16314296
-##  [7] -0.03500754  0.21536478 -0.40461694  0.06479866
+##  [1]  0.319449040 -0.009274615  0.265795567  0.510283303 -0.287712395
+##  [6] -0.070367089  0.396165604 -0.224227381 -0.033192011  0.425255511
 vect2 - mean(vect2)
-##  [1] -0.280692481 -0.057267965  0.024055598 -0.127234536 -0.192294663
-##  [6]  0.072502607 -0.162269561 -0.004518833  0.277518253  0.450201581
+##  [1] -0.09266499 -0.08329449  0.41208497 -0.37893962 -0.01344766  0.14924441
+##  [7] -0.14703444  0.28524390 -0.32352249  0.19233041
 vect3 - mean(vect3)
-##  [1] -0.1246429  0.2809494  0.3519809  0.3103732  0.1936847 -0.2103471
-##  [7] -0.3078286  0.1161592 -0.2689427 -0.3413860
+##  [1] -0.159769201 -0.005419516 -0.107052006  0.008513056 -0.101494071
+##  [6] -0.187443187  0.306331919 -0.034598979 -0.101197628  0.382129612
 ```
 
 The operation is performed correctly and is also easy to understand. However, we are always doing the same thing, just changing an input (the very definition of a function), so we can:
 
 
-```r
+``` r
 my_fun = function(x){
   return(x - mean(x))
 }
 
 my_fun(vect1)
-##  [1]  0.29695479 -0.23335509  0.34010067  0.17211353  0.26696158 -0.26717726
-##  [7] -0.13904183  0.11133048 -0.50865123 -0.03923564
+##  [1]  0.1902315 -0.1384922  0.1365780  0.3810657 -0.4169299 -0.1995846
+##  [7]  0.2669481 -0.3534449 -0.1624096  0.2960380
 my_fun(vect2)
-##  [1] -0.280692481 -0.057267965  0.024055598 -0.127234536 -0.192294663
-##  [6]  0.072502607 -0.162269561 -0.004518833  0.277518253  0.450201581
+##  [1] -0.09266499 -0.08329449  0.41208497 -0.37893962 -0.01344766  0.14924441
+##  [7] -0.14703444  0.28524390 -0.32352249  0.19233041
 my_fun(vect3)
-##  [1] -0.1246429  0.2809494  0.3519809  0.3103732  0.1936847 -0.2103471
-##  [7] -0.3078286  0.1161592 -0.2689427 -0.3413860
+##  [1] -0.159769201 -0.005419516 -0.107052006  0.008513056 -0.101494071
+##  [6] -0.187443187  0.306331919 -0.034598979 -0.101197628  0.382129612
 ```
 
 The code hasn't changed much in terms of lines or complexity. However, imagine realizing an error or wanting to change or extend the operations on `vect1`, `vect2`, and `vect3`. In the first case, you would have to go line by line through the script and modify the code. In the case of a function, simply changing the operations will apply them every time the function is called. Let's imagine that we also want to *standardize* (subtract the mean and divide by the standard deviation) our vectors:
 
 
-```r
+``` r
 my_fun = function(x){
   res = (x - mean(x)) / sd(x)
   return(res)
 }
 
 my_fun(vect1)
-##  [1]  1.0480227 -0.8235646  1.2002946  0.6074288  0.9421697 -0.9429309
-##  [7] -0.4907111  0.3929112 -1.7951489 -0.1384717
+##  [1]  0.6620348 -0.4819740  0.4753125  1.3261673 -1.4509803 -0.6945852
+##  [7]  0.9290202 -1.2300427 -0.5652102  1.0302576
 my_fun(vect2)
-##  [1] -1.25933306 -0.25693400  0.10792598 -0.57084058 -0.86273428  0.32528456
-##  [7] -0.72802599 -0.02027384  1.24509181  2.01983940
+##  [1] -0.36008327 -0.32367083  1.60130499 -1.47250675 -0.05225574  0.57994306
+##  [7] -0.57135544  1.10841821 -1.25716348  0.74736927
 my_fun(vect3)
-##  [1] -0.4489953  1.0120508  1.2679242  1.1180427  0.6977011 -0.7577235
-##  [7] -1.1088765  0.4184347 -0.9687995 -1.2297586
+##  [1] -0.82957415 -0.02813990 -0.55584917  0.04420258 -0.52699055 -0.97326658
+##  [7]  1.59057591 -0.17964926 -0.52545131  1.98414243
 ```
 
 Of course, the combination of functions and the `apply` family allows everything to be even more compact and efficient:
 
 
-```r
+``` r
 my_list = list(vect1, vect2, vect3)
 lapply(my_list, my_fun)
 ## [[1]]
-##  [1]  1.0480227 -0.8235646  1.2002946  0.6074288  0.9421697 -0.9429309
-##  [7] -0.4907111  0.3929112 -1.7951489 -0.1384717
+##  [1]  0.6620348 -0.4819740  0.4753125  1.3261673 -1.4509803 -0.6945852
+##  [7]  0.9290202 -1.2300427 -0.5652102  1.0302576
 ## 
 ## [[2]]
-##  [1] -1.25933306 -0.25693400  0.10792598 -0.57084058 -0.86273428  0.32528456
-##  [7] -0.72802599 -0.02027384  1.24509181  2.01983940
+##  [1] -0.36008327 -0.32367083  1.60130499 -1.47250675 -0.05225574  0.57994306
+##  [7] -0.57135544  1.10841821 -1.25716348  0.74736927
 ## 
 ## [[3]]
-##  [1] -0.4489953  1.0120508  1.2679242  1.1180427  0.6977011 -0.7577235
-##  [7] -1.1088765  0.4184347 -0.9687995 -1.2297586
+##  [1] -0.82957415 -0.02813990 -0.55584917  0.04420258 -0.52699055 -0.97326658
+##  [7]  1.59057591 -0.17964926 -0.52545131  1.98414243
 ```
 
 ### Choosing the Name of a Function
@@ -508,7 +508,7 @@ If we have designed a function with too many outputs, it's too complex, or it ha
 Let's take an example with our `center_vect()`. We can think of various alternatives and extensions of this function. For instance, we might want to create a function that either centers or standardizes the vector. We might also choose to center it using the mean or the median. So, we can think of a macro function `trans_vect()` that transforms the vector based on the arguments:
 
 
-```r
+``` r
 trans_vect = function(x, what = c("center_mean", "center_median", "standardize")){
   if(match.arg(what) == "center_mean"){
     res = x - mean(x)
@@ -522,20 +522,20 @@ trans_vect = function(x, what = c("center_mean", "center_median", "standardize")
 
 vect = runif(10)
 trans_vect(vect, "center_mean")
-##  [1] -0.03086582 -0.25957944 -0.23294082  0.53849386 -0.32576091  0.11750232
-##  [7] -0.02003981 -0.08217360  0.56200399 -0.26663977
+##  [1] -0.150341431 -0.146758111  0.001973864  0.568326263 -0.243257545
+##  [6] -0.285416780 -0.228581958  0.451497824 -0.165146395  0.197704268
 trans_vect(vect, "center_mean")
-##  [1] -0.03086582 -0.25957944 -0.23294082  0.53849386 -0.32576091  0.11750232
-##  [7] -0.02003981 -0.08217360  0.56200399 -0.26663977
+##  [1] -0.150341431 -0.146758111  0.001973864  0.568326263 -0.243257545
+##  [6] -0.285416780 -0.228581958  0.451497824 -0.165146395  0.197704268
 trans_vect(vect, "standardize")
-##  [1] -0.09619521 -0.80899523 -0.72597436  1.67824915 -1.01525387  0.36620318
-##  [7] -0.06245531 -0.25609906  1.75151990 -0.83099919
+##  [1] -0.494992988 -0.483195057  0.006498868  1.871190889 -0.800915481
+##  [6] -0.939723031 -0.752596713  1.486538052 -0.543737724  0.650933186
 ```
 
 The function is very clear, but it still contains some weaknesses. The user must insert a string to perform the operation. There are multiple `if` conditions, and the function's purpose might be too broad. A better solution might be to write 3 simpler, more focused, and easier-to-maintain functions:
 
 
-```r
+``` r
 center_vect_mean = function(x){
   return(x - mean(x))
 }
@@ -550,14 +550,14 @@ standardize_vect = function(x){
 
 vect = runif(10)
 center_vect_mean(vect)
-##  [1]  0.14816219 -0.08458047 -0.09029963  0.02145180  0.09885318  0.04597582
-##  [7]  0.32691058 -0.25004292  0.26799660 -0.48442715
+##  [1]  0.104223079 -0.246436311 -0.395255143  0.091541891  0.003868041
+##  [6]  0.464091987  0.144148403 -0.015253407 -0.324681573  0.173753034
 center_vect_median(vect)
-##  [1]  0.11444838 -0.11829429 -0.12401344 -0.01226201  0.06513936  0.01226201
-##  [7]  0.29319677 -0.28375673  0.23428278 -0.51814096
+##  [1]  0.05651811 -0.29414128 -0.44296011  0.04383692 -0.04383692  0.41638702
+##  [7]  0.09644344 -0.06295837 -0.37238654  0.12604807
 standardize_vect(vect)
-##  [1]  0.61316389 -0.35003324 -0.37370177  0.08877751  0.40910030  0.19026929
-##  [7]  1.35290764 -1.03479360  1.10909424 -2.00478426
+##  [1]  0.40091867 -0.94797544 -1.52044220  0.35213749  0.01487933  1.78523937
+##  [7]  0.55450086 -0.05867583 -1.24896431  0.66838206
 ```
 
 This way, the code is much more readable and clear, both inside the functions and when the functions are used. Another alternative would be to group the "centering" functions, specifying whether to use the mean or the median, and separate the standardization.

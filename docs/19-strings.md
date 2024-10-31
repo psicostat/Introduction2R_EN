@@ -14,7 +14,7 @@ We have seen that R, besides handling numbers, is also capable of managing **cha
 -   Can be uppercase or lowercase. For example, the string `ciao` is *conceptually* the same as `Ciao`, but R treats them differently.
 
 
-```r
+``` r
 "ciao" == "Ciao"
 ```
 
@@ -26,7 +26,7 @@ We have seen that R, besides handling numbers, is also capable of managing **cha
 -   The indexing for `numbers` and `strings` works differently. If we have a **vector** of strings, it is represented in the same way as a numeric vector. However, the string itself ciao can be broken down, manipulated, and indexed by the individual characters that compose it: `c, i, a, o`:
 
 
-```r
+``` r
 vect_string = c("how", "are", "you")
 vect_num = c(1,2,3)
 
@@ -37,7 +37,7 @@ length(vect_string)
 ## [1] 3
 ```
 
-```r
+``` r
 length(vect_num)
 ```
 
@@ -45,7 +45,7 @@ length(vect_num)
 ## [1] 3
 ```
 
-```r
+``` r
 vect_string[1]
 ```
 
@@ -53,7 +53,7 @@ vect_string[1]
 ## [1] "how"
 ```
 
-```r
+``` r
 vect_num[1]
 ```
 
@@ -61,7 +61,7 @@ vect_num[1]
 ## [1] 1
 ```
 
-```r
+``` r
 # Using the nchar() function
 setNames(nchar(vect_string), vect_string)
 ```
@@ -74,7 +74,7 @@ setNames(nchar(vect_string), vect_string)
 To create a string in R, we must use single or double quotes `"string"` or `'string'`. These two syntaxes are interpreted the same way in R. We can use them both to write a string containing quotes:
 
 
-```r
+``` r
 x = "string with 'another string' inside"
 x
 
@@ -83,7 +83,7 @@ x = "string with "another string" inside"
 ```
 
 ```
-## Error: <text>:4:19: unexpected symbol
+## Error in parse(text = input): <text>:4:19: unexpected symbol
 ## 3: 
 ## 4: x = "string with "another
 ##                      ^
@@ -92,7 +92,7 @@ x = "string with "another string" inside"
 Within strings, we can use special characters like `/ | \ $ % &`. Some of these are interpreted in a specific way by R. When this happens, we need to add the `\` character, which acts as an *escape*, telling R to interpret the character literally:
 
 
-```r
+``` r
 x = "hello how are you? \n I’m all good"
 cat(x)
 ```
@@ -109,7 +109,7 @@ For this reason, R offers a series of functions and packages that allow efficien
 The first aspect is comparing strings. The logical comparison of strings is much stricter than that of numbers. As we saw earlier, strings allow for more freedom, but with the challenge of managing more scenarios.
 
 
-```r
+``` r
 # Comparing two numbers represented differently
 my_integer = as.integer(10)
 my_double = as.numeric(10)
@@ -120,7 +120,7 @@ my_integer == my_double
 ## [1] TRUE
 ```
 
-```r
+``` r
 # Comparing strings
 
 "ciao" == "Ciao"
@@ -130,7 +130,7 @@ my_integer == my_double
 ## [1] FALSE
 ```
 
-```r
+``` r
 "female" == "feMale"
 ```
 
@@ -141,7 +141,7 @@ my_integer == my_double
 The concept of space "" is also important because it is considered a character:
 
 
-```r
+``` r
 "ciao " == "ciao"
 ```
 
@@ -152,14 +152,14 @@ The concept of space "" is also important because it is considered a character:
 Imagine having a vector where a column represents the gender of participants. If this vector comes from people freely entering text in a field, you could end up with something like this (this is why online forms often use predefined options instead of free text):
 
 
-```r
+``` r
 gender = c("maLe", "masChio", "Male", "f", "female", "f", "malew")
 ```
 
 In this exaggerated example, we understand what `f` or `malew` (likely a typo) mean, but working with it in R becomes problematic:
 
 
-```r
+``` r
 # Frequency table
 
 table(gender)
@@ -171,7 +171,7 @@ table(gender)
 ##       2       1       1       1       1       1
 ```
 
-```r
+``` r
 # Not very useful!
 ```
 
@@ -184,7 +184,7 @@ Let's look at some useful functions for working with strings.
 These functions are extremely useful because they allow you to force the characters to lowercase or uppercase.
 
 
-```r
+``` r
 tolower(gender)
 ```
 
@@ -192,7 +192,7 @@ tolower(gender)
 ## [1] "male"    "maschio" "male"    "f"       "female"  "f"       "malew"
 ```
 
-```r
+``` r
 toupper(gender)
 ```
 
@@ -205,7 +205,7 @@ toupper(gender)
 These functions allow you to combine different pieces of information into a string. You can combine different strings or even numbers. As is typical in R, `paste()` and `paste0()` are vectorized, making them useful for combining two vectors of information. The difference is that `paste()` automatically adds a space between the combined strings, while with `paste0()`, the space must be added explicitly.
 
 
-```r
+``` r
 age = c(10, 20, 35, 15, 18)
 names = c("Andrea", "Francesco", "Fabio", "Anna", "Alice")
 
@@ -218,7 +218,7 @@ paste(names, "is", age, "years old")
 ## [5] "Alice is 18 years old"
 ```
 
-```r
+``` r
 paste0(names, "is", age, "years old")
 ```
 
@@ -227,7 +227,7 @@ paste0(names, "is", age, "years old")
 ## [4] "Annais15years old"      "Aliceis18years old"
 ```
 
-```r
+``` r
 paste0(names, " is ", age, " years old")
 ```
 
@@ -244,7 +244,7 @@ In this case, although `age` is numeric, it is coerced into a string to be combi
 `sprintf()` is similar to `paste*()` in functionality but allows you to compose strings using *placeholders* and then provide the content.
 
 
-```r
+``` r
 sprintf("%s is %d years old", names, age)
 ```
 
@@ -263,7 +263,7 @@ In this case, we compose a string using `%` followed by a letter representing th
 As we saw earlier, a string is made up of a sequence of characters. The `nchar()` function returns the number of individual characters that make up a string.
 
 
-```r
+``` r
 nchar("ciao")
 ```
 
@@ -271,7 +271,7 @@ nchar("ciao")
 ## [1] 4
 ```
 
-```r
+``` r
 nchar("Wow, working with strings is very fun")
 ```
 
@@ -284,7 +284,7 @@ nchar("Wow, working with strings is very fun")
 To find the position of one or more characters within a string, we can use `gregexpr()`. The syntax is `(g)gregexpr(pattern, string)`:
 
 
-```r
+``` r
 regexpr("t", "butterfly")
 ```
 
@@ -298,7 +298,7 @@ regexpr("t", "butterfly")
 ## [1] TRUE
 ```
 
-```r
+``` r
 gregexpr("t", "butterfly")
 ```
 
@@ -320,7 +320,7 @@ The difference is that `regexpr()` only returns the first match --- in our examp
 The inverse process --- that is, finding the string corresponding to a given index --- is the task of `substr(string, start, stop)` where `start` and `stop` are the indices of the portion of the string we want to extract. `substring()` works the same way, but `start` and `stop` are called `first` and `last`.
 
 
-```r
+``` r
 substr("butterfly", 1, 1) # only the first character
 ```
 
@@ -328,7 +328,7 @@ substr("butterfly", 1, 1) # only the first character
 ## [1] "b"
 ```
 
-```r
+``` r
 substr("butterfly", 2, 4) # second to fourth character
 ```
 
@@ -342,7 +342,7 @@ For these tasks, both functions provide exactly the same result. Let's examine t
 -   `substring()` also allows you to provide a vector of start/end indices to segment the string.
 
 
-```r
+``` r
 substring("butterfly", 1) # works
 ```
 
@@ -350,7 +350,7 @@ substring("butterfly", 1) # works
 ## [1] "butterfly"
 ```
 
-```r
+``` r
 substr("butterfly", 1) # error
 ```
 
@@ -358,7 +358,7 @@ substr("butterfly", 1) # error
 ## Error in substr("butterfly", 1): argument "stop" is missing, with no default
 ```
 
-```r
+``` r
 substring("butterfly", 1, 1:5) # multiple end indices
 ```
 
@@ -366,7 +366,7 @@ substring("butterfly", 1, 1:5) # multiple end indices
 ## [1] "b"     "bu"    "but"   "butt"  "butte"
 ```
 
-```r
+``` r
 substring("butterfly", 1:5, 1:5) # multiple start and end indices
 ```
 
@@ -374,7 +374,7 @@ substring("butterfly", 1:5, 1:5) # multiple start and end indices
 ## [1] "b" "u" "t" "t" "e"
 ```
 
-```r
+``` r
 substr("butterfly", 1, 1:5) # only one (i.e., the first) end index is used
 ```
 
@@ -387,7 +387,7 @@ substr("butterfly", 1, 1:5) # only one (i.e., the first) end index is used
 Sometimes we are only interested in the beginning or the end of a string. For example, `female` and `male` have a clear initial difference (`fe` and `ma`). Even with subsequent typos or other differences, selecting only the beginning or end can be efficient. `startsWith()` and `endsWith()` respectively return `TRUE` or `FALSE` if a certain string or vector of strings has a given initial or final pattern.
 
 
-```r
+``` r
 startsWith("female", prefix = "fe")
 ```
 
@@ -395,7 +395,7 @@ startsWith("female", prefix = "fe")
 ## [1] TRUE
 ```
 
-```r
+``` r
 endsWith("female", suffix = "ale")
 ```
 
@@ -410,7 +410,7 @@ These, like the other functions, can be combined with `tolower()` or `toupper()`
 These functions operate on **vectors** of strings, finding the position or simple presence of specific *patterns*. `grep()` returns the position(s) in the vector where a match is found, while `grepl()` returns `TRUE` or `FALSE` depending on the presence of the *pattern*. The syntax is the same `grep*(pattern, vector)`.
 
 
-```r
+``` r
 gender
 ```
 
@@ -418,7 +418,7 @@ gender
 ## [1] "maLe"    "masChio" "Male"    "f"       "female"  "f"       "malew"
 ```
 
-```r
+``` r
 grep("female", gender) # index of position
 ```
 
@@ -426,7 +426,7 @@ grep("female", gender) # index of position
 ## [1] 5
 ```
 
-```r
+``` r
 grepl("female", gender) # true or false
 ```
 
@@ -437,7 +437,7 @@ grepl("female", gender) # true or false
 As we saw with logical indexing of vectors, we can use both `grep()` and `grepl()` to select only certain elements:
 
 
-```r
+``` r
 index_grep = grep("female", gender) # index of position
 index_grepl = grepl("female", gender) # logical index
 
@@ -448,7 +448,7 @@ gender[index_grep]
 ## [1] "female"
 ```
 
-```r
+``` r
 gender[index_grepl]
 ```
 
@@ -465,7 +465,7 @@ Many of the functions we've seen also allow replacing a certain pattern within a
 Using `substr()` or `substring()` with the assignment operator `=` (or `<-`), we can replace certain characters. Importantly, the replacement must have the same number of characters as the selection `start:stop`, or only the corresponding number of characters will be used:
 
 
-```r
+``` r
 x = "butterfly"
 substr(x, 1, 1) = "y"
 x
@@ -475,7 +475,7 @@ x
 ## [1] "yutterfly"
 ```
 
-```r
+``` r
 x = "butterfly"
 substr(x, 1, 1) = "aeiou"
 x # only the 'a' is used
@@ -485,7 +485,7 @@ x # only the 'a' is used
 ## [1] "autterfly"
 ```
 
-```r
+``` r
 # substring works exactly the same way
 x = "butterfly"
 substring(x, 1, 1) = "z"
@@ -499,7 +499,7 @@ x
 They can also be used in a vectorized manner, working on multiple elements:
 
 
-```r
+``` r
 x = c("dog", "cat", "mouse", "butterfly")
 substring(x, 1, 1) = "z"
 x
@@ -514,7 +514,7 @@ x
 Unlike `substring()`, `gsub()` and `sub()` allow you to replace a certain pattern rather than using position indices. The syntax is `*sub(pattern, replacement, target)`:
 
 
-```r
+``` r
 x = c("dog", "cat", "mouse", "butterfly")
 sub("o", "z", x)
 ```
@@ -528,7 +528,7 @@ As you can see, for each element of `x`, the function found the pattern `"o"` an
 The main limitation of `sub()` is that it only replaces the first match found in each string.
 
 
-```r
+``` r
 x = c("dog", "cat", "mouse", "butterfly")
 sub("t", "z", x)
 ```
@@ -540,7 +540,7 @@ sub("t", "z", x)
 As you can see, only the first `"t"` in the word `"butterfly"` was replaced. `gsub()`, however, replaces all characters that match the requested pattern:
 
 
-```r
+``` r
 x = c("dog", "cat", "mouse", "butterfly")
 gsub("t", "z", x)
 ```
@@ -554,7 +554,7 @@ gsub("t", "z", x)
 We've already seen that, with `substring()`, we can, for example, divide a string into several parts. According to the R documentation, the `strsplit()` function is more suitable and efficient for this task. The syntax is `strsplit(target, split)` where `split` is the character used to divide:
 
 
-```r
+``` r
 my_string = "How nice it is to work with strings in R"
 strsplit(my_string, " ") # splitting by spaces
 ```
@@ -565,7 +565,7 @@ strsplit(my_string, " ") # splitting by spaces
 ##  [8] "strings" "in"      "R"
 ```
 
-```r
+``` r
 my_string = "howxnicexitxis"
 strsplit(my_string, "x") # splitting by the "x" character
 ```
@@ -575,7 +575,7 @@ strsplit(my_string, "x") # splitting by the "x" character
 ## [1] "how"  "nice" "it"   "is"
 ```
 
-```r
+``` r
 my_string = "ciao"
 strsplit(my_string, "") # splitting each character
 ```
@@ -597,7 +597,7 @@ Is everything this simple with strings? Absolutely not! So far, we've used simpl
 Let's consider an example:
 
 
-```r
+``` r
 files = c(
   "file1.txt",
   "file2.docx",
@@ -628,7 +628,7 @@ For example, if we want to extract the extension from a list of files, the reaso
 The "translation" in terms of REGEX is `"\\.([^.]+)$"`, and we can use this as a *pattern* to extract the information we need. We can use the regmatches(text, match) function, which requires the string to analyze and a `match` object, which is the result of the `regexpr` function we've already seen:
 
 
-```r
+``` r
 match_regex = regexpr("\\.([^.]+)$", files)
 regmatches(files, match_regex)
 ```
@@ -644,7 +644,7 @@ Throughout this book, we have aimed to approach R as a programming language by f
 The last example we described isn't very readable since it involves using the result of another function and calling the `target` object twice. In `stringr`, we have the `str_extract()` function, which extracts a certain pattern or REGEX:
 
 
-```r
+``` r
 stringr::str_extract(files, "\\.([^.]+)$")
 ```
 

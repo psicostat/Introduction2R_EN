@@ -33,7 +33,7 @@ Now, let’s see how to create vectors in R and perform common operations such a
 We’ve already encountered vectors in previous chapters, as even variables with a single value are simply vectors of length 1. However, to create vectors with multiple elements, we use the `c()` command, meaning *"combine"*, specifying the elements in the desired order and separating them with commas. The syntax is as follows:
 
 
-```r
+``` r
 vector_name = c(x_1, x_2, x_3, ..., x_n)
 ```
 
@@ -44,7 +44,7 @@ Alternatively, any function that returns a sequence of values as a vector can be
 
 - `<from>:<to>` - Generates a sequence of increasing (or decreasing) numeric values from (`<from>`) to (`<to>`) in steps of 1 (o -1 ).
 
-```r
+``` r
 # increasing sequence
 1:5
 ## [1] 1 2 3 4 5
@@ -60,7 +60,7 @@ Alternatively, any function that returns a sequence of values as a vector can be
 
 - `seq(from = , to = , by = , length.out = )` - Generates a regular sequence of numeric values between `from` and `to` with increments specified by `by`, or with a total length specified by `length.out` (see `?seq()` for more details).
 
-```r
+``` r
 # sequence with increments of 2
 seq(from = 0, to = 10, by = 2)
 ## [1]  0  2  4  6  8 10
@@ -72,7 +72,7 @@ seq(from = 0, to = 1, length.out = 5)
 
 - `rep(x, times = , each = )` - Generates a sequence by repeating the values in `x`. The values in x can be repeated multiple times in order using `times` or each value can be repeated multiple times using `each` (see `?rep()` for more details).
 
-```r
+``` r
 # repeated sequence
 rep(c("foo", "bar"), times = 3)
 ## [1] "foo" "bar" "foo" "bar" "foo" "bar"
@@ -104,14 +104,14 @@ Familiarize yourself with vector creation ([solutions](https://github.com/psicos
 Once a vector is created, you may need to select one or more of its elements. In R, to select elements from a vector, **square brackets** `[]` are used after the vector name, with the **position index** of the desired elements inside the brackets:
 
 
-```r
+``` r
 vector_name[<position-index>]
 ```
 
 Be careful not to specify the value of the desired element, but its position index. For example:
 
 
-```r
+``` r
 # given the vector
 my_numbers = c(2,4,6,8)
 
@@ -128,7 +128,7 @@ my_numbers[4]
 To select multiple elements, list all the desired position indices within the square brackets. Note that you can't simply provide individual numbers; they must be enclosed in a vector, for example, using the `c()` function. Essentially, you use a vector of indices to select the elements from the original vector.
 
 
-```r
+``` r
 # INCORRECT selection of multiple values
 my_numbers[1,2,3]
 ## Error in my_numbers[1, 2, 3]: incorrect number of dimensions
@@ -144,7 +144,7 @@ my_numbers[1:3]
 Note that selecting elements does not modify the original vector. If you want to keep the changes, you need to save the result of the selection.
 
 
-```r
+``` r
 my_words = c("foo", "bar", "baz", "qux")
 
 # Selecting the first two elements
@@ -166,7 +166,7 @@ my_words
 :::{.warning title="Edge Cases in Selection" data-latex="[Edge Cases in Selection]"}
 What happens if you use a position index greater than the number of elements in your vector?
 
-```r
+``` r
 # My vector
 my_numbers = c(2,4,6,8)
 
@@ -179,7 +179,7 @@ Let’s also explore other special behaviors or possible errors in element selec
 
 - The position index must be a numeric value, not a character.
 
-```r
+``` r
 # INCORRECT selection of multiple values
 my_numbers["3"]
 ## [1] NA
@@ -190,7 +190,7 @@ my_numbers[3]
 ```
 - Decimal numbers are ignored, not rounded.
 
-```r
+``` r
 my_numbers[2.2]
 ## [1] 4
 my_numbers[2.8]
@@ -198,7 +198,7 @@ my_numbers[2.8]
 ```
 - Using the value 0 returns an empty vector.
 
-```r
+``` r
 my_numbers[0]
 ## numeric(0)
 ```
@@ -220,7 +220,7 @@ A useful function is selecting elements from a vector that meet a certain condit
 
 For example, we can select all elements greater than a certain value from a numeric vector, or select all elements equal to a specific string from a character vector.
 
-```r
+``` r
 # Numeric vector - select elements greater than 0
 my_numbers = -5:5
 my_numbers[my_numbers >= 0]
@@ -239,7 +239,7 @@ To better understand this process, it’s important to note that there are two d
 
 We can make these two steps explicit in the following code:
 
-```r
+``` r
 # Logical vector
 condition = my_words=="bar"
 condition
@@ -255,7 +255,7 @@ my_words[condition]
 Position indices can be used to sort the elements of a vector according to your needs.
 
 
-```r
+``` r
 messy_vector = c(5,1,7,3)
 
 # Reorder the elements
@@ -271,7 +271,7 @@ messy_vector[c(2,4,1,3)]
 To sort elements in ascending or descending order (either alphabetically or numerically), you can use the `sort()` function, specifying the `decreasing` argument. See the help page of the function for more information (`?sort()`).
 
 
-```r
+``` r
 # Alphabetical order
 my_letters = c("cb", "bc", "ab", "ba", "cb", "ab")
 sort(my_letters)
@@ -284,7 +284,7 @@ sort(messy_vector, decreasing = TRUE)
 
 Note that there is also the `order()` function, but it is a false-friend because it does not directly provide a vector with sorted elements but instead returns the position indices for reordering the elements (`?order()`). See how to use this function in the following example:
 
-```r
+``` r
 # Position indices for reordering elements
 order(messy_vector)
 ## [1] 2 4 1 3
@@ -298,7 +298,7 @@ messy_vector[order(messy_vector)]
 
 The same position indices can be used multiple times to repeat elements in the desired combinations, forming a new vector.
 
-```r
+``` r
 my_numbers = c(5,6,7,8)
 # Obtain a new vector with the desired combination
 my_numbers[c(1,2,2,3,3,3,4)]
@@ -309,7 +309,7 @@ my_numbers[c(1,2,2,3,3,3,4)]
 
 An important use of indices is modifying an element in a vector. To replace an old value with a new one, you can use the *assign* function (`<-` or `=`), as in the following example:
 
-```r
+``` r
 my_names = c("Andrea", "Bianca", "Carlo")
 
 # Replace the name "Bianca" with "Beatrice"
@@ -321,7 +321,7 @@ my_names
 To replace a value, you specify the value to modify on the left of the *assignment* operator, and the new value on the right. Note that this operation can also be used to add new elements to the vector.
 
 
-```r
+``` r
 my_names[4]
 ## [1] NA
 
@@ -337,7 +337,7 @@ my_names
 To **remove elements** from a vector, specify the position indices of the elements to remove inside square brackets, preceded by the `-` (*minus*) operator. If removing multiple elements, you can use the minus operator only before the `c()` function, for example, `x[c(-2,-4)]` becomes `x[-c(2,4)]`.
 
 
-```r
+``` r
 my_words = c("foo", "bar", "baz", "qux")
 
 # Remove "bar"
@@ -352,7 +352,7 @@ my_words[-c(1,3)]   # alternatively, my_words[c(-1, -3)]
 Note that removing elements is still a selection operation. Therefore, you need to save the result if you want to keep the changes.
 
 
-```r
+``` r
 # Remove  "foo" and "baz"
 my_words[-c(1,3)]
 ## [1] "bar" "qux"
@@ -373,16 +373,16 @@ The `which()` function is very useful for obtaining the **position** within a ve
 
 
 ```
-##  [1]  TRUE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE
-## [1] 1 4 5 6 7 8 9
+##  [1]  TRUE FALSE  TRUE FALSE  TRUE FALSE FALSE  TRUE  TRUE  TRUE
+## [1]  1  3  5  8  9 10
 ```
 
 As you can see, the `which()` function essentially returns the **position** (not the value) where the tested condition is `TRUE`. It’s important to note that these two pieces of code are equivalent:
 
 
 ```
-## [1] 5.491162 5.849161 8.037013 7.240858 8.058357 6.284073 9.724925
-## [1] 5.491162 5.849161 8.037013 7.240858 8.058357 6.284073 9.724925
+## [1] 10.432778  9.942621  5.654985  9.372856  8.911619  7.867687
+## [1] 10.432778  9.942621  5.654985  9.372856  8.911619  7.867687
 ```
 
 In fact, as we’ve seen, you can index a vector with another vector indicating the position of elements to extract, or with a **logical** vector of the same length as the original vector.
@@ -449,7 +449,7 @@ Note that mathematical operations (e.g., `+`, `-`, `*`, `/`) can be performed ei
 - **Another vector** - The operation will be applied to each pair of elements from both vectors. Therefore, the two vectors must have the **same length**, meaning the same number of elements.
 
 
-```r
+``` r
 x = 1:5
 y = 1:5
 
@@ -465,7 +465,7 @@ x + y
 :::{.warning title="Vectors of Different Lengths" data-latex="[Vettori di Diversa Lunghezza]"}
 If the vectors have different lengths, R will issue a warning, alerting you to the issue, but it will still execute the operation by recycling the shorter vector.
 
-```r
+``` r
 x + c(1, 2)
 ## Warning in x + c(1, 2): longer object length is not a multiple of shorter
 ## object length
@@ -480,7 +480,7 @@ In R, most operators are *vectorized*, meaning they compute the result directly 
 
 Without vectorization, each operation between two vectors would require specifying the operation for each element of the vector. In the previous example of adding `x` and `y`, we would have needed the following code:
 
-```r
+``` r
 z = numeric(length(x))
 for(i in seq_along(x)) {
       z[i] = x[i] + y[i]
@@ -492,7 +492,7 @@ z
 This also applies to **relational and logical operators**. When evaluating a condition on a vector, you get a response for each element of the vector.
 
 
-```r
+``` r
 my_values = 1:8
 
 # Values between 4 and 7
@@ -525,7 +525,7 @@ In R, we have 4 main data types, i.e., types of values that can be used:
 
 We can check the type of a value using the `typeof()` function.
 
-```r
+``` r
 typeof("foo") 
 ## [1] "character"
 
@@ -551,7 +551,7 @@ Without going into detail, to optimize memory usage, different values are *mappe
 One counterintuitive aspect is the difference between `double` and `integer` values. While integers can be represented precisely by a computer, not all real values can be represented exactly within the maximum number of 64 bits. In such cases, their values are approximated, and although this is done very accurately, it can sometimes lead to unexpected results. For example, in the following case, we don’t get zero, but we observe a small error due to the approximation of `double` values.
 
 
-```r
+``` r
 my_value = sqrt(2)^2 # Should return 2
 my_value - 2         # Should return 0
 ## [1] 4.440892e-16
@@ -560,7 +560,7 @@ my_value - 2         # Should return 0
 It is important to keep this issue in mind when performing equality tests, where using the `==` operator may produce unexpected answers. In general, the `all.equal()` function is preferred, which allows for some tolerance (see `?all.equal()` for more details).
 
 
-```r
+``` r
 my_value == 2          # Approximation issue
 ## [1] FALSE
 all.equal(my_value, 2) # Test with tolerance
@@ -577,7 +577,7 @@ Let’s now look at the different types of vectors according to the type of data
 Vectors composed of character strings are defined as character vectors. To evaluate the type of an object, we can use the `class()` function, while the `typeof()` function evaluates the data type. In this case, both return `character`.
 
 
-```r
+``` r
 my_words = c("Foo","Bar","foo","bar")
 
 class(my_words) # Object type
@@ -590,7 +590,7 @@ typeof(my_words) # Data type
 It is not possible to perform arithmetic operations on character vectors, but we can evaluate equality or inequality relationships with another string.
 
 
-```r
+``` r
 my_words + "foo"
 ## Error in my_words + "foo": non-numeric argument to binary operator
 
@@ -603,7 +603,7 @@ my_words == "foo"
 In R, unless otherwise specified, every numeric value is represented as a `double`, whether or not it has decimal places. Vectors made of double values are called numeric vectors. In R, the type of the vector is labeled as `numeric`, while the data is `double`.
 
 
-```r
+``` r
 my_values = c(1,2,3,4,5)
 class(my_values)  # Object type
 ## [1] "numeric"
@@ -615,7 +615,7 @@ typeof(my_values) # Data type
 Numeric vectors are used to perform any kind of mathematical or logical-relational operations.
 
 
-```r
+``` r
 my_values + 10
 ## [1] 11 12 13 14 15
 
@@ -628,7 +628,7 @@ my_values <= 3
 In R, to specify that a value is an integer, the letter `L` is added immediately after the number. Vectors made up of integer values are defined as integer vectors. In R, the type of the vector is labeled as `integer`, the same as the data.
 
 
-```r
+``` r
 my_integers = c(1L,2L,3L,4L,5L)
 class(my_integers)  # Object type
 ## [1] "integer"
@@ -640,7 +640,7 @@ typeof(my_integers) # Data type
 As with numeric vectors, integer vectors can be used to perform any kind of mathematical or logical-relational operations. However, note that operations between integers and doubles will return doubles, and even in the case of operations between integers, the result may not be an integer.
 
 
-```r
+``` r
 is.integer(5L * 5)   # Integer and double
 ## [1] FALSE
 
@@ -656,7 +656,7 @@ is.integer(5L / 5L)  # Integer and integer
 Vectors made of logical values (`TRUE` and `FALSE`) are defined as logical vectors. In R, the type of the vector is labeled as `logical`, the same as the data.
 
 
-```r
+``` r
 my_logical = c(TRUE, FALSE, TRUE)
 class(my_logical)  # Object type
 ## [1] "logical"
@@ -668,7 +668,7 @@ typeof(my_logical) # Data type
 Logical vectors can be used with logical operators.
 
 
-```r
+``` r
 my_logical & c(FALSE, TRUE, TRUE)
 ## [1] FALSE FALSE  TRUE
 
@@ -679,7 +679,7 @@ my_logical & c(0, 1, 3)
 Remember that `TRUE` and `FALSE` are associated with the numeric values 1 and 0, respectively (more precisely, the integer values `1L` and `0L`). Therefore, it is possible to perform mathematical operations where they will be automatically considered their respective numeric values. Obviously, the result will be a numeric value, not a logical one.
 
 
-```r
+``` r
 TRUE * 10
 ## [1] 10
 
@@ -692,7 +692,7 @@ FALSE * 10
 Using the `sum()` and `mean()` functions with a logical vector, we can evaluate the total number and percentage of elements that satisfy a certain logical condition.
 
 
-```r
+``` r
 my_values = rnorm(50)  # Generate random numbers
 
 sum(my_values > 0)      # Total number of positive numbers
@@ -713,7 +713,7 @@ To test if a certain value (or a vector of values) belongs to a specific data ty
 
 - `is.vector()` - checks if an object is a generic vector of any type.
 
-```r
+``` r
 is.vector("2021")   # TRUE
 is.vector(2021)     # TRUE
 is.vector(2021L)    # TRUE
@@ -722,7 +722,7 @@ is.vector(TRUE)     # TRUE
 
 - `is.character()` - checks if the object is a `string`.
 
-```r
+``` r
 is.character("2021") # TRUE
 is.character(2021)   # FALSE
 is.character(2021L)  # FALSE
@@ -730,7 +730,7 @@ is.character(TRUE)   # FALSE
 ```
 - `is.numeric()` - checks if the object is a `numeric` value, whether it is a `double` or an `integer`.
 
-```r
+``` r
 is.numeric("2021")   # FALSE
 is.numeric(2021)     # TRUE
 is.numeric(2021L)    # TRUE
@@ -738,7 +738,7 @@ is.numeric(TRUE)     # FALSE
 ```
 - `is.double()` - checks if the object is a `double` value.
 
-```r
+``` r
 is.double("2021")    # FALSE
 is.double(2021)      # TRUE
 is.double(2021L)     # FALSE
@@ -746,7 +746,7 @@ is.double(TRUE)      # FALSE
 ```
 - `is.integer()` - checks if the object is an `integer` value.
 
-```r
+``` r
 is.integer("2021")   # FALSE
 is.integer(2021)     # FALSE
 is.integer(2021L)    # TRUE
@@ -754,7 +754,7 @@ is.integer(TRUE)     # FALSE
 ```
 - `is.logical()` - checks if the object is a `logical` value.
 
-```r
+``` r
 is.logical("2021")   # FALSE
 is.logical(2021)     # FALSE
 is.logical(2021L)    # FALSE
@@ -767,7 +767,7 @@ To modify the data type of a certain value (or a vector of values), we can use o
 
 - `as.character()` - transforms the object into a string.
 
-```r
+``` r
 as.character(2021)
 ## [1] "2021"
 as.character(2021L)
@@ -777,7 +777,7 @@ as.character(TRUE)
 ```
 - `as.numeric()` - transforms the object into a `double`
 
-```r
+``` r
 as.numeric("foo")  # Invalid for character strings
 ## Warning: NAs introduced by coercion
 ## [1] NA
@@ -790,7 +790,7 @@ as.numeric(TRUE)
 ```
 - `as.double()` - transforms the object into a `double`
 
-```r
+``` r
 as.double("2021") # Valid for numeric strings
 ## [1] 2021
 as.double(2021L)
@@ -800,7 +800,7 @@ as.double(TRUE)
 ```
 - `as.integer()` - transforms the object into an `integer`
 
-```r
+``` r
 as.integer("2021") # Valid for numeric strings
 ## [1] 2021
 as.integer(2021.6) # Truncates the decimal part
@@ -810,7 +810,7 @@ as.integer(TRUE)
 ```
 - `as.logical()` - transforms a numeric object into a logical value, with any non-zero value considered `TRUE`
 
-```r
+``` r
 as.logical("2021") # Invalid for strings
 ## [1] NA
 as.logical(0)
@@ -830,7 +830,7 @@ Let’s now look at some special values used in R, which have specific meanings 
 - `NA` - represents missing data (*Not Available*). It is a constant value of length 1 that can be used for any data type.
 - `NaN` - indicates a mathematical result that cannot be represented as a numeric value (*Not A Number*). It is a constant value of length 1 that can be used as a numeric (non-integer) value.
 
-```r
+``` r
 0/0
 ## [1] NaN
 sqrt(-1)
@@ -839,7 +839,7 @@ sqrt(-1)
 ```
 - `Inf` (or `-Inf`) - indicates an infinite (or negative infinite) mathematical result. It is also used to represent extremely large numbers.
 
-```r
+``` r
 pi^650
 ## [1] Inf
 
@@ -854,7 +854,7 @@ It is important to be aware of the characteristics of these values, as they can 
 First, note that while `NULL` is effectively a null object with no dimension, `NA` is a special value that represents the presence of missing data. Therefore, unlike `NULL`, `NA` is a value of length 1.
 
 
-```r
+``` r
 # The value NULL is a null object
 values_NULL = c(1:5, NULL)
 length(values_NULL)
@@ -872,7 +872,7 @@ values_NA   # NA is present
 
 Similarly, both `NaN` and `Inf` are values of length 1, used to indicate special numeric results.
 
-```r
+``` r
 length(c(1:5, NaN))
 ## [1] 6
 length(c(1:5, Inf))
@@ -885,7 +885,7 @@ Another important characteristic is the *propagation* of these special values. O
 
 - `NULL` - If `NULL` is used in any mathematical operation, the result will be an empty numeric vector of dimension 0, which can be interpreted similarly (though not identically) to the value `NULL`.
 
-```r
+``` r
 res_NULL = NULL * 3
 length(res_NULL)
 ## [1] 0
@@ -894,19 +894,19 @@ res_NULL
 ```
 - `NA` - When `NA` is used in any mathematical operation, the result will again be `NA`.
 
-```r
+``` r
 NA * 3
 ## [1] NA
 ```
 - `NaN` - Similarly, when `NaN` is used in any mathematical operation, the result will again be `NaN`.
 
-```r
+``` r
 NaN * 3
 ## [1] NaN
 ```
 - `Inf` (or `-Inf`) - If `Inf` (or `-Inf`) is used in a mathematical operation, the result will follow the common rules of operations involving infinity.
 
-```r
+``` r
 Inf - 3     # Inf
 
 Inf * -3    # - Inf
@@ -926,25 +926,25 @@ It is important to remember that to test the presence of one of these special va
 
 - `is.null`
 
-```r
+``` r
 NULL == NULL     # logical(0)
 is.null(NULL)    # TRUE
 ```
 - `is.na` 
 
-```r
+``` r
 NA == NA    # NA
 is.na(NA)   # TRUE
 ```
 - `is.nan` 
 
-```r
+``` r
 NaN == NaN  # NA
 is.nan(NaN) # TRUE
 ```
 - `Inf`  
 
-```r
+``` r
 Inf == Inf       # TRUE (sign is also considered)
 is.infinite(Inf) # TRUE for both Inf and -Inf
 ```
@@ -955,7 +955,7 @@ A particular behavior involves the results obtained with logical operators, wher
 
 - `NULL`-  as expected, we obtain an empty logical vector of dimension 0.
 
-```r
+``` r
 TRUE & NULL  # logical(0)
 TRUE | NULL  # logical(0)
 
@@ -964,7 +964,7 @@ FALSE | NULL # logical(0)
 ```
 - `NA` - we do not always obtain `NA` as expected, but in some conditions, the result will be `TRUE` or `FALSE`.
 
-```r
+``` r
 TRUE & NA  # NA
 TRUE | NA  # TRUE
 
@@ -973,7 +973,7 @@ FALSE | NA # NA
 ```
 - `NaN` - we obtain the same results as in the previous case when using the value `NA`
 
-```r
+``` r
 TRUE & NaN  # NA
 TRUE | NaN  # TRUE
 
@@ -982,7 +982,7 @@ FALSE | NaN # NA
 ```
 - `Inf` - since it is a non-zero numeric value, we obtain the expected results.
 
-```r
+``` r
 TRUE & Inf  # TRUE
 TRUE | Inf  # TRUE
 
@@ -993,7 +993,7 @@ FALSE | Inf # TRUE
 :::{.tip title="A Logical Solution" data-latex="[A Logical Solution]"}
 The strange behavior regarding the use of the value `NA` with logical operators can be explained by the fact that `NA` is actually a logical value that indicates a missing response.
 
-```r
+``` r
 is.logical(NA)
 ## [1] TRUE
 ```
@@ -1002,7 +1002,7 @@ Thus, the propositions are evaluated according to common rules. In the case of `
 
 As for the case of the `NaN` value, it is enough to remember that it is still a numeric value, although its exact value cannot be determined.
 
-```r
+``` r
 is.numeric(NaN)
 ## [1] TRUE
 ```
@@ -1013,7 +1013,7 @@ All numeric values are considered valid in logical operations, where any non-zer
 :::{.design title="The Importance of Missing Data" data-latex="[The Importance of Missing Data]"}
 Working with missing data will happen in most cases. Many functions in R already have options to automatically remove any missing data, so that correct results can be obtained.
 
-```r
+``` r
 my_sample = c(2,4,6,8, NA)
 mean(my_sample)
 ## [1] NA
@@ -1024,7 +1024,7 @@ However, it is important not to rely automatically on these options but to caref
 
 Furthermore, it will be essential to always check the actual sample size used in various analyses. For example, if not carefully considered, we may not get the actual number of values used to compute the mean.
 
-```r
+``` r
 length(my_sample)    # NA included
 ## [1] 5
 length(my_sample[!is.na(my_sample)]) # NA excluded

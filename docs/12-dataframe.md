@@ -159,7 +159,7 @@ Now we’ll see how to create dataframes in R, how to perform common selection o
 In most cases, you will probably upload existing data (e.g., from a `.csv` file containing some collected experimental data) rather than creating a dataframe from scratch in R. However, let's now see how to create a new dataframe. The command to create a dataframe is `data.frame()`:
 
 
-```r
+``` r
 nome_df = data.frame(
   variable1 = c(...),
   variable2 = c(...),
@@ -169,7 +169,7 @@ nome_df = data.frame(
 Creating a dataframe is slightly different from matrices. Intuitively, it's like combining several columns (where one may contain names, another dates, and so on) rather than inserting values by row or column as in matrices. In fact, to create a `dataframe`, you need to specify the columns one by one, indicating `column_name = values` within the `data.frame()` command. Let's see an example in R:
 
 
-```r
+``` r
 my_data = data.frame(
   Id = c(1:5),
   names = c("Alice", "Bruno", "Carla", "Diego", "Elisa"),
@@ -211,7 +211,7 @@ Perform the following exercises ([solutions](https://github.com/psicostat/Introd
 To select one or more values from a dataframe, you can use row and column indices within square brackets, similar to matrices:
 
 
-```r
+``` r
 dataframe_name[<row-index>, <column-index>]
 ```
 
@@ -220,7 +220,7 @@ Remember that the order `[<row-index>, <column-index>]` is fixed and must be fol
 
 
 
-```r
+``` r
 my_data
 ##    Id    names gender age     faculty
 ## 1   1    Alice      F  22  Psychology
@@ -264,14 +264,14 @@ However, when working with dataframes, it's more common to refer to the column n
 One significant difference between matrices and dataframes is that you can access columns using the `$` operator and the column name, using the following syntax:
 
 
-```r
+``` r
 dataframe_name$variable_name
 ```
 
 This allows you to access that specific column directly without using indices and square brackets. For example:
 
 
-```r
+``` r
 # Select the "names" variable
 my_data$names
 ##  [1] "Alice"    "Bruno"    "Carla"    "Diego"    "Elisa"    "Fabrizio"
@@ -287,7 +287,7 @@ my_data$faculty
 Alternatively, you can use the usual square bracket selection method by specifying the column names instead of column indices. This allows you to select multiple variables at once. For example:
 
 
-```r
+``` r
 # Select only the "names" variable
 my_data[ , "names"]
 ##  [1] "Alice"    "Bruno"    "Carla"    "Diego"    "Elisa"    "Fabrizio"
@@ -317,14 +317,14 @@ We’ve seen earlier how to construct logical propositions to select only values
 In the canonical syntax `[<row-index>, <column-index>]`, the row indices are replaced with a logical condition to filter the rows, and the column indices are replaced with the names of the variables of interest. We use the following syntax:
 
 
-```r
+``` r
 dataframe_name[<logical_condition_rows>, <variable_names>]
 ```
 
 Here are some examples of selection:
 
 
-```r
+``` r
 # All data for "Diego" (Id == 4)
 my_data[my_data$Id == 4 , ]
 ##   Id names gender age faculty
@@ -350,9 +350,9 @@ my_data[my_data$age > 24 , c("age", "faculty")]
 Note that when defining a logical condition using the dataframe's variables, it’s still necessary to include the dataframe name. In the previous example, we would have encountered an error by simply using `age > 24`, as this would refer to the object `age` (which doesn’t exist), not the `age` variable contained in `my_data`.
 
 
-```r
+``` r
 my_data[age > 24 , c("age", "faculty")]
-## Error in eval(expr, envir, enclos): object 'age' not found
+## Error: object 'age' not found
 ```
 
 Similarly to what we saw with vectors, using the condition `my_data$age > 24` returns a vector of `TRUE` and `FALSE` values depending on whether the condition is met or not.
@@ -360,7 +360,7 @@ Similarly to what we saw with vectors, using the condition `my_data$age > 24` re
 By using logical operators **AND** (`&`), **OR** (`|`), and **NOT** (`!`), we can combine multiple logical operations to create more complex, yet still intuitive, indexing queries. For example, to select "subjects between 20 and 25 years old enrolled in psychology," we would write:
 
 
-```r
+``` r
 my_data[my_data$age>=20 & my_data$age<=25 & my_data$faculty=="Psychology" , ]
 ##   Id  names gender age    faculty
 ## 1  1  Alice      F  22 Psychology
@@ -378,7 +378,7 @@ Two important aspects regarding the result of a selection are the type of output
 Similarly to matrices, selection commands do not always return the same type of object. When we select a single variable, the result is a vector, while selecting two or more variables returns a dataframe.
 
 
-```r
+``` r
 # Single variable
 class(my_data$age)
 ## [1] "numeric"
@@ -402,7 +402,7 @@ Let's now look at some advanced uses of selecting elements from a dataframe.
 Similar to other objects, we can modify values by selecting the old value in the dataframe and using the `=` (or `<-`) operator to assign the new value.
 
 
-```r
+``` r
 my_data[1:5 , ]
 ##   Id names gender age     faculty
 ## 1  1 Alice      F  22  Psychology
@@ -428,7 +428,7 @@ my_data[1:5 , ]
 
 Similarly to matrices, to remove rows (or columns) from a `dataframe`, you need to indicate the row (or column) indices to remove within square brackets, preceded by the `-` (*minus*) operator.
 
-```r
+``` r
 # Remove the first 5 observations/rows
 my_data[-c(1:5) , ]
 ##    Id    names gender age     faculty
@@ -456,7 +456,7 @@ my_data[ , -3]
 You can also exclude (and in a sense remove) information using logical operators such as *NOT* (i.e., `!`) and *not equal to* (`!=`). In the following examples, only rows where the `faculty` information is *not equal to* (i.e., *different from*) `Psychology` are kept (so, observations associated with `Psychology` are practically removed from the dataframe): 
 
 
-```r
+``` r
 # Select everything except psychology students
 my_data[my_data$faculty != "Psychology" , ]
 ##    Id    names gender age     faculty
@@ -471,7 +471,7 @@ my_data[my_data$faculty != "Psychology" , ]
 
 Removing multiple categories, such as both `Psychology` and `Statistics` while keeping the rest may be a bit more difficult. Here are two possible methods, the second one may be more efficient when writing: 
 
-```r
+``` r
 # method 1 : keep rows where "faculty" is not "Psychology" AND not "Statistics"
 my_data[my_data$faculty != "Psychology" & my_data$faculty != "Statistics" , ]
 ##    Id    names gender age     faculty
@@ -495,7 +495,7 @@ my_data[!my_data$faculty %in% c("Psychology","Statistics") , ]
 
 A strategy similar to the second method shown just above could be used for removing multiple columns by names. Actually, the `-` (*minus*) will not work when listing columns by name. Let's say we want to visualize the `my_data` dataframe but removing the columns related to `gender` and `age`. We may proceed as follow:
 
-```r
+``` r
 # Select all column names that are NOT in the vector c("gender","age")
 my_data[ , !colnames(my_data) %in% c("gender","age")]
 ##    Id    names     faculty
@@ -589,7 +589,7 @@ Now, let's look at some commonly used functions and operations performed with da
 We will now describe in detail some particular uses, considering an example of a reduced version of the `my_data` dataframe created earlier.
 
 
-```r
+``` r
 data_short = my_data[1:5, ]
 data_short
 ##   Id  names gender age     faculty
@@ -609,7 +609,7 @@ We saw in Chapter \@ref(attributes) that objects in R possess what are called *a
 Recall that a dataframe is a **two-dimensional** object consisting of rows and columns. To obtain the number of rows and columns in a dataframe, we can use the `nrow()` and `ncol()` functions, respectively.
 
 
-```r
+``` r
 # Number of rows
 nrow(my_data)
 ## [1] 10
@@ -626,7 +626,7 @@ Alternatively, as with matrices, we can use the `dim()` function, which returns 
 Similarly to matrices, you can access the row and column names using the `rownames()` and `colnames()` functions, respectively. By default, dataframes require names only for the columns, while rows are assigned names based on their row indices. However, it's possible to name rows with arbitrary values, although this is rarely used.
 
 
-```r
+``` r
 # Check the current names
 rownames(data_short)
 ## [1] "1" "2" "3" "4" "5"
@@ -637,7 +637,7 @@ colnames(data_short)
 To set row and/or column names, assign a character vector of the same length as the dimension you're renaming to `rownames(dataframe_name)` or `colnames(dataframe_name)`.
 
 
-```r
+``` r
 # Assign names to the rows
 rownames(data_short) = paste0("Subj_", 1:nrow(data_short))
 
@@ -655,7 +655,7 @@ data_short
 
 Finally, note that the `names()` function for dataframes is analogous to `colnames()`, and you can use `NULL` to remove, for example, row names.
 
-```r
+``` r
 names(data_short)
 ## [1] "Id"      "Name"    "Gender"  "Age"     "Faculty"
 
@@ -679,7 +679,7 @@ Similarly to matrices, you can merge multiple dataframes using the `cbind()` and
 With the syntax `dataframe$name = new_var`, we add a new column named `name` to the dataframe, taking values from `new_var`. This new variable must have the same number of values as there are rows in the dataframe.
 
 
-```r
+``` r
 # Add the "average" column
 data_short$Average = c(27.5, 23.6, 28.3, 29.2, 24.8)
 
@@ -701,7 +701,7 @@ data_short
 With the `cbind()` function, we can add one or more variables to our dataframe. Note that, unlike using the `$` operator, the result is not automatically saved; it must be assigned to a new object `dataframe = cbind(dataframe, new_var)`. In this case, the column name will be new_var. If we want to rename the column, we can use the syntax `cbind(dataframe, "name" = new_var)` or name the object directly:
 
 
-```r
+``` r
 # Add the "number_of_exams" variable
 number_of_exams = c(12, 14, 13, 10, 8)
 
@@ -733,7 +733,7 @@ Adding rows to a dataframe is slightly more complex. You may need to do this for
 
 In the following example, we simply add one single row to an existing dataframe: 
 
-```r
+``` r
 data_short
 ##   Id   Name Gender Age     Faculty Average
 ## 1  1  Alice      F  22  Psychology    27.5
@@ -787,7 +787,7 @@ Finally, let’s look at some very common functions used to get summary informat
 
 - `head()` (or `tail()`) allows us to view the first (or last) rows of our dataframe:
 
-```r
+``` r
 head(my_data)
 ##   Id    names gender age     faculty
 ## 1  1    Alice      F  22  Psychology
@@ -807,7 +807,7 @@ tail(my_data)
 ```
 - `str()` lets us evaluate the structure of the dataset, providing useful information such as the number of observations, the number of variables, and the type of variables:
 
-```r
+``` r
 str(my_data)
 ## 'data.frame':	10 obs. of  5 variables:
 ##  $ Id     : int  1 2 3 4 5 6 7 8 9 10
@@ -818,7 +818,7 @@ str(my_data)
 ```
 - `summary()` gives us summary information about the variables depending on their type:
 
-```r
+``` r
 summary(my_data)
 ##        Id           names           gender      age               faculty 
 ##  Min.   : 1.00   Length:10          F:5    Min.   :20.00   Arts       :2  

@@ -23,7 +23,7 @@ Let’s now see how to create a list and the different ways to select its elemen
 The command to create a list is `list()`:
 
 
-```r
+``` r
 list_name = list(
   object_name_1 = object_1,
   ...,
@@ -35,7 +35,7 @@ Although the `object_name_x` parameter is not necessary, as we will see, it is h
 So, if we have different objects in our workspace, such as a simple `variable`, a `vector`, and a `dataframe`, we can gather all these elements into a single list. For example:
 
 
-```r
+``` r
 # A variable
 my_value = "Test"
 
@@ -94,7 +94,7 @@ As mentioned earlier, each element of a list has its **position index**, i.e., a
 
 Let's see the difference in the following example:
 
-```r
+``` r
 my_list
 ## $element_1
 ## [1] "Test"
@@ -130,7 +130,7 @@ This difference in the result obtained by using **single square brackets** `[ ]`
 This distinction becomes clear when applying a generic function to the same element indexed differently or using the `str()` function to understand the structure. We will see that only by directly accessing the element can we perform normal operations, while with single brackets, the obtained object is a list with a single element.
 
 
-```r
+``` r
 # Apply mean to the vector `element_2` indexed with 1 or 2 brackets
 mean(my_list[2])
 ## Warning in mean.default(my_list[2]): argument is not numeric or logical:
@@ -155,7 +155,7 @@ The different type of selection obtained by using single or double square bracke
 
 We can use double square brackets even with vectors and data frames, but in these cases, the result does not differ from the normal selection procedure.
 
-```r
+``` r
 # Vectors
 my_vector[2]
 ## [1] 3
@@ -172,7 +172,7 @@ my_data[[2]] # selection is only possible on columns
 Finally, note that single square brackets `[ ]` allow you to select multiple elements simultaneously, while double square brackets `[[ ]]` allow you to extract only one element at a time.
 
 
-```r
+``` r
 my_list[c(1,2)]
 ## $element_1
 ## [1] "Test"
@@ -193,7 +193,7 @@ As an alternative to using **double square brackets** `[[ ]]`, you can, similar 
 
 Let's see some examples using the list `my_list` created earlier.
 
-```r
+``` r
 # Select "element_1"
 my_list$element_1
 ## [1] "Test"
@@ -224,7 +224,7 @@ Note that the element names can also be used with square brackets.
 Once we have extracted an element from a list, we can use the object in any way we want. We can either assign the element to a new object for future use or execute functions or other generic operations directly on the selection command.
 
 
-```r
+``` r
 # Mean of the values of "element_2"
 
 # Assign the object
@@ -240,7 +240,7 @@ mean(my_list$element_2)
 Clearly, the operations we can perform, such as further selections, depend on the specific type and structure of the selected object.
 
 
-```r
+``` r
 # ---- Select the first value of "element_2" ----
 
 my_list$element_2
@@ -274,7 +274,7 @@ Now let's see some advanced uses of element selection from a data frame.
 Similar to other objects, we can modify values by selecting the old element from the list and using the `=` (or `<-`) operator to assign a new element. Note that in this case, you can use both single square brackets `[ ]` and double square brackets `[[ ]]`.
 
 
-```r
+``` r
 my_list
 ## $element_1
 ## [1] "Test"
@@ -319,7 +319,7 @@ my_list
 Similar to other objects, to **delete** elements from a list, you need to specify the position indices of the elements you intend to delete within square brackets, preceded by the `-` (*minus*) operator. In this case, the use of single square brackets `[ ]` is required.
 
 
-```r
+``` r
 # Deleting the second element
 my_list[-2]
 ## $element_1
@@ -395,7 +395,7 @@ Let’s now look at some frequently used functions and common operations perform
 Let’s now describe in detail some particular uses, using the example list `my_list` defined here. Note that the element names have been deliberately omitted.
 
 
-```r
+``` r
 my_list = list(my_value,
                 my_vector,
                 my_data)
@@ -410,7 +410,7 @@ Like other objects, lists have *attributes*, which provide useful information ab
 To evaluate the size of a list, i.e., the number of elements it contains, we can use the `length()` function.
 
 
-```r
+``` r
 # Number of elements
 length(my_list)
 ## [1] 3
@@ -421,7 +421,7 @@ length(my_list)
 To access the names of the elements in a list, you can use the `names()` function. If the names were not specified at the time of creation, the result will be `NULL`.
 
 
-```r
+``` r
 # Check current names
 names(my_list)
 ## NULL
@@ -430,7 +430,7 @@ names(my_list)
 To assign names to the elements, you will need to assign a character vector with the names to `names(my_list)`.
 
 
-```r
+``` r
 # Assign names
 names(my_list) = c("Variable", "Vector", "Dataframe")
 
@@ -460,7 +460,7 @@ To add elements to a list, you can either create a new element using the `$` ope
 By writing `my_list$name = new_obj` you can add a new element to the list, specifying the name and assigning the object `new_obj` to it. 
 
 
-```r
+``` r
 # Add a new element
 my_list$new_obj = "A new element"
 
@@ -488,7 +488,7 @@ my_list
 
 With the `c()` function, you can combine multiple lists. Note that any new objects you want to include must actually be a list, or you might not get the desired result:
 
-```r
+``` r
 # ERROR: combining a list with a vector
 new_vector = 1:3
 c(my_list, new_vector)
@@ -551,7 +551,7 @@ Finally, let’s look at some common functions used to obtain summary informatio
 
 - `str()` allows you to evaluate the structure of the list, providing useful information such as the number of elements and their types.
 
-```r
+``` r
 str(my_list)
 ## List of 4
 ##  $ Variable : chr "Test"
@@ -564,7 +564,7 @@ str(my_list)
 ```
 - `summary()` provides summary information about the elements, though it is not very useful for lists.
 
-```r
+``` r
 summary(my_list)
 ##           Length Class      Mode     
 ## Variable  1      -none-     character
@@ -588,7 +588,7 @@ For a practical example, imagine that $n$ subjects have completed $k$ different 
 * Each element of the subject list is a data frame for the specific experiment, named `exp1, exp2, ..., expn`
 
 
-```r
+``` r
 # For simplicity, repeat the same experiment and subject
 
 # Generic experiment
@@ -658,7 +658,7 @@ str(experiments)
 Now the structure is much more complex, but if you have a clear understanding of Figure \@ref(fig:list-depth) and the indexing of previous lists, accessing elements of the `experiments` list is simple and intuitive. If we want to access the dataset for `subject 3` related to `experiment 2`:
 
 
-```r
+``` r
 # Using numeric indices
 experiments[[3]][[2]] # element 3 (a list) and then element 2
 ##    id gender  y

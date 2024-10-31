@@ -17,7 +17,7 @@ When we execute a command in R, the result is immediately displayed in the *Cons
 To assign the numeric value 5 to the object `x`, the following command must be executed:
 
 
-```r
+``` r
 x = 5
 ```
 
@@ -26,7 +26,7 @@ The `=` operator allows us to assign the values on its right to the object whose
 To use the value contained in the object, it is sufficient to call the desired object's name in the code.
 
 
-```r
+``` r
 x + 3
 ## [1] 8
 ```
@@ -34,7 +34,7 @@ x + 3
 It is also possible to "update" or "replace" the value contained in an object. For example:
 
 
-```r
+``` r
 # Update the value of an object
 x = x*10
 x
@@ -53,7 +53,7 @@ In the first case, we used the old value contained in `x` to calculate the new r
 There are two main operators used to assign a value to an object: the `=` operator and the `<-` operator. Both are valid, and in most cases the choice between them just comes down to personal style. Note that `<-` is very specific to R, while `=` is more commonly used across different programming languages.
 
 
-```r
+``` r
 # Demonstration that `=` and `<-` work equally for assigning a value and lead to the same result 
 x_1 = 45
 x_2 <- 45
@@ -84,7 +84,7 @@ There are some rules that distinguish valid names from invalid ones. The name of
 Note that R is a **Case-Sensitive** language, meaning it distinguishes between lowercase and uppercase letters. In the following example, the two names are considered different, so no overwriting occurs, and two different objects are created:
 
 
-```r
+``` r
 My_name = "Monty"
 my_name = "Python"
 
@@ -126,7 +126,7 @@ In R, we have four main data types, which are types of values that can be used:
 
 If you want to know the data type of a value or variable you can use the `typeof()` function as follows:
 
-```r
+``` r
 typeof("Psicostat")
 ## [1] "character"
 typeof(24.04)
@@ -171,7 +171,7 @@ The function input is called "arguments". Generally, to execute a function in R,
 For example, to create a sequence of values with increments of 1, you can use the `seq()` function, whose arguments include (among others) `from`, `to`, and `by`, indicating the starting value, the maximal value of the sequence, and the increment respectively.
 
 
-```r
+``` r
 # create a sequence of values from 0 to 10 with increments of 2
 seq(from = 0, to = 10, by = 2)
 ## [1]  0  2  4  6  8 10
@@ -180,7 +180,7 @@ seq(from = 0, to = 10, by = 2)
 When defining a function's arguments, it is not necessary to specify the names of the arguments. For example, the previous command can also be executed by specifying only the values.
 
 
-```r
+``` r
 # create a sequence of values from 0 to 10 with increments of 2
 seq(0, 10, 2)
 ## [1]  0  2  4  6  8 10
@@ -189,7 +189,7 @@ seq(0, 10, 2)
 However, this makes reading and understanding the code more difficult because it is unclear which arguments the values refer to. In this case, the order in which the values are defined is important, as R assumes the predefined order of the arguments. Notice how swapping the values produces different results from the previous ones, but this does not happen when the argument names are specified.
 
 
-```r
+``` r
 # swap previous values without specifying the argument names 
 # (so it will try going from 0 to 2 with increments of 10)
 seq(0, 2, 10)
@@ -205,7 +205,7 @@ We also see that functions can have many arguments, but it is not (always) neces
 For example, the `seq()` function also has the `length.out` argument, which was not specified earlier. It allows you to define the number of elements in the sequence. Let's see how specifying `length.out` changes the function's behavior.
 
 
-```r
+``` r
 seq(from = 0,  to = 10, length.out = 5)
 ## [1]  0.0  2.5  5.0  7.5 10.0
 seq(from = 0,  to = 10, length.out = 5, by = 2)
@@ -219,7 +219,7 @@ In general, it is advisable to always explicitly specify a function's arguments 
 Moreover, a function's arguments require specific types and structures of data, and it is up to us to ensure that the data is provided in the correct manner. For example, the `mean()` function, which calculates the average of a set of values, requires a *vector* of numeric values as input. We will explore the concept of *vectors* in Chapter \@ref(vector), but for now, we just need to know that we can use the `c()` function to combine multiple values into a single vector.
 
 
-```r
+``` r
 # Calculate the average of the following numeric values
 # use c() to combine multiple values into a single vector
 mean(c(10, 80, 60, 120)) 
@@ -234,7 +234,7 @@ Notice how in the first case the result is correct, while in the second case it 
 In the following example, we can see how `mean()` requires the values to be numeric. Although `"1"`, `"2"`, and `"3"` look like numbers, using double quotes turns them into character strings rather than numeric values, and R cannot calculate an average for characters.
 
 
-```r
+``` r
 # Calculate the average of the following (character) values
 mean(c("1", "2", "3"))
 ## Warning in mean.default(c("1", "2", "3")): argument is not numeric or logical:
@@ -251,7 +251,7 @@ It is impossible to know all the functions and all their arguments. Fortunately,
 To access the documentation, we can use the command `?<function-name>` or `help(<function-name>)`. For example:
 
 
-```r
+``` r
 ?seq
 help(seq)
 ```

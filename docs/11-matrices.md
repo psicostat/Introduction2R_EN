@@ -37,7 +37,7 @@ Now, let’s see how to create matrices in R and how to perform common selection
 The command used to create a matrix in R is `matrix()` and it includes several arguments:
 
 
-```r
+``` r
 nome_matrice = matrix(data, nrow = , ncol = , byrow = FALSE)
 ```
 
@@ -47,7 +47,7 @@ nome_matrice = matrix(data, nrow = , ncol = , byrow = FALSE)
 
 Let’s create a matrix with 3 rows and 4 columns with values from 1 to 12 as an example.
 
-```r
+``` r
 # Data to populate the matrix
 my_values = 1:12
 my_values
@@ -65,7 +65,7 @@ mat_bycol
 The `matrix()` function has `byrow = FALSE` by default, so base R populates matrices column by column. To populate matrices row by row, you must explicitly request it by specifying `byrow = TRUE`.
 
 
-```r
+``` r
 # Matrix populated by rows
 mat_byrow = matrix(my_values, nrow = 3, ncol = 4, byrow = TRUE)
 mat_byrow
@@ -80,7 +80,7 @@ It is important to note that while it is possible to specify any combination of 
 Thus, the length of the vector passed to the `data` argument must be compatible with the `nrow` and `ncol` arguments. However, it is possible to provide a single value if you want to obtain a matrix where all values are identical. For example, let’s create an empty matrix filled with `NA` values with 3 rows and 3 columns.
 
 
-```r
+``` r
 mat_NA = matrix(NA, nrow = 3, ncol = 3)
 mat_NA
 ##      [,1] [,2] [,3]
@@ -92,7 +92,7 @@ mat_NA
 :::{.tip title="Cycling Values" data-latex="[Cycling Values]"}
 In reality, it is possible to provide more or fewer data than the matrix can contain. If more values are provided, R simply uses the first available values, ignoring the subsequent ones.
 
-```r
+``` r
 matrix(1:20, nrow = 2, ncol = 2)
 ## Warning in matrix(1:20, nrow = 2, ncol = 2): data length differs from size of
 ## matrix: [20 != 2 x 2]
@@ -102,7 +102,7 @@ matrix(1:20, nrow = 2, ncol = 2)
 ```
 If fewer values are provided, R reuses the same values in the same order to fill the matrix, warning us of the problem.
 
-```r
+``` r
 matrix(1:4, nrow = 3, ncol = 4)
 ##      [,1] [,2] [,3] [,4]
 ## [1,]    1    4    3    2
@@ -121,7 +121,7 @@ We have seen that, similar to vectors, for matrices it is also necessary that al
 
 It is possible to define a matrix of characters only, although they are rarely used since clearly all mathematical operations are not possible.
 
-```r
+``` r
 mat_char = matrix(letters[1:12], nrow = 3, ncol = 4, byrow = TRUE)
 mat_char
 ##      [,1] [,2] [,3] [,4]
@@ -138,7 +138,7 @@ typeof(mat_char)
 :::{.trick title="Letters" data-latex="[Letters]"}
  In R, there are two special objects `letters` and `LETTERS` that include the lowercase and uppercase letters of the English alphabet, respectively.
 
-```r
+``` r
 letters[1:5]
 ## [1] "a" "b" "c" "d" "e"
 LETTERS[6:10]
@@ -151,7 +151,7 @@ LETTERS[6:10]
 Numeric value matrices, both `double` and `integer`, are undoubtedly the most common and widely used. They are often utilized to perform computationally efficient algebraic calculations.
 
 
-```r
+``` r
 # doubles
 mat_num = matrix(5, nrow = 3, ncol = 4)
 class(mat_num)
@@ -172,7 +172,7 @@ typeof(mat_int)
 Finally, matrices can also be formed by logical values `TRUE` and `FALSE`. We will see an important use of these regarding the selection of elements from a matrix in Chapter \@ref(matrix-selection-advanced).
 
 
-```r
+``` r
 mat_logic = matrix(c(TRUE, FALSE), nrow = 3, ncol = 4)
 mat_logic
 ##       [,1]  [,2]  [,3]  [,4]
@@ -222,14 +222,14 @@ o illustrate this concept, the following example shows the indices for each elem
 In R, you can select an element of a matrix using its row and column index. Similar to vectors, you need to indicate within **square brackets** `[ ]` placed after the name of the matrix, the **row index** and **column index**, **separated by a comma**.
 
 
-```r
+``` r
 nome_matrice[<row-index>, <column-index>]
 ```
 
 The **order** `[<row-index>, <column-index>]` is predetermined and must be respected for the selection to occur correctly. Let’s see a simple example of how it is possible to access any element:
 
 
-```r
+``` r
 my_matrix = matrix(1:12, nrow = 3, ncol = 4)
 my_matrix
 ##      [,1] [,2] [,3] [,4]
@@ -249,7 +249,7 @@ my_matrix[3,2]
 :::{.warning title="Subscript out of Bounds" data-latex="[Subscript out of Bounds]"}
 Note how indicating indices outside the matrix dimension results in an error message.
 
-```r
+``` r
 my_matrix[20,30]
 ## Error in my_matrix[20, 30]: subscript out of bounds
 ```
@@ -262,7 +262,7 @@ In addition to selecting a single element, other types of selection are possible
 You can select **all** elements of a row or a column using the following syntax:
 
 
-```r
+``` r
 # Select entire row
 matrix_name[<row-index>, ]
 
@@ -271,7 +271,7 @@ matrix_name[ , <column-index>]
 ```
 Note that the comma is necessary, leaving the position before or after the **comma** empty to indicate to R to select all rows or all columns, respectively. 
 
-```r
+``` r
 # Select row 2 and all columns
 my_matrix[2, ]
 ## [1]  2  5  8 11
@@ -282,7 +282,7 @@ my_matrix[ ,3]
 ```
 If you need to select multiple rows or columns, simply indicate all the indices of interest. Remember that these must be specified in a single vector. Within the square brackets, R expects a single comma separating row indices from column indices. You can use compact notation `1:3` to select rows or columns in succession, which is equivalent to `c(1,2,3)`.
 
-```r
+``` r
 # Select rows 1 and 3
 my_matrix[c(1,3), ]
 ##      [,1] [,2] [,3] [,4]
@@ -302,7 +302,7 @@ my_matrix[ , 2:4]
 By combining row and column indices, it is also possible to select specific regions of a matrix or select some of its values to create a new matrix.
 
 
-```r
+``` r
 # Select a block
 my_matrix[1:2, 3:4]
 ##      [,1] [,2]
@@ -327,7 +327,7 @@ The most observant will have noticed that the selection commands do not always r
 It is important to clarify that **a vector is not a matrix**, and vice versa. In R, these are two different types of objects, and it is important to keep this distinction in mind.
 
 
-```r
+``` r
 # A vector is not a matrix
 my_vector = 1:5
 is.vector(my_vector) # TRUE
@@ -342,7 +342,7 @@ is.matrix(my_matrix) # TRUE
 The result we obtain from a selection could be either a vector or a matrix depending on the type of selection. In particular, when selecting a single column (or row), we get a vector, while selecting multiple columns (or rows) results in a matrix.
 
 
-```r
+``` r
 # Select a column
 is.vector(my_matrix[, 1]) # TRUE
 is.matrix(my_matrix[, 1]) # FALSE
@@ -363,7 +363,7 @@ In linear algebra, *row vectors* and *column vectors* are simply matrices of dim
 In R, vectors have only one dimension, which is *length*, and thus when used with matrix operations, they are automatically converted to row vectors or column vectors as needed. However, this transformation may not always respect the actual intentions, so it is better to always use matrices rather than vectors.
 
 
-```r
+``` r
 # Vector
 my_vector = 1:4
 dim(my_vector)
@@ -396,7 +396,7 @@ my_col_vector
 We have seen that we can easily populate a matrix with a vector. Similarly, we can vectorize a matrix (in other words, "flatten" the matrix) to return to the original vector. Using the command `c(matrix)` or forcing the object type to vector with `vector(matrix)` or `as.vector(matrix)`.
 
 
-```r
+``` r
 # From matrix to vector
 my_matrix = matrix(1:12, nrow = 3, ncol = 4)
 c(my_matrix)
@@ -424,7 +424,7 @@ A useful function is to select among the elements of a matrix those that meet a 
 
 When a matrix is evaluated within a proposition, R evaluates the truth of that proposition concerning each of its elements. As a result, we obtain a matrix of logical values with the respective answers for each element (`TRUE` or `FALSE`).
 
-```r
+``` r
 my_matrix = matrix(1:23, nrow = 3, ncol = 4)
 ## Warning in matrix(1:23, nrow = 3, ncol = 4): data length [23] is not a
 ## sub-multiple or multiple of the number of rows [3]
@@ -446,7 +446,7 @@ test
 This matrix can be used within the square brackets to select elements of the original matrix that satisfy the proposition. Elements associated with the `TRUE` value are selected, while those associated with `FALSE` are discarded.
 
 
-```r
+``` r
 # Select the elements
 my_matrix[test]
 ## [1]  4  5  6  7  8  9 10
@@ -459,7 +459,7 @@ Note that in this case no comma is necessary within the square brackets, and the
 Row and column indices can be used to reorder the rows and columns of a matrix as needed.
 
 
-```r
+``` r
 my_matrix = matrix(1:6, nrow = 3, ncol = 4)
 my_matrix
 ##      [,1] [,2] [,3] [,4]
@@ -488,7 +488,7 @@ my_matrix[ ,c(1,3,2, 4)]
 An important use of indices relates to modifying an element of a matrix. To replace an old value with a new value, select the old value of the matrix and use the `=` (or `<-`) operator to assign the new value.
 
 
-```r
+``` r
 my_matrix = matrix(1:12, nrow = 3, ncol = 4)
 my_matrix
 ##      [,1] [,2] [,3] [,4]
@@ -507,7 +507,7 @@ my_matrix
 
 It is also possible to replace all values in an entire row or column that has been appropriately selected. In this case, you must provide the correct number of new values to use.
 
-```r
+``` r
 # Modify the 2nd column
 my_matrix[ ,2] = c(444, 555, 666)
 my_matrix
@@ -528,7 +528,7 @@ my_matrix
 Note that, unlike vectors, it is not possible to add a new row or column through this operation; a different procedure must be used instead (see Chapter \@ref(matrix-bind)).
 
 
-```r
+``` r
 # Attempt to add a new column [index selection error]
 my_matrix[, 5] = c(27, 27, 27)
 ## Error in `[<-`(`*tmp*`, , 5, value = c(27, 27, 27)): subscript out of bounds
@@ -539,7 +539,7 @@ my_matrix[, 5] = c(27, 27, 27)
 To **delete** rows (or columns) from a matrix, you need to specify the row (or column) indices you want to remove inside the square brackets, preceded by the `-` (*minus*) operator. In the case of multiple rows (or columns), you can only indicate the minus sign before the `c()` command, similar to what is done with vectors.
 
 
-```r
+``` r
 my_matrix = matrix(1:12, nrow = 3, ncol = 4)
 
 # Delete the 2nd row
@@ -666,7 +666,7 @@ We have seen in Chapter \@ref(attributes) that objects in R have what are called
 Recall that a matrix is a **two-dimensional** object made up of rows and columns. These form the dimensions of a matrix. To obtain the number of rows and columns in a matrix, we can use the commands `nrow()` and `ncol()`, respectively.
 
 
-```r
+``` r
 my_matrix = matrix(1:12, ncol = 3, nrow = 4)
 
 # Number of rows
@@ -681,7 +681,7 @@ ncol(my_matrix)
 Alternatively, to find out the dimensions of a matrix, you can use the `dim()` function. This will return a vector with two values where the first represents the number of rows and the second the number of columns.
 
 
-```r
+``` r
 dim(my_matrix)
 ## [1] 4 3
 ```
@@ -693,7 +693,7 @@ As you may have noticed, by default, the dimensions of a matrix (that is, rows a
 With the commands `rownames()` and `colnames()`, we can access the names of the rows and columns, respectively.
 
 
-```r
+``` r
 my_matrix = matrix(1:12, nrow = 3, ncol = 4)
 
 # Names of rows
@@ -708,7 +708,7 @@ colnames(mat)
 Since they are not set initially, we get `NULL` as the output. To set the names of rows and/or columns, you will need to assign to `rownames(matrix_name)` and `colnames(matrix_name)` a character vector of the same length as the dimension you are renaming. If you set a single character, all rows/columns will have the same value. This tells us that if we want to set names, R requires this to be done for all rows/columns.
 
 
-```r
+``` r
 # Assign names to the rows
 rownames(my_matrix) = LETTERS[1:3]
 my_matrix
@@ -729,7 +729,7 @@ my_matrix
 Alternatively, you can use `dimnames()` to access both row and column names simultaneously. The output will be a list (see Chapter \@ref(list)) where the row names are indicated first, followed by the column names.
 
 
-```r
+``` r
 dimnames(my_matrix)
 ## [[1]]
 ## [1] "A" "B" "C"
@@ -744,7 +744,7 @@ When we explored different ways to select elements of a matrix in Chapter \@ref(
 We can select the first column both by its numerical index `matrix_name[ , 1]` and by its assigned name `matrix_name[ ,"column_name"]`. These operations are not particularly useful with matrices but will be essential in the case of **dataframes** (see Chapter \@ref(dataframe)).
 
 
-```r
+``` r
 # Select column "F"
 my_matrix[ , "F"]
 ## A B C 
@@ -776,7 +776,7 @@ So, given a matrix `my_matrix` of size $m \times n$, if we want to add the rows 
 Let’s see an example in R:
 
 
-```r
+``` r
 # Starting matrix
 my_matrix = matrix(1:12, nrow = 3, ncol = 4)
 my_matrix
@@ -823,7 +823,7 @@ An additional useful aspect is the extension of the `cbind()` and `rbind()` comm
 We have seen that we can combine matrices by row/column only if the number of columns/rows of the two matrices matches. We get an error instead when trying to combine matrices of different dimensions: *"number of columns/rows of matrices must match"*.
 
 
-```r
+``` r
 my_matrix = matrix(1:12, nrow = 3, ncol = 4)
 
 # Matrix with incorrect number of columns
@@ -842,7 +842,7 @@ Mathematical operators (e.g., `+`, `-`, `*`, `/`) perform operations between a m
 In the case of a single value, the same operation is simply performed on all elements of the matrix. For example, we can add 100 to all elements of a matrix.
 
 
-```r
+``` r
 my_matrix = matrix(1:12, nrow = 3, ncol = 4)
 my_matrix
 ##      [,1] [,2] [,3] [,4]
@@ -863,7 +863,7 @@ my_matrix + 100
 In the case of a vector, the operation is performed **element by element**, cycling the values of the vector if its length is insufficient. For example, we can add the vector of values `c(100, 200, 300, 400)` to all elements of a matrix.
 
 
-```r
+``` r
 # Add a vector of values
 my_matrix + c(100, 200, 300, 400)
 ##      [,1] [,2] [,3] [,4]
@@ -879,7 +879,7 @@ As can be easily understood, this operation is not advisable since it can easily
 In the case of operations between matrices, the operation is performed **element by element**, so it is important that the matrices have the **same dimensions**. For example, we can add to all elements of a matrix where the rows contain the values 100, 200, 300, and 400.
 
 
-```r
+``` r
 sum_matrix = matrix(rep(c(100, 200, 300, 400), each = 3), nrow = 3, ncol = 4)
 sum_matrix
 ##      [,1] [,2] [,3] [,4]
@@ -915,7 +915,7 @@ Now let’s look at some useful functions related to the diagonal of a matrix. T
 The command `diag(matrix_name)` allows you to extract the diagonal of a matrix and treat it as a simple vector:
 
 
-```r
+``` r
 # Square matrix
 square_matrix = matrix(1:16, nrow = 4, ncol = 4)
 square_matrix
@@ -943,7 +943,7 @@ diag(my_matrix)
 The `diag()` function can also be used to easily replace elements on the diagonal of a matrix or to create a diagonal matrix where all other values are zero, such as the identity matrix.
 
 
-```r
+``` r
 # Replace the diagonal elements
 diag(my_matrix) = 999
 my_matrix
@@ -984,14 +984,14 @@ Using the matrices created in previous exercises, complete the following tasks (
 We have seen that matrices are a *two-dimensional* object, but it is also possible to create objects that have 3, 4, or any number (*n*) of dimensions. These objects are called **arrays** and can be created using the `array()` command, specifying the vector of values used to populate the object and the size of each of its dimensions.
 
 
-```r
+``` r
 array(data = , dim = )
 ```
 
 For example, to create a cube of side 3 containing integer values from 1 to 27, we can execute the following command.
 
 
-```r
+``` r
 my_cube = array(1:27, dim = c(3,3,3))
 my_cube
 ## , , 1
@@ -1019,7 +1019,7 @@ my_cube
 All the main functions and selection operations we have seen for matrices and vectors can also be performed similarly with arrays. The general functioning of selecting elements using square brackets will now be clearer. For each dimension, the desired position indices are indicated. The order within the square brackets determines which specific dimension is being referred to, and commas are used to separate indices of different dimensions.
 
 
-```r
+``` r
 my_hypercube[<dim-1>, <dim-2>, <dim-3>, ..., <dim-n>]
 ```
 
@@ -1051,7 +1051,7 @@ Let’s now see some simple examples of selection.
 It is easy to see that matrices are simply a special case of arrays with 2 dimensions. In fact, the observant will have noticed that the value `"array"` appeared alongside `"matrix"` when evaluating the type of the object.
 
 
-```r
+``` r
 my_matrix = matrix(1:12, nrow = 2, ncol = 2)
 ## Warning in matrix(1:12, nrow = 2, ncol = 2): data length differs from size of
 ## matrix: [12 != 2 x 2]
@@ -1063,7 +1063,7 @@ class(my_matrix)
 
 However, note that a simple vector is not an array. Recall that a vector does not possess a dimension (`dim`) but simply a length (`length`).
 
-```r
+``` r
 my_vector = 1:12
 is.array(my_vector)
 ## [1] FALSE

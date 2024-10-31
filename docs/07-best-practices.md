@@ -16,7 +16,7 @@ Let’s now go over a set of good practices for organizing code neatly within a 
 To keep the script’s organization clear and easy to understand, it is useful to divide the code into sections where different steps of the analysis are performed. In RStudio, you can create a section by adding the characters `####` or `----` at the end of a comment line. The comment text will be considered the section title, and a small arrow will appear next to the line number. You can use either `#` or `-` characters to create the desired style, as long as the line ends with at least four identical characters.
 
 
-```r
+``` r
 # Section 1 ####
 
 # Section 2 ----
@@ -76,7 +76,7 @@ The use of comments is very important. It allows us to document the different pa
 
 The ability to write useful comments and avoid redundant ones comes with experience. In general, a comment should not indicate *"what"* but rather the *"why"* of that part of the code. The "what" is easily interpretable from the code itself, while the "why" may be less obvious and much more helpful for understanding the entire script. For example:
 
-```r
+``` r
 x = 10 # assign the value 10 to x
 x = 10 # define maximum number of responses
 ```
@@ -96,14 +96,14 @@ It's also important to be **consistent** in the choice of style when naming vari
 We discussed in Chapter \@ref(function-arguments) the importance of explicitly naming arguments when using functions. Specifying what each value refers to makes reading and understanding the code easier. For example:
 
 
-```r
+``` r
 seq(0, 10, 2)
 ```
 
 It may not be clear whether we mean a sequence between 0 and 10 of length 2 or at intervals of 2. By specifying the arguments, we avoid confusion and possible errors.
 
 
-```r
+``` r
 seq(from = 0, to = 10, by = 2)
 seq(from = 0, to = 10, length.out = 2)
 ```
@@ -117,7 +117,7 @@ Unlike many other software, R does not enforce strict rules regarding the use of
 Take, for example, the following lines of code, which include some advanced R functions:
 
 
-```r
+``` r
 # Style 1
 k=10;if(k<5){x=5:15}else{x=seq(0,16,4)};y=7*2-12;mean(x/y)
 ## [1] 4
@@ -143,7 +143,7 @@ Generally, the following rules apply:
 
 - Add spaces around operators (`+`, `-`, `=`, `<-`, etc.) to separate them from arguments, except for `:`
 
-```r
+``` r
 # Good
 35 / 5 + 7
 x = 0:10
@@ -155,7 +155,7 @@ x=0 : 10
 
 - In functions, add **spaces** around the `=` symbol that separates the argument names from their values. Add a space after each comma but do not separate the function name from the opening parenthesis.
 
-```r
+``` r
 # Good
 seq(from = 0, to = 10, by = 2)
 
@@ -165,7 +165,7 @@ seq (from=0,to=10,by=2)
 
 - Use correct **indentation** for code blocks within curly braces. The level of indentation should reflect the nested structure of the code.
 
-```r
+``` r
 # Good
 for (...) {       # outer loop
   ...
@@ -191,7 +191,7 @@ if (...) {    # conditional statement
 
 - **Align** function arguments if they span multiple lines.
 
-```r
+``` r
 # Good
 data.frame(id = ...,
            name = ...,

@@ -30,7 +30,7 @@ Let’s now see some uses of attributes with vectors. The attributes in the case
 Let's see how a generic vector initially does not have any attributes.
 
 
-```r
+``` r
 my_vector = 1:10
 
 attributes(my_vector)
@@ -43,7 +43,7 @@ attributes(my_vector)
 By executing the `class()` function, however, we can still get the precise type of vector, in this case, `"integer"`.
 
 
-```r
+``` r
 class(my_vector)
 ## [1] "integer"
 ```
@@ -63,7 +63,7 @@ As anticipated, the `dim` attribute is not available for vectors, though it will
 Initially, the elements of a vector do not have names.
 
 
-```r
+``` r
 names(my_vector)
 ## NULL
 ```
@@ -71,7 +71,7 @@ names(my_vector)
 To set the names of the elements, we need to assign a character vector to `names(vector_name)`, containing the desired names, with the same length as the vector we are renaming.
 
 
-```r
+``` r
 names(my_vector) = paste0("Item_", 1:10)
 my_vector
 ##  Item_1  Item_2  Item_3  Item_4  Item_5  Item_6  Item_7  Item_8  Item_9 Item_10 
@@ -91,7 +91,7 @@ This process allows us to create what is called a *named vector*. We can see how
 A particular use of named vectors is selecting values by their element names. Note that for this to work correctly, all elements must have different names.
 
 
-```r
+``` r
 my_vector[c("Item_3", "Item_5")]
 ## Item_3 Item_5 
 ##      3      5
@@ -105,7 +105,7 @@ In the case of vectors, this approach is rarely used, but we will see that it be
 Factors are a special type of vector that, through the use of attributes, allow for the efficient storage of categorical variables (nominal or ordinal). The command used to create a factor in R is `factor()` and contains several arguments:
 
 
-```r
+``` r
 factor_name = factor(x, levels = , ordered = FALSE)
 ```
 
@@ -115,7 +115,7 @@ factor_name = factor(x, levels = , ordered = FALSE)
 
 For example, we could create the variable `eye_color` to record the eye color of members of a class:
 
-```r
+``` r
 # Create the data
 my_values = rep(c("green", "brown", "blue"), times = 3)
 my_values
@@ -135,7 +135,7 @@ Note that it is not necessary to specify the `levels` argument. The levels of th
 Let's now understand the structure of factors and the use of attributes.
 
 
-```r
+``` r
 attributes(my_factor)
 ## $levels
 ## [1] "blue"  "brown" "green"
@@ -147,7 +147,7 @@ attributes(my_factor)
 We see that the class of the object is `factor` and that there is an additional `levels` attribute where the possible levels of our variable are stored. But now pay attention to what we get when we evaluate the data type contained in the factor and its structure.
 
 
-```r
+``` r
 # Data type
 typeof(my_factor)
 ## [1] "integer"
@@ -164,13 +164,13 @@ The solution is simple. When creating a factor, R evaluates the levels present, 
 :::{.warning title="Beware of Conversion" data-latex="[Beware of Conversion]"}
 One of the main errors involves converting a factor back into a regular vector. If we want to get a vector of characters, we can use the `as.character()` function to get the desired result.
 
-```r
+``` r
 as.character(my_factor)
 ## [1] "green" "brown" "blue"  "green" "brown" "blue"  "green" "brown" "blue"
 ```
 However, if we want to get a numeric vector, we need to be particularly careful. Consider the following example where we have the years of education of participants in a study. We might perform some analyses considering this variable as categorical and then convert it back to a numeric variable for further analysis. Watch what happens:
 
-```r
+``` r
 # Create the variable as a factor
 school_years = factor(c(11, 8, 4, 8, 11, 4, 11, 8))
 school_years
@@ -183,7 +183,7 @@ as.numeric(school_years)
 ```
 Unexpectedly, we do not get the original values (i.e., 4, 8, 11) but different values. These are actually the numeric values R used to associate each element with its corresponding level. To get the correct values, we must use the following command:
 
-```r
+``` r
 as.numeric(as.character(school_years))
 ## [1] 11  8  4  8 11  4 11  8
 ```
@@ -202,7 +202,7 @@ Now that we understand how factors work, let's look at some common operations.
 It is possible to rename the levels of a factor using the `levels()` function, which allows us to access the current levels and possibly replace them.
 
 
-```r
+``` r
 my_factor
 ## [1] green brown blue  green brown blue  green brown blue 
 ## Levels: blue brown green
@@ -224,7 +224,7 @@ It is important not to confuse reordering levels with renaming them. In the firs
 Let’s look at an example where we collect data regarding drug dosages:
 
 
-```r
+``` r
 dosage = factor(rep(c("medium", "low", "high"), times = 2))
 dosage
 ## [1] medium low    high   medium low    high  
@@ -234,7 +234,7 @@ dosage
 Without specifying the `levels` argument, the levels are automatically defined in alphabetical order. Let’s see what happens if, by mistake, we rename the levels instead of correctly reordering them.
 
 
-```r
+``` r
 # Create a copy
 dosage_wrong = dosage
 
@@ -249,7 +249,7 @@ Note that this is a serious mistake because by renaming the levels, we have also
 
 To correctly reorder the levels, we can reuse the `factor()` function, specifying the levels in the desired order.
 
-```r
+``` r
 dosage = factor(dosage, levels = c("low", "medium", "high"))
 dosage
 ## [1] medium low    high   medium low    high  
@@ -267,7 +267,7 @@ Several other operations are possible with factors. For instance, we might want 
 Let's create a factor including a series of values in {`"a"`, `"b"`, `"c"`}; these values will also be automatically set as the levels by the `factor` function:
 
 
-```r
+``` r
 # more compact version is: factor(rep(c("a","b","c"),c(7,4,3)))
 my_factor = factor(c("a","a","a","a","a","a","a","b","b","b","b","c","c","c"))
 my_factor
@@ -278,7 +278,7 @@ my_factor
 Now, let's copy this factor into a new one, but retaining only the values `"a"` and `"b"`. As you can see, even though there are no more `"c"` values, the factor still retains all the initial levels (including `"c"`), because they are part of the attributes that were copied from the original object: 
 
 
-```r
+``` r
 # Keep only the values 'a' and 'b'
 new_my_factor = my_factor[1:10]
 new_my_factor
@@ -289,7 +289,7 @@ new_my_factor
 In these cases, we can use the `droplevels(x, exclude = ...)` function to remove certain levels. We can either specify the particular levels to be removed using the `exclude` argument, or even indicate no specific levels to be excluded. In the latter case, levels associated with no observations in the vector will automatically be excluded: 
 
 
-```r
+``` r
 # Explicitly indicate which levels should be removed
 droplevels(new_my_factor, exclude="c")
 ##  [1] a a a a a a a b b b
@@ -304,7 +304,7 @@ droplevels(new_my_factor)
 If you use `droplevels` to forcibly remove a level that is associated with actual values in the vectors (such as `"a"`), the corresponding values will become `NA`:
 
 
-```r
+``` r
 droplevels(new_my_factor, exclude = "a")
 ##  [1] <NA> <NA> <NA> <NA> <NA> <NA> <NA> b    b    b   
 ## Levels: b
@@ -313,7 +313,7 @@ droplevels(new_my_factor, exclude = "a")
 Just as it is possible to remove a level, it is also possible to add a level to a factor simply by using the `factor()` command and specifying all the old levels plus the new one:
 
 
-```r
+``` r
 factor(my_factor, levels = c(levels(my_factor), "newlevel"))
 ##  [1] a a a a a a a b b b b c c c
 ## Levels: a b c newlevel
@@ -322,7 +322,7 @@ factor(my_factor, levels = c(levels(my_factor), "newlevel"))
 In this case, we used the `c(old_levels, new_levels)` function to create a vector of new levels to use, including all the previous levels plus the new one(s). Alternatively, we can also use the assignment method `levels(x) =` by specifying a vector of levels:
 
 
-```r
+``` r
 # more compact version is: factor(rep(c("a","b","c"),c(7,4,3)))
 my_factor = factor(c("a","a","a","a","a","a","a","b","b","b","b","c","c","c"))
 levels(my_factor) = c("a","b","c","newlevel")
@@ -334,7 +334,7 @@ my_factor
 You can also combine two factors to obtain a single factor, merging the levels and their respective numeric values. Simply use the `c(fac1, fac2)` command:
 
 
-```r
+``` r
 fac1 = factor(c("a","a","a","a","b","b","c"))
 fac2 = factor(c("d","d","d"))
 c(fac1, fac2)
@@ -349,7 +349,7 @@ c(fac1, fac2)
 Finally, let’s look at an example of an ordinal categorical variable. Going back to the previous example regarding drug dosage, it’s clear that there is an ordinal relationship between the various levels of the variable. To create an ordinal variable, we can specify the `ordered = TRUE` argument:
 
 
-```r
+``` r
 dosage_ord = factor(dosage, levels = c("low", "medium", "high"), ordered = TRUE)
 dosage_ord
 ## [1] medium low    high   medium low    high  
@@ -359,7 +359,7 @@ dosage_ord
 We notice that the ordinal nature of the levels is specified both when the levels are reported and in the object’s class.
 
 
-```r
+``` r
 # Nominal categorical variable
 class(dosage)
 ## [1] "factor"
@@ -374,7 +374,7 @@ In R, it’s important to correctly code different variables by specifying their
 
 Note, for example, how the output of the `summary()` function changes depending on the variable type.
 
-```r
+``` r
 # Numerical variable
 summary(1:15)
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 

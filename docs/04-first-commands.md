@@ -25,77 +25,99 @@ R is a great calculator. In Table \@ref(tab:table-math-operators), the main math
   <tr>
    <td style="text-align:left;"> x + y </td>
    <td style="text-align:left;"> Addition </td>
-   <td style="text-align:left;"> &gt; 5 + 3 &lt;br /&gt;[1] 8 </td>
+   <td style="text-align:left;"> &gt; 5 + 3 
+[1] 8 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> x - y </td>
    <td style="text-align:left;"> Subtraction </td>
-   <td style="text-align:left;"> &gt; 7 - 2 &lt;br /&gt;[1] 5 </td>
+   <td style="text-align:left;"> &gt; 7 - 2 
+[1] 5 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> x * y </td>
    <td style="text-align:left;"> Multiplication </td>
-   <td style="text-align:left;"> &gt; 4 * 3 &lt;br /&gt;[1] 12 </td>
+   <td style="text-align:left;"> &gt; 4 * 3 
+[1] 12 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> x / y </td>
    <td style="text-align:left;"> Division </td>
-   <td style="text-align:left;"> &gt; 8 / 3 &lt;br /&gt;[1] 2.666667 </td>
+   <td style="text-align:left;"> &gt; 8 / 3 
+[1] 2.666667 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> x %% y </td>
    <td style="text-align:left;"> Modulo </td>
-   <td style="text-align:left;"> &gt; 7 %% 5 &lt;br /&gt;[1] 2 </td>
+   <td style="text-align:left;"> &gt; 7 %% 5 
+[1] 2 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> x %/% y </td>
    <td style="text-align:left;"> Integer Division </td>
-   <td style="text-align:left;"> &gt; 7 %/% 5 &lt;br /&gt;[1] 1 </td>
+   <td style="text-align:left;"> &gt; 7 %/% 5 
+[1] 1 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> x ^ y </td>
    <td style="text-align:left;"> Power </td>
-   <td style="text-align:left;"> &gt; 3 ^ 3 &lt;br /&gt;[1] 27 </td>
+   <td style="text-align:left;"> &gt; 3 ^ 3 
+[1] 27 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> abs(x) </td>
    <td style="text-align:left;"> Absolute Value </td>
-   <td style="text-align:left;"> &gt; abs(3-5^2) &lt;br /&gt;[1] 22 </td>
+   <td style="text-align:left;"> &gt; abs(3-5^2) 
+[1] 22 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> sign(x) </td>
    <td style="text-align:left;"> Sign of an Expression </td>
-   <td style="text-align:left;"> &gt; sign(-8) &lt;br /&gt;[1] -1 </td>
+   <td style="text-align:left;"> &gt; sign(-8) 
+[1] -1 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> sqrt(x) </td>
    <td style="text-align:left;"> Square Root </td>
-   <td style="text-align:left;"> &gt; sqrt(25) &lt;br /&gt;[1] 5 </td>
+   <td style="text-align:left;"> &gt; sqrt(25) 
+[1] 5 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> log(x) </td>
    <td style="text-align:left;"> Natural Logarithm </td>
-   <td style="text-align:left;"> &gt; log(10) &lt;br /&gt;[1] 2.302585 </td>
+   <td style="text-align:left;"> &gt; log(10) 
+[1] 2.302585 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> exp(x) </td>
    <td style="text-align:left;"> Exponential </td>
-   <td style="text-align:left;"> &gt; exp(1) &lt;br /&gt;[1] 2.718282 </td>
+   <td style="text-align:left;"> &gt; exp(1) 
+[1] 2.718282 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> sin(x)&lt;br /&gt;cos(x)&lt;br /&gt;tan(x)&lt;br /&gt;asin(x)&lt;br /&gt;acos(x)&lt;br /&gt;atan(x) </td>
-   <td style="text-align:left;"> Trigonometric Functions </td>
-   <td style="text-align:left;"> &gt;sin(pi/2) &lt;br /&gt;[1]1 &lt;br /&gt;&gt;cos(pi/2) &lt;br /&gt;[1]6.123234e-17 </td>
+   <td style="text-align:left;"> sin(x)
+cos(x)
+tan(x)
+asin(x)
+acos(x)
+ata </td>
+   <td style="text-align:left;"> (x) |Trigonometric Funct </td>
+   <td style="text-align:left;"> ons |&gt;sin(pi/2) 
+[1]1 
+&gt;cos(pi/2) 
+[1]6.123 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> factorial(x) </td>
    <td style="text-align:left;"> Factorial </td>
-   <td style="text-align:left;"> &gt; factorial(6) &lt;br /&gt;[1] 720 </td>
+   <td style="text-align:left;"> &gt; factorial(6) 
+[1] 720 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> choose(n, k) </td>
    <td style="text-align:left;"> Binomial Coefficient </td>
-   <td style="text-align:left;"> &gt; choose(5,3) &lt;br /&gt;[1] 10 </td>
+   <td style="text-align:left;"> &gt; choose(5,3) 
+[1] 10 </td>
   </tr>
 </tbody>
 </table>
@@ -167,37 +189,44 @@ R will evaluate the propositions and return the value `TRUE` if the proposition 
   <tr>
    <td style="text-align:left;"> x == y </td>
    <td style="text-align:left;"> Equal </td>
-   <td style="text-align:left;"> &gt; 5 == 3 &lt;br /&gt;[1] FALSE </td>
+   <td style="text-align:left;"> &gt; 5 == 3 
+[1] FALSE </td>
   </tr>
   <tr>
    <td style="text-align:left;"> x != y </td>
    <td style="text-align:left;"> Not equal </td>
-   <td style="text-align:left;"> &gt; 7 != 2 &lt;br /&gt;[1] TRUE </td>
+   <td style="text-align:left;"> &gt; 7 != 2 
+[1] TRUE </td>
   </tr>
   <tr>
    <td style="text-align:left;"> x &gt; y </td>
    <td style="text-align:left;"> Greater than </td>
-   <td style="text-align:left;"> &gt; 4 &gt; 3 &lt;br /&gt;[1] TRUE </td>
+   <td style="text-align:left;"> &gt; 4 &gt; 3 
+[1] TRUE </td>
   </tr>
   <tr>
    <td style="text-align:left;"> x &gt;= y </td>
    <td style="text-align:left;"> Greater than or equal to </td>
-   <td style="text-align:left;"> &gt; -2 &gt;= 3 &lt;br /&gt;[1] FALSE </td>
+   <td style="text-align:left;"> &gt; -2 &gt;= 3 
+[1] FALSE </td>
   </tr>
   <tr>
    <td style="text-align:left;"> x &lt; y </td>
    <td style="text-align:left;"> Less than </td>
-   <td style="text-align:left;"> &gt; 7 &lt; 5 &lt;br /&gt;[1] FALSE </td>
+   <td style="text-align:left;"> &gt; 7 &lt; 5 
+[1] FALSE </td>
   </tr>
   <tr>
    <td style="text-align:left;"> x &lt;= y </td>
    <td style="text-align:left;"> Less than or equal to </td>
-   <td style="text-align:left;"> &gt; 7 &lt;= 7 &lt;br /&gt;[1] TRUE </td>
+   <td style="text-align:left;"> &gt; 7 &lt;= 7 
+[1] TRUE </td>
   </tr>
   <tr>
    <td style="text-align:left;"> x %in% y </td>
    <td style="text-align:left;"> inclusion </td>
-   <td style="text-align:left;"> &gt; 5 %in% c(3, 5, 8) &lt;br /&gt;[1] TRUE </td>
+   <td style="text-align:left;"> &gt; 5 %in% c(3, 5, 8) 
+[1] TRUE </td>
   </tr>
 </tbody>
 </table>
@@ -212,7 +241,7 @@ The `=` operator is used in R to assign a value to a variable. This topic will b
 Note that in any programming language, the values `TRUE` and `FALSE` correspond to the numerical values `1` and `0`, respectively. These are called [boolean values](https://en.wikipedia.org/wiki/Boolean_data_type).
 
 
-```r
+``` r
 TRUE == 1   # TRUE
 TRUE == 2   # FALSE
 TRUE == 0   # FALSE
@@ -223,7 +252,7 @@ FALSE == 1  # FALSE
 In R, it is also possible to abbreviate `TRUE` and `FALSE` as `T` and `F`, respectively, although this practice is not recommended as it could generate confusion. Indeed, while `TRUE` and `FALSE` are reserved words (see Chapter \@ref(objects-names)), `T` and `F` are not (i.e., the latter can also serve as names for any other user-defined variables, thus generating confusion).
 
 
-```r
+``` r
 T == 1      # TRUE
 T == TRUE   # TRUE
 F == 0      # TRUE
@@ -249,17 +278,20 @@ In R, it is possible to combine multiple relations to evaluate a desired proposi
   <tr>
    <td style="text-align:left;"> !x </td>
    <td style="text-align:left;"> Negation </td>
-   <td style="text-align:left;"> &gt; !TRUE &lt;br /&gt;[1] FALSE </td>
+   <td style="text-align:left;"> &gt; !TRUE 
+[1] FALSE </td>
   </tr>
   <tr>
    <td style="text-align:left;"> x &amp; y </td>
    <td style="text-align:left;"> Conjunction </td>
-   <td style="text-align:left;"> &gt; TRUE &amp; FALSE &lt;br /&gt;[1] FALSE </td>
+   <td style="text-align:left;"> &gt; TRUE &amp; FALSE 
+[1] FALSE </td>
   </tr>
   <tr>
    <td style="text-align:left;"> x &amp;#124; y </td>
    <td style="text-align:left;"> Inclusive Disjunction </td>
-   <td style="text-align:left;"> &gt; TRUE &amp;#124; FALSE &lt;br /&gt;[1] TRUE </td>
+   <td style="text-align:left;"> &gt; TRUE &amp;#124; FALSE 
+[1] TRUE </td>
   </tr>
 </tbody>
 </table>

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter10 Dataframe | Introduction to R</title>
   <meta name="description" content="This is an introductory book on R produced by Psicostat, an interdisciplinary research group that combines a passion for statistics and psychology." />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter10 Dataframe | Introduction to R" />
   <meta property="og:type" content="book" />
@@ -125,7 +125,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 </style>
 
-<link rel="stylesheet" href="libs/sass4eeb3cd232157e7bc0437cf318a67eab/style.min.css" type="text/css" />
+<link rel="stylesheet" href="libs/sass9bead54d5c735fef245b8b14a3883475/style.min.css" type="text/css" />
 <link rel="stylesheet" href="assets/custom.css" type="text/css" />
 </head>
 
@@ -144,7 +144,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentation of the Book</a></li>
 <li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><strong>GETTING STARTED</strong></a></li>
-<li class="chapter" data-level="1" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>1</b> Installing R e RStudio</a>
+<li class="chapter" data-level="1" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>1</b> Installing R and RStudio</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="install.html"><a href="install.html#install-r"><i class="fa fa-check"></i><b>1.1</b> Installing R</a>
 <ul>
@@ -877,7 +877,7 @@ F
 <span id="cb207-20"><a href="dataframe.html#cb207-20" tabindex="-1"></a><span class="do">## 7  26 Engineering</span></span></code></pre></div>
 <p>Note that when defining a logical condition using the dataframe’s variables, it’s still necessary to include the dataframe name. In the previous example, we would have encountered an error by simply using <code>age &gt; 24</code>, as this would refer to the object <code>age</code> (which doesn’t exist), not the <code>age</code> variable contained in <code>my_data</code>.</p>
 <div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="dataframe.html#cb208-1" tabindex="-1"></a>my_data[age <span class="sc">&gt;</span> <span class="dv">24</span> , <span class="fu">c</span>(<span class="st">&quot;age&quot;</span>, <span class="st">&quot;faculty&quot;</span>)]</span>
-<span id="cb208-2"><a href="dataframe.html#cb208-2" tabindex="-1"></a><span class="do">## Error in eval(expr, envir, enclos): object &#39;age&#39; not found</span></span></code></pre></div>
+<span id="cb208-2"><a href="dataframe.html#cb208-2" tabindex="-1"></a><span class="do">## Error: object &#39;age&#39; not found</span></span></code></pre></div>
 <p>Similarly to what we saw with vectors, using the condition <code>my_data$age &gt; 24</code> returns a vector of <code>TRUE</code> and <code>FALSE</code> values depending on whether the condition is met or not.</p>
 <p>By using logical operators <strong>AND</strong> (<code>&amp;</code>), <strong>OR</strong> (<code>|</code>), and <strong>NOT</strong> (<code>!</code>), we can combine multiple logical operations to create more complex, yet still intuitive, indexing queries. For example, to select “subjects between 20 and 25 years old enrolled in psychology,” we would write:</p>
 <div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="dataframe.html#cb209-1" tabindex="-1"></a>my_data[my_data<span class="sc">$</span>age<span class="sc">&gt;=</span><span class="dv">20</span> <span class="sc">&amp;</span> my_data<span class="sc">$</span>age<span class="sc">&lt;=</span><span class="dv">25</span> <span class="sc">&amp;</span> my_data<span class="sc">$</span>faculty<span class="sc">==</span><span class="st">&quot;Psychology&quot;</span> , ]</span>

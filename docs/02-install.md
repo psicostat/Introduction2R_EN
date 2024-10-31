@@ -1,11 +1,11 @@
-# Installing R e RStudio {#install}
+# Installing R and RStudio {#install}
 
 R and RStudio are two distinct pieces of software. R is a programming language, primarily used in fields such as statistics. RStudio, on the other hand, is a user-friendly interface and an Integrated Development Environment (IDE) specifically designed for R programming language (i.e., to facilitate the use of R). While R can be used on its own (i.e., with a Console alone), it is generally recommended to work with it through RStudio. Both need to be installed separately, and the installation process varies depending on the operating system (Windows, macOS, or Linux). We provide instructions only for Windows, macOS, and Linux (Ubuntu). Of course, R is available for all major Linux distributions. The instructions provided for Ubuntu (the most popular distribution) are also applicable to its derivative distributions.
 
 
 ## Installing R {#install-r}
 
-1. Go to the website: https://www.r-project.org
+1. Go to the website: <a href="https://www.r-project.org" target="_blank">https://www.r-project.org</a>
 2. Select **CRAN** (Comprehensive R Archive Network) from the left-hand menu under **Download**
 
 <center>
@@ -13,7 +13,7 @@ R and RStudio are two distinct pieces of software. R is a programming language, 
 </center>
 <br>
 
-3. Select the first link: https://cloud.r-project.org/
+3. Select the first link: <a href="https://cloud.r-project.org" target="_blank">https://cloud.r-project.org/</a>
 
 <center>
 ![](images/install_mirror.png){ width=95% }
@@ -71,7 +71,7 @@ Despite the ease of installing packages on Linux, R can sometimes be more compli
 
 On **CRAN** there is an official guide with all the `apt` commands to run from the terminal. By following these steps, there should be no issues.
 
-1. Go to [CRAN](https://cran.r-project.org/)
+1. Go to [CRAN](https://cran.r-project.org/){target="_blank"}
 2. Click `Download R for Linux`
 3. Select your distribution (Ubuntu in this case)
 4. Follow the instructions, mainly running the suggested terminal commands
