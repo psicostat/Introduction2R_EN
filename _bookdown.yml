@@ -12,4 +12,4 @@ output_dir: "docs"
 bookdown::gitbook:
   config:
     before: |
-      <link rel="icon" href="https://github.com/psicostat/Introduction2R_EN/tree/main/images/faviconpsicostat2.ico" type="image/x-icon">
+      <link rel="icon" href="images/faviconpsicostat2.ico" type="image/x-icon">
