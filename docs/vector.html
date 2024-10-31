@@ -20,7 +20,7 @@
   <meta name="twitter:description" content="This is an introductory book on R produced by Psicostat, an interdisciplinary research group that combines a passion for statistics and psychology." />
   <meta name="twitter:image" content="https://psicostat.github.io/Introduction2R_EN/images/logo_psicostat.png" />
 
-<meta name="author" content="Claudio Zandonella Callegher and Filippo Gambarota (revision and translation into English by Enrico Toffalini), members of Psicostat" />
+<meta name="author" content="by Claudio Zandonella Callegher and Filippo Gambarota (revision and translation into English by Enrico Toffalini), members of Psicostat" />
 
 
 
@@ -28,7 +28,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
-  
+  <link rel="shortcut icon" href="images/psicostat.ico" type="image/x-icon" />
 <link rel="prev" href="second-section.html"/>
 <link rel="next" href="factor.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -125,6 +125,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 </style>
 
+<link rel="stylesheet" href="libs/sass4eeb3cd232157e7bc0437cf318a67eab/style.min.css" type="text/css" />
+<link rel="stylesheet" href="assets/custom.css" type="text/css" />
 </head>
 
 <body>
@@ -137,6 +139,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
+<li class="toc-logo"><a href="./"><img src="images/hex_psicostat.png"></a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentation of the Book</a></li>
 <li class="part"><span><b>Getting Started</b></span></li>
 <li class="chapter" data-level="" data-path="section-1---getting-started.html"><a href="section-1---getting-started.html"><i class="fa fa-check"></i>Section 1 - Getting Started</a></li>
@@ -410,6 +415,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="15.6.2" data-path="strings.html"><a href="strings.html#other-useful-functions"><i class="fa fa-check"></i><b>15.6.2</b> Other Useful Functions</a></li>
 </ul></li>
 </ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="_blank">Published with bookdown</a></li>
+
 </ul>
 
       </nav>
@@ -427,6 +435,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
+<head>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=10.0,initial-scale=1.0">
+  <!--script src="https://kit.fontawesome.com/6a26f47516.js"></script-->
+  <script src="assets/hideOutput.js"></script>
+  <link href="assets/style.css" rel="stylesheet">
+</head>
+
+
+
+<div class="hero-image-container">
+  <img class= "hero-image" src="images/banner.png">
+</div>
 <div id="vector" class="section level1 hasAnchor" number="7">
 <h1><span class="header-section-number">Chapter7</span> Vectors<a href="vector.html#vector" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Vectors are the simplest data structure in R. A vector is simply a collection of elements arranged in a specific order, and we can imagine it similarly to the representation shown in Figure <a href="vector.html#fig:vector">7.1</a>.</p>
@@ -707,11 +727,11 @@ though containing the same elements, are not identical because they differ in th
 <div id="which" class="section level4 hasAnchor" number="7.2.1.1">
 <h4><span class="header-section-number">7.2.1.1</span> <code>which()</code><a href="vector.html#which" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The <code>which()</code> function is very useful for obtaining the <strong>position</strong> within a vector that meets a certain logical condition. For instance, if we want to know the positions of values greater than 5 in a numeric vector, we can use the function <code>which(x &gt; 5)</code>, where <code>x</code> is our numeric vector.</p>
-<pre><code>##  [1]  TRUE FALSE  TRUE FALSE  TRUE  TRUE FALSE FALSE  TRUE FALSE
-## [1] 1 3 5 6 9</code></pre>
+<pre><code>##  [1] FALSE  TRUE FALSE  TRUE FALSE  TRUE  TRUE FALSE FALSE  TRUE
+## [1]  2  4  6  7 10</code></pre>
 <p>As you can see, the <code>which()</code> function essentially returns the <strong>position</strong> (not the value) where the tested condition is <code>TRUE</code>. It’s important to note that these two pieces of code are equivalent:</p>
-<pre><code>## [1] 6.779582 9.147456 7.739201 5.653014 9.000543
-## [1] 6.779582 9.147456 7.739201 5.653014 9.000543</code></pre>
+<pre><code>## [1]  8.041613  7.355383 10.277275  8.984358  9.572678
+## [1]  8.041613  7.355383 10.277275  8.984358  9.572678</code></pre>
 <p>In fact, as we’ve seen, you can index a vector with another vector indicating the position of elements to extract, or with a <strong>logical</strong> vector of the same length as the original vector.</p>
 </div>
 </div>
@@ -969,10 +989,10 @@ Division of two vectors
 <div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="vector.html#cb88-1" tabindex="-1"></a>my_values <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">50</span>)  <span class="co"># Generate random numbers</span></span>
 <span id="cb88-2"><a href="vector.html#cb88-2" tabindex="-1"></a></span>
 <span id="cb88-3"><a href="vector.html#cb88-3" tabindex="-1"></a><span class="fu">sum</span>(my_values <span class="sc">&gt;</span> <span class="dv">0</span>)      <span class="co"># Total number of positive numbers</span></span>
-<span id="cb88-4"><a href="vector.html#cb88-4" tabindex="-1"></a><span class="do">## [1] 30</span></span>
+<span id="cb88-4"><a href="vector.html#cb88-4" tabindex="-1"></a><span class="do">## [1] 32</span></span>
 <span id="cb88-5"><a href="vector.html#cb88-5" tabindex="-1"></a></span>
 <span id="cb88-6"><a href="vector.html#cb88-6" tabindex="-1"></a><span class="fu">mean</span>(my_values <span class="sc">&gt;</span> <span class="dv">0</span>)      <span class="co"># Percentage of positive numbers</span></span>
-<span id="cb88-7"><a href="vector.html#cb88-7" tabindex="-1"></a><span class="do">## [1] 0.6</span></span></code></pre></div>
+<span id="cb88-7"><a href="vector.html#cb88-7" tabindex="-1"></a><span class="do">## [1] 0.64</span></span></code></pre></div>
 </div>
 <div class="design" title="is.* adn as.* Function Families">
 <p>There are two families of functions that allow you to test and modify the data type.</p>
@@ -1267,15 +1287,15 @@ Division of two vectors
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": false,
-"facebook": true,
+"github": true,
+"facebook": false,
 "twitter": true,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
 "whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+"all": true
 },
 "fontsettings": {
 "theme": "white",
@@ -1294,13 +1314,15 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["Introduction2R.pdf", "Introduction2R.epub"],
 "search": {
 "engine": "fuse",
 "options": null
 },
 "toc": {
-"collapse": "subsection"
+"collapse": "section",
+"scroll_highlight": true,
+"toc_float": true
 }
 });
 });

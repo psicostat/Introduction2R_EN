@@ -1,7 +1,7 @@
 ---
 title: "<span style='font-size: 2.5em'>Introduction to R</span>"
 subtitle: "Course to Learn the Basics of **R**"
-author: "[Claudio Zandonella Callegher](https://claudiozandonella.netlify.app/) and [Filippo Gambarota](https://filippogambarota.netlify.app/) (revision and translation into English by Enrico Toffalini), members of [Psicostat](https://psicostat.dpss.psy.unipd.it/) "
+author: "by [Claudio Zandonella Callegher](https://claudiozandonella.netlify.app/) and [Filippo Gambarota](https://filippogambarota.netlify.app/) (revision and translation into English by **Enrico Toffalini**), members of [Psicostat](https://psicostat.dpss.psy.unipd.it/)"
 date: "`r format(Sys.Date(),  format = '%d-%m-%Y')`"
 site: bookdown::bookdown_site
 documentclass: book
@@ -14,6 +14,7 @@ header-includes:
   - \titlepic{\includegraphics[width=\textwidth]{images/logo_psicostat.pdf}}
 url: 'https\://psicostat.github.io/Introduction2R_EN/'
 output: bookdown::gitbook
+favicon: "images/psicostat.ico"
 ---
 
 # Presentation of the Book {.unnumbered}
@@ -26,6 +27,10 @@ knitr::opts_chunk$set(
 ```
 
 In this book we will learn the basics of **R**, one of the best programming language and software for statistical analysis and data visualization. We will start from scratch by understanding the fundamental aspects of R and the concepts behind each programming language that will allow you to later deepen and develop your skills in this beautiful world.
+
+- Related GitHub repository at <a href="https://github.com/psicostat/Introduction2R_EN" target="_blank">https://github.com/psicostat/Introduction2R_EN</a>
+
+- Original Italian version at <a href="https://psicostat.github.io/Introduction2R/" target="_blank">https://psicostat.github.io/Introduction2R/</a>
 
 #### Why R {.unnumbered}
 
@@ -70,7 +75,7 @@ Advanced material:
 
 #### Psicostat {.unnumbered}
 
-This book was produced by [Claudio Zandonella Callegher](https://claudiozandonella.netlify.app/) and [Filippo Gambarota](https://filippogambarota.netlify.app/), and subsequently revised and translated into English by Enrico Toffalini, members of **Psicostat**, an interdisciplinary research group interested in Psychology and Statistics, our goal is to promote the connection between the two fields! If you want to know more about our activities visit our website <https://psicostat.dpss.psy.unipd.it/> or add yourself to our mailing list <https://lists.dpss.psy.unipd.it/postorius/lists>.
+This book was produced by [Claudio Zandonella Callegher](https://claudiozandonella.netlify.app/) and [Filippo Gambarota](https://filippogambarota.netlify.app/), and subsequently revised and translated into English by Enrico Toffalini, members of **Psicostat**, an interdisciplinary research group interested in Psychology and Statistics, our goal is to promote the connection between the two fields! If you want to know more about our activities visit our website <https://psicostat.dpss.psy.unipd.it/> or add yourself to our mailing list <https://lists.dpss.psy.unipd.it/postorius/lists/psicostat.lists.dpss.psy.unipd.it/>.
 
 #### Contribute {.unnumbered}
 

@@ -20,7 +20,7 @@
   <meta name="twitter:description" content="This is an introductory book on R produced by Psicostat, an interdisciplinary research group that combines a passion for statistics and psychology." />
   <meta name="twitter:image" content="https://psicostat.github.io/Introduction2R_EN/images/logo_psicostat.png" />
 
-<meta name="author" content="Claudio Zandonella Callegher and Filippo Gambarota (revision and translation into English by Enrico Toffalini), members of Psicostat" />
+<meta name="author" content="by Claudio Zandonella Callegher and Filippo Gambarota (revision and translation into English by Enrico Toffalini), members of Psicostat" />
 
 
 
@@ -28,7 +28,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
-  
+  <link rel="shortcut icon" href="images/psicostat.ico" type="image/x-icon" />
 <link rel="prev" href="loop.html"/>
 <link rel="next" href="strings.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -125,6 +125,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 </style>
 
+<link rel="stylesheet" href="libs/sass4eeb3cd232157e7bc0437cf318a67eab/style.min.css" type="text/css" />
+<link rel="stylesheet" href="assets/custom.css" type="text/css" />
 </head>
 
 <body>
@@ -137,6 +139,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
+<li class="toc-logo"><a href="./"><img src="images/hex_psicostat.png"></a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentation of the Book</a></li>
 <li class="part"><span><b>Getting Started</b></span></li>
 <li class="chapter" data-level="" data-path="section-1---getting-started.html"><a href="section-1---getting-started.html"><i class="fa fa-check"></i>Section 1 - Getting Started</a></li>
@@ -410,6 +415,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="15.6.2" data-path="strings.html"><a href="strings.html#other-useful-functions"><i class="fa fa-check"></i><b>15.6.2</b> Other Useful Functions</a></li>
 </ul></li>
 </ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="_blank">Published with bookdown</a></li>
+
 </ul>
 
       </nav>
@@ -427,6 +435,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
+<head>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=10.0,initial-scale=1.0">
+  <!--script src="https://kit.fontawesome.com/6a26f47516.js"></script-->
+  <script src="assets/hideOutput.js"></script>
+  <link href="assets/style.css" rel="stylesheet">
+</head>
+
+
+
+<div class="hero-image-container">
+  <img class= "hero-image" src="images/banner.png">
+</div>
 <div id="fourth-section" class="section level1 unnumbered hasAnchor">
 <h1>Section 4 - Advanced Topics<a href="fourth-section.html#fourth-section" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>In this section, some advanced topics will be briefly introduced, which are nonetheless very useful for working efficiently with R. Various references will be provided so you can further explore these topics on your own.</p>
@@ -457,15 +477,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": false,
-"facebook": true,
+"github": true,
+"facebook": false,
 "twitter": true,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
 "whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+"all": true
 },
 "fontsettings": {
 "theme": "white",
@@ -484,13 +504,15 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["Introduction2R.pdf", "Introduction2R.epub"],
 "search": {
 "engine": "fuse",
 "options": null
 },
 "toc": {
-"collapse": "subsection"
+"collapse": "section",
+"scroll_highlight": true,
+"toc_float": true
 }
 });
 });

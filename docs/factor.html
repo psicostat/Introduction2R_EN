@@ -20,7 +20,7 @@
   <meta name="twitter:description" content="This is an introductory book on R produced by Psicostat, an interdisciplinary research group that combines a passion for statistics and psychology." />
   <meta name="twitter:image" content="https://psicostat.github.io/Introduction2R_EN/images/logo_psicostat.png" />
 
-<meta name="author" content="Claudio Zandonella Callegher and Filippo Gambarota (revision and translation into English by Enrico Toffalini), members of Psicostat" />
+<meta name="author" content="by Claudio Zandonella Callegher and Filippo Gambarota (revision and translation into English by Enrico Toffalini), members of Psicostat" />
 
 
 
@@ -28,7 +28,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
-  
+  <link rel="shortcut icon" href="images/psicostat.ico" type="image/x-icon" />
 <link rel="prev" href="vector.html"/>
 <link rel="next" href="matrix.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -125,6 +125,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 </style>
 
+<link rel="stylesheet" href="libs/sass4eeb3cd232157e7bc0437cf318a67eab/style.min.css" type="text/css" />
+<link rel="stylesheet" href="assets/custom.css" type="text/css" />
 </head>
 
 <body>
@@ -137,6 +139,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
+<li class="toc-logo"><a href="./"><img src="images/hex_psicostat.png"></a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentation of the Book</a></li>
 <li class="part"><span><b>Getting Started</b></span></li>
 <li class="chapter" data-level="" data-path="section-1---getting-started.html"><a href="section-1---getting-started.html"><i class="fa fa-check"></i>Section 1 - Getting Started</a></li>
@@ -410,6 +415,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="15.6.2" data-path="strings.html"><a href="strings.html#other-useful-functions"><i class="fa fa-check"></i><b>15.6.2</b> Other Useful Functions</a></li>
 </ul></li>
 </ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="_blank">Published with bookdown</a></li>
+
 </ul>
 
       </nav>
@@ -427,6 +435,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
+<head>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=10.0,initial-scale=1.0">
+  <!--script src="https://kit.fontawesome.com/6a26f47516.js"></script-->
+  <script src="assets/hideOutput.js"></script>
+  <link href="assets/style.css" rel="stylesheet">
+</head>
+
+
+
+<div class="hero-image-container">
+  <img class= "hero-image" src="images/banner.png">
+</div>
 <div id="factor" class="section level1 hasAnchor" number="8">
 <h1><span class="header-section-number">Chapter8</span> Factors<a href="factor.html#factor" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>In this chapter, we will look at <em>factors</em>, a special type of vector used to store information about a categorical variable (nominal or ordinal). However, before introducing factors, we will describe what attributes of an object are. This will allow us to better understand the functionality of factors later on.</p>
@@ -602,12 +622,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>if we make a subset of a factor and no longer have values associated with that level</li>
 <li>if we simply want to remove a level and the respective observations</li>
 </ul>
-<p>Let’s create a factor with levels being <code>a</code>, <code>b</code>, and <code>c</code>:</p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="factor.html#cb138-1" tabindex="-1"></a>my_factor <span class="ot">=</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>,<span class="st">&quot;c&quot;</span>,<span class="st">&quot;c&quot;</span>),<span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>))</span>
-<span id="cb138-2"><a href="factor.html#cb138-2" tabindex="-1"></a>my_factor</span>
-<span id="cb138-3"><a href="factor.html#cb138-3" tabindex="-1"></a><span class="do">##  [1] a a a a a a a b b b b c c c</span></span>
-<span id="cb138-4"><a href="factor.html#cb138-4" tabindex="-1"></a><span class="do">## Levels: a b c</span></span></code></pre></div>
-<p>Now, let’s copy this factor into a new one, but retaining only the values <code>a</code> and <code>b</code>. As you can see, even though there are no more <code>c</code> values, the factor still retains all the initial levels (including <code>c</code>), because they are part of the attributes that were copied from the original object:</p>
+<p>Let’s create a factor including a series of values in {<code>"a"</code>, <code>"b"</code>, <code>"c"</code>}; these values will also be automatically set as the levels by the <code>factor</code> function:</p>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="factor.html#cb138-1" tabindex="-1"></a><span class="co"># more compact version is: factor(rep(c(&quot;a&quot;,&quot;b&quot;,&quot;c&quot;),c(7,4,3)))</span></span>
+<span id="cb138-2"><a href="factor.html#cb138-2" tabindex="-1"></a>my_factor <span class="ot">=</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>,<span class="st">&quot;c&quot;</span>,<span class="st">&quot;c&quot;</span>))</span>
+<span id="cb138-3"><a href="factor.html#cb138-3" tabindex="-1"></a>my_factor</span>
+<span id="cb138-4"><a href="factor.html#cb138-4" tabindex="-1"></a><span class="do">##  [1] a a a a a a a b b b b c c c</span></span>
+<span id="cb138-5"><a href="factor.html#cb138-5" tabindex="-1"></a><span class="do">## Levels: a b c</span></span></code></pre></div>
+<p>Now, let’s copy this factor into a new one, but retaining only the values <code>"a"</code> and <code>"b"</code>. As you can see, even though there are no more <code>"c"</code> values, the factor still retains all the initial levels (including <code>"c"</code>), because they are part of the attributes that were copied from the original object:</p>
 <div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="factor.html#cb139-1" tabindex="-1"></a><span class="co"># Keep only the values &#39;a&#39; and &#39;b&#39;</span></span>
 <span id="cb139-2"><a href="factor.html#cb139-2" tabindex="-1"></a>new_my_factor <span class="ot">=</span> my_factor[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span>
 <span id="cb139-3"><a href="factor.html#cb139-3" tabindex="-1"></a>new_my_factor</span>
@@ -623,7 +644,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb140-7"><a href="factor.html#cb140-7" tabindex="-1"></a><span class="fu">droplevels</span>(new_my_factor)</span>
 <span id="cb140-8"><a href="factor.html#cb140-8" tabindex="-1"></a><span class="do">##  [1] a a a a a a a b b b</span></span>
 <span id="cb140-9"><a href="factor.html#cb140-9" tabindex="-1"></a><span class="do">## Levels: a b</span></span></code></pre></div>
-<p>If you use <code>droplevels</code> to forcibly remove a level that is associated with actual values in the vectors (such as <code>a</code>), the corresponding values will become <code>NA</code>:</p>
+<p>If you use <code>droplevels</code> to forcibly remove a level that is associated with actual values in the vectors (such as <code>"a"</code>), the corresponding values will become <code>NA</code>:</p>
 <div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="factor.html#cb141-1" tabindex="-1"></a><span class="fu">droplevels</span>(new_my_factor, <span class="at">exclude =</span> <span class="st">&quot;a&quot;</span>)</span>
 <span id="cb141-2"><a href="factor.html#cb141-2" tabindex="-1"></a><span class="do">##  [1] &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; b    b    b   </span></span>
 <span id="cb141-3"><a href="factor.html#cb141-3" tabindex="-1"></a><span class="do">## Levels: b</span></span></code></pre></div>
@@ -631,12 +652,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="factor.html#cb142-1" tabindex="-1"></a><span class="fu">factor</span>(my_factor, <span class="at">levels =</span> <span class="fu">c</span>(<span class="fu">levels</span>(my_factor), <span class="st">&quot;newlevel&quot;</span>))</span>
 <span id="cb142-2"><a href="factor.html#cb142-2" tabindex="-1"></a><span class="do">##  [1] a a a a a a a b b b b c c c</span></span>
 <span id="cb142-3"><a href="factor.html#cb142-3" tabindex="-1"></a><span class="do">## Levels: a b c newlevel</span></span></code></pre></div>
-<p>In this case, we used the <code>c(old_levels, new_level)</code> function to create a vector of new levels to use, including all the previous levels plus the new one(s). Alternatively, we can also use the assignment method <code>levels(x) =</code> by specifying a vector of levels:</p>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="factor.html#cb143-1" tabindex="-1"></a>my_factor <span class="ot">=</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>,<span class="st">&quot;c&quot;</span>,<span class="st">&quot;c&quot;</span>))</span>
-<span id="cb143-2"><a href="factor.html#cb143-2" tabindex="-1"></a><span class="fu">levels</span>(my_factor) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>,<span class="st">&quot;newlevel&quot;</span>)</span>
-<span id="cb143-3"><a href="factor.html#cb143-3" tabindex="-1"></a>my_factor</span>
-<span id="cb143-4"><a href="factor.html#cb143-4" tabindex="-1"></a><span class="do">##  [1] a a a a a a a b b b b c c c</span></span>
-<span id="cb143-5"><a href="factor.html#cb143-5" tabindex="-1"></a><span class="do">## Levels: a b c newlevel</span></span></code></pre></div>
+<p>In this case, we used the <code>c(old_levels, new_levels)</code> function to create a vector of new levels to use, including all the previous levels plus the new one(s). Alternatively, we can also use the assignment method <code>levels(x) =</code> by specifying a vector of levels:</p>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="factor.html#cb143-1" tabindex="-1"></a><span class="co"># more compact version is: factor(rep(c(&quot;a&quot;,&quot;b&quot;,&quot;c&quot;),c(7,4,3)))</span></span>
+<span id="cb143-2"><a href="factor.html#cb143-2" tabindex="-1"></a>my_factor <span class="ot">=</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>,<span class="st">&quot;c&quot;</span>,<span class="st">&quot;c&quot;</span>))</span>
+<span id="cb143-3"><a href="factor.html#cb143-3" tabindex="-1"></a><span class="fu">levels</span>(my_factor) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>,<span class="st">&quot;newlevel&quot;</span>)</span>
+<span id="cb143-4"><a href="factor.html#cb143-4" tabindex="-1"></a>my_factor</span>
+<span id="cb143-5"><a href="factor.html#cb143-5" tabindex="-1"></a><span class="do">##  [1] a a a a a a a b b b b c c c</span></span>
+<span id="cb143-6"><a href="factor.html#cb143-6" tabindex="-1"></a><span class="do">## Levels: a b c newlevel</span></span></code></pre></div>
 <p>You can also combine two factors to obtain a single factor, merging the levels and their respective numeric values. Simply use the <code>c(fac1, fac2)</code> command:</p>
 <div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="factor.html#cb144-1" tabindex="-1"></a>fac1 <span class="ot">=</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>))</span>
 <span id="cb144-2"><a href="factor.html#cb144-2" tabindex="-1"></a>fac2 <span class="ot">=</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;d&quot;</span>,<span class="st">&quot;d&quot;</span>,<span class="st">&quot;d&quot;</span>))</span>
@@ -719,15 +741,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": false,
-"facebook": true,
+"github": true,
+"facebook": false,
 "twitter": true,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
 "whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+"all": true
 },
 "fontsettings": {
 "theme": "white",
@@ -746,13 +768,15 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["Introduction2R.pdf", "Introduction2R.epub"],
 "search": {
 "engine": "fuse",
 "options": null
 },
 "toc": {
-"collapse": "subsection"
+"collapse": "section",
+"scroll_highlight": true,
+"toc_float": true
 }
 });
 });

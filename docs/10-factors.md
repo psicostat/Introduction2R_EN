@@ -264,17 +264,18 @@ Several other operations are possible with factors. For instance, we might want 
 - if we make a subset of a factor and no longer have values associated with that level
 - if we simply want to remove a level and the respective observations
 
-Let's create a factor with levels being `a`, `b`, and `c`:
+Let's create a factor including a series of values in {`"a"`, `"b"`, `"c"`}; these values will also be automatically set as the levels by the `factor` function:
 
 
 ```r
-my_factor = factor(c("a","a","a","a","a","a","a","b","b","b","b","c","c","c"),levels=c("a","b","c"))
+# more compact version is: factor(rep(c("a","b","c"),c(7,4,3)))
+my_factor = factor(c("a","a","a","a","a","a","a","b","b","b","b","c","c","c"))
 my_factor
 ##  [1] a a a a a a a b b b b c c c
 ## Levels: a b c
 ```
 
-Now, let's copy this factor into a new one, but retaining only the values `a` and `b`. As you can see, even though there are no more `c` values, the factor still retains all the initial levels (including `c`), because they are part of the attributes that were copied from the original object: 
+Now, let's copy this factor into a new one, but retaining only the values `"a"` and `"b"`. As you can see, even though there are no more `"c"` values, the factor still retains all the initial levels (including `"c"`), because they are part of the attributes that were copied from the original object: 
 
 
 ```r
@@ -300,7 +301,7 @@ droplevels(new_my_factor)
 ## Levels: a b
 ```
 
-If you use `droplevels` to forcibly remove a level that is associated with actual values in the vectors (such as `a`), the corresponding values will become `NA`:
+If you use `droplevels` to forcibly remove a level that is associated with actual values in the vectors (such as `"a"`), the corresponding values will become `NA`:
 
 
 ```r
@@ -318,10 +319,11 @@ factor(my_factor, levels = c(levels(my_factor), "newlevel"))
 ## Levels: a b c newlevel
 ```
 
-In this case, we used the `c(old_levels, new_level)` function to create a vector of new levels to use, including all the previous levels plus the new one(s). Alternatively, we can also use the assignment method `levels(x) =` by specifying a vector of levels:
+In this case, we used the `c(old_levels, new_levels)` function to create a vector of new levels to use, including all the previous levels plus the new one(s). Alternatively, we can also use the assignment method `levels(x) =` by specifying a vector of levels:
 
 
 ```r
+# more compact version is: factor(rep(c("a","b","c"),c(7,4,3)))
 my_factor = factor(c("a","a","a","a","a","a","a","b","b","b","b","c","c","c"))
 levels(my_factor) = c("a","b","c","newlevel")
 my_factor
