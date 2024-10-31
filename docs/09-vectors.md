@@ -373,16 +373,16 @@ The `which()` function is very useful for obtaining the **position** within a ve
 
 
 ```
-##  [1]  TRUE FALSE  TRUE FALSE  TRUE FALSE FALSE  TRUE  TRUE  TRUE
-## [1]  1  3  5  8  9 10
+##  [1]  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE
+## [1] 1 2 4 5 6 7
 ```
 
 As you can see, the `which()` function essentially returns the **position** (not the value) where the tested condition is `TRUE`. It’s important to note that these two pieces of code are equivalent:
 
 
 ```
-## [1] 10.432778  9.942621  5.654985  9.372856  8.911619  7.867687
-## [1] 10.432778  9.942621  5.654985  9.372856  8.911619  7.867687
+## [1] 8.682220 9.608128 6.246908 5.673863 6.386248 9.106493
+## [1] 8.682220 9.608128 6.246908 5.673863 6.386248 9.106493
 ```
 
 In fact, as we’ve seen, you can index a vector with another vector indicating the position of elements to extract, or with a **logical** vector of the same length as the original vector.
@@ -696,10 +696,10 @@ Using the `sum()` and `mean()` functions with a logical vector, we can evaluate 
 my_values = rnorm(50)  # Generate random numbers
 
 sum(my_values > 0)      # Total number of positive numbers
-## [1] 26
+## [1] 29
 
 mean(my_values > 0)      # Percentage of positive numbers
-## [1] 0.52
+## [1] 0.58
 ```
 :::
 

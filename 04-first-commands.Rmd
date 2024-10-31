@@ -32,16 +32,16 @@ if (knitr::is_html_output()) {
     formula = c(sprintf("x %s y", c("+", "-", "*", "/", "%%", "%/%", "^")),
                 sprintf("%s(x)", c("abs", "sign", "sqrt", "log", "exp")),
                 paste0(sprintf("%s(x)", c("sin", "cos", "tan", "asin", "acos", "atan")),
-                       collapse = "\n"),
+                       collapse = "<br/>"),
                 "factorial(x)", "choose(n, k)"),
     name = names_function,
-    example = c(sprintf("> %s \n[1] %s",
+    example = c(sprintf("> %s <br/>[1] %s",
                         c("5 + 3", "7 - 2", "4 * 3", "8 / 3", "7 %% 5", "7 %/% 5", 
                           "3 ^ 3","abs(3-5^2)", "sign(-8)", "sqrt(25)", "log(10)", "exp(1)"),
                         c("8", "5", "12", "2.666667", "2", "1", "27","22", "-1", "5",
                           "2.302585", "2.718282")),
-                ">sin(pi/2) \n[1]1 \n>cos(pi/2) \n[1]6.123234e-17",
-                c(sprintf("> %s \n[1] %s",
+                ">sin(pi/2) <br/>[1]1 <br/>>cos(pi/2) <br/>[1]6.123234e-17",
+                c(sprintf("> %s <br/>[1] %s",
                           c("factorial(6)", "choose(5,3)"),
                           c("720", "10"))))
   )
@@ -138,7 +138,7 @@ if (knitr::is_html_output()) {
   logical_operators <- data.frame(
     formula = sprintf("x %s y", c("==", "!=", ">", ">=", "<", "<=", "%in%")),
     name = names_function,
-    example = sprintf("> %s \n[1] %s",
+    example = sprintf("> %s <br/>[1] %s",
                       c("5 == 3", "7 != 2", "4 > 3", "-2 >= 3", "7 < 5", "7 <= 7", "5 %in% c(3, 5, 8)"),
                       c("FALSE", "TRUE", "TRUE", "FALSE", "FALSE", "TRUE", "TRUE")))
 }
@@ -199,7 +199,7 @@ if (knitr::is_html_output()) {
   logical_operators <- data.frame(
     formula = c("!x", "x & y", "x | y"),
     name = names_function,
-    example = sprintf("> %s \n[1] %s",
+    example = sprintf("> %s <br/>[1] %s",
                       c("!TRUE", "TRUE & FALSE", "TRUE | FALSE"),
                       c("FALSE", "FALSE", "TRUE")))
 }
