@@ -14,7 +14,7 @@ header-includes:
   - \titlepic{\includegraphics[width=\textwidth]{images/logo_psicostat.pdf}}
 url: 'https\://psicostat.github.io/Introduction2R_EN/'
 output: bookdown::gitbook
-favicon: "images/psicostat.ico"
+favicon: "images/faviconpsicostat2.ico"
 ---
 
 # Presentation of the Book {.unnumbered}

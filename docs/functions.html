@@ -28,7 +28,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
-  <link rel="shortcut icon" href="images/psicostat.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="images/faviconpsicostat2.ico" type="image/x-icon" />
 <link rel="prev" href="third-section.html"/>
 <link rel="next" href="conditionals.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -751,28 +751,28 @@ When defining the name of a function, it’s useful to follow the same guideline
 <p>In previous chapters, we saw how to use the <code>apply</code> family and how a function can be applied to a series of objects. But let’s imagine a case where we have a very long script and at various points, we perform a certain operation:</p>
 <div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="functions.html#cb273-1" tabindex="-1"></a><span class="co"># Mean centering</span></span>
 <span id="cb273-2"><a href="functions.html#cb273-2" tabindex="-1"></a>vect1 <span class="sc">-</span> <span class="fu">mean</span>(vect2)</span>
-<span id="cb273-3"><a href="functions.html#cb273-3" tabindex="-1"></a><span class="do">##  [1]  0.51218837  0.41647402  0.11910163  0.24295132 -0.18253638  0.45223488</span></span>
-<span id="cb273-4"><a href="functions.html#cb273-4" tabindex="-1"></a><span class="do">##  [7]  0.07381803  0.29566721  0.49384700 -0.28835925</span></span>
+<span id="cb273-3"><a href="functions.html#cb273-3" tabindex="-1"></a><span class="do">##  [1] -0.41139663  0.11692492 -0.02186378 -0.19960069  0.21373907 -0.55045830</span></span>
+<span id="cb273-4"><a href="functions.html#cb273-4" tabindex="-1"></a><span class="do">##  [7] -0.08519545  0.20336220  0.38618427  0.27035788</span></span>
 <span id="cb273-5"><a href="functions.html#cb273-5" tabindex="-1"></a>vect2 <span class="sc">-</span> <span class="fu">mean</span>(vect2)</span>
-<span id="cb273-6"><a href="functions.html#cb273-6" tabindex="-1"></a><span class="do">##  [1] -0.3916928 -0.4311577  0.1530123  0.4480443  0.5336326 -0.3138900</span></span>
-<span id="cb273-7"><a href="functions.html#cb273-7" tabindex="-1"></a><span class="do">##  [7] -0.2989950 -0.1100138  0.2984014  0.1126588</span></span>
+<span id="cb273-6"><a href="functions.html#cb273-6" tabindex="-1"></a><span class="do">##  [1]  0.20947475  0.02759599 -0.15934934 -0.14476820  0.30310012 -0.32428165</span></span>
+<span id="cb273-7"><a href="functions.html#cb273-7" tabindex="-1"></a><span class="do">##  [7] -0.06136103 -0.11847351  0.37552491 -0.10746203</span></span>
 <span id="cb273-8"><a href="functions.html#cb273-8" tabindex="-1"></a>vect3 <span class="sc">-</span> <span class="fu">mean</span>(vect3)</span>
-<span id="cb273-9"><a href="functions.html#cb273-9" tabindex="-1"></a><span class="do">##  [1] -0.154349261 -0.154366112  0.006064214  0.331023839  0.254135514</span></span>
-<span id="cb273-10"><a href="functions.html#cb273-10" tabindex="-1"></a><span class="do">##  [6] -0.110346556 -0.320860976  0.279703556 -0.395114329  0.264110111</span></span></code></pre></div>
+<span id="cb273-9"><a href="functions.html#cb273-9" tabindex="-1"></a><span class="do">##  [1] -0.04571068  0.15181301 -0.25855232 -0.12159508 -0.06932507 -0.33966069</span></span>
+<span id="cb273-10"><a href="functions.html#cb273-10" tabindex="-1"></a><span class="do">##  [7] -0.02046535  0.43293552  0.22290078  0.04765988</span></span></code></pre></div>
 <p>The operation is performed correctly and is also easy to understand. However, we are always doing the same thing, just changing an input (the very definition of a function), so we can:</p>
 <div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="functions.html#cb274-1" tabindex="-1"></a>my_fun <span class="ot">=</span> <span class="cf">function</span>(x){</span>
 <span id="cb274-2"><a href="functions.html#cb274-2" tabindex="-1"></a>  <span class="fu">return</span>(x <span class="sc">-</span> <span class="fu">mean</span>(x))</span>
 <span id="cb274-3"><a href="functions.html#cb274-3" tabindex="-1"></a>}</span>
 <span id="cb274-4"><a href="functions.html#cb274-4" tabindex="-1"></a></span>
 <span id="cb274-5"><a href="functions.html#cb274-5" tabindex="-1"></a><span class="fu">my_fun</span>(vect1)</span>
-<span id="cb274-6"><a href="functions.html#cb274-6" tabindex="-1"></a><span class="do">##  [1]  0.29864969  0.20293534 -0.09443705  0.02941264 -0.39607506  0.23869619</span></span>
-<span id="cb274-7"><a href="functions.html#cb274-7" tabindex="-1"></a><span class="do">##  [7] -0.13972065  0.08212852  0.28030832 -0.50189793</span></span>
+<span id="cb274-6"><a href="functions.html#cb274-6" tabindex="-1"></a><span class="do">##  [1] -0.40360198  0.12471957 -0.01406913 -0.19180604  0.22153372 -0.54266365</span></span>
+<span id="cb274-7"><a href="functions.html#cb274-7" tabindex="-1"></a><span class="do">##  [7] -0.07740080  0.21115686  0.39397892  0.27815253</span></span>
 <span id="cb274-8"><a href="functions.html#cb274-8" tabindex="-1"></a><span class="fu">my_fun</span>(vect2)</span>
-<span id="cb274-9"><a href="functions.html#cb274-9" tabindex="-1"></a><span class="do">##  [1] -0.3916928 -0.4311577  0.1530123  0.4480443  0.5336326 -0.3138900</span></span>
-<span id="cb274-10"><a href="functions.html#cb274-10" tabindex="-1"></a><span class="do">##  [7] -0.2989950 -0.1100138  0.2984014  0.1126588</span></span>
+<span id="cb274-9"><a href="functions.html#cb274-9" tabindex="-1"></a><span class="do">##  [1]  0.20947475  0.02759599 -0.15934934 -0.14476820  0.30310012 -0.32428165</span></span>
+<span id="cb274-10"><a href="functions.html#cb274-10" tabindex="-1"></a><span class="do">##  [7] -0.06136103 -0.11847351  0.37552491 -0.10746203</span></span>
 <span id="cb274-11"><a href="functions.html#cb274-11" tabindex="-1"></a><span class="fu">my_fun</span>(vect3)</span>
-<span id="cb274-12"><a href="functions.html#cb274-12" tabindex="-1"></a><span class="do">##  [1] -0.154349261 -0.154366112  0.006064214  0.331023839  0.254135514</span></span>
-<span id="cb274-13"><a href="functions.html#cb274-13" tabindex="-1"></a><span class="do">##  [6] -0.110346556 -0.320860976  0.279703556 -0.395114329  0.264110111</span></span></code></pre></div>
+<span id="cb274-12"><a href="functions.html#cb274-12" tabindex="-1"></a><span class="do">##  [1] -0.04571068  0.15181301 -0.25855232 -0.12159508 -0.06932507 -0.33966069</span></span>
+<span id="cb274-13"><a href="functions.html#cb274-13" tabindex="-1"></a><span class="do">##  [7] -0.02046535  0.43293552  0.22290078  0.04765988</span></span></code></pre></div>
 <p>The code hasn’t changed much in terms of lines or complexity. However, imagine realizing an error or wanting to change or extend the operations on <code>vect1</code>, <code>vect2</code>, and <code>vect3</code>. In the first case, you would have to go line by line through the script and modify the code. In the case of a function, simply changing the operations will apply them every time the function is called. Let’s imagine that we also want to <em>standardize</em> (subtract the mean and divide by the standard deviation) our vectors:</p>
 <div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="functions.html#cb275-1" tabindex="-1"></a>my_fun <span class="ot">=</span> <span class="cf">function</span>(x){</span>
 <span id="cb275-2"><a href="functions.html#cb275-2" tabindex="-1"></a>  res <span class="ot">=</span> (x <span class="sc">-</span> <span class="fu">mean</span>(x)) <span class="sc">/</span> <span class="fu">sd</span>(x)</span>
@@ -780,28 +780,28 @@ When defining the name of a function, it’s useful to follow the same guideline
 <span id="cb275-4"><a href="functions.html#cb275-4" tabindex="-1"></a>}</span>
 <span id="cb275-5"><a href="functions.html#cb275-5" tabindex="-1"></a></span>
 <span id="cb275-6"><a href="functions.html#cb275-6" tabindex="-1"></a><span class="fu">my_fun</span>(vect1)</span>
-<span id="cb275-7"><a href="functions.html#cb275-7" tabindex="-1"></a><span class="do">##  [1]  1.0627344  0.7221383 -0.3360509  0.1046638 -1.4094192  0.8493920</span></span>
-<span id="cb275-8"><a href="functions.html#cb275-8" tabindex="-1"></a><span class="do">##  [7] -0.4971910  0.2922515  0.9974673 -1.7859862</span></span>
+<span id="cb275-7"><a href="functions.html#cb275-7" tabindex="-1"></a><span class="do">##  [1] -1.31939887  0.40771569 -0.04599281 -0.62702536  0.72420690 -1.77399976</span></span>
+<span id="cb275-8"><a href="functions.html#cb275-8" tabindex="-1"></a><span class="do">##  [7] -0.25302780  0.69028432  1.28794053  0.90929716</span></span>
 <span id="cb275-9"><a href="functions.html#cb275-9" tabindex="-1"></a><span class="fu">my_fun</span>(vect2)</span>
-<span id="cb275-10"><a href="functions.html#cb275-10" tabindex="-1"></a><span class="do">##  [1] -1.0957646 -1.2061679  0.4280533  1.2534082  1.4928424 -0.8781105</span></span>
-<span id="cb275-11"><a href="functions.html#cb275-11" tabindex="-1"></a><span class="do">##  [7] -0.8364414 -0.3077646  0.8347810  0.3151641</span></span>
+<span id="cb275-10"><a href="functions.html#cb275-10" tabindex="-1"></a><span class="do">##  [1]  0.9281891  0.1222787 -0.7060818 -0.6414724  1.3430460 -1.4369020</span></span>
+<span id="cb275-11"><a href="functions.html#cb275-11" tabindex="-1"></a><span class="do">##  [7] -0.2718926 -0.5249598  1.6639624 -0.4761676</span></span>
 <span id="cb275-12"><a href="functions.html#cb275-12" tabindex="-1"></a><span class="fu">my_fun</span>(vect3)</span>
-<span id="cb275-13"><a href="functions.html#cb275-13" tabindex="-1"></a><span class="do">##  [1] -0.57832076 -0.57838390  0.02272159  1.24029073  0.95220309 -0.41345001</span></span>
-<span id="cb275-14"><a href="functions.html#cb275-14" tabindex="-1"></a><span class="do">##  [7] -1.20221219  1.04800225 -1.48042703  0.98957623</span></span></code></pre></div>
+<span id="cb275-13"><a href="functions.html#cb275-13" tabindex="-1"></a><span class="do">##  [1] -0.2007218  0.6666314 -1.1353382 -0.5339405 -0.3044158 -1.4914960</span></span>
+<span id="cb275-14"><a href="functions.html#cb275-14" tabindex="-1"></a><span class="do">##  [7] -0.0898661  1.9010784  0.9787875  0.2092810</span></span></code></pre></div>
 <p>Of course, the combination of functions and the <code>apply</code> family allows everything to be even more compact and efficient:</p>
 <div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="functions.html#cb276-1" tabindex="-1"></a>my_list <span class="ot">=</span> <span class="fu">list</span>(vect1, vect2, vect3)</span>
 <span id="cb276-2"><a href="functions.html#cb276-2" tabindex="-1"></a><span class="fu">lapply</span>(my_list, my_fun)</span>
 <span id="cb276-3"><a href="functions.html#cb276-3" tabindex="-1"></a><span class="do">## [[1]]</span></span>
-<span id="cb276-4"><a href="functions.html#cb276-4" tabindex="-1"></a><span class="do">##  [1]  1.0627344  0.7221383 -0.3360509  0.1046638 -1.4094192  0.8493920</span></span>
-<span id="cb276-5"><a href="functions.html#cb276-5" tabindex="-1"></a><span class="do">##  [7] -0.4971910  0.2922515  0.9974673 -1.7859862</span></span>
+<span id="cb276-4"><a href="functions.html#cb276-4" tabindex="-1"></a><span class="do">##  [1] -1.31939887  0.40771569 -0.04599281 -0.62702536  0.72420690 -1.77399976</span></span>
+<span id="cb276-5"><a href="functions.html#cb276-5" tabindex="-1"></a><span class="do">##  [7] -0.25302780  0.69028432  1.28794053  0.90929716</span></span>
 <span id="cb276-6"><a href="functions.html#cb276-6" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb276-7"><a href="functions.html#cb276-7" tabindex="-1"></a><span class="do">## [[2]]</span></span>
-<span id="cb276-8"><a href="functions.html#cb276-8" tabindex="-1"></a><span class="do">##  [1] -1.0957646 -1.2061679  0.4280533  1.2534082  1.4928424 -0.8781105</span></span>
-<span id="cb276-9"><a href="functions.html#cb276-9" tabindex="-1"></a><span class="do">##  [7] -0.8364414 -0.3077646  0.8347810  0.3151641</span></span>
+<span id="cb276-8"><a href="functions.html#cb276-8" tabindex="-1"></a><span class="do">##  [1]  0.9281891  0.1222787 -0.7060818 -0.6414724  1.3430460 -1.4369020</span></span>
+<span id="cb276-9"><a href="functions.html#cb276-9" tabindex="-1"></a><span class="do">##  [7] -0.2718926 -0.5249598  1.6639624 -0.4761676</span></span>
 <span id="cb276-10"><a href="functions.html#cb276-10" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb276-11"><a href="functions.html#cb276-11" tabindex="-1"></a><span class="do">## [[3]]</span></span>
-<span id="cb276-12"><a href="functions.html#cb276-12" tabindex="-1"></a><span class="do">##  [1] -0.57832076 -0.57838390  0.02272159  1.24029073  0.95220309 -0.41345001</span></span>
-<span id="cb276-13"><a href="functions.html#cb276-13" tabindex="-1"></a><span class="do">##  [7] -1.20221219  1.04800225 -1.48042703  0.98957623</span></span></code></pre></div>
+<span id="cb276-12"><a href="functions.html#cb276-12" tabindex="-1"></a><span class="do">##  [1] -0.2007218  0.6666314 -1.1353382 -0.5339405 -0.3044158 -1.4914960</span></span>
+<span id="cb276-13"><a href="functions.html#cb276-13" tabindex="-1"></a><span class="do">##  [7] -0.0898661  1.9010784  0.9787875  0.2092810</span></span></code></pre></div>
 </div>
 <div id="choosing-the-name-of-a-function" class="section level3 hasAnchor" number="12.4.2">
 <h3><span class="header-section-number">12.4.2</span> Choosing the Name of a Function<a href="functions.html#choosing-the-name-of-a-function" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -835,14 +835,14 @@ When defining the name of a function, it’s useful to follow the same guideline
 <span id="cb277-11"><a href="functions.html#cb277-11" tabindex="-1"></a></span>
 <span id="cb277-12"><a href="functions.html#cb277-12" tabindex="-1"></a>vect <span class="ot">=</span> <span class="fu">runif</span>(<span class="dv">10</span>)</span>
 <span id="cb277-13"><a href="functions.html#cb277-13" tabindex="-1"></a><span class="fu">trans_vect</span>(vect, <span class="st">&quot;center_mean&quot;</span>)</span>
-<span id="cb277-14"><a href="functions.html#cb277-14" tabindex="-1"></a><span class="do">##  [1] -0.2606982 -0.3939109 -0.1628534 -0.1202977  0.3350573 -0.4773528</span></span>
-<span id="cb277-15"><a href="functions.html#cb277-15" tabindex="-1"></a><span class="do">##  [7]  0.3172562  0.1723799  0.3283763  0.2620434</span></span>
+<span id="cb277-14"><a href="functions.html#cb277-14" tabindex="-1"></a><span class="do">##  [1]  0.04956553  0.30464890  0.34899754  0.01049600 -0.32424882 -0.40001016</span></span>
+<span id="cb277-15"><a href="functions.html#cb277-15" tabindex="-1"></a><span class="do">##  [7] -0.51342162 -0.19621670  0.23923243  0.48095690</span></span>
 <span id="cb277-16"><a href="functions.html#cb277-16" tabindex="-1"></a><span class="fu">trans_vect</span>(vect, <span class="st">&quot;center_mean&quot;</span>)</span>
-<span id="cb277-17"><a href="functions.html#cb277-17" tabindex="-1"></a><span class="do">##  [1] -0.2606982 -0.3939109 -0.1628534 -0.1202977  0.3350573 -0.4773528</span></span>
-<span id="cb277-18"><a href="functions.html#cb277-18" tabindex="-1"></a><span class="do">##  [7]  0.3172562  0.1723799  0.3283763  0.2620434</span></span>
+<span id="cb277-17"><a href="functions.html#cb277-17" tabindex="-1"></a><span class="do">##  [1]  0.04956553  0.30464890  0.34899754  0.01049600 -0.32424882 -0.40001016</span></span>
+<span id="cb277-18"><a href="functions.html#cb277-18" tabindex="-1"></a><span class="do">##  [7] -0.51342162 -0.19621670  0.23923243  0.48095690</span></span>
 <span id="cb277-19"><a href="functions.html#cb277-19" tabindex="-1"></a><span class="fu">trans_vect</span>(vect, <span class="st">&quot;standardize&quot;</span>)</span>
-<span id="cb277-20"><a href="functions.html#cb277-20" tabindex="-1"></a><span class="do">##  [1] -0.8193559 -1.2380341 -0.5118367 -0.3780872  1.0530614 -1.5002861</span></span>
-<span id="cb277-21"><a href="functions.html#cb277-21" tabindex="-1"></a><span class="do">##  [7]  0.9971137  0.5417778  1.0320633  0.8235839</span></span></code></pre></div>
+<span id="cb277-20"><a href="functions.html#cb277-20" tabindex="-1"></a><span class="do">##  [1]  0.14355085  0.88231907  1.01076084  0.03039834 -0.93908401 -1.15850275</span></span>
+<span id="cb277-21"><a href="functions.html#cb277-21" tabindex="-1"></a><span class="do">##  [7] -1.48696312 -0.56827953  0.69286098  1.39293934</span></span></code></pre></div>
 <p>The function is very clear, but it still contains some weaknesses. The user must insert a string to perform the operation. There are multiple <code>if</code> conditions, and the function’s purpose might be too broad. A better solution might be to write 3 simpler, more focused, and easier-to-maintain functions:</p>
 <div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="functions.html#cb278-1" tabindex="-1"></a>center_vect_mean <span class="ot">=</span> <span class="cf">function</span>(x){</span>
 <span id="cb278-2"><a href="functions.html#cb278-2" tabindex="-1"></a>  <span class="fu">return</span>(x <span class="sc">-</span> <span class="fu">mean</span>(x))</span>
@@ -858,14 +858,14 @@ When defining the name of a function, it’s useful to follow the same guideline
 <span id="cb278-12"><a href="functions.html#cb278-12" tabindex="-1"></a></span>
 <span id="cb278-13"><a href="functions.html#cb278-13" tabindex="-1"></a>vect <span class="ot">=</span> <span class="fu">runif</span>(<span class="dv">10</span>)</span>
 <span id="cb278-14"><a href="functions.html#cb278-14" tabindex="-1"></a><span class="fu">center_vect_mean</span>(vect)</span>
-<span id="cb278-15"><a href="functions.html#cb278-15" tabindex="-1"></a><span class="do">##  [1] -0.17848554  0.24728658  0.16412816 -0.39382561 -0.23842770  0.17181115</span></span>
-<span id="cb278-16"><a href="functions.html#cb278-16" tabindex="-1"></a><span class="do">##  [7]  0.33638602 -0.02496213  0.40080552 -0.48471645</span></span>
+<span id="cb278-15"><a href="functions.html#cb278-15" tabindex="-1"></a><span class="do">##  [1] -0.2849531  0.3929460 -0.1965581  0.3114775 -0.4603649  0.3303363</span></span>
+<span id="cb278-16"><a href="functions.html#cb278-16" tabindex="-1"></a><span class="do">##  [7] -0.1201762  0.1510770  0.2774943 -0.4012787</span></span>
 <span id="cb278-17"><a href="functions.html#cb278-17" tabindex="-1"></a><span class="fu">center_vect_median</span>(vect)</span>
-<span id="cb278-18"><a href="functions.html#cb278-18" tabindex="-1"></a><span class="do">##  [1] -0.24806856  0.17770356  0.09454514 -0.46340862 -0.30801072  0.10222813</span></span>
-<span id="cb278-19"><a href="functions.html#cb278-19" tabindex="-1"></a><span class="do">##  [7]  0.26680300 -0.09454514  0.33122251 -0.55429947</span></span>
+<span id="cb278-18"><a href="functions.html#cb278-18" tabindex="-1"></a><span class="do">##  [1] -0.3004035  0.3774956 -0.2120085  0.2960271 -0.4758153  0.3148859</span></span>
+<span id="cb278-19"><a href="functions.html#cb278-19" tabindex="-1"></a><span class="do">##  [7] -0.1356266  0.1356266  0.2620439 -0.4167291</span></span>
 <span id="cb278-20"><a href="functions.html#cb278-20" tabindex="-1"></a><span class="fu">standardize_vect</span>(vect)</span>
-<span id="cb278-21"><a href="functions.html#cb278-21" tabindex="-1"></a><span class="do">##  [1] -0.57381094  0.79499854  0.52765357 -1.26610504 -0.76651824  0.55235351</span></span>
-<span id="cb278-22"><a href="functions.html#cb278-22" tabindex="-1"></a><span class="do">##  [7]  1.08144322 -0.08025042  1.28854467 -1.55830887</span></span></code></pre></div>
+<span id="cb278-21"><a href="functions.html#cb278-21" tabindex="-1"></a><span class="do">##  [1] -0.8690492  1.1984056 -0.5994625  0.9499433 -1.4040198  1.0074589</span></span>
+<span id="cb278-22"><a href="functions.html#cb278-22" tabindex="-1"></a><span class="do">##  [7] -0.3665131  0.4607542  0.8463014 -1.2238189</span></span></code></pre></div>
 <p>This way, the code is much more readable and clear, both inside the functions and when the functions are used. Another alternative would be to group the “centering” functions, specifying whether to use the mean or the median, and separate the standardization.</p>
 </div>
 <div id="commenting-and-documenting" class="section level3 hasAnchor" number="12.4.4">

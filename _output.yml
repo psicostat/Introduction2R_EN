@@ -28,3 +28,4 @@ bookdown::html_document2:
   toc: true
   toc_float: true
   self_contained: true
+favicon: "images/faviconpsicostat2.ico"
