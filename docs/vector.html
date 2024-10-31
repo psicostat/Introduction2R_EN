@@ -727,11 +727,11 @@ though containing the same elements, are not identical because they differ in th
 <div id="which" class="section level4 hasAnchor" number="7.2.1.1">
 <h4><span class="header-section-number">7.2.1.1</span> <code>which()</code><a href="vector.html#which" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The <code>which()</code> function is very useful for obtaining the <strong>position</strong> within a vector that meets a certain logical condition. For instance, if we want to know the positions of values greater than 5 in a numeric vector, we can use the function <code>which(x &gt; 5)</code>, where <code>x</code> is our numeric vector.</p>
-<pre><code>##  [1]  TRUE FALSE FALSE  TRUE  TRUE FALSE FALSE  TRUE  TRUE FALSE
-## [1] 1 4 5 8 9</code></pre>
+<pre><code>##  [1]  TRUE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE  TRUE FALSE
+## [1] 1 4 5 9</code></pre>
 <p>As you can see, the <code>which()</code> function essentially returns the <strong>position</strong> (not the value) where the tested condition is <code>TRUE</code>. It’s important to note that these two pieces of code are equivalent:</p>
-<pre><code>## [1] 5.867058 8.968338 7.376141 6.140165 5.458070
-## [1] 5.867058 8.968338 7.376141 6.140165 5.458070</code></pre>
+<pre><code>## [1] 6.100507 8.349758 8.463032 6.480746
+## [1] 6.100507 8.349758 8.463032 6.480746</code></pre>
 <p>In fact, as we’ve seen, you can index a vector with another vector indicating the position of elements to extract, or with a <strong>logical</strong> vector of the same length as the original vector.</p>
 </div>
 </div>
@@ -989,10 +989,10 @@ Division of two vectors
 <div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="vector.html#cb88-1" tabindex="-1"></a>my_values <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">50</span>)  <span class="co"># Generate random numbers</span></span>
 <span id="cb88-2"><a href="vector.html#cb88-2" tabindex="-1"></a></span>
 <span id="cb88-3"><a href="vector.html#cb88-3" tabindex="-1"></a><span class="fu">sum</span>(my_values <span class="sc">&gt;</span> <span class="dv">0</span>)      <span class="co"># Total number of positive numbers</span></span>
-<span id="cb88-4"><a href="vector.html#cb88-4" tabindex="-1"></a><span class="do">## [1] 23</span></span>
+<span id="cb88-4"><a href="vector.html#cb88-4" tabindex="-1"></a><span class="do">## [1] 20</span></span>
 <span id="cb88-5"><a href="vector.html#cb88-5" tabindex="-1"></a></span>
 <span id="cb88-6"><a href="vector.html#cb88-6" tabindex="-1"></a><span class="fu">mean</span>(my_values <span class="sc">&gt;</span> <span class="dv">0</span>)      <span class="co"># Percentage of positive numbers</span></span>
-<span id="cb88-7"><a href="vector.html#cb88-7" tabindex="-1"></a><span class="do">## [1] 0.46</span></span></code></pre></div>
+<span id="cb88-7"><a href="vector.html#cb88-7" tabindex="-1"></a><span class="do">## [1] 0.4</span></span></code></pre></div>
 </div>
 <div class="design" title="is.* adn as.* Function Families">
 <p>There are two families of functions that allow you to test and modify the data type.</p>
