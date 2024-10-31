@@ -1,4 +1,12 @@
 /* Adapted rom Rstudio4edu https://github.com/rstudio4edu/rstudio4edu-book/blob/master/assets/style.css */
+
+
+@media (max-width: 800px) {
+  h1 {
+    font-size: 22px !important; 
+  }
+}
+
 /*------------ TOC --------------*/
 
 .book .book-summary {
@@ -68,7 +76,6 @@ table {
 .book .book-summary ul.summary li.divider {
 	height: 0px;
 }
-
 
 
 /*--- LOGO ---*/
