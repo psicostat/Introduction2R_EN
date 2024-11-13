@@ -113,29 +113,9 @@ Note in particular that with R 4.0, the following instructions are provided.
 
 ## Installing R Studio
 
-1. Go to the website: https://rstudio.com
-2. Select **DOWNLOAD IT NOW**
+1. Go to the website https://posit.co/download/rstudio-desktop/ and download RStudio Desktop for your operating system
 
-<center>
-![](images/install_rstudio1.png){ width=95% }
-</center>
-<br>
-
-3. Select the free version of RStudio Desktop
-
-<center>
-![](images/install_rstudio2.png){ width=95% }
-</center>
-<br>
-
-4. Select the correct version depending on your operating system
-
-<center>
-![](images/install_rstudio3.png){ width=95% }
-</center>
-<br>
-
-5. Once the download is complete, run the file and follow the instructions to finish the installation
+2. Once the download is complete, run the file and follow the instructions to finish the installation
 
 
 ### R Studio on Linux

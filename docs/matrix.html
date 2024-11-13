@@ -57,7 +57,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -67,7 +67,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -563,7 +563,7 @@ we have <span class="math inline">\(x_{2, 3} = 9\)</span> while <span class="mat
 <span id="cb159-6"><a href="matrix.html#cb159-6" tabindex="-1"></a><span class="do">## [1] &quot;double&quot;</span></span>
 <span id="cb159-7"><a href="matrix.html#cb159-7" tabindex="-1"></a></span>
 <span id="cb159-8"><a href="matrix.html#cb159-8" tabindex="-1"></a><span class="co"># integers</span></span>
-<span id="cb159-9"><a href="matrix.html#cb159-9" tabindex="-1"></a>mat_int <span class="ot">=</span> <span class="fu">matrix</span>(5L, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span>
+<span id="cb159-9"><a href="matrix.html#cb159-9" tabindex="-1"></a>mat_int <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">5</span><span class="dt">L</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span>
 <span id="cb159-10"><a href="matrix.html#cb159-10" tabindex="-1"></a><span class="fu">class</span>(mat_int)</span>
 <span id="cb159-11"><a href="matrix.html#cb159-11" tabindex="-1"></a><span class="do">## [1] &quot;matrix&quot; &quot;array&quot;</span></span>
 <span id="cb159-12"><a href="matrix.html#cb159-12" tabindex="-1"></a><span class="fu">typeof</span>(mat_int)</span>

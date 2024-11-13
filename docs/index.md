@@ -2,7 +2,7 @@
 title: "<span style='font-size: 2.5em'>Introduction to R</span>"
 subtitle: "Course to Learn the Basics of **R**"
 author: "by [Claudio Zandonella Callegher](https://claudiozandonella.netlify.app/) and [Filippo Gambarota](https://filippogambarota.netlify.app/) (revision and translation into English by **Enrico Toffalini**), members of [Psicostat](https://psicostat.dpss.psy.unipd.it/)"
-date: "31-10-2024"
+date: "13-11-2024"
 site: bookdown::bookdown_site
 documentclass: book
 link-citations: yes
